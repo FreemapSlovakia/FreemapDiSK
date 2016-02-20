@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="no">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+    <!--bounds_mkr1-->
+    <!--bounds_mkr2-->
+
+    <rule e="node|way" k="osmarender:render" v="~|yes">
+        <!-- Place names  -->
+        <rule k="osmarender:renderName|osmarender:rendername" v="~|yes">
+            <rule e="node" k="place" v="suburb">
+                <text k='name' class='suburb-caption-cas' x-line-spacing='38' />
+                <text k='name' class='suburb-caption-cor' x-line-spacing='38' />
+            </rule>
+            <rule e="node" k="place" v="village">
+                <text k='name' class='village-caption-cas' x-line-spacing='38' />
+                <text k='name' class='village-caption-cor' x-line-spacing='38' />
+            </rule>
+
+            <layer name="Town Name Magic" opacity="0.7">
+                <rule e="node" k="place" v="town">
+                    <text k='name' class='town-caption-cas2' x-line-spacing='75' />
+                    <text k='name' class='town-caption-cas' x-line-spacing='75' />
+                    <text k='name' class='town-caption-cor' x-line-spacing='75' />
+                </rule>
+            </layer>
+
+            <layer name="City Name Magic" opacity="0.3">
+                <rule e="node" k="place" v="city">
+                    <text k='name' class='city-caption-cas2' x-line-spacing='120' />
+                    <text k='name' class='city-caption-cas' x-line-spacing='120' />
+                    <text k='name' class='city-caption-cor' x-line-spacing='120' />
+                </rule>
+            </layer>
+        </rule>
+    </rule>
+    <!-- k="osmarender:render" v="~|yes" -->
+
+   <!-- SVG Definitions - markers, symbols etc go here -->
+    <defs>
+        <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+
+            .city-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 28.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .city-caption-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 4.857px;
+            font-family: DejaVu Sans;
+            font-size: 28.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .city-caption-cas2 {
+            fill: gray;
+            stroke: gray;
+            stroke-width: 5.714px;
+            font-family: DejaVu Sans;
+            font-size: 28.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .town-caption-cas2 {
+            fill: gray;
+            stroke: gray;
+            stroke-width: 4.571px;
+            font-family: DejaVu Sans;
+            font-size: 18.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .town-caption-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 4px;
+            font-family: DejaVu Sans;
+            font-size: 18.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .town-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 18.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .village-caption-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 2.85714px;
+            font-family: DejaVu Sans;
+            font-size: 10px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .village-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 10px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .suburb-caption-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 2.85714px;
+            font-family: DejaVu Sans;
+            font-size: 10px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .suburb-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 10px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+
+            /* Map decoration */
+            .map-grid-line {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 0.02857px;
+            stroke-opacity: 0.5;
+            }
+
+            .map-border-cas {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 0.85714px;
+            stroke-miterlimit: 4;
+            stroke-dasharray: none;
+            stroke-opacity: 1;
+            stroke-linecap: round;
+            }
+
+            .map-border-cor {
+            fill: none;
+            fill-opacity: 1;
+            fill-rule: nonzero;
+            stroke: #ffffff;
+            stroke-width: 0.57143px;
+            stroke-miterlimit: 0;
+            stroke-dashoffset: -0.14286px;
+            stroke-opacity: 1;
+            }
+
+            .map-scale-cas {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 1.14286px;
+            stroke-linecap: butt;
+            }
+
+            .map-scale-cor {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 0.85714px;
+            stroke-linecap: butt;
+            }
+
+            .map-scale-bookend {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 0.28571px;
+            stroke-linecap: butt;
+            }
+
+            .map-scale-caption {
+            font-family: DejaVu Sans;
+            font-size: 2.85714px;
+            fill: #8080ff;
+            }
+
+            <!-- map background must be the same for all zooms or else empty tile detection will fail -->
+            .map-background {
+            fill: none;
+            stroke: none;
+            }
+
+            .map-title {
+            font-family: DejaVu Sans;
+            font-size: 5.714px;
+            text-anchor: middle;
+            fill: black;
+            }
+
+            .map-title-background {
+            fill: white;
+            }
+
+            .map-marginalia-background {
+            fill: white;
+            }
+        </style>
+    </defs>
+</rules>

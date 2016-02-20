@@ -1,0 +1,4814 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+
+<!-- FreemapSlovakia Rules File for zoom level 16 -->
+
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    textAttenuation="7"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="yes"
+    meter2pixel="0.1375"
+>
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<!--	<prerules>
+		<rule e="node|way" k="osmarender:render" v="~|yes">
+			<rule e="way" k="bridge" v="yes|true|1">
+				<line class='bridge-shadow' smart-linecap='casing' transform='translate(.3,.3)'/>
+			</rule>
+		</rule>
+
+	</prerules> -->
+
+	<!-- Select all nodes and ways (unless they have an osmarender:render=no tag) -->
+	<rule e="node|way" k="osmarender:render" v="~|yes">
+
+		<rule e="way" k="aeroway" v="terminal">
+			<area class='building-block' bezier-hint="no" />
+		</rule>
+
+		<!-- Tunnels -->
+		<rule e="way" k="tunnel" v="true|yes">
+
+			<rule e="way" k="highway" v="steps">
+				<line class='tnl-casing highway-steps-casing tnl-dash' mask-class='tnl-core highway-steps-core'/>
+				<line class='highway-steps-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="footway|footpath">
+				<line class='tnl-casing highway-footway-casing tnl-dash' mask-class='tnl-core highway-footway-core'/>
+				<line class='highway-footway-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="pedestrian">
+				<line class='tnl-casing highway-ped-casing tnl-dash' mask-class='tnl-core highway-ped-core'/>
+				<line class='highway-ped-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="cycleway">
+				<line class='tnl-casing highway-cycleway-casing tnl-dash' mask-class='tnl-core highway-cycleway-core'/>
+				<line class='highway-cycleway-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="bridleway">
+				<line class='tnl-casing highway-bridleway-casing tnl-dash' mask-class='tnl-core highway-bridleway-core'/>
+				<line class='highway-bridleway-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="byway">
+				<line class='tnl-casing highway-byway-1-casing tnl-dash' mask-class='tnl-core highway-byway-1-core'/>
+				<line class='highway-byway-1-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="track|path">
+				<line class='tnl-casing highway-trk-casing tnl-dash' mask-class='tnl-core highway-trk-core'/>
+				<line class='highway-trk-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="unsurfaced">
+				<line class='tnl-casing highway-unsurfaced-casing tnl-dash' mask-class='tnl-core highway-unsurfaced-core'/>
+				<line class='highway-unsurfaced-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="service">
+				<line class='tnl-casing highway-srv-casing tnl-dash' mask-class='tnl-core highway-srv-core'/>
+				<line class='highway-srv-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="residential">
+				<line class='tnl-casing highway-res-casing tnl-dash' mask-class='tnl-core highway-res-core'/>
+				<line class='highway-res-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="unclassified|FIXME|minor">
+				<line class='tnl-casing highway-ucl-casing tnl-dash' mask-class='tnl-core highway-ucl-core'/>
+				<line class='highway-ucl-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary_link">
+				<line class='tnl-casing highway-sec-lnk-casing tnl-dash' mask-class='tnl-core highway-sec-lnk-core'/>
+				<line class='highway-sec-lnk-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="primary_link">
+				<line class='tnl-casing highway-pri-lnk-casing tnl-dash' mask-class='tnl-core highway-pri-lnk-core'/>
+				<line class='highway-pri-lnk-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk_link">
+				<line class='tnl-casing highway-tru-lnk-casing tnl-dash' mask-class='tnl-core highway-tru-lnk-core'/>
+				<line class='highway-tru-lnk-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway_link">
+				<line class='tnl-casing highway-mwy-lnk-casing tnl-dash' mask-class='tnl-core highway-mwy-lnk-core'/>
+				<line class='highway-mwy-lnk-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="tertiary">
+				<line class='tnl-casing highway-ter-casing tnl-dash' mask-class='tnl-core highway-ter-core'/>
+				<line class='highway-ter-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary">
+				<line class='tnl-casing highway-sec-casing tnl-dash' mask-class='tnl-core highway-sec-core'/>
+				<line class='highway-sec-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="primary">
+				<line class='tnl-casing highway-pri-casing tnl-dash' mask-class='tnl-core highway-pri-core'/>
+				<line class='highway-pri-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk">
+				<line class='tnl-casing highway-tru-casing tnl-dash' mask-class='tnl-core highway-tru-core'/>
+				<line class='highway-tru-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<line class='tnl-casing highway-mwy-casing tnl-dash' mask-class='tnl-core highway-mwy-core'/>
+				<line class='highway-mwy-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="monorail">
+				<line class='tnl-casing railway-monorail-casing tnl-dash' mask-class='tnl-core railway-monorail-core'/>
+				<line class='railway-monorail-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="preserved">
+				<line class='tnl-casing railway-preserved-casing tnl-dash' mask-class='tnl-core railway-preserved-core'/>
+				<line class='railway-preserved-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="narrow_gauge">
+				<line class='tnl-casing railway-narrow-gauge-casing tnl-dash' mask-class='tnl-core railway-narrow-gauge-core'/>
+				<line class='railway-narrow-gauge-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="tram">
+				<line class='tnl-casing railway-tram-casing tnl-dash' mask-class='tnl-core railway-tram-core'/>
+				<line class='railway-tram-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="subway">
+				<line class='tnl-casing railway-subway-casing tnl-dash' mask-class='tnl-core railway-subway-core'/>
+				<line class='railway-subway-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="light_rail">
+				<line class='tnl-casing railway-light-rail-casing tnl-dash' mask-class='tnl-core railway-light-rail-core'/>
+				<line class='railway-light-rail-casing highway-tnl-ends'/>
+			</rule>
+			<rule e="way" k="railway" v="rail">
+				<line class='tnl-casing railway-rail-casing tnl-dash' mask-class='tnl-core railway-rail-core'/>
+				<line class='tnl-casing railway-rail-casing tnl-dash' mask-class='tnl-core railway-rail-2-core'/>
+				<line class='railway-rail-casing highway-tnl-ends'/>
+			</rule>
+		</rule>
+
+		<rule e="way" k="building" v="*">
+			<rule e="way" k="building" v="barn|warehouse|oast_house|tower|castle|monument|hall|shed|store|stadium">
+				<area class='building' bezier-hint="no" />
+			</rule>
+			<else>
+				<rule e="way" k="building" v="block">
+					<area class='building-block' bezier-hint="no" />
+				</rule>
+				<else>
+					<rule e="way" k="building" v="detached|semi|terrace|apartments">
+						<area class='building-res' bezier-hint="no" />
+					</rule>
+					<else>
+						<area class='building-block' bezier-hint="no" />
+					</else>
+				</else>
+			</else>
+		</rule>
+
+
+		<!-- Bridge casings -->
+		<rule e="way" k="bridge" v="yes|true|1">
+			<rule e="way" k="railway" v="monorail">
+				<line class='bridge-casing railway-monorail-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="preserved">
+				<line class='bridge-casing railway-preserved-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="narrow_gauge">
+				<line class='bridge-casing railway-narrow-gauge-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="tram">
+				<line class='bridge-casing railway-tram-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="subway">
+				<line class='bridge-casing railway-subway-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="light_rail">
+				<line class='bridge-casing railway-light-rail-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="rail">
+				<line class='bridge-casing railway-rail-bri-casing' smart-linecap='casing'/>
+			</rule>
+
+			<rule e="way" k="highway" v="steps">
+				<line class='bridge-casing highway-steps-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="footway|footpath">
+				<line class='bridge-casing highway-footway-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="pedestrian">
+				<line class='bridge-casing highway-ped-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="cycleway">
+				<line class='bridge-casing highway-cycleway-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="bridleway">
+				<line class='bridge-casing highway-bridleway-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="byway">
+				<line class='bridge-casing highway-byway-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="track|path">
+				<line class='bridge-casing highway-trk-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="unsurfaced">
+				<line class='bridge-casing highway-unsurfaced-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="service">
+				<line class='bridge-casing highway-srv-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="residential">
+				<line class='bridge-casing highway-res-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary-lnk">
+				<line class='bridge-casing highway-sedondary-lnk-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="primary-lnk">
+				<line class='bridge-casing highway-pri-lnk-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk-lnk">
+				<line class='bridge-casing highway-tru-lnk-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway_link">
+				<line class='bridge-casing highway-mwy-lnk-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="unclassified|FIXME|minor">
+				<line class='bridge-casing highway-ucl-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="tertiary">
+				<line class='bridge-casing highway-ter-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary">
+				<line class='bridge-casing highway-sec-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="primary">
+				<line class='bridge-casing highway-pri-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk">
+				<line class='bridge-casing highway-tru-bri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<line class='bridge-casing highway-mwy-bri-casing' smart-linecap='casing'/>
+			</rule>
+		</rule>
+
+
+		<!-- Bridge cores -->
+		<rule e="way" k="bridge" v="yes|true|1">
+			<rule e="way" k="railway" v="monorail">
+				<line class='bridge-core railway-monorail-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="preserved">
+				<line class='bridge-core railway-preserved-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="narrow_gauge">
+				<line class='bridge-core railway-narrow-gauge-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="tram">
+				<line class='bridge-core railway-tram-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="subway">
+				<line class='bridge-core railway-subway-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="light_rail">
+				<line class='bridge-core railway-light-rail-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="rail">
+				<line class='bridge-core railway-rail-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="steps">
+				<line class='bridge-core highway-steps-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="footway|footpath">
+				<line class='bridge-core highway-footway-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="pedestrian">
+				<line class='bridge-core highway-ped-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="cycleway">
+				<line class='bridge-core highway-cycleway-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="bridleway">
+				<line class='bridge-core highway-bridleway-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="byway">
+				<line class='bridge-core highway-byway-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="track|path">
+				<line class='bridge-core highway-trk-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="unsurfaced">
+				<line class='bridge-core highway-unsurfaced-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="service">
+				<line class='bridge-core highway-srv-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="residential">
+				<line class='bridge-core highway-res-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary-lnk">
+				<line class='bridge-core highway-sec-lnk-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="primary-lnk">
+				<line class='bridge-core highway-pri-lnk-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk-lnk">
+				<line class='bridge-core highway-tru-lnk-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway_link">
+				<line class='bridge-core highway-mwy-lnk-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="unclassified|FIXME|minor">
+				<line class='bridge-core highway-ucl-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="tertiary">
+				<line class='bridge-core highway-ter-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary">
+				<line class='bridge-core highway-sec-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="primary">
+				<line class='bridge-core highway-pri-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk">
+				<line class='bridge-core highway-tru-bri-core' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<line class='bridge-core highway-mwy-bri-core' smart-linecap='casing'/>
+			</rule>
+		</rule>
+
+		<!-- Linear casings (under construction) -->
+		<rule e="way" k="highway" v="construction">
+			<rule e="way" k="construction" v="steps">
+				<line class='highway-casing highway-steps-casing under-construction'  mask-class='highway-steps-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="footway|footpath">
+				<line class='highway-casing highway-footway-casing under-construction'  mask-class='highway-footway-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="pedestrian">
+				<line class='highway-casing highway-ped-casing under-construction'  mask-class='highway-ped-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="cycleway">
+				<line class='highway-casing highway-cycleway-casing under-construction'  mask-class='highway-cycleway-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="bridleway">
+				<line class='highway-casing highway-bridleway-casing under-construction'  mask-class='highway-bridleway-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="byway">
+				<line class='highway-casing highway-byway-1-casing under-construction'  mask-class='highway-byway-1-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="track|path">
+				<line class='highway-casing highway-trk-casing under-construction'  mask-class='highway-trk-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="unsurfaced">
+				<line class='highway-casing highway-unsurfaced-casing under-construction'  mask-class='highway-unsurfaced-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="service">
+				<line class='highway-casing highway-srv-casing under-construction'  mask-class='highway-srv-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="residential">
+				<line class='highway-casing highway-res-casing under-construction'  mask-class='highway-res-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="unclassified|FIXME|minor">
+				<line class='highway-casing highway-ucl-casing under-construction'  mask-class='highway-ucl-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="secondary_link">
+				<line class='highway-casing highway-sec-lnk-casing under-construction'  mask-class='highway-sec-lnk-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="primary_link">
+				<line class='highway-casing highway-pri-lnk-casing under-construction'  mask-class='highway-pri-lnk-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="trunk_link">
+				<line class='highway-casing highway-tru-lnk-casing under-construction'  mask-class='highway-tru-lnk-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="motorway_link">
+				<line class='highway-casing highway-mwy-lnk-casing under-construction'  mask-class='highway-mwy-lnk-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="tertiary">
+				<line class='highway-casing highway-ter-casing under-construction'  mask-class='highway-ter-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="secondary">
+				<line class='highway-casing highway-sec-casing under-construction'  mask-class='highway-sec-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="primary">
+				<line class='highway-casing highway-pri-casing under-construction'  mask-class='highway-pri-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="trunk">
+				<line class='highway-casing highway-tru-casing under-construction'  mask-class='highway-tru-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="motorway">
+				<line class='highway-casing highway-mwy-casing under-construction'  mask-class='highway-mwy-core mask-under-construction'/>
+			</rule>
+		</rule>
+		<rule e="way" k="railway" v="construction">
+			<rule e="way" k="construction" v="monorail">
+				<line class='railway-casing railway-monorail-casing under-construction'  mask-class='railway-monorail-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="preserved">
+				<line class='railway-casing railway-preserved-casing under-construction'  mask-class='railway-preserved-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="narrow_gauge">
+				<line class='railway-casing railway-narrow-gauge-casing under-construction'  mask-class='railway-narrow-gauge-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="tram">
+				<line class='railway-casing railway-tram-casing under-construction'  mask-class='railway-tram-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="subway">
+				<line class='railway-casing railway-subway-casing under-construction'  mask-class='railway-subway-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="light_rail">
+				<line class='railway-casing railway-light-rail-casing under-construction'  mask-class='railway-light-rail-core mask-under-construction'/>
+			</rule>
+			<rule e="way" k="construction" v="rail">
+				<line class='railway-casing railway-rail-casing under-construction'  mask-class='railway-rail-core mask-under-construction'/>
+				<line class='railway-casing railway-rail-2-casing under-construction'  mask-class='railway-rail-2-core mask-under-construction'/>
+			</rule>
+		</rule>
+
+		<!-- Linear casings not in tunnel -->
+		<rule e="way" k="tunnel" v="~|false|no">
+			<rule e="way" k="aeroway" v="runway">
+				<line class='aeroway-runway-casing'/>
+			</rule>
+			<rule e="way" k="aeroway" v="taxiway">
+				<line class='aeroway-taxiway-casing'/>
+			</rule>
+			<rule e="way" k="highway" v="raceway">
+				<rule e="way" k="use_status" v="~">
+					<line class='highway-casing highway-raceway-casing' smart-linecap='casing'/>
+				</rule>
+				<rule e="way" k="use_status" v="disused">
+					<line class='highway-casing highway-disused-raceway-casing' smart-linecap='casing'/>
+				</rule>
+				<rule e="way" k="use_status" v="dismantled">
+					<line class='highway-casing highway-dismantled-raceway-casing' smart-linecap='casing'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="steps">
+				<line class='highway-casing highway-steps-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="footway|footpath">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-casing highway-footway-are-casing'/>
+				</rule>
+				<else>
+					<line class='highway-casing highway-footway-casing' smart-linecap='casing'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="pedestrian">
+				<line class='highway-casing highway-ped-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="cycleway">
+				<line class='highway-casing highway-cycleway-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="bridleway">
+				<line class='highway-casing highway-bridleway-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="byway">
+				<line class='highway-casing highway-byway-1-casing' smart-linecap='casing'/>
+				<line class='highway-casing highway-byway-2-casing' smart-linecap='casing'/>
+				<line class='highway-casing highway-byway-3-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="track">
+				<rule e="way" k="tracktype" v="grade1">
+					<line class="highway-casing highway-trk-casing highway-trk-gr1-casing" smart-linecap="no"/>
+					<line class="highway-casing highway-trk-casing highway-trk-gr1-2-casing" smart-linecap="no"/>
+				</rule>
+				<else>
+					<rule e="way" k="tracktype" v="grade2">
+						<line class="highway-casing highway-trk-casing highway-trk-gr2-casing" smart-linecap="no"/>
+						<line class="highway-casing highway-trk-casing highway-trk-gr2-2-casing" smart-linecap="no"/>
+					</rule>
+					<else>
+						<rule e="way" k="tracktype" v="grade3">
+							<!--<line class="highway-casing highway-trk-casing highway-trk-gr3-casing" smart-linecap="no"/>-->
+						</rule>
+						<else>
+							<rule e="way" k="tracktype" v="grade4">
+								<line class="highway-casing highway-trk-casing highway-trk-gr4-casing" smart-linecap="no"/>
+							</rule>
+							<else>
+								<rule e="way" k="tracktype" v="grade5">
+									<line class="highway-casing highway-trk-casing highway-trk-gr5-casing" smart-linecap="no"/>
+								</rule>
+								<else>
+									<rule e="way" k="track" v="racetrack">
+										<line class="highway-racetrack-casing-white" smart-linecap="no"/>
+										<line class="highway-racetrack-casing-red" smart-linecap="no"/>
+									</rule>
+									<else>
+										<!--<line class="highway-casing highway-trk-casing" smart-linecap="no"/>-->
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</rule>
+
+			<rule e="way" k="highway" v="unsurfaced">
+				<line class='highway-casing highway-unsurfaced-1-casing' smart-linecap='no'/>
+				<line class='highway-casing highway-unsurfaced-2-casing' smart-linecap='no'/>
+			</rule>
+			<rule e="way" k="highway" v="service">
+				<line class='highway-casing highway-srv-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="residential">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-casing highway-res-are-casing'/>
+				</rule>
+				<else>
+					<rule e="way" k="oneway" v="yes|true|1">
+						<line class='highway-casing highway-res-casing highway-res-oneway-casing' smart-linecap='casing'/>
+					</rule>
+					<else>
+						<line class='highway-casing highway-res-casing' smart-linecap='casing' />
+					</else>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="secondary_link">
+				<line class='highway-casing highway-sec-lnk-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="primary_link">
+				<line class='highway-casing highway-pri-lnk-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk_link">
+				<line class='highway-casing highway-tru-lnk-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway_link">
+				<line class='highway-casing highway-mwy-lnk-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="unclassified|FIXME|minor">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-ucl-are-casing'/>
+				</rule>
+				<else>
+					<rule e="way" k="oneway" v="yes|true|1">
+						<rule e="way" k="lanes" v="~">
+							<line class='highway-casing highway-oneway-ucl-casing' smart-linecap='casing'/>
+						</rule>
+						<else>
+							<rule e="way" k="lanes" v="1">
+								<line class='highway-casing highway-oneway-ucl-casing' smart-linecap='casing'/>
+							</rule>
+							<else>
+								<line class='highway-casing highway-oneway-lanes-2-ucl-casing' smart-linecap='casing'/>
+							</else>
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="lanes" v="~">
+							<line class='highway-casing highway-ucl-casing' smart-linecap='casing'/>
+						</rule>
+						<else>
+							<rule e="way" k="lanes" v="1">
+								<line class='highway-casing highway-ucl-casing' smart-linecap='casing'/>
+							</rule>
+							<else>
+								<line class='highway-casing highway-lanes-2-ucl-casing' smart-linecap='casing'/>
+							</else>
+						</else>
+					</else>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="tertiary">
+				<line class='highway-casing highway-ter-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary">
+				<line class='highway-casing highway-sec-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="primary">
+				<line class='highway-casing highway-pri-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk">
+				<line class='highway-casing highway-tru-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<line class='highway-casing highway-mwy-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="monorail">
+				<line class='railway-casing railway-monorail-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="preserved">
+				<line class='railway-casing railway-preserved-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="narrow_gauge">
+				<line class='railway-casing railway-narrow-gauge-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="tram">
+				<line class='railway-casing railway-tram-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="subway">
+				<line class='railway-casing railway-subway-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="light_rail">
+				<line class='railway-casing railway-light-rail-casing' smart-linecap='casing'/>
+			</rule>
+			<rule e="way" k="railway" v="rail">
+				<line class='railway-casing railway-rail-casing' smart-linecap='casing'/>
+			</rule>
+		</rule>
+
+
+		<!-- Linear cores not in tnl-->
+		<rule e="way" k="tunnel" v="~|false|no">
+			<rule e="way" k="aeroway" v="runway">
+				<line class='aeroway-runway-core' bezier-hint="no" />
+			</rule>
+			<rule e="way" k="aeroway" v="runway">
+				<line class='aeroway-runway-middle' bezier-hint="no" />
+			</rule>
+			<rule e="way" k="aeroway" v="taxiway">
+				<line class='aeroway-taxiway-core' smart-linecap='core'/>
+			</rule>
+
+			<rule e="way" k="highway" v="raceway">
+				<rule e="way" k="use_status" v="~">
+					<line class='highway-core highway-raceway-core'  smart-linecap='core'/>
+				</rule>
+				<rule e="way" k="use_status" v="disused">
+					<line class='highway-core highway-disused-raceway-core'  smart-linecap='core'/>
+				</rule>
+				<rule e="way" k="use_status" v="dismantled">
+					<line class='highway-core highway-dismantled-raceway-core'  smart-linecap='core'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="steps">
+				<line class='highway-core highway-steps-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="footway|footpath">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-footway-are-core' bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-footway-core'  smart-linecap='core'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="pedestrian">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-ped-are' bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-ped-core'  smart-linecap='core'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="cycleway">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-cycleway-are' bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-cycleway-core'  smart-linecap='core'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="bridleway">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-bridleway-are' bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-bridleway-core'  smart-linecap='core'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="byway">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-byway-are' bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-byway-2-core' smart-linecap='core'/>
+					<line class='highway-core highway-byway-3-core' smart-linecap='core'/>
+					<line class='highway-core highway-byway-1-core' smart-linecap='core'/>
+				</else >
+			</rule>
+			<rule e="way" k="highway" v="track">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-trk-are' bezier-hint="no" />
+				</rule>
+				<else>
+					<rule e="way" k="tracktype" v="grade1">
+						<line class="highway-core highway-trk-core highway-trk-gr1-core" smart-linecap="no"/>
+					</rule>
+					<else>
+						<rule e="way" k="tracktype" v="grade2">
+							<line class="highway-core highway-trk-core highway-trk-gr2-core" smart-linecap="no"/>
+						</rule>
+						<else>
+							<rule e="way" k="tracktype" v="grade3">
+								<line class="highway-core highway-trk-core highway-trk-gr3-core" smart-linecap="no"/>
+							</rule>
+							<else>
+								<rule e="way" k="tracktype" v="grade4">
+									<line class="highway-core highway-trk-core highway-trk-gr4-core" smart-linecap="no"/>
+								</rule>
+								<else>
+									<rule e="way" k="tracktype" v="grade5">
+										<line class="highway-core highway-trk-core highway-trk-gr5-core" smart-linecap="no"/>
+									</rule>
+									<else>
+										<rule e="way" k="track" v="racetrack">
+											<line class="highway-racetrack-core-white" smart-linecap="no"/>
+											<line class="highway-racetrack-core-red" smart-linecap="no"/>
+										</rule>
+										<else>
+											<line class="highway-core highway-trk-core highway-trk-gr3-core" smart-linecap="no"/>
+										</else>
+									</else>
+								</else>
+							</else>
+						</else>
+					</else>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="path">
+				<line class="highway-core highway-trk-core highway-path-core" smart-linecap="no"/>
+			</rule>
+
+			<rule e="way" k="highway" v="unsurfaced">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-unsurfaced-are' bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-unsurfaced-core'  smart-linecap='core'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="service">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-srv-are'  bezier-hint="no" />
+				</rule>
+				<else>
+					<line class='highway-core highway-srv-core'  smart-linecap='core'/>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="residential">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-res-are-core'/>
+				</rule>
+				<else>
+					<rule e="way" k="oneway" v="yes|true|1">
+						<line class='highway-core highway-res-core highway-res-oneway-core' smart-linecap='core'/>
+					</rule>
+					<else>
+						<line class='highway-core highway-res-core' smart-linecap='core'/>
+					</else>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="secondary_link">
+				<line class='highway-core highway-sec-lnk-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="primary_link">
+				<line class='highway-core highway-pri-lnk-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk_link">
+				<line class='highway-core highway-tru-lnk-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway_link">
+				<line class='highway-core highway-mwy-lnk-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="unclassified|FIXME|minor">
+				<rule e="way" k="area" v="yes|true">
+					<area class='highway-core highway-ucl-are-core'/>
+				</rule>
+				<else>
+					<rule e="way" k="oneway" v="yes|true|1">
+						<rule e="way" k="lanes" v="~">
+							<line class='highway-core highway-oneway-ucl-core' smart-linecap='core'/>
+						</rule>
+						<else>
+							<rule e="way" k="lanes" v="1">
+								<line class='highway-core highway-oneway-ucl-core' smart-linecap='core'/>
+							</rule>
+							<else>
+								<line class='highway-core highway-oneway-lanes-2-ucl-core' smart-linecap='core'/>
+							</else>
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="lanes" v="~">
+							<line class='highway-core highway-ucl-core' smart-linecap='core'/>
+						</rule>
+						<else>
+							<rule e="way" k="lanes" v="1">
+								<line class='highway-core highway-ucl-core' smart-linecap='core'/>
+							</rule>
+							<else>
+								<line class='highway-core highway-lanes-2-ucl-core' smart-linecap='core'/>
+								<line class='highway-core highway-lanes-2-ucl-2-core' smart-linecap='core'/>
+							</else>
+						</else>
+					</else>
+				</else>
+			</rule>
+			<rule e="way" k="highway" v="tertiary">
+				<line class='highway-core highway-ter-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="secondary">
+				<line class='highway-core highway-sec-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="primary">
+				<line class='highway-core highway-pri-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="trunk">
+				<line class='highway-core highway-tru-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<line class='highway-core highway-mwy-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="monorail">
+				<line class='railway-core railway-monorail-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="preserved">
+				<line class='railway-core railway-preserved-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="narrow_gauge">
+				<line class='railway-core railway-narrow-gauge-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="tram">
+				<line class='railway-core railway-tram-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="subway">
+				<line class='railway-core railway-subway-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="light_rail">
+				<line class='railway-core railway-light-rail-core' smart-linecap='core'/>
+			</rule>
+			<rule e="way" k="railway" v="rail">
+				<line class='railway-core railway-rail-core' smart-linecap='core'/>
+				<line class='railway-core railway-rail-2-core' smart-linecap='core'/>
+			</rule>
+		</rule>
+
+		<!-- access restrictions -->
+		<layer name="access" opacity="0.7">
+			<rule e="way" k="highway" v="*">
+				<rule e="way" k="area" v="yes|true">
+					<rule e="way" k="access" v="private">
+						<area class='access-private-are' bezier-hint="no"/>
+					</rule>
+					<rule e="way" k="access" v="permissive">
+						<area class='access-permissive-are' bezier-hint="no"/>
+					</rule>
+					<rule e="way" k="access" v="destination">
+						<area class='access-destination-are' bezier-hint="no"/>
+					</rule>
+					<rule e="way" k="access" v="no">
+						<area class='access-no-are' bezier-hint="no"/>
+					</rule>
+				</rule>
+				<else>
+					<rule e="way" k="highway" v="footway|footpath|cycleway|bridleway|byway|unsurfaced">
+						<rule e="way" k="access" v="private">
+							<line class='access-private-line' smart-linecap='core' />
+						</rule>
+						<rule e="way" k="access" v="permissive">
+							<line class='access-permissive-line' smart-linecap='core' />
+						</rule>
+						<rule e="way" k="access" v="destination">
+							<line class='access-destination-line' smart-linecap='core' />
+						</rule>
+						<rule e="way" k="access" v="no">
+							<line class='access-no-line' smart-linecap='core' />
+						</rule>
+					</rule>
+					<else>
+						<rule e="way" k="highway" v="track">
+							<rule e="way" k="tracktype" v="grade3|grade4|grade5">
+								<rule e="way" k="access" v="private">
+									<line class='access-private-line' smart-linecap='core' />
+								</rule>
+								<rule e="way" k="access" v="permissive">
+									<line class='access-permissive-line' smart-linecap='core' />
+								</rule>
+								<rule e="way" k="access" v="destination">
+									<line class='access-destination-line' smart-linecap='core' />
+								</rule>
+								<rule e="way" k="access" v="no">
+									<line class='access-no-line' smart-linecap='core' />
+								</rule>
+							</rule>
+							<else>
+								<rule e="way" k="access" v="private">
+									<line class='access-private-line' smart-linecap='core'/>
+								</rule>
+								<rule e="way" k="access" v="permissive">
+									<line class='access-permissive-line' smart-linecap='core'/>
+								</rule>
+								<rule e="way" k="access" v="destination">
+									<line class='access-destination-line' smart-linecap='core'/>
+								</rule>
+								<rule e="way" k="access" v="no">
+									<line class='access-no-line' smart-linecap='core'/>
+								</rule>
+							</else>
+						</rule>
+						<else>
+							<rule e="way" k="access" v="private">
+								<line class='access-private-line'  smart-linecap='core'/>
+							</rule>
+							<rule e="way" k="access" v="permissive">
+								<line class='access-permissive-line'  smart-linecap='core'/>
+							</rule>
+							<rule e="way" k="access" v="destination">
+								<line class='access-destination-line'  smart-linecap='core'/>
+							</rule>
+							<rule e="way" k="access" v="no">
+								<line class='access-no-line'  smart-linecap='core'/>
+							</rule>
+						</else>
+					</else>
+				</else>
+			</rule>
+		</layer>
+
+		<!-- Mini-roundabouts -->
+		<rule e="node" k="highway" v="mini_roundabout">
+			<rule e="node" k="direction" v="clockwise">
+				<symbol xlink:href="#symbol-roundabout_left" width='4px' height='4px' transform='translate(0,0)'/>
+			</rule>
+			<else>
+				<!-- Default is anti-clockwise -->
+				<symbol xlink:href="#symbol-roundabout_right" width='4px' height='4px' transform='translate(0,0)'/>
+			</else>
+		</rule>
+
+		<!-- Oneway markers -->
+		<rule e="way" k="tunnel" v="~|false|no">
+			<rule e="way" k="highway" v="primary">
+				<rule e="way" k="oneway" v="1|yes|true">
+					<line class="oneway-casing-0 oneway-casing-1" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-2" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-3" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-4" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-5" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-6" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-7" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-8" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-1" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-2" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-3" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-4" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-5" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-6" smart-linecap='no' />
+					<line class="oneway-core-w0 oneway-core-7" smart-linecap='no' />
+				</rule>
+				<rule e="way" k="oneway" v="-1">
+					<line class="otherway-casing-0 otherway-casing-1" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-2" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-3" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-4" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-5" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-6" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-7" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-8" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-1" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-2" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-3" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-4" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-5" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-6" smart-linecap='no' />
+					<line class="otherway-core-w0 otherway-core-7" smart-linecap='no' />
+				</rule>
+			</rule>
+			<else>
+				<rule e="way" k="oneway" v="1|yes|true">
+					<line class="oneway-casing-0 oneway-casing-1" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-2" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-3" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-4" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-5" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-6" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-7" smart-linecap='no' />
+					<line class="oneway-casing-0 oneway-casing-8" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-1" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-2" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-3" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-4" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-5" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-6" smart-linecap='no' />
+					<line class="oneway-core-0 oneway-core-7" smart-linecap='no' />
+				</rule>
+				<rule e="way" k="oneway" v="-1">
+					<line class="otherway-casing-0 otherway-casing-1" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-2" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-3" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-4" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-5" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-6" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-7" smart-linecap='no' />
+					<line class="otherway-casing-0 otherway-casing-8" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-1" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-2" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-3" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-4" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-5" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-6" smart-linecap='no' />
+					<line class="otherway-core-0 otherway-core-7" smart-linecap='no' />
+				</rule>
+			</else>
+
+			<!-- Motorway implies oneway-ness -->
+			<rule e="way" k="highway" v="motorway|motorway_link">
+				<rule e="way" k="oneway" v="~">
+					<line class="oneway-casing-0 oneway-casing-1" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-2" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-3" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-4" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-5" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-6" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-7" smart-linecap='no'/>
+					<line class="oneway-casing-0 oneway-casing-8" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-1" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-2" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-3" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-4" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-5" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-6" smart-linecap='no'/>
+					<line class="oneway-core-0 oneway-core-7" smart-linecap='no'/>
+				</rule>
+			</rule>
+
+			<!-- Roundabouts are oneway in the direction of the segments -->
+			<rule e="way" k="junction" v="roundabout">
+				<line class="oneway-casing-0 oneway-casing-1" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-2" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-3" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-4" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-5" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-6" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-7" smart-linecap='no'/>
+				<line class="oneway-casing-0 oneway-casing-8" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-1" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-2" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-3" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-4" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-5" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-6" smart-linecap='no'/>
+				<line class="oneway-core-0 oneway-core-7" smart-linecap='no'/>
+			</rule>
+		</rule>
+
+		<!-- SAC scale for paths and footways -->
+		<rule e="way" k="highway" v="path|footway">
+			<rule e="way" k="sac_scale" v="hiking|t1|T1">
+				<line class="sac-scale-t1" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="sac_scale" v="mountain_hiking|t2|T2">
+				<line class="sac-scale-t2" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="sac_scale" v="demanding_mountain_hiking|t3|T3">
+				<line class="sac-scale-t3" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="sac_scale" v="alpine_hiking|t4|T4">
+				<line class="sac-scale-t4" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="sac_scale" v="demanding_alpine_hiking|t5|T5">
+				<line class="sac-scale-t5" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="sac_scale" v="difficult_alpine_hiking|t6|T6">
+				<line class="sac-scale-t6" smart-linecap="no"/>
+			</rule>
+		</rule>
+
+		<!-- Piste maps -->
+		<rule e="way" k="piste:type" v="downhill">
+			<rule e="way" k="piste:difficulty" v="novice">
+				<line class="piste-core piste-difficulty-novice" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="piste:difficulty" v="easy">
+				<line class="piste-core piste-difficulty-easy" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="piste:difficulty" v="intermediate">
+				<line class="piste-core piste-difficulty-intermediate" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="piste:difficulty" v="advanced">
+				<line class="piste-core piste-difficulty-advanced" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="piste:difficulty" v="expert">
+				<line class="piste-core piste-difficulty-expert" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="piste:difficulty" v="freeride">
+				<line class="piste-core piste-difficulty-freeride" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="piste:difficulty" v="~">
+				<line class="piste-core piste-difficulty-other" smart-linecap="no"/>
+			</rule>
+			<rule e="way" k="name|ref" v="*">
+				<!-- prefer to render name, otherwise render ref -->
+				<!-- text is rendered at 75%, refs at 25%, aerialway name at 50% -->
+				<rule e="way" k="name" v="~">
+					<rule e="way" k="ref" v="*">
+						<text k="ref" dy="18.286px" class="piste-downhill-ref" text-anchor="middle" startOffset="75%"/>
+					</rule>
+				</rule>
+				<else>
+					<rule e="way" k="ref" v="*">
+						<text k="ref" dy="18.286px" class="piste-downhill-ref" text-anchor="middle" startOffset="75%"/>
+					</rule>
+					<rule e="way" k="name" v="*">
+						<text k="name" dy="18.286px" class="piste-downhill-nam" text-anchor="middle" startOffset="75%"/>
+					</rule>
+				</else>
+			</rule>
+		</rule>
+		<rule e="way" k="piste:type" v="sled">
+			<line class="piste-type-sled"/>
+		</rule>
+		<rule e="way" k="piste:type" v="nordic">
+			<line class="piste-type-nordic"/>
+		</rule>
+		<rule e="way" k="man_made" v="piste:halfpipe">
+			<area class="man-made-piste-halfpipe"/>
+			<areaSymbol xlink:href="#symbol-man-made-halfpipe" width="7px" height="7px" transform="translate(-3.5,-3.5)"/>
+		</rule>
+
+		<!-- Surface lifts (render over pistes) -->
+		<rule e="way" k="piste:lift" v="*">
+			<rule e="way" k="piste:lift" v="t-bar|j-bar|platter">
+				<line smart-linecap="no" class="aerialway-line piste-lift-t-bar-marker" bezier-hint="no"/>
+				<line smart-linecap="no" class="aerialway-struts"/>
+			</rule>
+			<rule e="way" k="piste:lift" v="rope_tow">
+				<line smart-linecap="no" class="piste-lift-rope-tow" bezier-hint="no"/>
+			</rule>
+			<rule e="way" k="piste:lift" v="magic_carpet">
+				<line smart-linecap="no" class="piste-lift-magic-carpet" bezier-hint="no"/>
+			</rule>
+			<rule e="way" k="name" v="*">
+				<text k="name" dx="0px" dy="-27.42857px" class="aerialway-nam" text-anchor="middle" startOffset="50%"/>
+			</rule>
+		</rule>
+
+		<!-- Aerialways (render over pistes) -->
+		<rule e="node|way" k="aerialway" v="*">
+			<rule e="way" k="aerialway" v="cable_car">
+				<line class="aerialway-line aerialway-cablecar-marker" bezier-hint="no" smart-linecap="no"/>
+			</rule>
+			<else>
+				<rule e="way" k="aerialway" v="gondola">
+					<line class="aerialway-line aerialway-gondola-marker" bezier-hint="no" smart-linecap="no"/>
+				</rule>
+				<else>
+					<rule e="way" k="aerialway" v="chair_lift">
+						<rule e="way" k="piste:lift:occupancy" v="4|5|6">
+							<line class="aerialway-line aerialway-chairlift4-marker" bezier-hint="no" smart-linecap="no"/>
+						</rule>
+						<else>
+							<line class="aerialway-line aerialway-chairlift2-marker" bezier-hint="no" smart-linecap="no"/>
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="aerialway" v="mixed_lift">
+							<line class="aerialway-line aerialway-mixedlift-marker" bezier-hint="no" smart-linecap="no"/>
+						</rule>
+						<else>
+							<rule e="way" k="aerialway" v="*">
+								<line class="aerialway-line" bezier-hint="no" smart-linecap="no"/>
+							</rule>
+						</else>
+					</else>
+				</else>
+			</else>
+			<line class="aerialway-struts" bezier-hint="no" smart-linecap="no"/>
+			<rule e="node" k="aerialway" v="station">
+				<circle r="13.714px" class="aerialway-station"/>
+			</rule>
+			<rule e="node" s="way" k="aerialway" v="*">
+				<rule e="node" k="ele" v="*">
+					<text k="ele" dx="0px" dy="-18.28571px" class="aerialway-elevation-text"/>
+				</rule>
+			</rule>
+			<rule e="way" k="name" v="*">
+				<text k="name" dx="0px" dy="-27.42857px" class="aerialway-nam" text-anchor="middle" startOffset="50%"/>
+			</rule>
+		</rule>
+
+
+		<!-- Draw marine features -->
+		<rule e="way" k="man_made" v="pier">
+			<line class="artificial-pier-casing"/>
+		</rule>
+
+		<rule e="way" k="man_made" v="pier">
+			<line class="artificial-pier-core"/>
+		</rule>
+
+
+		<rule e="way" k="border|barrier" v="fence">
+			<line class='border-fence-core'  bezier-hint="no" />
+			<line class='border-fence-casing'  bezier-hint="no" />
+		</rule>
+
+		<!-- Power lines and pylons -->
+		<rule e="node" k="power" v="tower">
+			<symbol xlink:href="#power-tower" width='1px' height='1px' transform='translate(-.5,-.5)'/>
+		</rule>
+		<rule e="way" k="power" v="line">
+			<line class='power-line' bezier-hint="no" />
+		</rule>
+
+
+		<!-- Non-physical routes -->
+		<rule e="way" k="route" v="ferry">
+			<line class='route-ferry'  bezier-hint="no" />
+		</rule>
+
+
+		<!-- Railway stations -->
+		<rule e="node" k="railway" v="station">
+			<rule e="node" s="way" k="railway" v="rail">
+				<circle r="8.229px" class="railway-station" />
+			</rule>
+			<else>
+				<circle r="4.571px" class="railway-halt" />
+			</else>
+		</rule>
+
+		<rule e="node" k="railway" v="halt|tram_stop">
+			<circle r="4.571px" class="railway-halt" />
+		</rule>
+
+		<!-- Level crossings -->
+		<!-- For everything, except trams, if it shares a node with a road then render a railroad crossing symbol.  -->
+		<rule e="node" s="way" k="railway" v="rail|light_rail|subway|narrow_gauge|monorail">
+			<rule e="node" s="way" k="railway" v="rail">
+				<rule e="node" s="way" k="highway" v="motorway|trunk|primary|secondary|tertiary|minor|unclassified|residential|service|unsurfaced|track">
+					<symbol xlink:href="#symbol-railway-crossing" width='4px' height='4px' transform='translate(-2,-2)' />
+				</rule>
+			</rule>
+			<else>
+				<rule e="node" s="way" k="highway" v="motorway|trunk|primary|secondary|tertiary|minor|unclassified|residential|service|unsurfaced|track">
+					<symbol xlink:href="#symbol-railway-crossing" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+				</rule>
+			</else>
+		</rule>
+
+		<!-- Gates -->
+		<rule e="node" k="highway|barrier" v="gate">
+			<rule e="node" k="status" v="open">
+				<wayMarker class='gate-open' />
+			</rule>
+			<else>
+				<rule e="node" k="status" v="locked">
+					<wayMarker class='gate-locked' />
+				</rule>
+				<else>
+					<wayMarker class='gate-closed' />
+				</else>
+			</else>
+		</rule>
+		<else>
+			<rule e="node" k="barrier" v="*">
+				<wayMarker class='gate-closed' />
+			</rule>
+		</else>
+
+
+			<!-- Amenities -->
+		<!--<rule e="node" k="traffic_calming" v="bump">
+			<symbol xlink:href="#speed_trap" width='2px' height='2px' transform='translate(-1,-1)' />
+		</rule>-->
+
+		<rule e="node" k="aeroway" v="aerodrome">
+			<symbol xlink:href="#airport" width='5px' height='5px' transform='translate(-2.5,-2.5)' opacity='0.5'/>
+		</rule>
+		<rule e="node" k="aeroway" v="airport">
+			<symbol xlink:href="#airport" width='12px' height='12px' transform='translate(-6,-6)' opacity='0.5'/>
+		</rule>
+
+
+		<!-- Tourist features -->
+		<rule e="node" k="tourism" v="hotel">
+			<symbol xlink:href="#hotel" width='4px' height='4px' transform='translate(-2,-2)' />
+		</rule>
+		<rule e="node" k="tourism" v="hostel">
+			<symbol xlink:href="#hostel" width='6px' height='4px' transform='translate(-3,-2)' />
+		</rule>
+		<rule e="node" k="tourism" v="camp_site">
+			<symbol xlink:href="#campSite" width='4px' height='4px' transform='translate(-1.5,-1.5)' />
+		</rule>
+
+		<rule e="node" k="man_made" v="tower">
+			<symbol xlink:href="#tower" width='2px' height='3px' transform='translate(-1,-1.5)'/>
+		</rule>
+		<rule e="node" k="natural" v="peak">
+			<symbol xlink:href="#peak" width='1.5px' height='1.5px' transform='translate(-0.75,-0.75)' />
+		</rule>
+		<rule e="node" k="tourism" v="viewpoint">
+			<symbol xlink:href="#viewpoint" width='2.5px' height='2.5px' transform='translate(-1.25,-1.25)' />
+		</rule>
+		<rule e="node" k="natural" v="cave|cave_entrance">
+			<symbol xlink:href="#natural-cave" width='4px' height='4px' transform='translate(-2,-2)' />
+		</rule>
+
+		<!-- Amenities -->
+		<rule e="node" k="amenity" v="hospital">
+			<rule e="node" k="emergency" v="yes">
+				<symbol xlink:href="#hospital_emergency" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+			</rule>
+			<else>
+				<symbol xlink:href="#hospital" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+			</else>
+		</rule>
+		<rule e="node" k="amenity" v="doctor">
+			<symbol xlink:href="#doctor" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+		</rule>
+		<rule e="node" k="amenity" v="clinic">
+			<symbol xlink:href="#clinic" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+		</rule>
+		<rule e="node" k="amenity" v="pharmacy">
+			<rule e="node" k="dispensing" v="no|~">
+				<symbol xlink:href="#pharmacy" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+			</rule>
+			<rule e="node" k="dispensing" v="yes">
+				<symbol xlink:href="#pharmacy_dispensing" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+			</rule>
+		</rule>
+
+		<rule e="node" k="amenity" v="post_office">
+			<symbol xlink:href="#postoffice" width='3px' height='2px' transform='translate(-1.5,-1)' />
+		</rule>
+		<rule e="node" k="amenity" v="post_box">
+			<symbol xlink:href="#postbox" width='1.5px' height='1.5px' transform='translate(-0.75,-0.75)' />
+		</rule>
+		<rule e="node" k="amenity" v="speed_trap">
+			<symbol xlink:href="#speed_trap" width='2px' height='2px' transform='translate(-1,-1)' />
+		</rule>
+		<rule e="node" k="amenity" v="pub">
+			<symbol xlink:href="#pub" width='1.5px' height='2px' transform='translate(-0.75,-1)'/>
+		</rule>
+		<rule e="node" k="amenity" v="cinema">
+			<symbol xlink:href="#cinema" width='1.75px' height='2.5px' transform='translate(-0.9,-1.25)'/>
+		</rule>
+		<rule e="node" k="amenity" v="theatre">
+			<symbol xlink:href="#theatre" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+		</rule>
+		<rule e="node" k="man_made" v="windmill">
+			<symbol xlink:href="#symbol-windmill" width='2px' height='2px' transform='translate(-1,-1)'/>
+		</rule>
+
+		<rule e="node" k="amenity" v="place_of_worship">
+			<rule e="node" k="denomination|religion" v="christian|church_of_england|jewish|muslim">
+				<rule e="node" k="denomination|religion" v="christian|church_of_england">
+					<symbol xlink:href="#church" width='2px' height='4px' transform='translate(-1,-2)' />
+				</rule>
+				<rule e="node" k="denomination|religion" v="jewish">
+					<symbol xlink:href="#synagogue" width='4px' height='4px' transform='translate(-2,-2)' />
+				</rule>
+				<rule e="node" k="denomination|religion" v="muslim">
+					<symbol xlink:href="#mosque" width='4px' height='4px' transform='translate(-2,-2)' />
+				</rule>
+			</rule>
+			<else>
+				<symbol xlink:href="#church" width='2.5px' height='5px' transform='translate(-1.25,-2.5)' />
+			</else>
+		</rule>
+
+		<rule e="node" k="highway" v="traffic_signals">
+			<symbol xlink:href="#symbol-traffic_signal" width='1.2px' height='3px' transform='translate(-0.6,-1.5)'/>
+		</rule>
+		<rule e="node" k="amenity" v="school">
+			<symbol xlink:href="#symbol-school" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+		</rule>
+		<rule e="node" k="amenity" v="university|college">
+			<symbol xlink:href="#symbol-university" width='4px' height='4px' transform='translate(-2,-2)' />
+		</rule>
+		<rule e="node" k="amenity" v="supermarket|shopping">
+			<symbol xlink:href="#symbol-supermarket" width='4px' height='4px' transform='translate(-2,-2)' />
+		</rule>
+		<rule e="node" k="shop" v="supermarket|shopping">
+			<symbol xlink:href="#symbol-supermarket" width='4px' height='4px' transform='translate(-2,-2)' />
+		</rule>
+		<rule e="node" k="amenity" v="library">
+			<symbol xlink:href="#symbol-library" width='2.2px' height='4px' transform='translate(-1.1,-2)' />
+		</rule>
+		<rule e="node" k="amenity" v="parking">
+			<symbol xlink:href="#parking" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+		</rule>
+		<rule e="node" k="amenity" v="fuel">
+			<symbol xlink:href="#fuel" width='3px' height='3px' transform='translate(-2,-2)' />
+		</rule>
+		<rule e="node" k="amenity" v="restaurant">
+			<symbol xlink:href="#restaurant" width='3px' height='3px' transform='translate(-1.5,-1.5)' />
+		</rule>
+
+		<!-- Leisure symbols -->
+		<rule e="node" k="leisure" v="golf_course">
+			<symbol xlink:href="#golfCourse" width='5px' height='5px' transform='translate(-2.5,-2.5)' />
+		</rule>
+		<rule e="node" k="leisure" v="slipway">
+			<symbol xlink:href="#slipway" width='4px' height='4px' transform='translate(-2,-2)' />
+		</rule>
+		<rule e="node" k="amenity" v="townhall">
+			<symbol xlink:href="#symbol-townhall" width='5px' height='5px' transform='translate(-2.5,-2.5)' />
+		</rule>
+
+	</rule>
+
+	<!-- k="osmarender:render" v="~|yes" -->
+
+
+	<!-- =================================== Layer 5 ============================ -->
+	<rule e="way" k="osmarender:renderRef|osmarender:renderref" v="~|yes" layer="5">
+
+		<!-- Waterway and Street names -->
+		<rule e="way" k="osmarender:renderName|osmarender:rendername" v="~|yes" layer="5">
+			<rule e="way" k="tunnel" v="~|no|false" layer="5">
+				<!-- no names in tunnels -->
+				<rule e="way" k="junction" v="~" layer="5">
+					<!-- no names on or along junctions -->
+
+					<rule e="way" k="highway" v="steps" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-steps-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="footway|footpath" layer="5">
+						<rule e="way" k="area" v="yes|true"  layer="5">
+							<areaText k="name" class="highway-nam highway-footway-are-nam" text-anchor="middle"/>
+						</rule>
+						<else>
+							<text k="name" startOffset='50%' class="highway-nam highway-footway-nam" dy='6.4px'/>
+						</else>
+					</rule>
+					<rule e="way" k="highway" v="pedestrian" layer="5">
+						<rule e="way" k="area" v="yes|true"  layer="5">
+							<areaText k="name" class="highway-nam highway-ped-are-nam" text-anchor="middle"/>
+						</rule>
+						<else>
+							<text k="name" startOffset='50%' class="highway-nam highway-ped-nam" dy='6.4px' />
+						</else>
+					</rule>
+					<rule e="way" k="highway" v="cycleway" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-cycleway-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="bridleway" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-bridleway-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="byway" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-byway-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="track|path" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-trk-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="unsurfaced" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-unsurfaced-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="service" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-srv-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="residential" layer="5">
+						<rule e="way" k="area" v="yes|true"  layer="5">
+							<areaText k="name" class="highway-nam highway-res-are-nam" text-anchor='middle'/>
+						</rule>
+						<else>
+							<text k="name" startOffset='50%' class="highway-nam highway-res-nam" dy='0.91429px'/>
+						</else>
+					</rule>
+					<rule e="way" k="highway" v="unclassified|FIXME|minor" layer="5">
+						<rule e="way" k="area" v="yes|true" layer="5">
+							<areaText k="name" class="highway-nam highway-ucl-are-nam" text-anchor="middle"/>
+						</rule>
+						<else>
+							<text k="name" startOffset='50%' class="highway-nam highway-ucl-nam" dy='6.4px'/>
+						</else>
+					</rule>
+					<rule e="way" k="highway" v="tertiary" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-ter-nam" dy='4.571px' />
+					</rule>
+					<rule e="way" k="highway" v="secondary" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-sec-nam" dy='4.571px' />
+					</rule>
+					<rule e="way" k="highway" v="secondary_link" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-sec-lnk-nam" dy='9.143px' />
+					</rule>
+					<rule e="way" k="highway" v="primary_link" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-pri-lnk-nam" dy='9.143px' />
+					</rule>
+					<rule e="way" k="highway" v="trunk_link" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-tru-lnk-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="motorway_link" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-mwy-lnk-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="primary" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-pri-nam" dy='9.143px'/>
+					</rule>
+					<rule e="way" k="highway" v="trunk" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-tru-nam" dy='6.4px' />
+					</rule>
+					<rule e="way" k="highway" v="motorway" layer="5">
+						<text k="name" startOffset='50%' class="highway-nam highway-mwy-nam" dy='6.4px' />
+					</rule>
+				</rule>
+				<rule e="way" k="junction" v="*" layer="5">
+					<!-- Roundabouts, motorway exits etc -->
+					<rule e="way" k="highway" v="secondary" layer="5">
+						<areaText k="name" class="highway-nam highway-sec-nam" dy='18.286px' text-anchor='middle'/>
+					</rule>
+					<rule e="way" k="highway" v="primary|primary_link" layer="5">
+						<areaText k="name" class="highway-nam highway-pri-nam" dy='18.286px' text-anchor='middle'/>
+					</rule>
+					<rule e="way" k="highway" v="trunk|trunk_link" layer="5">
+						<areaText k="name" class="highway-nam highway-tru-nam" dy='27.429px' text-anchor='middle'/>
+					</rule>
+					<rule e="way" k="highway" v="motorway|motorway_link" layer="5">
+						<areaText k="name" class="highway-nam highway-mwy-nam" dy='27.429px'  text-anchor='middle'/>
+					</rule>
+				</rule>
+			</rule>
+
+			<rule e="way" k="building" v="*" layer="5">
+				<areaText k="name" class="caption-casing generic-caption-casing" text-anchor='middle' />
+				<areaText k="name" class="caption-core generic-caption-core" text-anchor='middle' />
+			</rule>
+		</rule>
+	</rule>
+
+	<!-- Road numbers for all highways -->
+	<rule e="way" k="osmarender:renderRef|osmarender:renderref" v="~|yes" layer="5">
+		<rule e="way" k="tunnel" v="~|no|false" layer="5">
+			<!-- no road numbers in tunnels -->
+			<rule e="way" k="junction" v="~" layer="5">
+				<!-- no ref on junctions / roundabouts -->
+				<!-- Use startOffset to prevent captions from colliding on dual carriageways -->
+				<rule e="way" k="highway" v="steps" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-steps-ref' dy='-9.14286px' />
+				</rule>
+				<rule e="way" k="highway" v="footway|footpath" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-footway-ref' dy='-9.14286px' />
+				</rule>
+				<rule e="way" k="highway" v="pedestrian" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-ped-ref' dy='-18.28571px' />
+				</rule>
+				<rule e="way" k="highway" v="cycleway" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-cycleway-ref' dy='-14.62857px' />
+					<text k="ncn_ref" startOffset='60%' class='highway-ref-core highway-cycleway-ref' dy='-14.62857px' />
+				</rule>
+				<rule e="way" k="highway" v="bridleway" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-bridleway-ref' dy='-14.62857px' />
+				</rule>
+				<rule e="way" k="highway" v="byway" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-byway-ref' dy='-18.28571px' />
+				</rule>
+				<rule e="way" k="highway" v="track|path" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-trk-ref' dy='-18.28571px' />
+				</rule>
+				<rule e="way" k="highway" v="unsurfaced" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-unsurfaced-ref' dy='-18.28571px' />
+				</rule>
+				<rule e="way" k="highway" v="service" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-srv-ref' dy='-18.28571px' />
+				</rule>
+				<rule e="way" k="highway" v="unclassified|residential|minor" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-ucl-ref' dy='-21.94286px' />
+				</rule>
+				<rule e="way" k="highway" v="tertiary" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-casing highway-ter-ref-casing' dy='-13.71429px' textAttenuation='1.5'/>
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-ter-ref-core' dy='-13.71429px' textAttenuation='1.5'/>
+				</rule>
+				<rule e="way" k="highway" v="secondary" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-casing highway-sec-ref-casing' dy='-13.71429px' textAttenuation='1.5'/>
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-sec-ref-core' dy='-13.71429px' textAttenuation='1.5'/>
+				</rule>
+				<rule e="way" k="highway" v="primary" layer="5">
+					<text k="ref" startOffset='30%' class="highway-ref-casing highway-pri-ref-casing" dy='-18.28571px' textAttenuation='1.5'/>
+					<text k="ref" startOffset='30%' class="highway-ref-core highway-pri-ref-core" dy='-18.28571px' textAttenuation='1.5'/>
+				</rule>
+				<rule e="way" k="highway" v="trunk" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-casing highway-tru-ref-casing' dy='-18.28571px'  textAttenuation='1.5'/>
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-tru-ref-core' dy='-18.28571px'  textAttenuation='1.5'/>
+				</rule>
+				<rule e="way" k="highway" v="motorway" layer="5">
+					<text k="ref" startOffset='30%' class='highway-ref-casing highway-mwy-ref-casing' dy='-18.28571px' textAttenuation='1.5'/>
+					<text k="ref" startOffset='30%' class='highway-ref-core highway-mwy-ref-core' dy='-18.28571px' textAttenuation='1.5'/>
+				</rule>
+			</rule>
+		</rule>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+	<!-- ==================================== END Layer 5 ======================================== -->
+
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+
+		<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+			<![CDATA[
+.abutters-all-casing{
+  stroke: #BDA14D;
+}
+
+.abutters-all-core {
+	stroke: #DCDED3;
+}
+
+.abutters-casing {
+	fill: none;
+	stroke-linecap: square;
+	stroke-width: 166.857px;
+}
+
+.abutters-commercial-core {
+	stroke: #FCFFC9;
+}
+
+.abutters-core {
+	fill: none;
+	stroke-linecap: square;
+	stroke-width: 164.571px;
+}
+
+.abutters-industrial-core {
+	stroke: #E0E0E0;
+}
+
+.abutters-mixed-core {
+	stroke: #D8FEFF;
+}
+
+.abutters-res-core {
+	stroke: #DCDED3;
+}
+
+.abutters-retail-core {
+	stroke: #FFEBEB;
+}
+
+
+/* Access restrictions */
+.access-private-line {
+fill: none;
+stroke: url(#access-private-pattern);
+stroke-width: 9.143px;
+}
+.access-private-are {
+fill: url(#access-private-pattern);
+stroke: url(#access-private-pattern);
+stroke-width: 9.143px;
+}
+.access-private-small-are {
+fill: url(#access-private-pattern);
+stroke: url(#access-private-pattern);
+stroke-width: 4.571px;
+}
+
+.access-permissive-line {
+fill: none;
+stroke: url(#access-permissive-pattern);
+stroke-width: 9.143px;
+}
+.access-permissive-are {
+fill: url(#access-permissive-pattern);
+stroke: url(#access-permissive-pattern);
+stroke-width: 9.143px;
+}
+.access-permissive-small-are {
+fill: url(#access-permissive-pattern);
+stroke: url(#access-permissive-pattern);
+stroke-width: 4.571px;
+}
+
+.access-destination-line {
+fill: none;
+stroke: url(#access-destination-pattern);
+stroke-width: 9.143px;
+}
+.access-destination-are {
+fill: url(#access-destination-pattern);
+stroke: url(#access-destination-pattern);
+stroke-width: 9.143px;
+}
+.access-destination-small-are {
+fill: url(#access-destination-pattern);
+stroke: url(#access-destination-pattern);
+stroke-width: 4.571px;
+}
+
+.access-no-line {
+fill: none;
+stroke: url(#access-no-pattern);
+stroke-width: 9.143px;
+}
+.access-no-are {
+fill: url(#access-no-pattern);
+stroke: url(#access-no-pattern);
+stroke-width: 9.143px;
+}
+.access-no-small-are {
+fill: url(#access-no-pattern);
+stroke: url(#access-no-pattern);
+stroke-width: 4.571px;
+}
+
+/* Aerialway */
+.aerialway-line{
+	fill: none;
+	stroke: #202020;
+	stroke-width: 0.91429px;
+}
+
+.aerialway-cablecar-marker{
+   marker-start: url(#marker-cablecar);
+}
+
+.aerialway-gondola-marker{
+   marker-start: url(#marker-gondola);
+}
+
+.aerialway-chairlift2-marker{
+   marker-start: url(#marker-chair-lift-2);
+}
+
+.aerialway-chairlift4-marker{
+   marker-start: url(#marker-chair-lift-4);
+}
+
+.aerialway-mixedlift-marker{
+   marker-start: url(#marker-mixed-lift);
+}
+
+.aerialway-struts{
+	fill: none;
+	stroke: #202020;
+	stroke-dasharray: 1.82857,91.429;
+	stroke-width: 9.143px;
+}
+
+.aerialway-station{
+   fill: black;
+   stroke: black;
+   stroke-width: 4.571px;
+}
+
+.aerialway-nam{
+   fill: #606060;
+   font-family: DejaVu Sans, sans-serif;
+   font-weight: normal;
+   font-size: 18.286px;
+   stroke: none;
+   text-anchor: middle;
+}
+
+.aerialway-elevation-text{
+   fill: #606060;
+   font-family: DejaVu Sans, sans-serif;
+   font-weight: normal;
+   font-size: 13.714px;
+   text-anchor: middle;
+}
+
+.aeroway-aerodrome-caption{
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 27.429px;
+	font-weight: normal;
+	opacity: 0.25;
+	stroke: #FFFFFF;
+	stroke-width: 1.37143px;
+	text-anchor: middle;
+}
+
+.aeroway-airport-caption{
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 45.714px;
+	font-weight: normal;
+	stroke: #FFFFFF;
+	stroke-width: 1.37143px;
+	text-anchor: middle;
+}
+
+.aeroway-apron{
+	fill: #F0F0F0;
+	stroke: none;
+	stroke-width: 1.37143px;
+}
+
+.aeroway-runway-casing{
+	fill: none;
+	stroke: #000000;
+	stroke-linecap: square;
+	stroke-linejoin: round;
+	stroke-width: 27.429px;
+}
+
+.aeroway-runway-core{
+	fill: none;
+	stroke: #D4DCBD;
+	stroke-linecap: square;
+	stroke-linejoin: round;
+	stroke-width: 22.857px;
+}
+
+.aeroway-runway-middle{
+	fill: none;
+	stroke: white;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-dasharray: 36.571,18.286;
+	stroke-dashoffset:18.286;
+	stroke-width: 1.82857px;
+}
+
+
+.aeroway-taxiway-casing{
+	fill: none;
+	stroke: #000000;
+	stroke-linecap: square;
+	stroke-linejoin: round;
+	stroke-width: 13.714px;
+}
+
+.aeroway-taxiway-core{
+	fill: none;
+	stroke: #D4DCBD;
+	stroke-linecap: square;
+	stroke-linejoin: round;
+	stroke-width: 9.143px;
+}
+
+.amenity-hospital{
+	fill: #DFBAB5;
+	stroke: #DF5B44;
+	stroke-width: 0.91429px;
+}
+
+.amenity-military-barracks{
+	fill: #ACC6AE;
+	stroke: #585A7E;
+	stroke-width: 0.45714px;
+}
+
+.amenity-parking{
+	fill: #F7EFB7;
+	stroke: #E9DD72;
+	stroke-width: 0.45714px;
+}
+
+.amenity-school{
+	fill: #DFAFDD;
+	stroke: #E9DD72;
+	stroke-width: 0.45714px;
+}
+
+.artificial-pier-casing{
+	fill: none;
+	stroke: #CCCCCC;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.82857px;
+}
+
+.artificial-pier-core{
+	fill: none;
+	stroke: #EEEEEE;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.37143px;
+}
+
+    /* Borders */
+    .border-fence-casing {
+    fill: none;
+    stroke-linecap:butt;
+    stroke-linejoin: round;
+    stroke: #0000f2;
+    stroke-opacity: .4;
+    stroke-width:3.657px;
+    stroke-dasharray:3.657,7.314;
+    stroke-dashoffset:1.82857;
+    }
+
+    .border-fence-core {
+    fill: none;
+    stroke-linecap:butt;
+    stroke-linejoin: round;
+    stroke: #4444f2;
+    stroke-opacity: .4;
+    stroke-width:1.09714px;
+    }
+
+.boundary{
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.boundary-adm-region-casing{
+	stroke: #FFFFFF;
+	stroke-dasharray: 22.857,22.857;
+	stroke-opacity: .4;
+	stroke-width: 5.486px;
+}
+
+.boundary-adm-region-2-casing{
+	stroke: #F0F0F0;
+	stroke-dasharray: 0,22.857,22.857,0;
+	stroke-opacity: .7;
+	stroke-width: 5.486px;
+}
+
+.boundary-adm-region-core{
+	stroke: #FF4400;
+	stroke-dasharray: 22.857,11.429,5.714,11.429;
+	stroke-opacity: 0.7;
+	stroke-width: 0.77714px;
+}
+
+.boundary-adm-state-casing{
+	stroke: #FFFF60;
+	stroke-dasharray: 22.857,22.857;
+	stroke-opacity: .5;
+	stroke-width: 6.857px;
+}
+
+.boundary-adm-state-2-casing{
+	stroke: #FFFFD0;
+	stroke-dasharray: 0,22.857,22.857,0;
+	stroke-opacity: .5;
+	stroke-width: 6.857px;
+}
+
+.boundary-adm-state-core{
+	stroke: #FF4400;
+	stroke-dasharray: 22.857,9.143,2.74286,9.143;
+	stroke-dashoffset: 11.429;
+	stroke-opacity: .5;
+	stroke-width: 0.91429px;
+}
+
+.boundary-national-park{
+	stroke: #12D51C;
+	stroke-dasharray: 18.286,27.429;
+	stroke-opacity: .5;
+	stroke-width: 16.914px;
+}
+
+.boundary-ref-casing{
+	fill: #F0F0F0;
+	font-family: DejaVu Sans;
+	opacity: 0.5;
+	stroke: #F0F0F0;
+	stroke-width: 4.571px;
+	text-anchor: middle;
+	method: stretch;
+	spacing: auto;
+}
+
+.boundary-ref-core{
+	fill: #FF4400;
+	font-family: DejaVu Sans;
+	stroke: none;
+	text-anchor: middle;
+	method: stretch;
+	spacing: auto;
+}
+
+.boundary-state-ref-casing{
+	font-size: 13.714px;
+}
+
+.boundary-state-ref-core{
+	font-size: 13.714px;
+}
+
+.bridge-casing{
+	fill: none;
+	marker-end: url(#bridge-casing-end);
+	marker-start: url(#bridge-casing-start);
+	stroke: #777777;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.bridge-core{
+	fill: none;
+	stroke: #F8F8F8;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.building{
+	fill: #bbbbbb;
+    stroke: #909090; 
+	stroke-width: 0.45714px;
+}
+
+.building-block{
+	fill: #F4BB7C;
+	stroke: #74593B;
+	stroke-width: 0.45714px;
+}
+
+.building-res{
+	fill: #BA9565;
+	stroke: #74593B;
+	stroke-width: 0.45714px;
+}
+
+.caption-casing{
+	fill: #FFFFFF;
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	stroke: #FFFFFF;
+	stroke-miterlimit: 1.5;
+	text-anchor: middle;
+}
+
+.caption-core{
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	stroke: none;
+	stroke-miterlimit: 1.5;
+	text-anchor: middle;
+}
+
+.farm-caption{
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 36.571px;
+	font-weight: normal;
+	stroke: #FFFFFF;
+	stroke-width: 0.45714px;
+	text-anchor: middle;
+}
+
+.gate-closed{
+	fill: none;
+	marker-mid: url(#marker-gate-closed);
+	stroke: #FF0000;
+	stroke-opacity: 0;
+	stroke-width: 9.143px;
+}
+
+.gate-locked{
+	fill: none;
+	marker-mid: url(#marker-gate-locked);
+	stroke: #FF0000;
+	stroke-opacity: 0;
+	stroke-width: 9.143px;
+}
+
+.gate-open{
+	fill: none;
+	marker-mid: url(#marker-gate-open);
+	stroke: #FF0000;
+	stroke-opacity: 0;
+	stroke-width: 9.143px;
+}
+
+.generic-caption-casing{
+	fill: #686868;
+	font-size: 9.143px;
+	stroke: #686868;
+	stroke-width: 2.28571px;
+}
+
+.generic-caption-core{
+	fill: #FFFBC2;
+	font-size: 9.143px;
+}
+
+.highway-bridleway-bri-casing{
+	stroke-width: 13.714px;
+}
+
+.highway-bridleway-bri-core{
+	stroke-width: 12.8px;
+}
+
+.highway-bridleway-casing{
+	stroke: #777777;
+	stroke-dasharray: 12.8,3.657;
+	stroke-linecap: butt;
+	stroke-width: 9.143px;
+}
+
+.highway-bridleway-core{
+	stroke: #E3E9F1;
+	stroke-width: 7.314px;
+}
+
+.highway-bridleway-are{
+	stroke: #E3E9F1;
+	fill: #E3E9F1;
+	stroke-width: 7.314px;
+}
+
+.highway-bridleway-nam{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-bridleway-ref{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-byway-1-casing{
+	stroke: #555555;
+	stroke-dasharray: 12.8,3.657;
+	stroke-linecap: butt;
+	stroke-width: 9.143px;
+}
+
+.highway-byway-1-core{
+	stroke: #EFADAA;
+	stroke-width: 3.657px;
+}
+
+.highway-byway-2-casing{
+	stroke: #EFADAA;
+	stroke-width: 7.314px;
+}
+
+.highway-byway-3-casing{
+	stroke: #555555;
+	stroke-dasharray: 1.82857,14.629;
+	stroke-dashoffset: 10.971;
+	stroke-linecap: butt;
+	stroke-width: 12.8px;
+}
+
+
+.highway-byway-are{
+	stroke: #EFADAA;
+	fill: #EFADAA;
+	stroke-width: 3.657px;
+}
+.highway-byway-bri-casing{
+	stroke-width: 12.8px;
+}
+
+.highway-byway-bri-core{
+	stroke-width: 11.886px;
+}
+
+.highway-byway-nam{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-byway-ref{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-casing{
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.highway-core{
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.highway-cycleway-bri-casing {
+	stroke-width: 4.571px;
+}
+.highway-cycleway-bri-core {
+	stroke-width: 3.657px;
+}
+.highway-cycleway-casing {
+	stroke: #777777;
+	stroke-dasharray: 0.4, 0.4;
+	stroke-linecap: butt;
+	stroke-width: 2.74286px;
+}
+.highway-cycleway-core {
+	stroke: #D1EAD1;
+	stroke-width: 1.82857px;
+}
+.highway-cycleway-are {
+	stroke: #D1EAD1;
+	fill: #D1EAD1;
+	stroke-width: 4.571px;
+}
+
+
+.highway-cycleway-nam{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-cycleway-ref{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-footway-are-core {
+	stroke: #D1CDAD;
+	fill: #D1CDAD;
+	stroke-width: 1.82857px;
+}
+.highway-footway-are-casing {
+	stroke: #777777;
+	fill: #777777;
+	stroke-width: 2.05714px;
+}
+.highway-footway-bri-casing{
+	stroke-width: 5.943px;
+}
+
+.highway-footway-bri-core{
+	stroke-width: 5.029px;
+}
+
+.highway-footway-casing{
+	stroke: #999999;
+	stroke-width: 1.82857px;
+}
+
+.highway-footway-core{
+    stroke: #D1CDAD;
+	stroke-width: 1.37143px;
+}
+
+
+.highway-footway-nam{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-footway-are-nam {
+	font-size: 9.143px;
+	stroke: none;
+}
+.highway-footway-ref{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-mwy-bri-casing{
+	stroke-width: 15.086px;
+}
+
+.highway-mwy-bri-core{
+	stroke-width: 13.714px;
+}
+
+.highway-mwy-casing{
+	stroke: #FF0000;
+	stroke-width: 11.886px;
+}
+
+.highway-mwy-core{
+	stroke: #FFFF00;
+	stroke-width: 10.514px;
+}
+
+.highway-mwy-lnk-bri-casing{
+	stroke-width: 16.457px;
+}
+
+.highway-mwy-lnk-bri-core{
+	stroke-width: 14.629px;
+}
+
+.highway-mwy-lnk-casing{
+	stroke: #FF0000;
+	stroke-width: 11.429px;
+}
+
+.highway-mwy-lnk-core{
+	stroke: #FFFF00;
+	stroke-width: 9.6px;
+}
+
+.highway-mwy-lnk-nam{
+	font-size: 13.714px;
+	stroke: none;
+}
+
+.highway-mwy-lnk-ref{
+	font-size: 18.286px;
+	stroke: none;
+}
+
+.highway-mwy-nam{
+	font-size: 9.143px;
+	stroke: black;
+	stroke-width: 0.13714px;
+	font-family: Calibri;
+	   
+}
+
+.highway-mwy-ref-casing{
+	fill: #FFFF00;
+	font-size: 11.429px;
+	stroke: #FFFF00;
+	stroke-width: 1.82857px;
+}
+
+.highway-mwy-ref-core{
+	fill: #D00000;
+	font-size: 11.429px;
+	stroke: #D00000;
+	stroke-width: 0.91429px;
+}
+
+.highway-nam{
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	text-anchor: middle;
+}
+
+
+.highway-ped-bri-casing{
+	stroke-width: 4.114px;
+}
+
+.highway-ped-bri-core{
+	stroke-width: 3.657px;
+}
+
+.highway-ped-casing{
+	stroke: #AAAAAA;
+	stroke-width: 3.2px;
+}
+
+.highway-ped-core{
+	stroke: #EEEEEE;
+	stroke-width: 2.28571px;
+}
+
+.highway-ped-are{
+	stroke: #EEEEEE;
+	fill: #EEEEEE;
+	stroke-width: 2.28571px;
+}
+
+.highway-ped-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-ped-are-nam {
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-ped-ref{
+	font-size: 11.429px;
+	stroke: none;
+}
+
+.highway-pri-bri-casing{
+	stroke-width: 13.714px;
+}
+
+.highway-pri-bri-core{
+	stroke-width: 11.886px;
+}
+
+.highway-pri-casing{
+	stroke: #202020;
+	stroke-width: 10.514px;
+}
+
+.highway-pri-core{
+	stroke: #FF6557;
+	stroke-width: 9.143px;
+}
+
+.highway-pri-lnk-bri-casing{
+	stroke-width: 6.857px;
+}
+
+.highway-pri-lnk-bri-core{
+	stroke-width: 5.943px;
+}
+
+.highway-pri-lnk-casing{
+	stroke: #202020;
+	stroke-width: 5.029px;
+}
+
+.highway-pri-lnk-core{
+	stroke: #FF6557;
+	stroke-width: 4.206px;
+}
+
+.highway-pri-lnk-nam{
+	font-size: 13.714px;
+	stroke: none;
+}
+
+.highway-pri-lnk-ref{
+	font-size: 18.286px;
+	stroke: none;
+}
+
+.highway-pri-nam{
+	font-size: 10.057px;
+	stroke: none;
+}
+
+.highway-pri-ref-core {
+	fill: #BF4537;
+	font-size: 9.143px;
+	stroke: #BF4537;
+	stroke-width: 0.68571px;
+	}
+
+.highway-pri-ref-casing {
+	fill: #FFFFFF;
+	font-size: 9.143px;
+	stroke: #FFFFFF;
+	stroke-width: 2.28571px;
+	  }
+
+.highway-raceway-casing{
+	fill: none;
+	stroke: #101010;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 9.143px;
+}
+
+.highway-dismantled-raceway-casing{
+	fill: none;
+	opacity: 0.5;
+	stroke: #808080;
+	stroke-dasharray: 2.74286,15.543;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 9.143px;
+}
+
+.highway-disused-raceway-casing{
+	fill: none;
+	stroke: #808080;
+	stroke-dasharray: 9.143,9.143;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 9.143px;
+}
+
+.highway-raceway-core{
+	fill: none;
+	stroke: #F0F0F0;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 6.857px;
+}
+
+.highway-dismantled-raceway-core{
+	fill: none;
+	opacity: 0.5;
+	stroke: #FBFBFB;
+	stroke-dasharray: 2.74286,15.543;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 6.857px;
+}
+
+.highway-disused-raceway-core{
+	fill: none;
+	stroke: #F7F7F7;
+	stroke-dasharray: 9.143,9.143;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 6.857px;
+}
+
+.highway-ref-casing{
+	font-family: DejaVu Sans;
+	method: stretch;
+	spacing: auto;
+	text-anchor: middle;
+}
+
+.highway-ref-core{
+	font-family: DejaVu Sans;
+	method: stretch;
+	spacing: auto;
+	text-anchor: middle;
+}
+
+.highway-res-bri-casing{
+	stroke-width: 9.6px;
+}
+
+.highway-res-bri-core{
+	stroke-width: 8.686px;
+}
+
+.highway-res-casing{
+	stroke: #808080;
+	stroke-width: 6.857px;
+}
+
+.highway-res-core{
+	stroke: #F8F8F8;
+	stroke-width: 5.486px;
+}
+
+.highway-res-are-casing {
+	stroke: #808080;
+	fill: #808080;
+	stroke-width: 6.857px;
+}
+.highway-res-are-core {
+	stroke: #F8F8F8;
+	fill: #F8F8F8;
+	stroke-width: 5.486px;
+}
+.highway-res-nam{
+	font-size: 10.057px;
+	stroke: #808080;
+	stroke-width: 0.22857px;
+}
+
+.highway-res-are-nam {	
+	font-size: 7.314px;
+	stroke: none;
+}
+.highway-oneway-res-casing{
+	stroke-width: 5.486px;
+}
+
+.highway-oneway-res-core{
+	stroke-width: 4.114px;
+}
+
+.highway-res-ref{
+	fill: #000000;
+	font-size: 9.143px;
+	stroke: #FFFFFF;
+	stroke-width: 1.37143px;
+}
+
+.highway-sec-bri-casing{
+	stroke-width: 13.257px;
+}
+
+.highway-sec-bri-core{
+	stroke-width: 11.429px;
+}
+
+.highway-sec-casing{
+	stroke: #202020;
+	stroke-width: 9.143px;
+}
+
+.highway-sec-core{
+	stroke: #FDBF6F;
+	stroke-width: 8.457px;
+}
+
+.highway-sec-lnk-bri-casing{
+	stroke-width: 6.4px;
+}
+
+.highway-sec-lnk-bri-core{
+	stroke-width: 5.486px;
+}
+
+.highway-sec-lnk-casing{
+	stroke: #222222;
+	stroke-width: 4.114px;
+}
+
+.highway-sec-lnk-core{
+	stroke: #FDBF6F;
+	stroke-width: 3.2px;
+}
+
+.highway-sec-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-sec-ref-casing{
+	fill: #FFFFFF;
+	font-size: 9.143px;
+	stroke: #FFFFFF;
+	stroke-width: 1.82857px;
+	opacity: 0.7;
+}
+
+.highway-sec-ref-core{
+	fill:#AE732F ;
+	font-size: 9.143px;
+	stroke: #AE732F;
+	stroke-width: 0.45714px;
+}
+
+.highway-srv-bri-casing{
+	stroke-width: 6.4px;
+}
+
+.highway-srv-bri-core{
+	stroke-width: 5.486px;
+}
+
+.highway-srv-casing{
+	stroke: #818181;
+	stroke-width: 4.571px;
+}
+
+.highway-srv-core{
+	stroke: #F0F0F0;
+	stroke-width: 3.657px;
+}
+
+.highway-srv-are{
+	stroke: #F0F0F0;
+	fill: #F0F0F0;
+	stroke-width: 3.2px;
+}
+
+
+.highway-srv-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-srv-ref{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-steps-bri-casing{
+	stroke-width: 3.886px;
+}
+
+.highway-steps-bri-core{
+	stroke-width: 3.2px;
+}
+
+.highway-steps-casing{
+	stroke: #707070;
+	stroke-width: 2.28571px;
+}
+
+.highway-steps-core{
+	stroke: #E5E0C2;
+	stroke-dasharray: 0.91429,2.74286;
+	stroke-linecap: butt;
+	stroke-width: 2.28571px;
+}
+
+.highway-steps-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-steps-ref{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-ter-bri-casing{
+	stroke-width: 11.886px;
+}
+
+.highway-ter-bri-core{
+	stroke-width: 10.514px;
+}
+
+.highway-ter-casing{
+	stroke: #202020;
+	stroke-width: 8.229px;
+}
+
+.highway-ter-core{
+	stroke: #FEF970;
+	stroke-width: 7.314px;
+}
+
+.highway-ter-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-ter-ref-casing{
+	fill: #FEF970;
+	font-size: 9.143px;
+	stroke: #FEF970;
+	stroke-width: 0.91429px;
+}
+
+.highway-ter-ref-core{
+	fill: #AE732F;
+	font-size: 9.143px;
+	stroke: #AE732F;
+	stroke-width: 0.32px;
+}
+
+.highway-trk-bri-casing{
+	stroke-width: 5.029px;
+}
+
+.highway-trk-bri-core{
+	stroke-width: 3.657px;
+}
+
+.highway-trk-casing{
+   stroke: #A99171;
+   stroke-width: 4.571px;
+   stroke-linecap:butt;
+}
+
+.highway-trk-gr1-casing{
+   stroke: #808080;
+   stroke-dasharray: 5, 2;
+   stroke-dashoffset: 22.857;
+}
+
+.highway-trk-gr1-2-casing{
+   stroke: #EEEEEE;
+   stroke-dasharray: 2, 5;
+   stroke-dashoffset: 41.143;
+}
+
+.highway-trk-gr2-casing{
+   stroke: #808080;
+   stroke-dasharray: 1.8, 1.5;
+   stroke-dashoffset: 8.229;
+}
+
+.highway-trk-gr2-2-casing{
+   stroke: #EEEEEE;
+   stroke-dasharray: 1.5, 1.8;
+   stroke-dashoffset: 21.943;
+}
+.highway-trk-gr3-casing{
+	stroke-width: 3.657px;
+}
+
+.highway-trk-gr4-casing{
+   stroke-dasharray: 3.2, 1.2;
+   stroke-dashoffset: 14.629;
+   stroke-width: 3.657px;
+   opacity: 0;
+}
+
+.highway-trk-gr5-casing{
+   stroke-dasharray: 0.8, 2.0;
+   opacity: 0;
+}
+
+.highway-trk-core{
+   stroke: #A99171;
+   stroke-width: 3.657px;
+   stroke-linecap:butt;
+}
+
+.highway-trk-gr1-core{
+   stroke: #EEEEEE;
+}
+
+.highway-trk-gr2-core{
+   stroke: #EEEEEE;
+}
+
+.highway-trk-gr3-core{
+   stroke-width: 1.37143px;
+   stroke: #6A5B47;
+  stroke-dasharray: 4.3, 0.7;
+  stroke-dashoffset: 22.857;
+
+}
+
+.highway-trk-gr4-core{
+  stroke-width: 1.37143px;
+  stroke: #6A5B47;
+  stroke-dasharray: 2.6, 0.8;
+  stroke-dashoffset: 11.886;
+}
+
+.highway-trk-gr5-core{
+    stroke: #6A5B47;
+	stroke-width: 1.37143px;
+	stroke-dasharray: 1.2, 0.8;
+    stroke-dashoffset: 5.486;
+}
+
+.highway-path-core{
+    stroke: #6A5B47;
+	stroke-width: 1.37143px;
+	stroke-dasharray: 0.6, 0.4;
+    stroke-dashoffset: 2.74286;
+}
+
+.highway-trk-are{
+	stroke: #FFF0D5;
+	fill: #FFF0D5;
+	stroke-width: 4.114px;
+}
+
+.highway-trk-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-trk-ref{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-tru-bri-casing{
+	stroke-width: 15.086px;
+}
+
+.highway-tru-bri-core{
+	stroke-width: 13.714px;
+}
+
+.highway-tru-casing{
+	stroke: #307030;
+	stroke-width: 11.429px;
+}
+
+.highway-tru-core{
+	stroke: #FFFF00;
+	stroke-width: 9.6px;
+}
+
+.highway-tru-lnk-bri-casing{
+	stroke-width: 11.429px;
+}
+
+.highway-tru-lnk-bri-core{
+	stroke-width: 10.514px;
+}
+
+.highway-tru-lnk-casing{
+	stroke: #307030;
+	stroke-width: 11.429px;
+}
+
+.highway-tru-lnk-core{
+	stroke: #FFFF00;
+	stroke-width: 9.6px;
+}
+
+.highway-tru-lnk-nam{
+	font-size: 13.714px;
+	stroke: none;
+}
+
+.highway-tru-lnk-ref{
+	font-size: 18.286px;
+	stroke: none;
+}
+
+.highway-tru-nam{
+	font-size: 9.143px;
+	stroke: none;
+}
+
+.highway-tru-ref-casing{
+	fill: #FFFF00;
+	font-size: 11.429px;
+	stroke: #FFFF00;
+	stroke-width: 1.82857px;
+}
+
+.highway-tru-ref-core{
+	fill: #307030;
+	font-size: 11.429px;
+	stroke: #307030;
+	stroke-width: 0.91429px;
+
+}
+
+.highway-tnl-ends{
+	fill: none;
+	marker-end: url(#marker-tnl-end);
+	marker-start: url(#marker-tnl-start);
+	stroke-opacity: 0;
+}
+
+.highway-ucl-bri-casing{
+	stroke-width: 9.6px;
+}
+
+.highway-ucl-bri-core{
+	stroke-width: 8.686px;
+}
+
+.highway-ucl-casing{
+	stroke: #202020;
+	stroke-width: 7.771px;
+}
+
+.highway-ucl-core{
+	stroke: #FFFFFF;
+  stroke-width: 6.857px;
+}
+
+.highway-ucl-are-casing {
+	stroke: #202020;
+	fill: #202020;
+	stroke-width: 7.771px;
+}
+.highway-ucl-are-core {
+	stroke: #FFFFFF;
+	fill: #FFFFFF;
+	stroke-width: 6.857px;
+}
+
+
+
+.highway-oneway-ucl-casing{
+    stroke: #202020;
+	stroke-width: 6.857px;
+}
+
+.highway-oneway-ucl-core{
+	stroke: #FFFFFF;
+	stroke-width: 5.486px;
+}
+.highway-oneway-lanes-2-ucl-casing {
+	stroke: #202020;
+	stroke-width: 7.771px;
+}
+.highway-oneway-lanes-2-ucl-core {
+	stroke: #FCFFA4;
+	stroke-width: 6.857px;
+}
+.highway-lanes-2-ucl-casing {
+	stroke-width: 13.714px;
+  stroke: #556B25;
+}
+.highway-lanes-2-ucl-core {
+	stroke-width: 12.343px;
+   stroke: #FCFFA4;
+}
+
+.highway-lanes-2-ucl-2-core {
+	stroke-width: 0.45714px;
+   stroke: #556B25;
+}
+.highway-ucl-nam{
+	font-size: 10.286px;
+	stroke: none;
+}
+.highway-ucl-are-nam {	
+	font-size: 7.314px;
+	stroke: none;
+}
+.highway-ucl-ref{
+	fill: #000000;
+	font-size: 9.143px;
+	stroke: #FFFFFF;
+	stroke-width: 1.37143px;
+}
+
+.highway-unsurfaced-bri-casing{
+	stroke-width: 6.857px;
+}
+
+.highway-unsurfaced-bri-core{
+	stroke-width: 6.857px;
+}
+
+.highway-unsurfaced-1-casing{
+	stroke: #FFE9B0;
+	stroke-dasharray: 0,27.429,9.143,0;
+	stroke-linecap: butt;
+	stroke-width: 5.943px;
+}
+
+.highway-unsurfaced-2-casing{
+	stroke: #D9B762;
+	stroke-dasharray: 27.429,9.143;
+	stroke-linecap: butt;
+	stroke-width: 5.943px;
+}
+
+.highway-unsurfaced-core{
+	stroke: #FFE9B0;
+	stroke-width: 4.571px;
+}
+
+.highway-unsurfaced-are{
+	stroke: #FFE9B0;
+	fill: #FFE9B0;
+	stroke-width: 4.571px;
+}
+
+.highway-unsurfaced-nam{
+	font-size: 9.143px;
+	stroke-width: 0.22857px;
+}
+
+.highway-unsurfaced-ref{
+	fill: #000000;
+	font-size: 9.143px;
+	stroke: #FFFFFF;
+	stroke-width: 1.37143px;
+}
+
+.landuse-all-core{
+	fill: #DCDED3;
+	stroke: none;
+}
+
+.landuse-all-casing{
+	fill: #BDA14D;
+	stroke: #BDA14D;
+	stroke-width: 1.14286px;
+}
+
+.landuse-brownfield{
+	fill: url(#brownfield-pattern);
+	stroke: #B5988B;
+	stroke-dasharray: 7.314,2.74286;
+	stroke-linecap: butt;
+	stroke-width: 0.91429px;
+}
+
+.landuse-cemetery{
+	fill: url(#cemetery-pattern);
+	stroke: #607065;
+	stroke-width: 0.68571px;
+}
+
+.landuse-cemetery-christian{
+	fill: url(#cemetery-christian-pattern);
+	stroke: #607065;
+	stroke-width: 0.68571px;
+}
+
+.landuse-commercial{
+	fill: #FCFFC9;
+	stroke: none;
+}
+
+.landuse-farm{
+	fill: #C7F1A3;
+	stroke: #6FC18E;
+	stroke-width: 0.91429px;
+}
+
+.landuse-field{
+	fill: #BDE3CB;
+	stroke: #6FC13D;
+	stroke-width: 0.91429px;
+}
+
+.landuse-grass-core{
+   fill: #A3BA7A;
+   stroke: none;
+}
+
+.landuse-grass-casing{
+   fill: #7FA45F;
+   stroke: #7FA45F;
+   stroke-width: 2.28571px;
+}
+
+
+.landuse-greenfield{
+	fill: #C4E3B1;
+	stroke: #A2BB92;
+	stroke-dasharray: 7.314,2.74286;
+	stroke-linecap: butt;
+	stroke-width: 0.91429px;
+}
+
+.landuse-industrial{
+	fill: #E0E0E0;
+	stroke: none;
+}
+
+.landuse-raceway{
+	fill: #F0F0F0;
+	stroke: #101010;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.91429px;
+}
+
+.landuse-dismantled-raceway{
+	fill: #FBFBFB;
+	opacity: 0.5;
+	stroke: #808080;
+	stroke-dasharray: 2.74286,15.543;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.37143px;
+}
+
+.landuse-disused-raceway{
+	fill: #F7F7F7;
+	stroke: #808080;
+	stroke-dasharray: 9.143,9.143;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.37143px;
+}
+
+/* Racetracks */
+.highway-racetrack-core{
+   stroke-width: 6.857px;
+   stroke-linecap: butt;
+   stroke-linejoin: round;
+   fill: none;
+   stroke: #f0f0f0;
+}
+
+.highway-racetrack-casing-red{
+   stroke-width: 7.771px;
+   stroke-dasharray: 0.2, 0.2;
+   stroke-linecap: butt;
+   stroke-linejoin: round;
+   fill: none;
+   stroke: #ff0000;
+}
+
+.highway-racetrack-casing-white{
+   stroke-width: 7.771px;
+   stroke-linecap: butt;
+   stroke-linejoin: round;
+   fill: none;
+   stroke: #ffffff;
+}
+
+.landuse-reservoir-nam{
+	fill: #444444;
+	font-family: DejaVu Sans;
+	font-size: 10.286px;
+	font-weight: normal;
+	stroke: #FFFFFF;
+	stroke-width: 0px;
+}
+
+.landuse-res{
+	fill: #DCDED3;
+	stroke: none;
+}
+
+.landuse-retail{
+	fill: #FFEBEB;
+}
+
+.landuse-runway{
+	fill: #D4DCBD;
+}
+
+.landuse-runway-dismantled{
+	fill: #FCFFEF;
+	opacity: 0.5;
+	stroke: #808080;
+	stroke-dasharray: 2.74286,15.543;
+	stroke-width: 1.37143px;
+}
+
+.landuse-runway-disused{
+	fill: #D4DCBD;
+	stroke: #808080;
+	stroke-dasharray: 9.143,9.143;
+	stroke-width: 1.37143px;
+}
+
+.landuse-vineyard{
+	fill: #B3E08C;
+	stroke: #63A874;
+	stroke-width: 0.91429px;
+}
+
+
+.landuse-wood-casing{
+	fill: #588D33;
+	stroke: #588D33;
+	stroke-width: 2.28571px;
+}
+
+.landuse-wood-core{
+	fill: #C5E3AF;
+	stroke: none;
+}
+
+.landuse-wood-coniferous {
+fill: url(#wood-coniferous-pattern);
+stroke: none;
+}
+
+.landuse-wood-deciduous {
+fill: url(#wood-deciduous-pattern);
+stroke: none;
+}
+
+.landuse-wood-mixed {
+fill: url(#wood-mixed-pattern);
+stroke: none;
+}
+
+.leisure-park{
+	fill: #C7F1A3;
+	stroke: #6FC18E;
+	stroke-width: 0.91429px;
+}
+
+.leisure-stadium{
+	fill: #BDE3CB;
+	stroke: #6FC18E;
+	stroke-width: 0.91429px;
+}
+
+.leisure-trk{
+	fill: #BDE3CB;
+	stroke: #6FC18E;
+	stroke-width: 0.91429px;
+}
+
+.lineend-butt {
+	stroke-linecap: butt;
+}
+
+.lineend-round {
+	stroke-linecap: round;
+}
+
+.map-background{
+	fill: none;
+	stroke: none;
+}
+
+.map-border-casing{
+	fill: none;
+	stroke: #8080FF;
+	stroke-dasharray: none;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	stroke-opacity: 1;
+	stroke-width: 13.714px;
+}
+
+.map-border-core{
+	fill: none;
+	fill-opacity: 1;
+	fill-rule: nonzero;
+	stroke: #FFFFFF;
+	stroke-dashoffset: -4.57143px;
+	stroke-miterlimit: 0;
+	stroke-opacity: 1;
+	stroke-width: 9.143px;
+}
+
+.map-grid-line{
+	fill: none;
+	stroke: #8080FF;
+	stroke-opacity: 0.5;
+	stroke-width: 0.45714px;
+}
+
+.map-marginalia-background{
+	fill: #FFFFFF;
+}
+
+.map-scale-bookend{
+	fill: none;
+	stroke: #8080FF;
+	stroke-linecap: butt;
+	stroke-width: 4.571px;
+}
+
+.map-scale-caption{
+	fill: #8080FF;
+	font-family: DejaVu Sans;
+	font-size: 45.714px;
+}
+
+.map-scale-casing{
+	fill: none;
+	stroke: #8080FF;
+	stroke-linecap: butt;
+	stroke-width: 18.286px;
+}
+
+.map-scale-core{
+	fill: none;
+	stroke: #FFFFFF;
+	stroke-linecap: butt;
+	stroke-width: 13.714px;
+}
+
+.map-title{
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 91.429px;
+	text-anchor: middle;
+}
+
+.map-title-background{
+	fill: #FFFFFF;
+}
+
+.natural-beach{
+	fill: #EECC55;
+	stroke: none;
+}
+
+.natural-coastline{
+	fill: #B5D6F1;
+	stroke: #B5D6F1;
+	stroke-width: 1.82857px;
+}
+
+.natural-land{
+	fill: #FFFFFF;
+	stroke: #E0E0E0;
+	stroke-width: 0.91429px;
+}
+
+.natural-heath-casing{
+   fill: #7C8C33;
+   stroke: #7C8C33;
+   stroke-width: 2.28571px;
+}
+
+.natural-heath-core{
+   fill: #95BA37;
+   stroke: none;
+}
+
+.natural-marsh-core{
+   fill: url(#marsh-pattern);
+}
+
+.natural-water-casing{
+	opacity: 1;
+}
+
+.natural-water-core{
+	opacity: 1;
+}
+
+.oneway-casing-0{
+	fill: none;
+	stroke: #404040;
+	stroke-linecap: butt;
+}
+
+.oneway-casing-1{
+	stroke-dasharray: 36.571,512;
+	stroke-dashoffset: 421.943;
+	stroke-width: 1.82857px;
+}
+
+.oneway-casing-2{
+	stroke-dasharray: 4.571,544;
+	stroke-dashoffset: 395.429;
+	stroke-width: 4.343px;
+}
+
+.oneway-casing-3{
+	stroke-dasharray: 5.486,543.086;
+	stroke-dashoffset: 394.971;
+	stroke-width: 3.657px;
+}
+
+.oneway-casing-4{
+	stroke-dasharray: 7.314,541.257;
+	stroke-dashoffset: 394.971;
+	stroke-width: 2.97143px;
+}
+
+.oneway-casing-5{
+	stroke-dasharray: 9.143,539.429;
+	stroke-dashoffset: 394.971;
+	stroke-width: 2.28571px;
+}
+
+.oneway-casing-6{
+	stroke-dasharray: 10.971,537.6;
+	stroke-dashoffset: 394.971;
+	stroke-width: 1.6px;
+}
+
+.oneway-casing-7{
+	stroke-dasharray: 12.8,535.771;
+	stroke-dashoffset: 394.971;
+	stroke-width: 1.14286px;
+}
+
+.oneway-casing-8{
+	stroke-dasharray: 14.629,533.943;
+	stroke-dashoffset: 394.971;
+	stroke-width: 0.45714px;
+}
+
+.oneway-core-0{
+	fill: none;
+	stroke: #4D50FF;
+	stroke-linecap: butt;
+}
+
+.oneway-core-w0{
+	fill: none;
+	stroke: #FFFFFF;
+	stroke-linecap: butt;
+}
+.oneway-core-1{
+	stroke-dasharray: 35.657,512.914;
+	stroke-dashoffset: 421.486;
+	stroke-width: 1.37143px;
+}
+
+.oneway-core-2{
+	stroke-dasharray: 3.657,544.914;
+	stroke-dashoffset: 394.971;
+	stroke-width: 3.886px;
+}
+
+.oneway-core-3{
+	stroke-dasharray: 5.486,543.086;
+	stroke-dashoffset: 394.971;
+	stroke-width: 3.2px;
+}
+
+.oneway-core-4{
+	stroke-dasharray: 7.314,541.257;
+	stroke-dashoffset: 394.971;
+	stroke-width: 2.51429px;
+}
+
+.oneway-core-5{
+	stroke-dasharray: 9.143,539.429;
+	stroke-dashoffset: 394.971;
+	stroke-width: 1.82857px;
+}
+
+.oneway-core-6{
+	stroke-dasharray: 10.971,537.6;
+	stroke-dashoffset: 394.971;
+	stroke-width: 1.37143px;
+}
+
+.oneway-core-7{
+	stroke-dasharray: 12.8,535.771;
+	stroke-dashoffset: 394.971;
+	stroke-width: 0.68571px;
+}
+
+.otherway-casing-0{
+	fill: none;
+	stroke: #404040;
+	stroke-linecap: butt;
+}
+
+.otherway-casing-1{
+	stroke-dasharray: 36.571,512;
+	stroke-dashoffset: 410.057;
+	stroke-width: 1.82857px;
+}
+
+.otherway-casing-2{
+	stroke-dasharray: 4.571,544;
+	stroke-dashoffset: 404.571;
+	stroke-width: 4.343px;
+}
+
+.otherway-casing-3{
+	stroke-dasharray: 5.486,543.086;
+	stroke-dashoffset: 405.943;
+	stroke-width: 3.657px;
+}
+
+.otherway-casing-4{
+	stroke-dasharray: 7.314,541.257;
+	stroke-dashoffset: 407.771;
+	stroke-width: 2.97143px;
+}
+
+.otherway-casing-5{
+	stroke-dasharray: 9.143,539.429;
+	stroke-dashoffset: 409.6;
+	stroke-width: 2.28571px;
+}
+
+.otherway-casing-6{
+	stroke-dasharray: 10.971,537.6;
+	stroke-dashoffset: 411.429;
+	stroke-width: 1.6px;
+}
+
+.otherway-casing-7{
+	stroke-dasharray: 12.8,535.771;
+	stroke-dashoffset: 413.257;
+	stroke-width: 1.14286px;
+}
+
+.otherway-casing-8{
+	stroke-dasharray: 14.629,533.943;
+	stroke-dashoffset: 415.086;
+	stroke-width: 0.45714px;
+}
+
+.otherway-core-0{
+	fill: none;
+	stroke: #4D50FF;
+	stroke-linecap: butt;
+}
+
+.otherway-core-1{
+	stroke-dasharray: 35.657,512.914;
+	stroke-dashoffset: 409.691;
+	stroke-width: 1.37143px;
+}
+
+.otherway-core-2{
+	stroke-dasharray: 3.657,544.914;
+	stroke-dashoffset: 404.114;
+	stroke-width: 3.886px;
+}
+
+.otherway-core-3{
+	stroke-dasharray: 5.486,543.086;
+	stroke-dashoffset: 405.943;
+	stroke-width: 3.2px;
+}
+
+.otherway-core-4{
+	stroke-dasharray: 7.314,541.257;
+	stroke-dashoffset: 407.771;
+	stroke-width: 2.51429px;
+}
+
+.otherway-core-5{
+	stroke-dasharray: 9.143,539.429;
+	stroke-dashoffset: 409.6;
+	stroke-width: 1.82857px;
+}
+
+.otherway-core-6{
+	stroke-dasharray: 10.971,537.6;
+	stroke-dashoffset: 411.429;
+	stroke-width: 1.37143px;
+}
+
+.otherway-core-7{
+	stroke-dasharray: 12.8,535.771;
+	stroke-dashoffset: 413.257;
+	stroke-width: 0.68571px;
+}
+
+.osmarender-mask-black{
+	stroke: #000000;
+}
+
+.osmarender-mask-white{
+	stroke: #FFFFFF;
+}
+
+.osmarender-no-marker-end{
+	marker-end: none;
+}
+
+.osmarender-no-marker-start{
+	marker-start: none;
+}
+
+.osmarender-stroke-linecap-butt{
+	stroke-linecap: butt;
+}
+
+.osmarender-stroke-linecap-round{
+	stroke-linecap: round;
+}
+
+.osmarender-stroke-linecap-square{
+	stroke-linecap: square;
+}
+
+
+.park-nam{
+	fill: #444444;
+	font-family: DejaVu Sans;
+	font-size: 10.286px;
+	font-weight: normal;
+	stroke: #FFFFFF;
+	stroke-width: 0px;
+}
+
+/* surface lifts */
+.piste-lift-t-bar-marker{
+   marker-start: url(#marker-piste-lift-t-bar);
+}
+
+.piste-lift-rope-tow{
+   fill: none;
+   stroke: #A47C41;
+   stroke-width: 2.28571px;
+   stroke-dasharray: 1, 1;
+   stroke-linecap: square;
+}
+
+.piste-lift-magic-carpet{
+   fill: none;
+   stroke: #101010;
+   stroke-width: 3.657px;
+}
+
+/* Piste maps */
+.piste-core{
+   fill: none;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+   stroke-width: 22.857px;
+   opacity: 0.8;
+}
+
+.piste-difficulty-novice{
+   stroke: #31FF31;
+}
+
+.piste-difficulty-easy{
+   stroke: #3131FF;
+}
+
+.piste-difficulty-intermediate{
+   stroke: #FF3131;
+}
+
+.piste-difficulty-advanced{
+   stroke: #060606;
+}
+
+.piste-difficulty-expert{
+   stroke: #F6800a;
+}
+
+.piste-difficulty-freeride{
+   stroke: #F6dd0A;
+}
+
+.piste-difficulty-other{
+   stroke: #505050;
+}
+
+.piste-type-sled{
+   fill: none;
+   stroke: #CDADBDE;
+   stroke-width: 11.429px;
+   marker-start: url(#marker-piste-type-sled);
+}
+
+.piste-type-nordic{
+   fill: none;
+   stroke: #C00000;
+   stroke-width: 4.571px;
+   stroke-dasharray: 3, 0.5;
+   marker-start: url(#marker-piste-type-nordic);
+}
+
+.piste-downhill-nam{
+   fill: #FFFFFF;
+   font-family: DejaVu Sans, sans-serif;
+   font-weight: normal;
+   font-size: 22.857px;
+   text-anchor: middle;
+}
+
+.piste-downhill-ref{
+   fill: #000000;
+   font-family: DejaVu Sans, sans-serif;
+   font-weight: normal;
+   font-size: 22.857px;
+   text-anchor: middle;
+}
+
+.man-made-piste-halfpipe{
+   fill: #A0F0FF;
+   stroke: #00bcdf;
+   stroke-width: 1.82857px;
+}
+
+.power-line{
+	fill: none;
+	stroke: #CCCCCC;
+	stroke-dasharray: 18.286,18.286;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.45714px;
+}
+
+.railway-casing{
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.railway-core{
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.railway-halt{
+	fill: #666666;
+	stroke: #000000;
+	stroke-width: 0.91429px;
+}
+
+.railway-light-rail-bri-casing{
+	stroke-width: 3.657px;
+}
+
+.railway-light-rail-bri-core{
+	stroke-width: 2.74286px;
+}
+
+.railway-light-rail-casing{
+	stroke: #666666;
+	stroke-width: 1.82857px;
+}
+
+.railway-light-rail-core{
+	stroke: #666666;
+	stroke-width: 1.37143px;
+}
+
+.railway-monorail-bri-casing{
+	stroke-width: 6.4px;
+}
+
+.railway-monorail-bri-core{
+	stroke-width: 5.486px;
+}
+
+.railway-monorail-casing{
+	stroke: #666666;
+	stroke-width: 4.571px;
+}
+
+.railway-monorail-core{
+	stroke: #A65CA3;
+	stroke-width: 3.657px;
+}
+
+.railway-narrow-gauge-bri-casing{
+	stroke-width: 6.4px;
+}
+
+.railway-narrow-gauge-bri-core{
+	stroke-width: 5.486px;
+}
+
+.railway-narrow-gauge-casing{
+	stroke: #AAAAAA;
+	stroke-width: 4.571px;
+}
+
+.railway-narrow-gauge-core{
+	stroke: #AAAAAA;
+	stroke-width: 3.657px;
+}
+
+.railway-preserved-bri-casing{
+	stroke-width: 21.486px;
+}
+
+.railway-preserved-bri-core{
+	stroke-width: 16.914px;
+}
+
+.railway-preserved-casing{
+	stroke: #666666;
+	stroke-width: 2.28571px;
+}
+
+.railway-preserved-core{
+	stroke: #666666;
+	stroke-width: 2.28571px;
+}
+
+.railway-rail-2-core{
+	stroke: #666666;
+	stroke-dasharray: 13.714,13.714;
+	stroke-dashoffset: 13.714;
+	stroke-width: 3.2px;
+}
+
+.railway-rail-bri-casing{
+	stroke-width: 5.486px;
+}
+
+.railway-rail-bri-core{
+	stroke-width: 4.571px;
+}
+
+.railway-rail-casing{
+	stroke: #555555;
+	stroke-width: 3.2px;
+}
+
+.railway-rail-core{
+	stroke: #FFFFFF;
+	stroke-dasharray: 13.714,13.714;
+	stroke-width: 2.83429px;
+}
+
+.railway-station{
+	fill: #FFFFFF;
+	stroke: #666666;
+	stroke-width: 1.14286px;
+}
+
+.railway-subway-bri-casing{
+	stroke-width: 4.571px;
+}
+
+.railway-subway-bri-core{
+	stroke-width: 3.657px;
+}
+
+.railway-subway-casing{
+	stroke: #AAAAAA;
+	stroke-width: 2.74286px;
+}
+
+.railway-subway-core{
+	stroke: #FFFFFF;
+	stroke-dasharray: 18.286,54.857;
+	stroke-width: 1.82857px;
+}
+
+.railway-tram-bri-casing{
+	stroke-width: 3.657px;
+}
+
+.railway-tram-bri-core{
+	stroke-width: 2.74286px;
+}
+
+.railway-tram-casing{
+	stroke: #666666;
+	stroke-width: 1.82857px;
+}
+
+.railway-tram-core{
+	stroke: #666666;
+	stroke-width: 1.37143px;
+}
+
+.route-ferry{
+	fill: none;
+	stroke: #777777;
+	stroke-dasharray: 54.857,36.571;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 2.28571px;
+}
+
+.sac-scale-t1{
+   stroke: red;
+   stroke-width: 1.37143px;
+   fill: none;
+}
+
+.sac-scale-t2{
+   stroke-dasharray: 4.571,4.571;
+   stroke: red;
+   stroke-width: 1.37143px;
+   fill: none;
+}
+
+.sac-scale-t3{
+   stroke-dasharray: 0.36571,5.486;
+   stroke-linecap: round;
+   stroke: red;
+   stroke-width: 1.37143px;
+   fill: none;
+}
+
+.sac-scale-t4{
+   stroke: blue;
+   stroke-width: 1.37143px;
+   fill: none;
+}
+
+.sac-scale-t5{
+   stroke-dasharray: 4.571,4.571;
+   stroke: blue;
+   stroke-width: 1.37143px;
+   fill: none;
+}
+
+.sac-scale-t6{
+   stroke-dasharray: 0.04, 0.6;
+   stroke-linecap: round;
+   stroke: blue;
+   stroke-width: 1.37143px;
+   fill: none;
+}
+.sport{
+	fill: #BDE3CB;
+	stroke: #6FC18E;
+	stroke-width: 0.91429px;
+}
+
+.tourism-attraction{
+	fill: #F2CAEA;
+}
+
+.tnl-dash {
+	stroke-dasharray: 10.971,5.486;
+}
+
+.tnl-casing{
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.tnl-core{
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.under-construction{
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+
+.mask-under-construction{
+	fill: none;
+	stroke-linecap: square;
+	stroke-linejoin: round;
+}
+
+
+.wwy-are-casing{
+	fill: #647FC5;
+	stroke: #647FC5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 3.886px;
+}
+
+.wwy-are-core{
+	fill: #8EA7E5;
+	stroke: #8EA7E5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2.28571px;
+}
+
+.wwy-are-dam{
+	fill: url(#wwy-dam-pattern);
+	stroke: #000000;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.37143px;
+}
+
+.wwy-dam{
+	fill: none;
+	stroke: #000000;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.37143px;
+}
+
+.wwy-canal-casing{
+	stroke-width: 4.114px;
+}
+
+.wwy-canal-core{
+	stroke-width: 3.2px;
+}
+
+.wwy-canal-nam-casing{
+	font-size: 7.314px;
+	stroke-width: 2.28571px;
+}
+
+.wwy-canal-nam-core{
+	font-size: 7.314px;
+}
+
+.wwy-casing{
+	fill: none;
+	stroke: #647FC5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 4.571px;
+}
+
+.wwy-core{
+	fill: none;
+	stroke: #8EA7E5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.wwy-drain-casing{
+	stroke-width: 3.886px;
+}
+
+.wwy-drain-core{
+	stroke-width: 3.429px;
+}
+
+.wwy-drain-nam-casing{
+	font-size: 7.314px;
+	stroke-width: 2.28571px;
+}
+
+.wwy-drain-nam-core{
+	font-size: 7.314px;
+}
+
+.wwy-nam-casing{
+	fill: #EEEEEE;
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	stroke: #EEEEEE;
+	stroke-miterlimit: 1.5;
+	text-anchor: middle;
+}
+
+.wwy-nam-core{
+	fill: #8EA7E5;
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	stroke: none;
+	stroke-miterlimit: 1.5;
+	text-anchor: middle;
+}
+
+.wwy-riverbank-casing{
+	opacity: 1;
+}
+
+.wwy-riverbank-core{
+	opacity: 1;
+}
+
+.wwy-river-casing{
+	stroke-width: 6.857px;
+}
+
+.wwy-river-core{
+	stroke-width: 4.571px;
+}
+
+.wwy-river-nam-casing{
+	font-size: 9.6px;
+	stroke-width: 2.28571px;
+}
+
+.wwy-river-nam-core{
+	font-size: 9.6px;
+}
+
+.wwy-stream-casing{
+	stroke-width: 2.28571px;
+}
+
+.wwy-stream-core{
+	stroke-width: 1.82857px;
+}
+
+.wwy-stream-nam-casing{
+	font-size: 7.314px;
+	stroke-width: 2.28571px;
+}
+
+.wwy-stream-nam-core{
+	font-size: 7.314px;
+}
+
+.bridge-shadow{
+	stroke-width: 9.143px;
+	stroke: #808080;
+	fill: none;
+	filter:url(#filter-bri-shadow)
+}
+]]>
+		</style>
+		<svg:filter id="filter-bri-shadow">
+			<svg:feGaussianBlur id="blur" stdDeviation="0.4" />
+		</svg:filter>
+
+		<svg:pattern id="cemetery-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="scale(2.28571)">
+			<svg:rect fill="#bde3cb" width="10" height="10" x="0" y="0" />
+			<svg:path fill="#919191" stroke-width="0.1" d="M 1.48,0.13 C 2.12,0.13 2.63,0.64 2.63,1.28 L 2.63,4.27 L 0.33,4.27 L 0.33,1.28 C 0.33,0.64 0.85,0.13 1.48,0.13 z " />
+			<svg:path fill="#919191" stroke-width="0.1" d="M 6.64,5.78 C 7.27,5.78 7.79,6.29 7.79,6.92 L 7.79,9.91 L 5.49,9.91 L 5.49,6.92 C 5.49,6.29 6.00,5.78 6.64,5.78 z " />
+		</svg:pattern>
+
+		<svg:pattern id="cemetery-christian-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="scale(2.28571)">
+			<svg:rect fill="#bde3cb" width="11" height="11" x="0" y="0" />
+			<svg:path stroke="black" stroke-width="0.2" d="M1,1 L3,1 M2,0 L2,3 M6,6 L8,6 M7,5 L7,8"/>
+		</svg:pattern>
+
+		<svg:pattern id="pedestrian-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+			<svg:path d="M0,10 L10,0" fill="none" stroke="red" width="1"/>
+		</svg:pattern>
+
+		<svg:pattern x="0" y="0" width="200" height="200"
+		   id="wood-deciduous-pattern"
+		   patternUnits="userSpaceOnUse" patternTransform="scale(0.27429)">
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1" />
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 77,101 C 70,101 63,107 63,114 C 63,116 63,118 65,120 C 61,122 58,126 58,129 C 58,136 66,143 78,143 L 78,163 L 87,163 L 87,143 C 98,143 107,136 107,129 C 107,126 105,123 102,121 C 105,114 95,104 87,106 C 86,103 83,101 77,101" />
+		</svg:pattern>
+
+		<svg:pattern x="0" y="0" width="200" height="200"
+		   id="wood-coniferous-pattern"
+		   patternUnits="userSpaceOnUse" patternTransform="scale(0.27429)">
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 15,24 L 25,24 L 10,39 L 25,39 L 5,54 L 25,54 L 25,64 L 35,64 L 35,54 L 55,54 L 35,39 L 50,39 L 35,24 L 45,24 L 30,4 L 15,24" />
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 65,124 L 75,124 L 60,139 L 75,139 L 55,154 L 75,154 L 75,164 L 85,164 L 85,154 L 105,154 L 85,139 L 100,139 L 85,124 L 95,124 L 80,104 L 65,124" />
+		</svg:pattern>
+
+		<svg:pattern x="0" y="0" width="300" height="200"
+		   id="wood-mixed-pattern"
+		   patternUnits="userSpaceOnUse" patternTransform="scale(0.27429)">
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1"          />
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 65,54 L 75,54 L 60,69 L 75,69 L 55,84 L 75,84 L 75,94 L 85,94 L 85,84 L 105,84 L 85,69 L 100,69 L 85,54 L 95,54 L 80,34 L 65,54" />
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 165,104 L 175,104 L 160,119 L 175,119 L 155,134 L 175,134 L175,144 L 185,144 L 185,134 L 205,134 L 185,119 L 200,119 L 185,104 L 195,104 L 180,84 L 165,104"        />
+			<svg:path stroke="#9FB88C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 227,101 C 220,101 213,107 213,114 C 213,116 213,118 215,120 C 211,122 208,126 208,129 C 208,136 216,143 228,143 L 228,163 L 237,163 L 237,143 C 248,143 257,136 257,129 C 257,126 255,123 252,121 C 255,114 245,104 237,106 C 236,103 233,101 227,101"  />
+		</svg:pattern>
+
+		<svg:pattern id="marsh-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="scale(3.657)">
+			<svg:path stroke="#007F00" stroke-width="0.2" stroke-linecap="round" d="M 0,4 C 1.33,4 2.67,4 4,4 M 2,4 C 2,3 2,2 2,1 M 3,3 L 2,4 M 3,2 L 2,4 M 1,3 L 2,4 M 1,2 L 2,4 M 7,9 L 10,9 M 2,9 C 3,9 4,9 5,9 M 6,4 C 6.71,4 7.35,4 8,4 M 2,6 C 2.67,6 3.33,6 4,6 M 7,1 C 7.70,1 8.33,1 9,1 M 0,9 L 1,9 M 9,6 L 9,9 M 10,7 L 9,9 M 10,8 L 9,9 M 8,8 L 9,9 M 8,7 L 9,9"/>
+		</svg:pattern>
+
+		<svg:pattern id="wwy-dam-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(1.37143)">
+			<svg:path fill="none" stroke="#000000" stroke-width="0.2" d="M5,0 L0,5 " />
+		</svg:pattern>
+
+		<svg:pattern id="access-private-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(1.37143)">
+			<svg:path fill="none" stroke="#ff4040" stroke-width="0.2" d="M5,0 L0,5 M0,0 L5,5" />
+		</svg:pattern>
+		<svg:pattern id="access-permissive-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(1.37143)">
+			<svg:path fill="none" stroke="#40ff40" stroke-width="0.2" d="M5,0 L0,5 M0,0 L5,5" />
+		</svg:pattern>
+		<svg:pattern id="access-destination-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(1.37143)">
+			<svg:path fill="none" stroke="#4040ff" stroke-width="0.2" d="M5,0 L0,5 M0,0 L5,5" />
+		</svg:pattern>
+		<svg:pattern id="access-no-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(1.37143)">
+			<svg:path fill="none" stroke="#ff4040" stroke-width="0.2" d="M5,0 L0,5 M0,0 L5,5" />
+		</svg:pattern>
+
+		<svg:pattern id="brownfield-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(4.571)">
+			<svg:path fill="#E8C5B5" stroke="#B5988B;" stroke-width="0.4" d="M5,0 L0,5 M0,0 L5,5" />
+		</svg:pattern>
+
+		<svg:marker
+			id="bridge-casing-start"
+			fill='none'
+			stroke-width='0.1px'
+			stroke='#777777'
+			markerWidth="1px"
+			markerHeight="1px"
+			orient="auto">
+			<svg:path d="M-0.25,0.75 L0.5,0 L-0.25,-0.75" />
+		</svg:marker>
+
+		<svg:marker
+			id="bridge-casing-end"
+			fill='none'
+			stroke-width='0.1px'
+			stroke='#777777'
+			markerWidth="1px"
+			markerHeight="1px"
+			orient="auto">
+			<svg:path d="M0.25,0.75 L-0.5,0 L0.25,-0.75" />
+		</svg:marker>
+
+		<svg:marker
+			id="marker-tnl-start"
+			viewBox="0 0 10 10"
+			refX="5px" refY="5px"
+			markerUnits="strokeWidth"
+			fill='none'
+			stroke-width='0.5px'
+			stroke='#777777'
+			markerWidth="2px"
+			markerHeight="2px"
+			orient="auto">
+			<svg:path d="M 4,1 A5,4.25 0 0,1 4,9" />
+		</svg:marker>
+
+		<svg:marker
+			id="marker-tnl-end"
+			viewBox="0 0 10 10"
+			refX="5px" refY="5px"
+			markerUnits="strokeWidth"
+			fill='none'
+			stroke-width='0.5px'
+			stroke='#777777'
+			markerWidth="2px"
+			markerHeight="2px"
+			orient="auto">
+			<svg:path d="M 6,1 A5,4.25 0 0,0 6,9" />
+		</svg:marker>
+
+		<svg:marker
+			id="marker-gate-locked"
+			viewBox="0 0 10 10"
+			refX="2px" refY="5px"
+			markerUnits="userSpaceOnUse"
+			fill='none'
+			stroke-width='0.5px'
+			stroke='#777777'
+			markerWidth="3px"
+			markerHeight="3px"
+			orient="auto">
+			<svg:path d="M 1,0 L 1,10 M 3,0 L 3,10" />
+		</svg:marker>
+
+		<svg:marker
+			id="marker-gate-closed"
+			viewBox="0 0 10 10"
+			refX="1px" refY="5px"
+			markerUnits="userSpaceOnUse"
+			fill='none'
+			stroke-width='0.5px'
+			stroke='#777777'
+			markerWidth="3px"
+			markerHeight="3px"
+			orient="auto">
+			<svg:path d="M 1,0 L 1,10" />
+		</svg:marker>
+
+		<svg:marker
+			id="marker-gate-open"
+			viewBox="0 0 10 10"
+			refX="1px" refY="5px"
+			markerUnits="userSpaceOnUse"
+			fill='none'
+			stroke-width='0.5px'
+			stroke='#777777'
+			markerWidth="3px"
+			markerHeight="3px"
+			orient="auto">
+			<svg:path d="M1,0 L1,2 M1,4 L1,6 M1,8 L1,10" />
+		</svg:marker>
+
+
+
+		<!-- aerialway and surface lift icons -->
+		<svg:marker id="marker-cablecar" viewBox="0 0 10 9" refX="-18px" refY="0px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="10px" markerHeight="10px" orient="auto">
+			<svg:path d="M 2.9,2.7 L 0,2.7 L 0,8.8 L 10,8.8 L 10,2.7 L 7.3,2.7 L 5.7,0.1 L 4.5,0 L 2.9,2.7 z M 5,0.3 L 6.3,2.7 L 3.8,2.7 L 5,0.3 z M 6.5,3.3 L 6.5,5.2 L 3.8,5.2 L 3.8,3.3 L 6.5,3.3 z M 0.9,3.3 L 3,3.3 L 3,5.2 L 0.9,5.2 L 0.9,3.3 z M 9.4,3.3 L 9.4,5.2 L 7.2,5.2 L 7.2,3.3 L 9.4,3.3 z"/>
+		</svg:marker>
+		<svg:marker id="marker-gondola" viewBox="0 0 10 11" refX="-30px" refY="0px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="9px" markerHeight="10px" orient="auto">
+			<svg:path d="M 4.6,0 L 4.6,2.9 L 1.4,2.9 C 0,3.5 0.2,10.7 1.3,11.1 L 8.7,11.1 C 9.7,10.6 10,4 8.6,2.9 L 5.6,2.9 L 5.6,0 L 4.6,0 z M 4.5,3.8 L 4.5,6.5 L 1.4,6.5 L 1.4,3.8 L 4.5,3.8 z M 5.6,3.8 L 8.5,3.8 L 8.5,6.5 L 5.6,6.5 L 5.6,3.8 z"/>
+		</svg:marker>
+		<svg:marker id="marker-chair-lift-2" viewBox="0 0 10 22" refX="-25px" refY="0px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="5px" markerHeight="11px" orient="auto">
+			<svg:path d="M 3.6,0 L 3.6,4.3 L 0,6.2 L 0,17.5 L 5.1,17.5 L 5.1,16.6 L 1.1,16.6 L 1.1,6.6 L 7.4,3.4 L 7.4,12.3 L 8.5,12.3 L 8.5,1.7 L 4.9,3.6 L 4.9,0 L 3.6,0 z M 5.7,4.7 C 5.1,4.7 4.5,5.3 4.5,6.2 C 4.5,6.8 5.1,7.5 5.7,7.5 C 6.4,7.5 7,6.8 7,6.2 C 7,5.3 6.4,4.7 5.7,4.7 z M 3,6.4 C 2.3,6.4 1.7,7 1.7,7.9 C 1.7,8.5 2.3,9.2 3,9.2 C 3.6,9.2 4.3,8.5 4.3,7.9 C 4.3,7 3.6,6.4 3,6.4 z M 4.5,7.7 L 4.5,14.5 L 8.5,14.5 L 8.5,19.6 L 10,19.6 L 10,13 L 7,13 L 7,7.7 L 4.5,7.7 z M 1.7,9.4 L 1.7,16.2 L 5.7,16.2 L 5.7,21.3 L 7.2,21.3 L 7.2,14.7 L 4.3,14.7 L 4.3,9.4 L 1.7,9.4 z"/>
+		</svg:marker>
+		<svg:marker id="marker-chair-lift-4" viewBox="0 0 10 17" refX="-20px" refY="0px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="6px" markerHeight="10px" orient="auto">
+			<svg:path d="M 4.3,0 L 4.3,3.3 L 0,5.7 L 0,14.3 L 2.9,14.3 L 2.9,13.5 L 0.7,13.5 L 0.7,6.7 L 8.6,2 L 8.6,8.5 L 9.3,8.5 L 9.3,0.4 L 5,2.8 L 5,0 L 4.3,0 z M 7.4,3.4 C 7,3.4 6.6,3.8 6.6,4.3 C 6.6,4.7 7,5.1 7.4,5.1 C 7.9,5.1 8.3,4.7 8.3,4.3 C 8.3,3.8 7.9,3.4 7.4,3.4 z M 5.6,4.5 C 5.1,4.5 4.7,4.9 4.7,5.4 C 4.7,5.9 5.1,6.3 5.6,6.3 C 6,6.3 6.4,5.9 6.4,5.4 C 6.4,4.9 6,4.6 5.6,4.5 z M 6.6,5.3 L 6.6,9.8 L 9,9.8 L 9,13.3 L 10,13.3 L 10,8.8 L 8.3,8.8 L 8.3,5.3 L 6.6,5.3 z M 3.7,5.7 C 3.2,5.7 2.9,6.1 2.9,6.5 C 2.9,7 3.2,7.4 3.7,7.4 C 4.2,7.4 4.6,7 4.6,6.5 C 4.6,6.1 4.2,5.7 3.7,5.7 z M 4.7,6.4 L 4.7,11 L 7.4,11 L 7.4,14.3 L 8.4,14.3 L 8.4,10 L 6.4,10 L 6.4,6.4 L 4.7,6.4 z M 1.9,6.7 C 1.4,6.7 1,7.1 1,7.5 C 1,8 1.4,8.4 1.9,8.4 C 2.3,8.4 2.7,8 2.7,7.5 C 2.7,7.1 2.3,6.7 1.9,6.7 z M 2.8,7.5 L 2.8,12.3 L 5.6,12.3 L 5.6,15.5 L 6.6,15.5 L 6.6,11.1 L 4.6,11.1 L 4.6,7.5 L 2.8,7.5 z M 1,8.5 L 1,13.3 L 3.6,13.3 L 3.6,16.4 L 4.6,16.4 L 4.6,12.4 L 2.7,12.4 L 2.7,8.6 L 1,8.5 z"/>
+		</svg:marker>
+		<svg:marker id="marker-piste-lift-t-bar" viewBox="0 0 10 13" refX="-5px" refY="0px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="8px" markerHeight="10px" orient="auto">
+			<svg:path d="M 8.1,0 L 5.1,3.2 L 0,3.2 L 0.6,7.1 L 4.5,11.6 L 0,12.9 L 0,13.2 L 9.6,10.3 L 10,9.6 L 9.6,10 L 5.6,11.1 L 2.1,7.4 L 8.7,0 L 8.1,0 z M 1,0.6 C 0.4,0.6 0,1.1 0,1.6 C 0,2.1 0.4,2.6 1,2.6 C 1.5,2.6 1.9,2.1 1.9,1.6 C 1.9,1.1 1.5,0.6 1,0.6 z M 1.9,3.9 L 4.5,3.9 L 1.9,6.8 L 1.9,3.9 z"/>
+		</svg:marker>
+		<svg:marker id="marker-mixed-lift" viewBox="0 0 10 6" refX="-15px" refY="0px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="14px" markerHeight="9px" orient="auto">
+			<svg:path d="M 1.6,0.1 L 1.6,2.9 L 0,3.9 L 0,7.1 L 1.1,7.1 L 1.1,6.8 L 0.3,6.8 L 0.3,4.1 L 3.5,2.3 L 3.5,4.8 L 3.8,4.8 L 3.8,1.7 L 2.1,2.6 L 2.1,0.1 L 7.5,0.1 L 7.5,1.8 L 5.9,1.9 C 5.8,1.9 5.8,2 5.7,2.1 C 5.5,2.8 5.4,3.3 5.4,4.6 C 5.4,5.3 5.5,6.8 5.8,7.1 L 9.5,7.2 C 9.9,6.9 10,5.2 10,4.6 C 10,3.4 9.9,2.6 9.7,2.1 C 9.6,2 9.6,1.9 9.5,1.9 L 8,1.8 L 8,0 L 1.6,0.1 z M 8,2.4 L 9.5,2.4 L 9.5,4.2 L 8,4.2 L 8,2.4 z M 7.5,2.4 L 7.5,4.2 L 5.9,4.2 L 5.9,2.5 L 7.5,2.4 z M 3,2.6 C 2.6,2.7 2.6,3.2 2.9,3.4 C 3.1,3.4 3.2,3.4 3.3,3.3 C 3.5,3 3.3,2.6 3,2.6 z M 2.3,3.1 C 1.9,3.1 1.8,3.7 2.1,3.8 C 2.3,3.9 2.5,3.8 2.6,3.7 C 2.7,3.5 2.6,3.1 2.3,3.1 z M 2.7,3.4 L 2.7,5.4 L 3.8,5.3 L 3.8,6.8 C 3.9,6.8 4.2,6.8 4.3,6.8 L 4.2,4.9 L 3.4,4.9 L 3.4,3.4 L 2.7,3.4 z M 1.5,3.6 C 1.1,3.6 1,4.1 1.4,4.3 C 1.5,4.3 1.6,4.3 1.7,4.3 C 2,4.1 1.9,3.6 1.5,3.6 z M 1.9,3.9 L 1.9,5.8 L 3.1,5.8 L 3.1,7.3 C 3.2,7.3 3.4,7.3 3.5,7.3 L 3.5,5.4 L 2.7,5.4 L 2.7,3.9 L 1.9,3.9 z M 0.8,4 C 0.7,4 0.7,4.1 0.6,4.1 C 0.3,4.2 0.3,4.7 0.7,4.8 C 0.8,4.8 1,4.7 1.1,4.6 C 1.2,4.4 1,4 0.8,4 z M 1.2,4.4 L 1.2,6.3 L 2.3,6.3 L 2.3,7.8 L 2.7,7.8 L 2.7,5.9 L 1.9,5.9 L 1.9,4.4 L 1.2,4.4 z M 0.4,4.9 L 0.4,6.8 L 1.5,6.8 L 1.5,8.2 L 2,8.2 L 2,6.4 L 1.1,6.4 L 1.1,4.9 L 0.4,4.9 z"/>
+		</svg:marker>
+		<svg:marker id="marker-piste-type-sled" viewBox="0 0 10 10" refX="-1px" refY="10px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="7px" markerHeight="7px" orient="auto">
+			<svg:path d="M 0,0 L 0,10 L 10,10 L 10,0 L 0,0 z M 0.1,0.1 L 9.9,0.1 L 9.9,9.9 L 0.1,9.9 L 0.1,0.1 z M 8.5,4.9 C 8.5,5.8 7.8,6.6 6.9,6.6 L 5.6,6.6 L 5.6,5.3 L 6.9,5.3 L 6.9,5 L 1.9,5 L 1.9,5.3 L 2.9,5.3 L 2.9,6.6 L 1.2,6.6 L 1.2,6.9 L 6.9,6.9 C 7.9,6.9 8.7,5.9 8.7,4.9 L 8.5,4.9 z M 3.1,5.3 L 5.4,5.3 L 5.4,6.6 L 3.1,6.6 L 3.1,5.3 z"/>
+		</svg:marker>
+		<svg:marker id="marker-piste-type-nordic" viewBox="0 0 10 10" refX="-1px" refY="10px" markerUnits="userSpaceOnUse" fill="#000000" stroke="none" markerWidth="7px" markerHeight="7px" orient="auto">
+			<svg:path d="M 0,0 L 0,10 L 10,10 L 10,0 L 0,0 z M 0.1,0.1 L 9.9,0.1 L 9.9,9.9 L 0.1,9.9 L 0.1,0.1 z M 7,1.1 C 6.6,1.1 6.3,1.4 6.3,1.7 C 6.3,2.1 6.6,2.4 7,2.4 C 7.3,2.4 7.6,2.1 7.6,1.7 C 7.6,1.4 7.3,1.1 7,1.1 z M 6,2.2 L 4.4,2.5 L 3.5,3.7 L 3.5,3.8 L 0.5,3.8 L 0.5,3.9 L 3.5,3.9 L 3.6,4 L 3.7,3.9 L 4.5,2.9 L 5.3,2.9 L 4.1,4.3 L 3,6.1 L 1,6.9 L 1.3,7.1 L 3.3,6.4 L 4.6,5.2 L 5.8,6.3 L 5.4,8.5 L 5.8,8.5 L 6.3,6.3 L 5.1,4.8 L 6.5,3.1 L 7.6,3.9 L 8.5,3.1 L 7.7,8.6 L 3.5,8.6 L 0.8,6.9 L 0.4,6.9 L 3.1,8.6 L 2.1,8.6 L 2.1,8.9 L 8.8,8.9 L 9.2,8.4 L 8.7,8.6 L 7.9,8.6 L 8.6,3 L 8.7,2.9 L 8.7,2.6 L 7.6,3.4 L 6.5,2.6 L 6,2.2 z"/>
+		</svg:marker>
+
+		<svg:symbol
+		  id="church"
+		  viewBox="0 0 5 10"
+		  fill='#000000'>
+			<svg:path d="M 0 10 L 0 5 L 5 5 L 5 10 z M 0 2 L 5 2 L 5 3 L 0 3 z M 2 0 L 2 5 L 3 5 L 3 0 z" />
+		</svg:symbol>
+
+		<svg:symbol
+		  id="mosque"
+		  viewBox="0 0 120 120"
+		  fill='#00ab00'>
+			<svg:path d="M 4,60 C 11,75 60,107 84,73 C 103,40 76,22 50,7 C 76,6 130,35 103,84 C 72,124 8,97 4,60 z M 35,52 C 35,52 20,55 20,55 L 30,43 C 30,43 21,30 21,30 L 35,35 L 45,23 L 45,38 L 60,45 L 45,50 L 45,65 L 35,52 z"/>
+		</svg:symbol>
+
+		<svg:symbol
+		  id="synagogue"
+		  viewBox="0 0 20 20"
+		  stroke='#0000d0'
+		  fill='none'
+		  stroke-width="1.5px"
+		  stroke-linecap="butt"
+		  stroke-linejoin="miter">
+			<svg:path d="M 10,0 L 20,15 L 0,15 L 10,0 z M 10,20 L 0,5 L 20,5 L 10,20 z" />
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+		  id="campSite"
+		  viewBox="0 0 100 100"
+		  fill='#0000dc'
+		  fill-opacity="1">
+			<svg:path d="M 35,0 L 50,24 L 65,0 L 80,0 L 60,35 L 100,100 L 0,100 L 40,35 L 20,0 L 35,0 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+		  id="airport"
+		  viewBox="0 0 10 10"
+		  fill="black"
+		  fill-opacity="1"
+		  fill-rule="evenodd"
+		  stroke="none">
+			<svg:path d="M 9.2,5 C 9.2,4.5 9.8,3.2 10,3 L 9,3 L 8,4 L 5.5,4 L 8,0 L 6,0 L 3,4 C 2,4 1,4.2 0.5,4.5 C 0,5 0,5 0.5,5.5 C 1,5.8 2,6 3,6 L 6,10 L 8,10 L 5.5,6 L 7.8,6 L 9,7 L 10,7 C 9.8,6.8 9.2,5.5 9.2,5 z " />
+		</svg:symbol>
+
+		<svg:symbol
+		  id="power-tower"
+		  viewBox="0 0 10 10"
+		  stroke-width='1px'
+		  stroke='#cccccc'>
+			<svg:path d="M 0 0 L 10 10 M 0 10 L 10 0" />
+		</svg:symbol>
+
+		<svg:symbol
+		  id="bar"
+		  viewBox="0 0 100 100"
+		  fill='#000000'
+		  stroke-width='0.4px'
+		  stroke='#000000'>
+			<svg:path d="M 16.8725 9.81954 L 96.3004 9.81954 L 59.4774 46.3164 L 59.4774 94.9796 C 59.575 94.9796 57.9896 100.587 84.2324 102.6 L 84.2324 103.99 L 31.0262 103.99 L 31.0275 102.6 C 56.4414 100.587 54.9906 94.9796 54.9906 94.9796 L 54.9906 46.3164 L 16.8725 9.81954 z " />
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+		  id="petrolStation"
+		  viewBox="0 0 100 100"
+		  fill='#000000'
+		  fill-rule="evenodd"
+		  stroke-width="3px">
+			<svg:path d="M 22.7283 108.087 C 4.26832 107.546 23.6818 43.3596 32.6686 21.0597 C 33.8491 17.0245 60.28 18.4952 60.0056 19.8857 C 59.0889 25.9148 54.8979 23.2429 52.0142 26.8579 L 51.7464 36.8066 C 48.6085 40.8144 40.2357 34.4677 38.078 42.8773 C 31.3694 92.5727 45.0689 108.819 22.7283 108.087 z M 85.3122 9.52799 L 29.1766 9.52847 C 28.4855 17.5896 -11.559 113.573 22.9292 113.284 C 48.5214 113.073 39.5312 104.08 42.6984 51.03 C 41.8513 49.3228 50.871 48.6585 50.8739 51.4448 L 51.0453 116.604 L 97.6129 116.188 L 97.6129 26.544 C 96.0669 24.2073 93.899 25.2958 90.584 22.394 C 87.7907 19.4131 92.2353 9.52799 85.3122 9.52799 z M 64.0766 35.3236 C 61.5443 36.7258 61.5443 45.2814 64.0766 46.6836 C 68.3819 49.0684 80.2848 49.0684 84.5902 46.6836 C 87.1225 45.2814 87.1225 36.7258 84.5902 35.3236 C 80.2848 32.9393 68.3819 32.9393 64.0766 35.3236 z "/>
+		</svg:symbol>
+
+		<svg:symbol id="fuel" viewBox="0 0 36 36">
+			<svg:rect style="fill:#0000ff" x="0" y="0" width="36" height="36" rx="2" ry="2" />
+			<svg:path style="fill:#ffffff" d="M25 31.44 a1 1 -180 0 0 1 -1 a1 1 -180 0 0 -1 -1
+        L23 29.44 a1 1 0 0 1 -1 -1 L22 12.44 a1 1 -180 0 0 -1 -1 L13 11.44 A1 1 -180 0 0 12 12.44
+        L12 22.44 a1 1 0 0 1 -1 1 L10.06 23.44 a1 1 -180 0 0 -0.113125 0.00641924 A1.76777 1.76777
+        0 0 1 8.04 22.15 a0.5 0.5 0 0 1 0.476366 -0.630495 A1.58114 1.58114 -180 0 0 10.04 19.58 a1 1 0
+        0 1 -0.0246746 -0.28636 A1.76777 1.76777 -180 0 0 8.73 17.49 a1 1 0 0 1 -0.729023 -0.962586
+        L8 14.44 A1 1 -180 0 0 7 13.44 a1 1 -180 0 0 -1 1 L6 21.37 a1 1 0 0 1 -0.00783456 0.124931
+        A3.53553 3.53553 -180 0 0 9.94 25.45 A1 1 0 0 1 10.07 25.44 L11 25.44 A1 1 0 0 1 12 26.44
+        L12 28.44 A1 1 0 0 1 11 29.44 L7 29.44 a1 1 -180 0 0 -1 1 A1 1 -180 0 0 7 31.44 L25 31.44 Z
+        M15 19.44 a1 1 0 0 1 -1 -1 L14 14.44 A1 1 0 0 1 15 13.44 L19 13.44 a1 1 0 0 1 1 1 L20 18.44
+        a1 1 0 0 1 -1 1 L15 19.44 Z
+        M0.5 37.44 L31.5 37.44 a0.5 0.5 -180 0 0 0.5 -0.5 L32 5.94 a0.5 0.5 -180 0 0 -0.5 -0.5
+        L0.5 5.44 a0.5 0.5 -180 0 0 -0.5 0.5 L0 36.94 a0.5 0.5 -180 0 0 0.5 0.5 Z
+        M2 35.44 L2 7.44 L30 7.44 L30 35.44 L2 35.44 Z" transform='translate(2,-3.44)'/>
+		</svg:symbol>
+
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+		  id="golfCourse"
+		  viewBox="0 0 100 100"
+		  fill='#000000'
+		  fill-rule="evenodd"
+		  fill-opacity="1"
+		  stroke="none">
+			<svg:path d="M 61.6421 25.2514 C 61.6421 25.2514 48.7712 34.4528 48.1727 38.766 C 47.574 43.0787 56.5537 48.8295 56.8529 52.2802 C 57.1522 55.7303 56.5537 87.3594 56.5537 87.3594 C 56.5537 87.3594 37.3978 104.036 36.7993 105.474 C 36.2006 106.912 41.5878 117.55 43.9826 117.263 C 46.3769 116.975 43.3841 109.787 44.2819 108.349 C 45.1798 106.912 64.0363 92.5353 65.2335 90.5221 C 65.5327 91.0979 65.8321 76.7208 65.5327 76.7208 L 66.7305 76.7208 L 66.1319 91.0979 C 66.1319 91.0979 59.2473 108.349 60.1451 113.237 C 60.1451 115.824 70.6212 122.15 72.1176 121 C 73.6145 119.85 68.5261 115.536 68.8254 112.375 C 67.6283 109.212 73.016 97.4233 73.3153 94.2605 C 73.6145 91.0979 73.9138 56.3053 72.7167 51.9927 C 72.7161 48.542 69.424 42.5037 67.9276 40.2035 C 67.6283 37.9029 65.8326 31.2897 65.8326 31.2897 C 65.8326 31.2897 59.547 39.341 59.5465 39.341 C 58.0501 37.9035 68.2268 28.702 68.2268 25.8268 C 68.2268 22.9513 49.9689 9.72452 49.9689 9.72452 C 49.9689 9.72452 25.126 63.2064 25.4254 65.5065 C 25.7246 67.8065 29.9146 72.9824 32.908 70.6823 C 35.9009 68.3822 27.8197 62.9194 27.8197 62.9194 L 49.3703 14.6122 L 52.6624 18.3506 L 58.3494 18.638 L 58.0501 19.5005 C 58.0501 19.5005 51.7645 18.9255 50.5675 19.788 C 49.3703 20.6506 47.574 22.0887 47.574 25.5388 C 47.574 28.9896 52.0638 30.4271 53.5603 30.7146 L 60.8936 24.6764 L 61.6421 25.2514 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+		  id="slipway"
+		  viewBox="0 0 50 45"
+		  fill='#0087ff'
+		  stroke='none'
+		  fill-opacity='0.7'>
+			<svg:path d="M 45,33 L 45,45 L 2,45 C 2,45 45,33 45,33 z M 0,35 L 43,22 L 43,26 C 43,26 37,32 26,36 C 15,40 0,35 0,35 z M 3,32 C 3,32 13,0 13,0 L 22,26 L 3,32 z M 16,0 L 42,20 L 25,25 L 16,0 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+		  id="pub"
+		  viewBox="0 0 6 9"
+		  stroke='none'>
+			<svg:path fill="#aa5605" d="M 1.2,9 C 1.2,9 1,3 0.3,1.7 L 5.7,1.7 C 5,3 4.8,9 4.8,9" />
+			<svg:path fill="#ffe680" d="M 5.7,1.7 L 0.3,1.7 C 0,1 0,1 0,0 L 6,0 C 6,1 6,1 5.7,1.7 z" />
+		</svg:symbol>
+
+		<svg:symbol id="cinema" viewBox="150.3 200 320 420">
+			<svg:path fill="black" d="M123.7,393.2l-35.9,9L0,50.9l35.9-9L123.7,393.2z"/>
+			<svg:path fill="black" d="M291.5,351.2l-35.9,9L167.8,9l35.9-9L291.5,351.2z"/>
+			<svg:path fill="black" d="M201.9,27.8l9,35.9L19.8,111.5l-9-35.9L201.9,27.8z"/>
+			<svg:path fill="black" d="M234.8,159.2l9,35.9L52.6,242.9l-9-35.9L234.8,159.2z"/>
+			<svg:path fill="black" d="M267.7,290.7l9,35.9L85.5,374.4l-9-35.9L267.7,290.7z"/>
+			<svg:path fill="#FFFFFF" d="M40.5,97.5l-21.3,5.3l-5.3-21.3l21.3-5.3L40.5,97.5z"/>
+			<svg:path fill="#FFFFFF" d="M56.9,163l-21.3,5.3L30.2,147l21.3-5.3L56.9,163z"/>
+			<svg:path fill="#FFFFFF" d="M73.3,228.5l-21.3,5.3l-5.3-21.3l21.3-5.3L73.3,228.5z"/>
+			<svg:path fill="#FFFFFF" d="M89.6,294l-21.3,5.3L63,278l21.3-5.3L89.6,294z"/>
+			<svg:path fill="#FFFFFF" d="M106,359.4l-21.3,5.3l-5.3-21.3l21.3-5.3L106,359.4z"/>
+			<svg:path fill="#FFFFFF" d="M209.1,54.3l-21.3,5.3l-5.3-21.3l21.3-5.3L209.1,54.3z"/>
+			<svg:path fill="#FFFFFF" d="M225.4,119.8l-21.3,5.3l-5.3-21.3l21.3-5.3L225.4,119.8z"/>
+			<svg:path fill="#FFFFFF" d="M241.8,185.3l-21.3,5.3l-5.3-21.3l21.3-5.3L241.8,185.3z"/>
+			<svg:path fill="#FFFFFF" d="M258.2,250.8l-21.3,5.3l-5.3-21.3l21.3-5.3L258.2,250.8z"/>
+			<svg:path fill="#FFFFFF" d="M274.6,316.3l-21.3,5.3l-5.3-21.3l21.3-5.3L274.6,316.3z"/>
+		</svg:symbol>
+
+		<svg:symbol id="theatre" viewBox="220 207 440 550">
+			<svg:g stroke="none" fill-opacity="1" fill-rule="nonzero">
+				<svg:path d="M192.4,22c0,0,50,26,112,20s94-39,98-42s17,32,17,32l4,33l-3,29l5,24l7,39l-5,32l-6,32l-19,55l-25,49l-59,21l-30-14l-22-22l-29-47l4-40l-20-28l-18-24l1-34l2-54l-8-35L192.4,22z"/>
+				<svg:path fill="none" stroke="#FFFFFF" stroke-width="10" d="M210.4,44.5c0,0,43.8,22.8,98,17.5s82.3-34.1,85.8-36.8s14.9,28,14.9,28l3.5,28.9l-2.6,25.4l4.4,21l6.1,34.1l-4.4,28l-5.3,28l-16.6,48.1l-21.9,42.9L320.6,328l-26.3-12.3l-19.3-19.3l-25.4-41.1l3.5-35l-17.5-24.5l-15.8-21l0.9-29.8l1.8-47.3l-7-30.6L210.4,44.5z"/>
+				<svg:path fill="#FFFFFF" d="M293.4,152c0,8.3-11.4,15-25.5,15s-25.5-6.7-25.5-15s11.4-15,25.5-15S293.4,143.7,293.4,152z"/>
+				<svg:path fill="#FFFFFF" d="M406.4,140.5c0,8.6-13.2,15.5-29.5,15.5s-29.5-6.9-29.5-15.5s13.2-15.5,29.5-15.5S406.4,131.9,406.4,140.5z"/>
+				<svg:path fill="none" stroke="#FFFFFF" stroke-width="10" d="M248.4,124l14-43l15,27"/>
+				<svg:path fill="none" stroke="#FFFFFF" stroke-width="10" d="M336.4,110l7-32l35,23"/>
+				<svg:path fill="none" stroke="#FFFFFF" stroke-width="10" d="M317.4,146l-7,72l22-1L317.4,146z"/>
+				<svg:path fill="none" stroke="#FFFFFF" stroke-width="10" d="M305.4,297c0,0,2-55,27-57s37,16,41,30"/>
+				<svg:path fill="#FFFFFF" stroke="#000000" stroke-width="10" d="M207.4,90c0,0-19,18-61,17s-42,5-83-33s-31-38-31-38l-9,105l-5,22l-13,15l26,128l37,82c0,0,3,9,38,9s30-10,40-20s15-35,34-49s41-47,41-47l17-21l3-34l-23-29l-12-32L207.4,90z"/>
+				<svg:path fill="none" stroke="#000000" stroke-width="10" d="M51.4,150c0,0-2-15,25-15s31,17,31,17"/>
+				<svg:path fill="none" stroke="#000000" stroke-width="10" d="M153.4,168c0,0,6-11,12-14s22,5,22,5"/>
+				<svg:path d="M51.4,193l23-19c0,0,12-2,25,2s7,14,7,14L51.4,193z"/>
+				<svg:path d="M164.4,199c0,0,14-13,27-10s16,19,16,19s-7,6-26,1S164.4,199,164.4,199z"/>
+				<svg:path d="M125.4,188l-25,83h29L125.4,188z"/>
+				<svg:path d="M61.4,258c0,0,0-4,14,16s10,36,44,34s38-45,55-42s13,8,7,20s-23,23-32,35s5,40-39,38s-43-44-49-48S61.4,258,61.4,258z"/>
+			</svg:g>
+		</svg:symbol>
+
+		<svg:symbol id="symbol-windmill" viewBox="158 240 315.9 480.2" >
+			<svg:path fill="#000000" d="M106.7,148.2l104-1l61,333l-231-1" />
+			<svg:path fill="none" stroke="#000000" stroke-width="24" d="M6.7,201 l284-191" />
+			<svg:path fill="none" stroke="#000000" stroke-width="24" d="M19.7,17.5 l290,176" />
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+		  id="hotel"
+		  viewBox="0 0 90 90"
+		  fill="black"
+		  fill-opacity="1"
+		  stroke="black"
+		  stroke-width="1px"
+		  stroke-miterlimit="4">
+			<svg:path d="M 0,60 C 0,65 10,65 10,60 L 10,50 L 35,70 L 35,85 C 35,90 45,90 45,85 L 45,70 L 75,70 L 75,85 C 75,90 85,90 85,85 L 85,60 L 40,60 L 5,30 C 9,20 45,20 50,25 L 50,10 C 50,5 40,5 40,10 L 40,15 L 10,15 L 10,10 C 10,5 0,5 0,10 C 0,10 0,60 0,60 z M 10,35 C 15,25 45,25 55,35 L 85,60 C 75,50 40,50 40,60 L 10,35 z "/>
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+		  id="hostel"
+		  viewBox="0 0 12.5 8"
+		  fill="#286a9d"
+		  fill-opacity="1"
+		  fill-rule="nonzero"
+		  stroke="none">
+			<svg:path d="M 5.5,4 L 9,0 L 12.5,4 L 11.5,4 L 11.5,8 L 10,8 L 10,5 L 8,5 L 8,8 L 6.5,8 L 6.5,4 L 5.5,4 z M 0.5,3.5 C 2,2.5 2.3,1 2.5,0 C 2.7,1 3,2.5 4.5,3.5 L 3.3,3.5 C 3.3,4 4,5 5,6 L 3,6 L 3,8 L 2,8 L 2,6 L 0,6 C 1,5 1.7,4 1.7,3.5 L 0.5,3.5 z M 0,8 L 0,7.5 L 12.5,7.5 L 12.5,8 L 0,8 z " />
+		</svg:symbol>
+
+		<svg:symbol
+		  id="recycling"
+		  viewBox="0 0 100 100"
+		  stroke='none'
+		  fill='#00ba00'>
+			<svg:path d="M 55.0,37.3 L 72.1,27.0 L 79.8,41.9 C 81.6,50.0 71.5,52.9 63.3,52.4 L 55.0,37.3 z" />
+			<svg:path d="M 51.1,47.9 L 42.1,63.8 L 51.1,80.0 L 51.3,73.5 L 59.5,73.5 C 62.5,73.8 66.4,71.8 67.9,69.0 L 78.4,49.5 C 75.0,53.0 70.5,53.9 65.3,53.9 L 51.4,53.9 L 51.1,47.9 z " />
+			<svg:path d="M 31.0,28.2 L 13.7,18.2 L 22.9,4.2 C 29.0,-1.3 36.6,6.1 40.1,13.5 L 30.9,28.2 z " />
+			<svg:path d="M 42.1,26.5 L 60.4,26.6 L 70.1,10.9 L 64.3,13.8 L 60.3,6.6 C 59.1,3.9 55.5,1.4 52.3,1.5 L 30.2,1.7 C 34.9,3.1 37.9,6.6 40.4,11.1 L 47.2,23.3 L 42.1,26.5 z " />
+			<svg:path d="M 0.4,27.4 L 5.8,31.5 L 0.8,40.5 C -1.8,45.3 2.6,49.6 5.3,51.0 C 8.0,52.5 12.2,52.7 16.2,52.7 L 23.3,41.3 L 28.6,44.1 L 19.3,27.2 L 0.4,27.4 z " />
+			<svg:path d="M 1.2,49.3 L 12.7,70.1 C 15.0,73.0 19.4,73.7 23.9,73.6 L 36.0,73.6 L 36.0,53.9 L 13.0,53.7 C 9.5,53.9 4.8,53.2 1.2,49.3 z " />
+		</svg:symbol>
+
+		<svg:symbol
+			 id="hospital"
+			 viewBox="0 0 36 36">
+			<svg:ellipse
+				style="fill:#00cc00"
+				cx="18" cy="18"
+				rx="18" ry="18"/>
+			<svg:path
+				style="fill:#ffffff"
+				d="M8.5 8.44 L20.5 8.44 L20.5 16.94 L29 16.94 L29 28.94
+             L20.5 28.94 L20.5 37.44 L8.5 37.44 L8.5 28.94 L0 28.94 L0 16.94 L8.5 16.94 L8.5 8.44 Z"
+				transform="translate(3.5,-4.94)"/>
+			<svg:path
+				style="fill:#00cc00"
+				d="M10.5 10.44 L18.5 10.44 L18.5 18.94 L27 18.94 L27 26.94
+             L18.5 26.94 L18.5 35.44 L10.5 35.44 L10.5 26.94 L2 26.94 L2 18.94 L10.5 18.94 L10.5 10.44 Z"
+				transform="translate(3.5,-4.94)"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="hospital_emergency"
+			viewBox="0 0 36 36">
+			<svg:ellipse
+				style="fill:#00cc00"
+				cx="18" cy="18"
+				rx="18" ry="18"/>
+			<svg:path
+				style="fill:#ffffff"
+				d="M8.5 8.44 L20.5 8.44 L20.5 16.94 L29 16.94 L29 28.94
+             L20.5 28.94 L20.5 37.44 L8.5 37.44 L8.5 28.94 L0 28.94 L0 16.94 L8.5 16.94 L8.5 8.44 Z"
+				transform="translate(3.5,-4.94)"/>
+		</svg:symbol>
+
+		<svg:symbol id="clinic" viewBox="0 0 36 36">
+			<svg:ellipse style="fill:#00cc00" cx="18" cy="18" rx="18" ry="18"/>
+			<svg:path style="fill:#ffffff" d="M3.5 17.44 L3.5 25.46 L12 25.46 L12 33.94 L20 33.94 L20 25.46
+    L28.5 25.46 L28.5 17.44 L20 17.44 L20 8.95 L12 8.95 L12 17.44 L3.5 17.44 Z
+    M10 6.94 L22 6.94 L22 15.44 L30.5 15.44 L30.5 27.44 L22 27.44 L22 35.94 L10 35.94 L10 27.44
+    L1.5 27.44 L1.5 15.44 L10 15.44 L10 6.94 Z
+    M32 21.44 A16 16 -180 1 0 0 21.44 A16 16 -180 1 0 32 21.44 Z" transform="translate(2,-3.44)"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="doctor"
+			viewBox="0 0 36 36">
+			<svg:ellipse
+				style="fill:#00cc00"
+				cx="18" cy="18"
+				rx="18" ry="18"/>
+			<svg:path
+				style="fill:#ffffff"
+				d="M32 21.44 A16 16 -180 1 0 0 21.44 A16 16 -180 1 0 32
+             21.44 Z M10 6.94 L22 6.94 L22 15.44 L30.5 15.44 L30.5 27.44
+             L22 27.44 L22 35.94 L10 35.94 L10 27.44 L1.5 27.44 L1.5 15.44 L10 15.44 L10 6.94 Z"
+			  transform="translate(2,-3.44)"/>
+		</svg:symbol>
+
+		<svg:symbol
+		   id="pharmacy_dispensing"
+		   viewBox="0 0 36 36">
+			<svg:rect
+				style="fill:#00cc00"
+				x="0" y="0"
+				width="36" height="36"
+				rx="2" ry="2"/>
+			<svg:path
+				style="fill:#ffffff"
+				d="M20.14 17.3 L20.14 9.44 L11.86 9.44 L11.86 17.3 L4 17.3
+             L4 25.58 L11.86 25.58 L11.86 33.44 L20.14 33.44 L20.14 25.58 L28 25.58 L28 17.3 L20.14 17.3 Z
+             M0.5 37.44 L31.5 37.44 a0.5 0.5 -180 0 0 0.5 -0.5 L32 5.94 a0.5 0.5 -180 0 0 -0.5 -0.5
+             L0.5 5.44 a0.5 0.5 -180 0 0 -0.5 0.5 L0 36.94 a0.5 0.5 -180 0 0 0.5 0.5 Z M2 35.44 L2
+             7.44 L30 7.44 L30 35.44 L2 35.44 Z"
+				transform="translate(2,-3.44)"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="pharmacy"
+			viewBox="0 0 36 36">
+			<svg:rect
+				style='fill:#00cc00'
+				x="0" y="0"
+				width="36" height="36"
+				rx="2" ry="2"/>
+			<svg:path
+				style='fill:#ffffff'
+				d="M20.14 17.3 L20.14 9.44 L11.86 9.44 L11.86 17.3 L4 17.3
+             L4 25.58 L11.86 25.58 L11.86 33.44 L20.14 33.44 L20.14 25.58 L28 25.58 L28 17.3 L20.14 17.3 Z
+             M18 11.44 L18 19.44 L26 19.44 L26 23.44 L18 23.44 L18 31.44 L14 31.44 L14 23.44 L6 23.44
+             L6 19.44 L14 19.44 L14 11.44 L18 11.44 Z M0.5 37.44 L31.5 37.44 a0.5 0.5 -180 0 0 0.5 -0.5
+             L32 5.94 a0.5 0.5 -180 0 0 -0.5 -0.5 L0.5 5.44 a0.5 0.5 -180 0 0 -0.5 0.5 L0 36.94 a0.5 0.5 -180 0
+             0 0.5 0.5 Z M2 35.44 L2 7.44 L30 7.44 L30 35.44 L2 35.44 Z"
+				transform='translate(2,-3.44)'/>
+		</svg:symbol>
+
+		<svg:symbol
+		  id="postoffice"
+		  viewBox="-1 -1 15 9"
+		  fill="none"
+		  stroke="red"
+		  stroke-width="1.5px">
+			<svg:path d="M 0,0 L 14,0 L 14,8 L 0,8 L 0,0 z M 0,0 L 7,4 L 14,0" />
+		</svg:symbol>
+
+		<svg:symbol
+		  id="postbox"
+		  viewBox="-1 -1 15 9"
+		  fill="none"
+		  stroke="red"
+		  stroke-width="1.5px">
+			<svg:path d="M 0,0 L 14,0 L 14,8 L 0,8 L 0,0 z M 0,0 L 7,4 L 14,0" />
+		</svg:symbol>
+
+		<svg:symbol
+		  id="parking"
+		  viewBox="0 -10 20 20"
+		  stroke="none"
+		  fill-opacity="1"
+		  fill-rule="nonzero">
+			<svg:rect fill="#0087ff" width="20" height="20" x="0" y="-10" rx="4" ry="4" />
+			<svg:path fill="white" d="M 5,8 L 5,-7 L 12,-7 C 14,-7 15.5,-5.3 16,-4 C 16.5,-2.77 16.5,-1.23 16,0 C 15.41,1.42 14,3 12,3 L 8,3 L 8,8 L 5,8 z M 8,-4 L 8,0 C 9.3,0 11,0 12.32,-0.31 C 13.6,-0.76 13.5,-2.8 12.5,-3.48 C 11.5,-4.1 8.6,-4 8,-4 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="restaurant"
+			viewBox="0 0 103 103">
+			<svg:g transform="translate(0.7544259,-23.76142)">
+				<svg:path
+				d="M 85.428571,24.714286 C 81.428571,20.714286 65.428571,38.714286 58.428571,46.714286 C 56.428571,48.714286 53.428571,52.714286 59.428571,58.714286 C 6.4285714,109.71429 -3.5714286,116.71429 3.4285714,123.71429 C 10.428571,130.71429 17.428571,120.71429 67.428571,66.714286 C 73.428571,72.714286 78.428571,69.714286 80.428571,67.714286 C 88.428571,60.714286 105.42857,44.714286 101.42857,40.714286 C 97.428571,36.714286 82.428571,60.714286 78.428571,57.714286 C 74.428571,54.714286 97.428571,36.714286 93.428571,32.714286 C 89.428571,28.714286 72.428571,53.714286 68.428571,49.714286 C 64.428571,45.714286 89.428571,28.714286 85.428571,24.714286 z "
+				style="fill:#000000;stroke:none" />
+				<svg:path
+				   d="M 36.428571,53.714286 C 80.428571,101.71429 99.428571,116.71429 91.428571,123.71429 C 82.428571,131.71429 71.428571,111.71429 27.428571,62.714286 C 7.4285714,77.714286 -7.5714286,36.714286 2.4285714,26.714286 C 12.428571,16.714286 56.428571,33.714286 36.428571,53.714286 z "
+				   style="fill:#000000;stroke:none" />
+			</svg:g>
+		</svg:symbol>
+
+		<svg:symbol id="symbol-traffic_signal" viewBox="0 0 38 98" >
+			<svg:path
+			   d="M 37.030921,18.332139 C 37.030921,28.458463 28.73781,36.664278 18.52419,36.664278 C 8.2931105,36.664278 0.01745918,28.458463 0.01745918,18.332139 C 0,8.2058146 8.2931105,0 18.506731,0 C 28.73781,0 37.030921,8.2058146 37.030921,18.332139 z "/>
+			<svg:path
+			   d="M 37.030921,78.967871 C 37.030921,89.094196 28.73781,97.30001 18.52419,97.30001 C 8.2931105,97.30001 0.01745918,89.094196 0.01745918,78.967871 C 0.01745918,68.841547 8.3105697,60.635732 18.52419,60.635732 C 28.73781,60.635732 37.030921,68.841547 37.030921,78.967871 z " />
+			<svg:path
+			   d="M 36.891247,80.120177 L 0,80.120177 L 0,18.628945 L 36.891247,18.628945 L 36.891247,80.120177 z " />
+			<svg:path
+			   style="fill:#f90000"
+			   d="M 33.172442,17.982955 C 33.172442,26.084015 26.60779,32.648667 18.506731,32.648667 C 10.405671,32.648667 3.8410196,26.084015 3.8410196,17.982955 C 3.8410196,9.8818959 10.405671,3.3172442 18.506731,3.3172442 C 26.60779,3.3172442 33.172442,9.8818959 33.172442,17.982955 z "/>
+			<svg:path
+			   style="fill:#00d305"
+			   d="M 33.172442,79.439269 C 33.172442,87.540329 26.60779,94.10498 18.506731,94.10498 C 10.405671,94.10498 3.8410196,87.540329 3.8410196,79.439269 C 3.8410196,71.338209 10.405671,64.773558 18.506731,64.773558 C 26.60779,64.791017 33.172442,71.355669 33.172442,79.439269 z " />
+			<svg:path
+			   style="fill:#f9ff00"
+			   d="M 33.172442,48.711112 C 33.172442,56.812172 26.60779,63.376823 18.506731,63.376823 C 10.405671,63.376823 3.8410196,56.812172 3.8410196,48.711112 C 3.8410196,40.610053 10.405671,34.045401 18.506731,34.045401 C 26.60779,34.045401 33.172442,40.610053 33.172442,48.711112 z " />
+		</svg:symbol>
+
+		<svg:symbol id="symbol-school" viewBox="0 0 50 70">
+			<svg:path
+				d="M 14.599382,40.224954 C 14.599382,41.951762 13.186538,43.364606 11.45973,43.364606 C 9.7329212,43.364606 8.3200778,41.951762 8.3200778,40.224954 C 8.3200778,38.498145 9.7329212,37.085302 11.45973,37.085302 C 13.186538,37.085302 14.599382,38.498145 14.599382,40.224954 z "
+				style="fill:#af7519" />
+			<svg:path
+			   d="M 37.204876,47.132188 C 37.204876,48.858997 35.792033,50.27184 34.065224,50.27184 C 32.338416,50.27184 30.925572,48.858997 30.925572,47.132188 C 30.925572,45.40538 32.338416,43.992536 34.065224,43.992536 C 35.792033,43.992536 37.204876,45.40538 37.204876,47.132188 z "
+			   style="fill:#af7519" />
+			<svg:path
+			   d="M 25.588164,-3.7301742 L 7.3781822,52.940544"
+			   style="fill:none;stroke:#af7519;stroke-width:3.13965201" />
+			<svg:path
+			   d="M 25.588164,-3.7301742 L 36.419963,63.191508"
+			   style="fill:none;stroke:#af7519;stroke-width:2.96761489" />
+			<svg:path
+			   d="M 25.588164,-3.7301742 L 48.978571,39.754006"
+			   style="fill:none;stroke:#af7519;stroke-width:3.13965201" />
+			<svg:path
+			   d="M 0.9418956,3.9619732 C 0.9418956,3.9619732 45.367971,14.479807 45.524954,14.950755 C 45.681937,15.421703 45.054006,49.800892 45.054006,49.800892 L 0,34.57358 L 0.9418956,3.9619732 z " />
+			<svg:path
+			   d="M 5.6513736,15.735668 C 5.4629945,14.464109 8.2886813,13.004171 9.5759386,13.035568 C 11.883583,13.098361 12.715591,14.621092 13.783072,16.693262 C 15.007537,19.048001 15.494183,22.344636 15.713958,25.01334 C 15.79245,25.986632 15.918036,31.32404 16.483173,31.276946"
+			   style="fill:none;stroke:#ffffff;stroke-width:3.13965201" />
+			<svg:path
+			   d="M 14.756364,20.445146 C 12.009169,18.498562 5.5885806,21.606817 5.494391,24.840659 C 5.4158997,27.634949 8.0061126,28.451259 10.188171,28.922207 C 12.605703,29.424551 13.202237,29.047793 14.756364,27.195398"
+			   style="fill:none;stroke:#ffffff;stroke-width:3.13965201" />
+			<svg:path
+			   d="M 21.349634,11.497138 C 19.528635,15.610082 20.910082,21.544024 20.564721,26.080822 C 20.376341,28.639638 20.674608,32.391522 20.250755,34.57358"
+			   style="fill:none;stroke:#ffffff;stroke-width:3.13965201" />
+			<svg:path
+			   d="M 20.564721,23.270833 C 22.260133,22.611506 23.437502,20.460844 25.71375,21.701007 C 27.51905,22.689997 27.864411,25.327305 27.942903,27.1797 C 28.052791,29.628628 27.42486,31.32404 24.99163,32.171746 C 23.798562,32.595599 20.988574,33.082246 21.192651,30.96298"
+			   style="fill:none;stroke:#ffffff;stroke-width:3.13965201" />
+			<svg:path
+			   d="M 40.972459,26.410485 C 40.32883,24.55809 37.691522,23.286531 35.776335,23.773177 C 33.217518,24.432504 32.11864,27.697742 32.338416,30.06818 C 32.699476,34.055538 37.016497,38.937697 40.501511,35.044528"
+			   style="fill:none;stroke:#ffffff;stroke-width:3.13965201" />
+		</svg:symbol>
+
+		<svg:symbol id="symbol-university" viewBox="244.5 110 489 219.9">
+			<svg:path d="M79,43l57,119c0,0,21-96,104-96s124,106,124,106l43-133l82-17L0,17L79,43z"/>
+			<svg:path fill="none" stroke="#000000" stroke-width="20" d="M94,176l-21,39"/>
+			<svg:path d="M300,19c0,10.5-22.6,19-50.5,19S199,29.5,199,19s22.6-19,50.5-19S300,8.5,300,19z"/>
+			<svg:path fill="none" stroke="#000000" stroke-width="20" d="M112,216l-16-38L64,88c0,0-9-8-4-35s16-24,16-24"/>
+		</svg:symbol>
+
+		<svg:symbol id="symbol-supermarket" viewBox="0 0 113 124">
+			<svg:path
+			   style="fill-rule:evenodd;stroke-width:1pt;"
+			   d="M 373.953 504.671 C 373.953 520.198 361.352 532.8 345.824 532.8 C 330.297 532.8 317.695 520.198 317.695 504.671 C 317.695 489.144 330.297 476.542 345.824 476.542 C 361.352 476.542 373.953 489.144 373.953 504.671 z "
+			   transform="matrix(0.317430,0.000000,0.000000,0.329621,-38.45949,-55.53410)" />
+			<svg:path
+			   style="fill-rule:evenodd;stroke-width:1pt;"
+			   d="M 234.961 504.671 C 234.961 520.198 222.36 532.8 206.832 532.8 C 191.305 532.8 178.703 520.198 178.703 504.671 C 178.703 489.144 191.305 476.542 206.832 476.542 C 222.36 476.542 234.961 489.144 234.961 504.671 z "
+			   transform="matrix(0.317430,0.000000,0.000000,0.329621,-38.45949,-55.53410)" />
+			<svg:path
+			   style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;"
+			   d="M 138.991 271.364 L 158.847 393.808 L 344.168 393.809 L 344.169 450.067 L 194.521 450.129 C 184.347 450.133 175.393 453.852 175.393 463.075 C 175.393 473.003 186.844 476.912 195.745 476.893 L 367.334 476.541 L 367.334 397.118 C 367.334 397.118 390.499 284.601 416.974 238.271 C 443.449 191.941 466.613 221.724 466.613 198.559 C 466.613 178.703 420.283 191.94 400.427 218.415 C 380.571 244.889 373.952 271.364 373.952 271.364 L 138.991 271.364 z "
+			   transform="matrix(0.317430,0.000000,0.000000,0.329621,-38.45949,-55.53410)" />
+		</svg:symbol>
+
+		<svg:symbol id="symbol-library" viewBox="0 0 44 80">
+			<svg:path
+			   style="fill:#ffffff;stroke:#000000;stroke-width:4.2866354"
+			   d="M 18.9548,20.529405 L 19.667244,73.516105 L 42.32574,52.590198 L 42.32574,5.3117265 L 18.9548,20.529405 z " />
+			<svg:path
+			   style="fill:#ffffff;stroke:#000000;stroke-width:4.30206633"
+			   d="M 2.7781424,16.843373 L 2.2333327,70.86677 C 2.2333327,70.86677 1.3392859,76.626194 8.3519649,76.792578 C 16.258691,76.984559 17.87915,75.47431 17.87915,75.47431 L 18.242357,20.951762 C 18.242357,20.951762 15.72785,22.769181 10.154028,22.602797 C 3.1413489,22.398018 2.7781424,16.843373 2.7781424,16.843373 z " />
+			<svg:path
+			   style="fill:none;stroke:#000000;stroke-width:3.57242155"
+			   d="M 24.528623,28.707787 L 35.676268,22.449213" />
+			<svg:path
+			   style="fill:none;stroke:#000000;stroke-width:3.57242155"
+			   d="M 25.422669,36.451012 L 35.131458,31.011556" />
+			<svg:path
+			   style="fill:none;stroke:#000000;stroke-width:3.57242155"
+			   d="M 25.785876,44.347823 L 36.388711,38.089248" />
+			<svg:path
+			   style="fill:none;stroke:#000000;stroke-width:3.57242155"
+			   d="M 1.8701262,18.161641 L 26.679923,0.70418732 C 24.123508,2.8927684 28.62168,4.8381739 31.890539,4.9917585 C 39.084821,5.3245252 43.219787,4.0062571 43.219787,4.0062571" />
+			<svg:path
+			   style="fill:#ffffff;stroke:#000000;stroke-width:0.13371292"
+			   d="M 5.0831066,17.764881 L 25.199158,2.9183659 C 25.199158,2.9183659 24.221294,5.2221355 28.831223,6.1180459 C 33.441151,7.0139563 37.073216,6.2460331 37.073216,6.2460331 L 16.258691,19.940663 C 16.258691,19.940663 13.087579,21.940554 8.4753148,20.327225 C 5.2045421,19.183135 5.0831066,17.764881 5.0831066,17.764881 z " />
+		</svg:symbol>
+		<svg:symbol id="speed_trap" wiewBox="0 0 10 10">
+			<svg:path
+			   d="M 0.5555556,0 L 9.4444452,0 C 9.752223,0 10.000001,0.2477778 10.000001,0.5555556 L 10.000001,9.4444452 C 10.000001,9.752223 9.752223,10.000001 9.4444452,10.000001 L 0.5555556,10.000001 C 0.2477778,10.000001 0,9.752223 0,9.4444452 L 0,0.5555556 C 0,0.2477778 0.2477778,0 0.5555556,0 z"
+			   style="fill:#ffff00" />
+			<svg:path
+			   d="M 0.75037075,9.4444452 L 9.3614827,9.4444452 C 9.4381888,9.4444452 9.5003716,9.3822624 9.5003716,9.3055563 L 9.5003716,0.6944445 C 9.5003716,0.61773827 9.4381888,0.5555556 9.3614827,0.5555556 L 0.75037075,0.5555556 C 0.67366455,0.5555556 0.61148185,0.61773827 0.61148185,0.6944445 L 0.61148185,9.3055563 C 0.61148185,9.3822624 0.67366455,9.4444452 0.75037075,9.4444452 L 0.75037075,9.4444452 z M 1.1670375,8.8888896 L 1.1670375,1.1111112 L 8.944816,1.1111112 L 8.944816,8.8888896 L 1.1670375,8.8888896 z M 2.8337044,7.5000006 L 5.0559268,7.5000006 C 5.5161641,7.5000006 5.8892602,7.1269045 5.8892602,6.6666672 L 5.8892602,3.3333336 C 5.8892602,2.8730963 5.5161641,2.5000002 5.0559268,2.5000002 L 2.8337044,2.5000002 C 2.3734669,2.5000002 2.0003709,2.8730963 2.0003709,3.3333336 L 2.0003709,6.6666672 C 2.0003709,7.1269045 2.3734669,7.5000006 2.8337044,7.5000006 L 2.8337044,7.5000006 z M 4.5003712,5.9722227 C 4.5003712,6.5091664 4.0650925,6.944445 3.5281489,6.944445 C 2.9912052,6.944445 2.5559265,6.5091664 2.5559265,5.9722227 C 2.5559265,5.435279 2.9912052,5.0000004 3.5281489,5.0000004 C 4.0650925,5.0000004 4.5003712,5.435279 4.5003712,5.9722227 z M 4.2225934,5.9722227 C 4.2225934,5.5886916 3.91168,5.2777782 3.5281489,5.2777782 C 3.1446178,5.2777782 2.8337044,5.5886916 2.8337044,5.9722227 C 2.8337044,6.3557538 3.1446178,6.6666672 3.5281489,6.6666672 C 3.91168,6.6666672 4.2225934,6.3557538 4.2225934,5.9722227 z M 5.3337046,3.3333336 C 5.3337046,3.6401583 5.0849737,3.8888892 4.778149,3.8888892 C 4.4713242,3.8888892 4.2225934,3.6401583 4.2225934,3.3333336 C 4.2225934,3.0265089 4.4713242,2.777778 4.778149,2.777778 C 5.0849737,2.777778 5.3337046,3.0265089 5.3337046,3.3333336 z M 5.0559268,3.3333336 C 5.0559268,3.1799211 4.9315615,3.0555558 4.778149,3.0555558 C 4.6247365,3.0555558 4.5003712,3.1799211 4.5003712,3.3333336 C 4.5003712,3.4867461 4.6247365,3.6111114 4.778149,3.6111114 C 4.9315615,3.6111114 5.0559268,3.4867461 5.0559268,3.3333336 z M 6.167038,6.2500005 L 6.4448158,6.2500005 L 6.4448158,3.3333336 L 6.167038,3.3333336 L 6.167038,6.2500005 z M 6.7225936,6.2500005 L 7.0003714,6.2500005 L 7.0003714,3.6111114 L 6.7225936,3.6111114 L 6.7225936,6.2500005 z M 6.167038,6.5277783 L 6.167038,6.8055561 L 7.555927,6.8055561 L 7.555927,5.9722227 L 8.1114826,5.9722227 L 8.1114826,4.4444448 L 7.555927,4.4444448 L 7.555927,3.8888892 L 7.2781492,3.8888892 L 7.2781492,6.5277783 L 6.167038,6.5277783 z"
+			   style="fill:#000000" />
+		</svg:symbol>
+		<svg:symbol
+		   id="border_control"
+		   viewBox="0 0 100 100">
+			<svg:path
+				d="M 98 50 A 48 48 0 1 1  2,50 A 48 48 0 1 1  98 50 z"
+				style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:45.714;stroke-linecap:butt;stroke-linejoin:round;" />
+			<svg:path
+				d="M 91.889244,74.081667 L 50.178574,74.081667 L 8.4679028,74.081667 L 29.323238,37.959167 L 50.178574,1.8366661 L 71.033909,37.959166 L 91.889244,74.081667 z "
+				style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:27.429;stroke-linecap:butt;stroke-linejoin:round;" />
+		</svg:symbol>
+
+		<svg:symbol id="peak"
+		  viewBox="50 50 100 100">
+			<svg:path  fill="#1f151d" stroke="#000000" stroke-width="5" d="M 5,80 L 50,20 L 95,80 L 5,80 z "/>
+		</svg:symbol>
+		<svg:symbol id="viewpoint"
+		  viewBox="0 0 244 281">
+			<svg:path style='fill:#000000' d="M 151.726,28.278 L 121.662,0 L 91.597,28.278 L 121.661,140.481 L 151.726,28.278 z" />
+			<svg:path style='fill:#000000' d="M 39.523,58.342 L 0.002,70.239 L 9.459,110.415 L 121.661,140.48 L 39.523,58.342 z" />
+			<svg:path style='fill:#000000' d="M 9.458,170.544 L 0,210.719 L 39.522,222.618 L 121.661,140.48 L 9.458,170.544 z"  />
+			<svg:path style='fill:#000000' d="M 91.596,252.683 L 121.659,280.961 L 151.725,252.683 L 121.661,140.48 L 91.596,252.683 z" />
+			<svg:path style='fill:#000000' d="M 203.799,222.619 L 243.32,210.722 L 233.863,170.545 L 121.661,140.48 L 203.799,222.619 z" />
+			<svg:path style='fill:#000000' d="M 233.863,110.416 L 243.322,70.241 L 203.799,58.343 L 121.661,140.48 L 233.863,110.416 z" />
+		</svg:symbol>
+		<svg:symbol id="natural-cave"
+		  viewBox="0 0 100 100">
+			<svg:path
+			   d="M 5,80 L 95,80"
+			   style="fill:none;stroke:#000000;stroke-width:137.143;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+			<svg:path
+			   d="M 5,54.973981 L 20,54.973981 C 20,54.973981 24.923335,20.081237 50,19.973981 C 74.899122,19.86824 80,54.973981 80,54.973981 L 95,54.973981"
+			   style="fill:none;stroke:#000000;stroke-width:137.143;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+		</svg:symbol>
+
+		<svg:symbol id="symbol-railway-crossing" viewBox="-50 -150 600 600" >
+			<svg:path fill="#C60936" d="M1.5,4.5l66,1.5l190,91.4L456,0l63,4.5l-15,48
+               l-184.5,87l175.5,81l15,51l-58.5,6l-193.5-99c0,0-189,96-193.5,99S0,279,0,279l6-51l172.5-85.5L12,63L1.5,4.5z"/>
+			<svg:path fill="#FFFFFF" d="M49.5,21L33,49.5L219,141L36,237l16.5,25.5
+               L258,156l196.5,105l21-33l-189-91.5l189-87l-21-30l-196.7,96.7L49.5,21z"/>
+		</svg:symbol>
+
+
+		<svg:symbol id="symbol-roundabout_right" viewBox="-253.5 253.5 507 507">
+			<svg:g transform="scale(-1,1)">
+				<svg:path fill="#4161D8" d="M507,253.5c0,140-113.5,253.5-253.5,253.5 S0,393.5,0,253.5S113.5,0,253.5,0S507,113.5,507,253.5z"/>
+				<svg:path  fill="#FFFFFF" d="M97.6,113.6l40.8-47.7c0,0,91.7,3.1,90.6,2.1 c-1.1-1,2.3,89.2,2.3,89.2l-49.8,33.2l-1.1-48.8c0,0-27.2,27-30.6,27c-3.4,0-27.2,61.2-27.2,61.2l-3.4,79.9L67,312.8v-73.6 l10.6-50.5l18.8-34.5l38.5-40.5"/>
+				<svg:path fill="#FFFFFF" d="M459.6,190.5l19.7,59.6 c0,0-50.2,76.9-48.7,76.4c1.5-0.4-77.5-44.3-77.5-44.3l-2.6-59.8l42.3,24.3c0,0-9-37.2-7.2-40.1c1.8-2.9-38.3-54.9-38.3-54.9 l-66.6-44.3l24.3-46.2l63,38.1l37.7,35.3l19.8,34l14.7,53.9"/>
+				<svg:path fill="#FFFFFF" d="M209.2,466.6l-60.7-16.1 c0,0-36.9-84-37.4-82.6c-0.4,1.5,79.4-40.7,79.4-40.7l51.5,30.6l-43.5,22.1c0,0,36.1,12.8,37.6,15.9c1.5,3.1,66.9-2,66.9-2 l73.5-31.5l25.4,45.6l-66.4,31.9l-50.2,12.3l-39.3-2L193,432.9"/>
+			</svg:g>
+		</svg:symbol>
+
+		<svg:symbol id="symbol-roundabout_left" viewBox="253.5 253.5 507 507">
+			<svg:path fill="#4161D8" d="M507,253.5c0,140-113.5,253.5-253.5,253.5 S0,393.5,0,253.5S113.5,0,253.5,0S507,113.5,507,253.5z"/>
+			<svg:path  fill="#FFFFFF" d="M97.6,113.6l40.8-47.7c0,0,91.7,3.1,90.6,2.1 c-1.1-1,2.3,89.2,2.3,89.2l-49.8,33.2l-1.1-48.8c0,0-27.2,27-30.6,27c-3.4,0-27.2,61.2-27.2,61.2l-3.4,79.9L67,312.8v-73.6 l10.6-50.5l18.8-34.5l38.5-40.5"/>
+			<svg:path fill="#FFFFFF" d="M459.6,190.5l19.7,59.6 c0,0-50.2,76.9-48.7,76.4c1.5-0.4-77.5-44.3-77.5-44.3l-2.6-59.8l42.3,24.3c0,0-9-37.2-7.2-40.1c1.8-2.9-38.3-54.9-38.3-54.9 l-66.6-44.3l24.3-46.2l63,38.1l37.7,35.3l19.8,34l14.7,53.9"/>
+			<svg:path fill="#FFFFFF" d="M209.2,466.6l-60.7-16.1 c0,0-36.9-84-37.4-82.6c-0.4,1.5,79.4-40.7,79.4-40.7l51.5,30.6l-43.5,22.1c0,0,36.1,12.8,37.6,15.9c1.5,3.1,66.9-2,66.9-2 l73.5-31.5l25.4,45.6l-66.4,31.9l-50.2,12.3l-39.3-2L193,432.9"/>
+		</svg:symbol>
+
+		<svg:symbol id="tower" viewBox="0 0 178 304">
+			<svg:path d="M 101.54286,61.153347 C 101.4367,67.884346 95.275788,73.268986 87.768598,73.192085 C 80.261408,73.115184 74.239318,67.605745 74.304684,60.874321 C 74.370049,54.142898 80.49821,48.728312 88.005767,48.768629 C 95.513312,48.808945 101.56872,54.288959 101.54415,61.020594" style="fill:#000000;stroke:#000000;stroke-width:12.798;stroke-linecap:round;stroke-miterlimit:4" />
+			<svg:path d="M 47.744906,266.31324 C 123.42881,266.31324 123.42881,266.31324 123.42881,266.31324" style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:83.89;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 61.140246,234.21438 C 136.82419,234.21438 102.32599,234.21438 113.38227,234.21438" style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:83.89;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 87.596169,71.50649 C 87.596169,71.69096 87.596169,71.87544 87.596169,72.05991 C 87.596169,86.7032 89.659179,214.23888 31.670412,297.85864" style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:104.863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 87.433269,71.2298 C 87.433269,71.41427 87.433269,71.59875 87.433269,71.78322 C 87.433269,86.42647 85.370259,213.96219 143.359,297.582" style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:104.863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 146.96066,1.3852139 C 167.22033,17.578173 178.04694,41.226989 176.31879,65.512833 C 174.59063,89.798678 160.49981,112.02198 138.10923,125.77495" style="fill:none;stroke:#0000d5;stroke-width:25.33;stroke-linecap:round;stroke-miterlimit:4" />
+			<svg:path d="M 123.17041,21.108105 C 137.64298,31.372636 145.58299,47.347366 144.41964,63.860015 C 143.25629,80.372665 133.13743,95.324517 117.33934,103.87448" style="fill:none;stroke:#0000d5;stroke-width:25.33;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 105.8206,40.775157 C 113.10022,45.938155 117.094,53.973348 116.50884,62.279111 C 115.92368,70.584877 110.83395,78.10557 102.88761,82.406149" style="fill:none;stroke:#0000d5;stroke-width:25.33;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 30.922779,1.5056139 C 10.663114,17.698573 -0.16349765,41.347389 1.5646539,65.633233 C 3.2928079,89.919078 17.383627,112.14238 39.774209,125.89535" style="fill:none;stroke:#0000d5;stroke-width:25.33;stroke-linecap:round;stroke-miterlimit:4" />
+			<svg:path d="M 54.713719,21.228505 C 40.24115,31.493036 32.301138,47.467766 33.464488,63.980415 C 34.627841,80.493065 44.7467,95.444917 60.544793,103.99488" style="fill:none;stroke:#0000d5;stroke-width:25.33;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+			<svg:path d="M 72.063527,40.895557 C 64.783909,46.058555 60.790132,54.093748 61.375291,62.399511 C 61.960451,70.705277 67.050177,78.22597 74.996523,82.526549" style="fill:none;stroke:#0000d5;stroke-width:25.33;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+		</svg:symbol>
+		<svg:symbol id="symbol-townhall" viewBox="0 0  6.8833899 6.5958471">
+			<svg:path
+				 d="M 1.16462,2.25428 L 1.715634,2.25428 L 1.8003361,5.21966 L 1.0904851,5.2196831 L 1.1646197,2.2542731 L 1.16462,2.25428 z M 0.645308,5.32626 L 6.113068,5.32626 L 6.113068,5.707801 L 6.440684,5.707801 L 6.4406609,6.089342 L 6.7583809,6.089342 L 6.7583809,6.470837 L -9.1237e-06,6.4708139 L -9.1237e-06,6.0893419 L 0.31771088,6.0893419 L 0.31771088,5.7078009 L 0.64530388,5.7078009 L 0.64530388,5.3262599 L 0.645308,5.32626 z M 6.398228,1.42631 L 3.379128,-1e-05 L 0.359978,1.42631 L 0.36000112,1.659489 L 6.3982211,1.6595121 L 6.3982211,1.4263101 L 6.398228,1.42631 z M 0.942028,1.766182 L 5.816368,1.766182 L 5.816368,2.147654 L 0.942028,2.147654 L 0.942028,1.766182 z M 5.032128,2.254277 L 5.583142,2.254277 L 5.6678672,5.219687 L 4.9580162,5.2196639 L 5.0321276,2.2542839 L 5.032128,2.254277 z M 3.742958,2.254277 L 4.293972,2.2543001 L 4.3786972,5.2196601 L 3.6688232,5.2196832 L 3.7429578,2.2542732 L 3.742958,2.254277 z M 2.453788,2.254277 L 3.004779,2.2542539 L 3.0895505,5.2196639 L 2.3796535,5.2196639 L 2.4537881,2.2542839 L 2.453788,2.254277 z"
+				style="fill:#ff5503;fill-opacity:0.86666667;stroke:#000000;stroke-width:0.45714;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+		</svg:symbol>
+	</defs>
+
+</rules>
+
+
+
+
+
+
+

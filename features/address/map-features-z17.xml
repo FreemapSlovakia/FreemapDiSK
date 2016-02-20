@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    textAttenuation="7"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="yes"
+    meter2pixel="0.1375"
+>
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<rule e="node|way" k="osmarender:render" v="~|yes">
+		<!-- house number interpolation lines -->
+		<rule e="way" k="addr:interpolation" v="odd">
+			<line class="housenumber-interpolation housenumber-interpolation-odd"/>
+		</rule>
+		<rule e="way" k="addr:interpolation" v="even">
+			<line class="housenumber-interpolation housenumber-interpolation-even"/>
+		</rule>
+		<rule e="way" k="addr:interpolation" v="all">
+			<line class="housenumber-interpolation housenumber-interpolation-all"/>
+		</rule>
+
+		<!-- House numbers -->
+		<rule e="node|way" k="addr:streetnumber|addr:conscriptionnumber" v="*">
+			<rule e="node|way" k="addr:streetnumber" v="*">
+				<rule e="node|way" k="addr:conscriptionnumber" v="*">
+					<test k="addr:streetnumber" startOffset="50%" class="streetnumber-cas streetnumber-center" dy="+0.35px" layer="5"/>
+					<text k="addr:streetnumber" startOffset="50%" class="streetnumber-caption streetnumber-center" dy="+0.35px" layer="5"/>
+					<test k="addr:conscriptionnumber" startOffset="50%" class="conscriptionnumber-cas conscriptionnumber-center" dy="-3.2px" layer="5"/>
+					<text k="addr:conscriptionnumber" startOffset="50%" class="conscriptionnumber-caption conscriptionnumber-center" dy="-3.2px" layer="5"/>
+				</rule>
+				<else e="node|way" k="addr:streetnumber" v="*">
+						<test k="addr:streetnumber" startOffset="50%" class="streetnumber-cas streetnumber-center" layer="5"/>
+						<text k="addr:streetnumber" startOffset="50%" class="streetnumber-caption streetnumber-center" layer="5"/>
+				</else>
+			</rule>
+			<else e="node|way" k="addr:conscriptionnumber" v="*">
+				<test k="addr:conscriptionnumber" startOffset="50%" class="conscriptionnumber-cas conscriptionnumber-center" layer="5"/>
+				<text k="addr:conscriptionnumber" startOffset="50%" class="conscriptionnumber-caption conscriptionnumber-center" layer="5"/>
+			</else>
+		</rule>
+		<else e="node|way" k="addr:housenumber" v="*">
+				<test k="addr:housenumber" startOffset="50%" class="housenumber-cas housenumber-center" />
+				<text k="addr:housenumber" startOffset="50%" class="housenumber-caption housenumber-center" />
+		</else>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+
+	<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+			<![CDATA[
+
+			.streetnumber-cas {
+			/*stroke-width: 1.37143px;*/
+			fill: #ffffff;
+			stroke: #ffffff;
+			font-family: "DejaVu Sans";
+			/*stroke-miterlimit: 1.5;*/
+			font-size: 6.4px;
+			}
+
+			.streetnumber-caption {
+			stroke-width: 0px;
+			fill: #ff0000;
+			font-family: "DejaVu Sans";
+			/*stroke-miterlimit: 1.5;*/
+			font-size: 6.4px;
+			}
+
+			.streetnumber-center {
+			text-anchor: middle;
+			}
+
+			.conscriptionnumber-cas {
+			/*stroke-width: 1.37143px;*/
+			fill: #ffffff;
+			stroke: #ffffff;
+			font-family: "DejaVu Sans";
+			/*stroke-miterlimit: 1.5;*/
+			font-size: 6.4px;
+			}
+
+			.conscriptionnumber-caption {
+			stroke-width: 0px;
+			fill: #000000;
+			font-family: "DejaVu Sans";
+			/*stroke-miterlimit: 1.5;*/
+			font-size: 6.4px;
+			}
+
+			.conscriptionnumber-center {
+			text-anchor: middle;
+			}
+
+			.housenumber-interpolation {
+			fill: none;
+			stroke: #b0b0b0;
+			stroke-width: 0.57143px;
+			}
+
+			.housenumber-interpolation-all {
+			}
+
+			.housenumber-interpolation-even {
+			stroke-dasharray: 0.5 0.5;
+			}
+
+			.housenumber-interpolation-odd {
+			stroke-dasharray: 0.2 0.2;
+			}
+
+			.housenumber-node {
+			stroke: #b0b0b0;
+			stroke-width: 0.04571;
+			fill-opacity: 0.5;
+			fill: #ffffff;
+			}
+
+			.housenumber-left {
+			text-anchor: start;
+			}
+
+			.housenumber-center {
+			text-anchor: middle;
+			}
+
+			.housenumber-cas {
+			stroke-width: 1.37143px;
+			fill: #ffffff;
+			stroke: #ffffff;
+			font-family: "DejaVu Sans";
+			stroke-miterlimit: 1.5;
+			font-size: 6.4px;
+			}
+
+			.housenumber-caption {
+			stroke-width: 0px;
+			fill: #6060a0;
+			font-family: "DejaVu Sans";
+			stroke-miterlimit: 1.5;
+			font-size: 6.4px;
+			}
+
+
+.osmarender-mask-black{
+	stroke: #000000;
+}
+.osmarender-mask-white{
+	stroke: #FFFFFF;
+}
+.osmarender-no-marker-end{
+	marker-end: none;
+}
+.osmarender-no-marker-start{
+	marker-start: none;
+}
+.osmarender-stroke-linecap-butt{
+	stroke-linecap: butt;
+}
+.osmarender-stroke-linecap-round{
+	stroke-linecap: round;
+}
+.osmarender-stroke-linecap-square{
+	stroke-linecap: square;
+}
+.map-background{
+	fill: none;
+	stroke: none;
+}
+
+]]>
+	</style>
+
+
+	</defs>
+
+</rules>
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+#
+# Configuration file for Freemap Slovakia DiSK client
+#
+
+## File Locations
+WorkingDirectory=/tmp/
+Inkscape=inkscape
+Batik=batik-rasterizer.jar
+XmlStarlet=xmlstarlet
+Niceness=nice
+Del = rm
+Slash = /
+Pngcrush=pngcrush
+Mogrify=mogrify
+ZipAdd=a -tzip
+Zip=7z
+
+FeaturesPath=
+
+# set this to prepend zip file by three first letters of hostname
+# to allow identification of uploads from different machines in the 
+# upload log
+UseHostnameInZipName=0
+
+# Upload settings
+UploadChunkSize=1.5   # Megabyte
+UploadChunkCount=683  # default: half a tileset
+DeleteZipFilesAfterUpload=1
+
+# Beziercurve hinting
+NoBezier=0  # Set to 1 on a AMD64 box running Gentoo. Math rounding errors in the libs.
+
+
+# UseBatik
+UseBatik=0  # Set to 1 use batik rasterizer instead of inkscape
+
+#freemap specific settings
+DownloadDataFromOSM=0
+
+# Always render full tileset? default: 0 
+# set to 1 if you want to force checking of wether subtiles of empty tiles really are empty
+# needed for example when tiles that contained data now are empty (i.e. sea tiles with moved ferry routes)
+RenderFullTileset=0
+
+#Upload layers when they are done? default: 0
+# set to 1, if you want to upload layers as they are done, instead of waiting for all
+# layers in the tileset to be rendered.
+LayerUpload=1

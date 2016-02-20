@@ -1,0 +1,11 @@
+# 
+# Config file for TilesAtHome/ Freemap DiSK
+# 
+
+# Edit this file and save as "authentication.conf"
+
+### Authentication:
+## Download/Upload
+
+DiSKUsername=CHANGEME
+DiSKPassword=CHANGEME

@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- This file should be used with Osmarender 6 -->
+<!-- This file implements a sub-set of the items described at http://wiki.openstreetmap.org/index.php/Map_Features -->
+
+<!-- A scale of 0.1 will make fat roads on a small map, a scale of 5 will draw very thin roads on a large scale map -->
+<!-- minimumMapWidth/Height is in kilometres -->
+<!-- Set javaScript="no" if you want an svg file that contains no javascript. This is so that you can upload it to Wikipedia etc -->
+<rules
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	scale="1"
+	svgBaseProfile="full"
+	symbolScale="1"
+	minimumMapWidth="1"
+	minimumMapHeight="1"
+	withOSMLayers="yes"
+	textAttenuation="14.0"
+	withUntaggedSegments="no"
+	showScale="no"
+	showGrid="no"
+	showBorder="no"
+	showLicense="no"
+	interactive="no"
+	processWays="yes">
+
+	<!--data_mkr1-->
+	<data file="data.osm" />
+	<!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<!-- Select all nodes and ways (unless they have an osmarender:render=no tag) -->
+	<!-- If you really want to render segments then you will need to add segment to the element list, but please don't - tag the ways instead. -->
+	<rule e="node|way" k="osmarender:render" v="~|yes" layer="5">
+		<layer name="trails" opacity="0.6">
+			<!-- Paths not in tunnels -->
+			<rule e="way" k="tunnel" v="~|no" layer="5">
+				<rule e="way" k="fmrelhikingblue|fmrelhikinglocalblue|fmrelhikingunknownblue|fmrelhikingred|fmrelhikinglocalred|fmrelhikingunknownred|fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow|fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
+					<line class='trail-cas' smart-linecap='no' />
+				</rule>
+
+				<rule e="way" k="fmrelhikingblue|fmrelhikinglocalblue|fmrelhikingunknownblue" v="*" layer="5">
+					<rule e="way" k="fmrelhikingred|fmrelhikinglocalred|fmrelhikingunknownred" v="*" layer="5">
+						<rule e="way" k="fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- RGBY-->
+								<line class='trail-cor trail-cor-blue dash-4-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-red dash-4-2' smart-linecap='no' />
+								<line class='trail-cor trail-cor-green dash-4-3' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-4-4' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- RGB_ -->
+								<line class='trail-cor trail-cor-blue dash-3-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-red dash-3-2' smart-linecap='no' />
+								<line class='trail-cor trail-cor-green dash-3-3' smart-linecap='no' />
+							</else>
+						</rule>
+						<else>
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- R_BY-->
+								<line class='trail-cor trail-cor-blue dash-3-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-red dash-3-2' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-3-3' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- R_B_ -->
+								<line class='trail-cor trail-cor-blue dash-2-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-red dash-2-2' smart-linecap='no' />
+							</else>
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- _GBY-->
+								<line class='trail-cor trail-cor-blue dash-3-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-green dash-3-2' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-3-3' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- _GB_ -->
+								<line class='trail-cor trail-cor-blue dash-2-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-green dash-2-2' smart-linecap='no' />
+							</else>
+						</rule>
+						<else>
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- __BY-->
+								<line class='trail-cor trail-cor-blue dash-2-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-2-2' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- __B_ -->
+								<line class='trail-cor trail-cor-blue' smart-linecap='no' />
+							</else>
+						</else>
+					</else>
+				</rule>
+				<else>
+					<rule e="way" k="fmrelhikingred|fmrelhikinglocalred|fmrelhikingunknownred" v="*" layer="5">
+						<rule e="way" k="fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- RG_Y-->
+								<line class='trail-cor trail-cor-red dash-3-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-green dash-3-2' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-3-3' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- RG__ -->
+								<line class='trail-cor trail-cor-red dash-2-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-green dash-2-2' smart-linecap='no' />
+							</else>
+						</rule>
+						<else>
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- R__Y-->
+								<line class='trail-cor trail-cor-red dash-2-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-2-2' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- R___ -->
+								<line class='trail-cor trail-cor-red' smart-linecap='no' />
+							</else>
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- _G_Y-->
+								<line class='trail-cor trail-cor-green dash-2-1' smart-linecap='no' />
+								<line class='trail-cor trail-cor-yellow dash-2-2' smart-linecap='no' />
+							</rule>
+							<else>
+								<!-- _G__ -->
+								<line class='trail-cor trail-cor-green' smart-linecap='no' />
+							</else>
+						</rule>
+						<else>
+							<rule e="way" k="fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow" v="*" layer="5">
+								<!-- ___Y-->
+								<line class='trail-cor trail-cor-yellow' smart-linecap='no' />
+							</rule>
+						</else>
+					</else>
+				</else>
+			</rule>
+		</layer>
+
+		<!-- Road numbers for all highways -->
+		<rule e="node|way" k="osmarender:renderRef|osmarender:renderref" v="~|yes" layer="5">
+
+			<!-- Stands and Maps -->
+			<rule e="node" k="tourism" v="information" layer="5">
+				<rule e="node" k="information" v="guidepost" layer="5">
+					<rule e="node" k="hiking" v="yes" layer="5">
+						<circle r="2.4px" class="trail_stand"/>
+					</rule>
+					<else>
+						<rule e="node" k="hiking" v="~" layer="5">
+							<rule e="node" k="ski" v="~" layer="5">
+								<rule e="node" k="bicycle" v="~" layer="5">
+									<circle r="2.4px" class="trail_stand"/>
+								</rule>
+							</rule>
+						</rule>
+					</else>
+				</rule>
+			</rule>
+			<!--<rule e="node" k="tourism" v="information" layer="5">
+				<rule e="node" k="information" v="map" layer="5">
+					<rule e="node" k="hiking" v="yes" layer="5">
+						<circle r="3.2px" class="trail_map "/>
+					</rule>
+					<else>
+						<rule e="node" k="hiking" v="~" layer="5">
+							<rule e="node" k="ski" v="~" layer="5">
+								<rule e="node" k="bicycle" v="~" layer="5">
+									<circle r="3.2px" class="trail_map "/>
+								</rule>
+							</rule>
+						</rule>
+					</else>
+				</rule>
+			</rule>-->
+
+			<rule e="way" k="tunnel" v="~|no|false" layer="5">
+				<rule e="way" k="fmrelhikingblue|fmrelhikinglocalblue|fmrelhikingunknownblue|fmrelhikingred|fmrelhikinglocalred|fmrelhikingunknownred|fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow|fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
+					<text k="fmrelhikingref" text-anchor='middle' startOffset='40%' class="trail-ref-cas" dy='2.85714px' x-label-scaling='no'/>
+					<text k="fmrelhikingref" text-anchor='middle' startOffset='40%' class='trail-ref-cor' dy='2.85714px' x-label-scaling='no'/>
+				</rule>
+			</rule>
+		</rule>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+		<svg:filter
+			inkscape:collect="always"
+			id="gauss7"
+			x="-0.030957849"
+			width="1.0619157"
+			y="-0.15485379"
+			height="1.3097076">
+			<svg:feGaussianBlur
+				inkscape:collect="always"
+				stdDeviation="1.7"
+				id="feGaussianBlur7" />
+		</svg:filter>
+
+		<svg:filter
+			inkscape:collect="always"
+			id="gauss5"
+			x="-0.030957849"
+			width="1.0619157"
+			y="-0.15485379"
+			height="1.3097076">
+			<svg:feGaussianBlur
+				inkscape:collect="always"
+				stdDeviation="1.2"
+				id="feGaussianBlur5" />
+		</svg:filter>
+
+		<svg:filter
+			inkscape:collect="always"
+			id="gauss3"
+			x="-0.030957849"
+			width="1.0619157"
+			y="-0.15485379"
+			height="1.3097076">
+			<svg:feGaussianBlur
+				inkscape:collect="always"
+				stdDeviation="0.4"
+				id="feGaussianBlur3" />
+		</svg:filter>
+		<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+			<![CDATA[
+
+.trail_stand {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 0.68571px;
+}
+.trail_map {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 0.68571px;
+}
+.trail-ref-cor {
+	fill: #202020;
+	font-family: DejaVu Sans;
+	font-size: 9.143px;
+	font-weight: normal;
+	stroke: #202020;
+	stroke-width: 0.2px;
+	spacing:auto;
+	method:stretch;
+}
+.trail-ref-cas {
+	fill: #FFFFF0;
+	font-family: DejaVu Sans;
+	font-size: 9.143px;
+	font-weight: normal;
+	stroke: #FFFFF0;
+	stroke-width: 2.28571px;
+	opacity: 0.9;
+	spacing:auto;
+	method:stretch;
+	filter:url(#gauss3);
+}
+/* trail- generic style */
+.trail-cas {
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	stroke: white;
+	stroke-width: 5.029px;
+}
+.trail-cor {
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	stroke-width: 3.2px;
+}
+.dash-2-1 {
+	stroke-dasharray: 4.571,4.571;
+	stroke-dashoffset: 0;
+	stroke-linecap: butt;
+}
+.dash-2-2 {
+	stroke-dasharray: 4.571,4.571;
+	stroke-dashoffset: 4.571;
+	stroke-linecap: butt;
+}
+.dash-3-1 {
+	stroke-dasharray: 4.571,9.143;
+	stroke-dashoffset: 0;
+	stroke-linecap: butt;
+}
+.dash-3-2 {
+	stroke-dasharray: 4.571,9.143;
+	stroke-dashoffset: 4.571;
+	stroke-linecap: butt;
+}
+.dash-3-3 {
+	stroke-dasharray: 4.571,9.143;
+	stroke-dashoffset: 9.143;
+	stroke-linecap: butt;
+}
+.dash-4-1 {
+	stroke-dasharray: 4.571,13.714;
+	stroke-dashoffset: 0;
+	stroke-linecap: butt;
+}
+.dash-4-2 {
+	stroke-dasharray: 4.571,13.714;
+	stroke-dashoffset: 4.571;
+	stroke-linecap: butt;
+}
+.dash-4-3 {
+	stroke-dasharray: 4.571,13.714;
+	stroke-dashoffset: 9.143;
+	stroke-linecap: butt;
+}
+.dash-4-4 {
+	stroke-dasharray: 4.571,13.714;
+	stroke-dashoffset: 13.714;
+	stroke-linecap: butt;
+}
+.trail-cor-yellow {
+	stroke: #FFCC00;
+}
+.trail-cor-green {
+	stroke: #009900;
+}
+.trail-cor-blue {
+	stroke: #3233FF;
+}
+.trail-cor-red {
+	stroke: #FE0000;
+}
+/* Map decoration */
+.map-grid-line {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.11429px;
+	stroke-opacity: 0.5;
+}
+.map-border-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 3.429px;
+	stroke-miterlimit: 4;
+	stroke-dasharray: none;
+	stroke-opacity: 1;
+	stroke-linecap: round;
+}
+.map-border-cor {
+	fill: none;
+	fill-opacity: 1;
+	fill-rule: nonzero;
+	stroke: #ffffff;
+	stroke-width: 2.28571px;
+	stroke-miterlimit: 0;
+	stroke-dashoffset: -0.57143px;
+	stroke-opacity: 1;
+}
+.map-scale-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 4.571px;
+	stroke-linecap: butt;
+}
+.map-scale-cor {
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 3.429px;
+	stroke-linecap: butt;
+}
+.map-scale-bookend {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 1.14286px;
+	stroke-linecap: butt;
+}
+.map-scale-caption {
+	font-family: DejaVu Sans;
+	font-size: 11.429px;
+	fill: #8080ff;
+}
+/* map background must be the same for all zooms or else empty tile detection will fail */
+.map-background {
+	fill: none;
+	stroke: none;
+}
+.map-title {
+	font-family: DejaVu Sans;
+	font-size: 22.857px;
+	text-anchor: middle;
+	fill: black;
+}
+.map-title-background {
+	fill: white;
+}
+.map-marginalia-background {
+	fill: white;
+}
+.osmarender-mask-black {
+	stroke: #000000;
+}
+.osmarender-mask-white {
+	stroke: #FFFFFF;
+}
+.osmarender-no-marker-end {
+	marker-end: none;
+}
+.osmarender-no-marker-start {
+	marker-start: none;
+}
+.osmarender-stroke-linecap-butt {
+	stroke-linecap: butt;
+}
+.osmarender-stroke-linecap-round {
+	stroke-linecap: round;
+}
+.osmarender-stroke-linecap-square {
+	stroke-linecap: square;
+}
+
+			]]>
+		</style>
+
+	</defs>
+
+</rules>
+

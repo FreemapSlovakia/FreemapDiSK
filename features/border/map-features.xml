@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+
+<!-- FreemapSlovakia Rules File for zoom level 16 -->
+
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    textAttenuation="12"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="yes">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+  <!--bounds_mkr1-->
+  <!--bounds_mkr2-->
+ 
+  <!-- Select all nodes and ways (unless they have an osmarender:render=no tag) -->
+  <rule e="node|way" k="osmarender:render" v="~|yes">
+     <rule e="way" k="polygon_id" v="*">
+        <area class='boundary-state' bezier-hint='no'/>
+      </rule>
+  </rule>
+
+
+  <!-- SVG Definitions - markers, symbols etc go here -->
+  <defs>
+
+    <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+      <![CDATA[
+.boundary-state {
+	fill: #F0F0F0;
+	stroke: none;
+}
+.map-background {
+	fill: none;
+	stroke: none;
+}
+
+
+]]>
+    </style>
+
+
+  </defs>
+
+</rules>
+
+
+
+

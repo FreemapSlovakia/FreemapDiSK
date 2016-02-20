@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- This file should be used with Osmarender 6 -->
+<!-- This file implements a sub-set of the items described at http://wiki.openstreetmap.org/index.php/Map_Features -->
+
+<!-- A scale of 0.1 will make fat roads on a small map, a scale of 5 will draw very thin roads on a large scale map -->
+<!-- minimumMapWidth/Height is in kilometres -->
+<!-- Set javaScript="no" if you want an svg file that contains no javascript. This is so that you can upload it to Wikipedia etc -->
+<rules
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	scale="1"
+	svgBaseProfile="full"
+	symbolScale="1"
+	minimumMapWidth="1"
+	minimumMapHeight="1"
+	withOSMLayers="yes"
+	textAttenuation="10.0"
+	withUntaggedSegments="no"
+	showScale="no"
+	showGrid="no"
+	showBorder="no"
+	showLicense="no"
+	interactive="no"
+	processWays="yes">
+
+	<!--data_mkr1-->
+	<data file="data.osm" />
+	<!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<!-- Select all nodes and ways (unless they have an osmarender:render=no tag) -->
+	<!-- If you really want to render segments then you will need to add segment to the element list, but please don't - tag the ways instead. -->
+	<rule e="node|way" k="osmarender:render" v="~|yes" layer="5">
+		<layer name="cycleways" opacity="0.6">
+			<rule e="way" k="fmrelbicycleblue|fmrelbicyclered|fmrelbicycleyellow|fmrelbicyclegreen" v="*" layer="5">
+				<line class='cwy-cas' smart-linecap='no' />
+			</rule>
+
+			<rule e="way" k="cycleway_orange" v="*" layer="5">
+				<line class='cwy-cor cwy-cor-orange ' smart-linecap='no' />
+			</rule>
+			<rule e="way" k="cycleway_brown" v="*" layer="5">
+				<line class='cwy-cor cwy-cor-brown' smart-linecap='no' />
+			</rule>
+
+			<rule e="way" k="fmrelbicycleblue" v="*" layer="5">
+				<rule e="way" k="fmrelbicyclered" v="*" layer="5">
+					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- RGBY-->
+							<line class='cwy-cor cwy-cor-blue dash-4-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-red dash-4-2' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-green dash-4-3' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-4-4' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- RGB_ -->
+							<line class='cwy-cor cwy-cor-blue dash-3-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-red dash-3-2' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-green dash-3-3' smart-linecap='no' />
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- R_BY-->
+							<line class='cwy-cor cwy-cor-blue dash-3-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-red dash-3-2' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-3-3' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- R_B_ -->
+							<line class='cwy-cor cwy-cor-blue dash-2-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-red dash-2-2' smart-linecap='no' />
+						</else>
+					</else>
+				</rule>
+				<else>
+					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- _GBY-->
+							<line class='cwy-cor cwy-cor-blue dash-3-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-green dash-3-2' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-3-3' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- _GB_ -->
+							<line class='cwy-cor cwy-cor-blue dash-2-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-green dash-2-2' smart-linecap='no' />
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- __BY-->
+							<line class='cwy-cor cwy-cor-blue dash-2-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-2-2' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- __B_ -->
+							<line class='cwy-cor cwy-cor-blue' smart-linecap='no' />
+						</else>
+					</else>
+				</else>
+			</rule>
+			<else>
+				<rule e="way" k="fmrelbicyclered" v="*" layer="5">
+					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- RG_Y-->
+							<line class='cwy-cor cwy-cor-red dash-3-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-green dash-3-2' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-3-3' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- RG__ -->
+							<line class='cwy-cor cwy-cor-red dash-2-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-green dash-2-2' smart-linecap='no' />
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- R__Y-->
+							<line class='cwy-cor cwy-cor-red dash-2-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-2-2' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- R___ -->
+							<line class='cwy-cor cwy-cor-red' smart-linecap='no' />
+						</else>
+					</else>
+				</rule>
+				<else>
+					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- _G_Y-->
+							<line class='cwy-cor cwy-cor-green dash-2-1' smart-linecap='no' />
+							<line class='cwy-cor cwy-cor-yellow dash-2-2' smart-linecap='no' />
+						</rule>
+						<else>
+							<!-- _G__ -->
+							<line class='cwy-cor cwy-cor-green' smart-linecap='no' />
+						</else>
+					</rule>
+					<else>
+						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+							<!-- ___Y-->
+							<line class='cwy-cor cwy-cor-yellow' smart-linecap='no' />
+						</rule>
+					</else>
+				</else>
+			</else>
+		</layer>
+
+		<!-- Road numbers for all highways -->
+		<rule e="node|way" k="osmarender:renderRef|osmarender:renderref" v="~|yes" layer="5">
+
+			<!-- Stands and Maps -->
+			<rule e="node" k="tourism" v="information" layer="5">
+				<rule e="node" k="information" v="guidepost" layer="5">
+					<rule e="node" k="bicycle" v="yes" layer="5">
+						<circle r="1.71429px" class="cwy_stand"/>
+					</rule>
+				</rule>
+			</rule>
+			<!--<rule e="node" k="tourism" v="information" layer="5">
+				<rule e="node" k="information" v="map" layer="5">
+					<rule e="node" k="bicycle" v="yes" layer="5">
+						<circle r="2px" class="cwy_map "/>
+					</rule>
+				</rule>
+			</rule>-->
+		</rule>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+		<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+			<![CDATA[
+
+.cwy_stand {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 0.71429px;
+}
+.cwy_map {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 0.71429px;
+}
+/* cwy- generic style */
+.cwy-cas {
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	stroke: white;
+	stroke-width: 2.57143px;
+}
+.cwy-cor {
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	fill: none;
+	stroke-width: 1.71429px;
+}
+.dash-2-1 {
+	stroke-dasharray: 4.286,4.286;
+	stroke-dashoffset: 0;
+}
+.dash-2-2 {
+	stroke-dasharray: 4.286,4.286;
+	stroke-dashoffset: 4.286;
+}
+.dash-3-1 {
+	stroke-dasharray: 4.286,8.571;
+	stroke-dashoffset: 0;
+}
+.dash-3-2 {
+	stroke-dasharray: 4.286,8.571;
+	stroke-dashoffset: 4.286;
+}
+.dash-3-3 {
+	stroke-dasharray: 4.286,8.571;
+	stroke-dashoffset: 8.571;
+}
+.dash-4-1 {
+	stroke-dasharray: 4.286,12.857;
+	stroke-dashoffset: 0;
+}
+.dash-4-2 {
+	stroke-dasharray: 4.286,12.857;
+	stroke-dashoffset: 4.286;
+}
+.dash-4-3 {
+	stroke-dasharray: 4.286,12.857;
+	stroke-dashoffset: 8.571;
+}
+.dash-4-4 {
+	stroke-dasharray: 4.286,12.857;
+	stroke-dashoffset: 12.857;
+}
+.cwy-cor-yellow {
+	stroke: #FFCC00;
+}
+.cwy-cor-green {
+	stroke: #009900;
+}
+.cwy-cor-blue {
+	stroke: #3233FF;
+}
+.cwy-cor-red {
+	stroke: #FE0000;
+}
+.cwy-cor-orange {
+	stroke: #F7BC5B;
+}
+.cwy-cor-brown {
+	stroke: #69430A;
+}
+/* Map decoration */
+.map-grid-line {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.01429px;
+	stroke-opacity: 0.5;
+}
+.map-border-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.42857px;
+	stroke-miterlimit: 4;
+	stroke-dasharray: none;
+	stroke-opacity: 1;
+	stroke-linecap: round;
+}
+.map-border-cor {
+	fill: none;
+	fill-opacity: 1;
+	fill-rule: nonzero;
+	stroke: #ffffff;
+	stroke-width: 0.28571px;
+	stroke-miterlimit: 0;
+	stroke-dashoffset: -0.07143px;
+	stroke-opacity: 1;
+}
+.map-scale-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.57143px;
+	stroke-linecap: butt;
+}
+.map-scale-cor {
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 0.42857px;
+	stroke-linecap: butt;
+}
+.map-scale-bookend {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.14286px;
+	stroke-linecap: butt;
+}
+.map-scale-caption {
+	font-family: DejaVu Sans,sans-serif;
+	font-size: 1.42857px;
+	fill: #8080ff;
+}
+/* map background must be the same for all zooms or else empty tile detection will fail */
+.map-background {
+	fill: none;
+	stroke: none;
+}
+.map-title {
+	font-family: DejaVu Sans,sans-serif;
+	font-size: 2.85714px;
+	text-anchor: middle;
+	fill: black;
+}
+.map-title-background {
+	fill: white;
+}
+.map-marginalia-background {
+	fill: white;
+}
+.osmarender-mask-black {
+	stroke: #000000;
+}
+.osmarender-mask-white {
+	stroke: #FFFFFF;
+}
+.osmarender-no-marker-end {
+	marker-end: none;
+}
+.osmarender-no-marker-start {
+	marker-start: none;
+}
+.osmarender-stroke-linecap-butt {
+	stroke-linecap: butt;
+}
+.osmarender-stroke-linecap-round {
+	stroke-linecap: round;
+}
+.osmarender-stroke-linecap-square {
+	stroke-linecap: square;
+}
+
+			]]>
+		</style>
+
+	</defs>
+
+</rules>
+

@@ -1,0 +1,46 @@
+#!/bin/bash
+
+MY_PATH=`readlink -f $0`
+cd `dirname $MY_PATH`
+
+# Test whether running
+if [ -a *.pid ] ; then
+    echo "DiSK client is running";
+	# Check if is running => is there pid file?
+	PID_NUMBER=`ls *.pid | sed -e "s/\.pid//"` 
+
+	echo "PID: $PID_NUMBER"
+
+	# Test whether process 
+	PROCESS=`ps -f -p $PID_NUMBER | grep "tilesGen.pl"` ;
+
+	#echo "$PROCESS"
+
+	if [ -z "$PROCESS" ] ; then
+		echo "Process with given PID is not DiSK client";
+	fi;
+
+	echo "Removing pid file -> stopping process"
+	# remove pid file
+	rm *.pid
+
+	# wait for process finish
+	while ps -p "$PID_NUMBER" > /dev/null; do 
+		sleep 1; 
+	done
+
+	echo "Process stopped"
+else
+    echo "DiSK client is not running";
+	# svn update
+	svn up >>output.log 2>&1
+    exit 0;
+fi;
+
+
+
+# svn update
+git pull >>output.log 2>&1
+
+# start client
+./daemon-start

@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- This file should be used with Osmarender 4 -->
+<!-- This file implements a sub-set of the items described at http://wiki.openstreetmap.org/index.php/Map_Features -->
+
+<!-- A scale of 0.1 will make fat roads on a small map, a scale of 5 will draw very thin roads on a large scale map -->
+<!-- minimumMapWidth/Height is in kilometres -->
+<!-- Set javaScript="no" if you want an svg file that contains no javascript.  This is so that you can upload it to Wikipedia etc -->
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="no">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<rule e="node|way" k="osmarender:render" v="~|yes">
+		<!-- Place names  -->
+		<rule k="osmarender:renderName|osmarender:rendername" v="~|yes">
+			<layer name="Region Name Magic" opacity="1">
+				<rule e="node" k="place" v="town">
+					<rule e="node" k="city_type" v="region_city">
+						<text k="name" class='region-city-caption-cas'  x-line-spacing='1300'/>
+						<text k="name" class='region-city-caption'  x-line-spacing='1300'/>
+					</rule>
+				</rule>
+			</layer>
+			<layer name="City Name Magic" opacity="1">
+				<rule e="node" k="place" v="city">
+					<text k="name" class='city-caption-cas'  x-line-spacing='1400'/>
+					<text k="name" class='city-caption'  x-line-spacing='1400'/>
+				</rule>
+			</layer>
+		</rule>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+		<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+			.debug {
+			stroke-width: 0.00089px;
+			stroke-linecap: round;
+			stroke: gray;
+			/* marker-end: url(#segment-direction); */
+			}
+
+			.error {
+			stroke-width: 0.01786px;
+			stroke-linecap: round;
+			stroke: red;
+			}
+
+			.untagged-segments {
+			stroke-width: 0.00446px;
+
+			stroke-linecap: butt;
+			stroke: #e0e0e0;
+			stroke-dasharray: 0.00446,0.00446;
+			}
+
+
+
+			/* Place names */
+			.continent-caption {
+			fill: black;
+			stroke: white;
+			stroke-width: 0.00536px;
+			font-family: NimbusSanL;
+			font-size: 0.17857px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.country-caption {
+			fill: black;
+			stroke: white;
+			stroke-width: 0.00446px;
+			font-family: NimbusSanL;
+			font-size: 0.16071px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.state-caption {
+			fill: black;
+			stroke: white;
+			stroke-width: 0.00446px;
+			font-family: NimbusSanL;
+			font-size: 0.14286px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.region-caption {
+			fill: black;
+			stroke: white;
+			stroke-width: 0.00357px;
+			font-family: NimbusSanL;
+			font-size: 0.125px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.county-caption {
+			fill: black;
+			stroke: white;
+			stroke-width: 0.00357px;
+			font-family: NimbusSanL;
+			font-size: 0.10714px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.city-caption {
+			fill: black;
+			stroke: none;
+			font-family: NimbusSanL;
+			font-size: 10.714px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.city-caption-cas {
+			fill: white;
+			stroke: white;
+			stroke-width: 1.96429px;
+			font-family: NimbusSanL;
+			font-size: 10.714px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+
+			.region-city-caption {
+			fill: black;
+			stroke: none;
+			font-family: NimbusSanL;
+			font-size: 9.821px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+			.region-city-caption-cas {
+			fill: white;
+			stroke: white;
+			stroke-width: 1.96429px;
+			font-family: NimbusSanL;
+			font-size: 9.821px;
+			font-weight: normal;
+			text-anchor: middle;
+			}
+
+
+			/* Map decoration */
+			.map-grid-line {
+			fill: none;
+			stroke: #8080ff;
+			stroke-width: 0.00089px;
+			stroke-opacity: 0.5;
+			}
+
+			.map-border-cas {
+			fill: none;
+			stroke: #8080ff;
+			stroke-width: 0.02679px;
+			stroke-miterlimit: 4;
+			stroke-dasharray: none;
+			stroke-opacity: 1;
+			stroke-linecap: round;
+			}
+
+			.map-border-cor {
+			fill: none;
+			fill-opacity: 1;
+			fill-rule: nonzero;
+			stroke: #ffffff;
+			stroke-width: 0.01786px;
+			stroke-miterlimit: 0;
+			stroke-dashoffset: -0.00446px;
+			stroke-opacity: 1;
+			}
+
+			.map-scale-cas {
+			fill: none;
+			stroke: #8080ff;
+			stroke-width: 0.03571px;
+			stroke-linecap: butt;
+			}
+
+			.map-scale-cor {
+			fill: none;
+			stroke: #ffffff;
+			stroke-width: 0.02679px;
+			stroke-linecap: butt;
+			}
+
+			.map-scale-bookend {
+			fill: none;
+			stroke: #8080ff;
+			stroke-width: 0.00893px;
+			stroke-linecap: butt;
+			}
+
+			.map-scale-caption {
+			font-family: NimbusSanL;
+			font-size: 0.08929px;
+			fill: #8080ff;
+			}
+
+			<!-- map background must be the same for all zooms or else empty tile detection will fail -->
+			.map-background {
+			fill: none;
+			stroke: none;
+			}
+
+			.map-title {
+			font-family: NimbusSanL;
+			font-size: 0.17857px;
+			text-anchor: middle;
+			fill: black;
+			}
+
+			.map-title-background {
+			fill: white;
+			}
+
+			.map-marginalia-background {
+			fill: white;
+			}
+		</style>
+
+	</defs>
+
+</rules>

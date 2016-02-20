@@ -1,0 +1,77 @@
+#82 (11. 1.2016) - uprava sirky potokov a riek (honor-width), lahke precistenie stylov na atlas vrstve, spracovanie ciest, ktore su inner aj outer clenmi zaroven
+#81 (18.10.2015) - presunutie spracovania relacii na fmrel* tagy na DiSK klienta
+#80 (30. 7.2015) - zmena farby a vzoru pre wetland=marsh/reedbed, renderovanie fmreladminlevel=5 (MidZoom)
+#79 (16. 7.2015) - vylepsenie orezavania dat na bbox, zmena farby scrub (LowZoom), renderovanie fmreladminlevel=7 (MidZoom)
+#78 (15. 2.2015) - oprava orezavania polygonov, do ktorych sa zmesti cely tile z12 + drobne zlepsenia orezavania
+#77 ( 9. 2.2015) - zmena symbolu na trojuholnik pre cliff, precistenie+zjednotenie stylov pre cycleways/trails
+#76 (25. 1.2015) - zlepsenie orezavania OSM dat na bbox, oprava cliff a railway
+#75 ( 6. 1.2015) - prisposobenie textAttenuation pre trails/cycleway/hiking/freemap na vsetkych zoomoch
+#74 ( 5. 1.2015) - zvysenie textAttenuation pre primary/secondary/trunk/motorway na z12 hiking/freemap
+#73 ( 5. 1.2015) - true mercator projekcia, orezavanie OSM dat na bbox, vypnutie close-areas a analyze_way_lenght
+#72 (12. 5.2014) - quarry-pattern, secondary-link, path, power(3x), oprava cliff
+#71 (23. 3.2014) - cycleways na z8
+#70 (10. 3.2014) - natural grassland
+#69 (23. 2.2014) - disk relacny parser 2.0
+#68 (20. 2.2014) - bezier na cesty s duplicitnymi bodmi
+#67 ( 1. 1.2014) - disk relacny parser 1.0
+#66 (11.11.2013) - trapi sa stahuje na fenixa
+#65 (15. 7.2013) - vylepsene track na hiking-u 
+#64 (11. 7.2013) - tucnejsie track a paths na hiking-u 
+#63 (11. 7.2013) - bicycle=yes ide do prec... 
+#62
+#61 (17.  3.2013) - malo zoslabene casing pre residential na z13-z16
+#60 (11.  3.2013) - protectection_id na protect_class
+#59 (20.  1.2013) - off horse layer
+#57,58 ( 1.  1.2013) - fixed horse layer
+#56 (29. 12.2012) - added horse layer
+#55 (26.  9.2012) - menej zlte dialnice a trunky... na turistike
+#54 ( 5.  9.2012) - zmeny v labels pre hiking stand
+#53 (31.  8.2012) - tilesh color change for major roads
+#52 ( 1.  8.2012) - removed embankments from atlas
+#51 (25.  7.2012) - trapi moved again due to core03 failure
+#50 (30.  6.2012) - fix by MiMiNo
+#49 (20.  6.2012) - rozdvojil som atlas a hiking
+#48 (14.  6.2012) - fixed barrier wall
+#47 (13.  6.2012) - landuse landfill + barrier wall
+#46 (11.  6.2012) - chyba v proposed trunk
+#45 (13.  4.2012) - refresh kvoli zmenen v kode
+#44 (13.  4.2012) - presun freemap do atlasu, kopia pre hiking
+#43 (09.  3.2012) - copy paste error v cyclo
+#42 (23.  2.2012) - mape isli prec zo ski
+#41 (17.  2.2012) - italic pre nazvy vody
+#40 (10.  2.2012) - silnejsie kreslenie lesnych patterns
+#39 ( 7.  2.2012) - textAttenuation pre hwy REF
+#38 ( 5.  2.2012) - tak uz snad naozaj fix pre motorway name
+#37 ( 3.  2.2012) - fix cycleway z12-16 no DASH
+#36 ( 2.  2.2012) - fix cycleway z15 - vdaka MiMiNo
+#35 ( 1.  2.2012) - fix cycleway lane ...
+#34 (29.  1.2012) - z15,16 admin level=9  + stlmenie adm. bnd casing
+#33 (10.  1.2012) - z15 zostali pravidla pre bridge a styl som dal prec :S
+#32 ( 8.  1.2012) - zmeny ala MiMiNo
+#31 ( 7.  1.2012) - redesing lesov a luk, uprava farieb orchard, meadow redukcia farieb
+#30 ( 1.  1.2012) - redesing lesov, hrani a construction/proposed mwy/trunk
+#29 (13. 12.2011) - landuse=orchard
+#28 (13. 12.2011) - trojuholnicky na ciarky
+#27 (13. 12.2011) - pridal som natural=cliff ako mozaiku znaku trojuholnik
+#26 ( 6. 12.2011) - vysledok s progressbaru - vylepseny transport layer na z16
+#25 ( 2. 12.2011) - trapi moved back to http://109.74.146.12/core03/
+#24 (30. 11.2011) - temp. moved trapi to http://109.74.146.13:82/core03/ due to hw problem
+#23 (28. 11.2011) - v hiking mape sa nerenderuju nazvy mapovych stojanov
+#22 
+#21 (21. 8. 2011) - zmena data url z core2 na core1
+#20 (12. 8. 2011) - zmena data url z core1 na core2
+#19 ( 1. 8. 2011) - pre chko and np border styles fix
+#18 (14. 7. 2011) - fix error stylesheet freemap z16
+#17 (14. 7. 2011) - fix pre multilabeling
+#16 (13. 7. 2011) - trochu tucnejsia turistika - a AAL =1
+#15 (12. 7. 2011) - pre chko and np border styles
+#14 ( 5. 7. 2011) - fixed "footway are nam cor"
+#13 (30. 6. 2011) - rework of boundary_protected_area
+#12 (30. 6. 2011) - landuse=quarry +  patternt na z15-16
+#11 (26. 6. 2011) - zo z14 ide prec drevena budova, a na z15,16 maju "drevenu farbu"
+#10 (19. 6. 2011) - mapy z trails a cycleways prec ...
+#9  (19. 6. 2011) - rollback pre missing relation
+#8  (17. 6. 2011) - moved trapi to http://109.74.146.12/core03/api/0.6/
+#7  ( 1. 6. 2011) - z14-z16 trails + new osmarender
+#6  (xx. 5. 2011) - z16 opravene popis namestia + cyklo by Kayle
+#5  (15. 5. 2011) - z16 glow okolo ulic a vystredene na stred

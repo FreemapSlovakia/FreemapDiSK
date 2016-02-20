@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- This file should be used with Osmarender 6 -->
+<!-- This file implements a sub-set of the items described at http://wiki.openstreetmap.org/index.php/Map_Features -->
+
+<!-- A scale of 0.1 will make fat roads on a small map, a scale of 5 will draw very thin roads on a large scale map -->
+<!-- minimumMapWidth/Height is in kilometres -->
+<!-- Set javaScript="no" if you want an svg file that contains no javascript.  This is so that you can upload it to Wikipedia etc -->
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    textAttenuation="0.44"
+    withUntaggedSegments="no"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="yes">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+    <!--bounds_mkr1-->
+    <!--bounds_mkr2-->
+
+    <!-- Select all nodes and ways (unless they have an osmarender:render=no tag) -->
+    <!-- If you really want to render segments then you will need to add segment to the element list, but please don't - tag the ways instead. -->
+    <rule e="node|way" k="osmarender:render" v="~|yes" layer="5">
+
+        <!-- Paths not in tunnels -->
+
+        <layer name="ski" opacity="0.6">
+            <rule e="way" k="tunnel" v="~|no" layer="5">
+                <rule e="way" k="ski" v="yes" layer="5">
+                    <line class='ski-cas' smart-linecap='no' />
+                </rule>
+
+                <rule e="way" k="fmrelskiblue|fmrelskired|fmrelskiwhite|fmrelskigreen|fmrelskidefault" v="*" layer="5">
+                    <line class='ski-cas' smart-linecap='no' />
+                </rule>
+
+                <rule e="way" k="ski" v="yes" layer="5">
+                    <line class='ski-cor ski-cor-ski' smart-linecap='no' />
+                </rule>
+                <rule e="way" k="fmrelskidefault" v="*" layer="5">
+                    <line class='ski-cor ski-cor-default' smart-linecap='no' />
+                </rule>
+
+                <rule e="way" k="fmrelskiblue" v="*" layer="5">
+                    <rule e="way" k="fmrelskired" v="*" layer="5">
+                        <rule e="way" k="fmrelskigreen" v="*" layer="5">
+                            <rule e="way" k="fmrelskiwhite" v="*" layer="5">
+                                <!-- RGBY-->
+                                <line class='ski-cor ski-cor-blue dash-4-1' smart-linecap='no' />
+                                <line class='ski-cor ski-cor-red dash-4-2'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-green dash-4-3' smart-linecap='no' />
+                                <line class='ski-cor ski-cor-white dash-4-4'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- RGB_ -->
+                                <line class='ski-cor ski-cor-blue dash-3-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-red dash-3-2'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-green dash-3-3'  smart-linecap='no'/>
+                            </else>
+                        </rule>
+                        <else>
+                            <rule e="way" k="fmrelskiwhite" v="*" layer="5">
+                                <!-- R_BY-->
+                                <line class='ski-cor ski-cor-blue dash-3-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-red dash-3-2'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-white dash-3-3'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- R_B_ -->
+                                <line class='ski-cor ski-cor-blue dash-2-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-red dash-2-2'  smart-linecap='no'/>
+                            </else>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmrelskigreen" v="*" layer="5">
+                            <rule e="way" k="fmrelskiwhite" v="*" layer="5">
+                                <!-- _GBY-->
+                                <line class='ski-cor ski-cor-blue dash-3-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-green dash-3-2'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-white dash-3-3'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- _GB_ -->
+                                <line class='ski-cor ski-cor-blue dash-2-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-green dash-2-2'  smart-linecap='no'/>
+                            </else>
+                        </rule>
+                        <else>
+                            <rule e="way" k="fmrelskiwhite" v="*"  layer="5">
+                                <!-- __BY-->
+                                <line class='ski-cor ski-cor-blue dash-2-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-white dash-2-2'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- __B_ -->
+                                <line class='ski-cor ski-cor-blue'  smart-linecap='no'/>
+                            </else>
+                        </else>
+                    </else>
+                </rule>
+                <else>
+                    <rule e="way" k="fmrelskired" v="*"  layer="5">
+                        <rule e="way" k="fmrelskigreen" v="*"  layer="5">
+                            <rule e="way" k="fmrelskiwhite" v="*"  layer="5">
+                                <!-- RG_Y-->
+                                <line class='ski-cor ski-cor-red dash-3-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-green dash-3-2'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-white dash-3-3'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- RG__ -->
+                                <line class='ski-cor ski-cor-red dash-2-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-green dash-2-2'  smart-linecap='no'/>
+                            </else>
+                        </rule>
+                        <else>
+                            <rule e="way" k="fmrelskiwhite" v="*"  layer="5">
+                                <!-- R__Y-->
+                                <line class='ski-cor ski-cor-red dash-2-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-white dash-2-2'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- R___ -->
+                                <line class='ski-cor ski-cor-red'  smart-linecap='no'/>
+                            </else>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmrelskigreen" v="*"  layer="5">
+                            <rule e="way" k="fmrelskiwhite" v="*"  layer="5">
+                                <!-- _G_Y-->
+                                <line class='ski-cor ski-cor-green dash-2-1'  smart-linecap='no'/>
+                                <line class='ski-cor ski-cor-white dash-2-2'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- _G__ -->
+                                <line class='ski-cor ski-cor-green'  smart-linecap='no'/>
+                            </else>
+                        </rule>
+                        <else>
+                            <rule e="way" k="fmrelskiwhite" v="*"  layer="5">
+                                <!-- ___Y-->
+                                <line class='ski-cor ski-cor-white'  smart-linecap='no'/>
+                            </rule>
+                            <else>
+                                <!-- ____ -->
+                            </else>
+                        </else>
+                    </else>
+                </else>
+            </rule>
+        </layer>
+    </rule >
+    <!-- k="osmarender:render" v="~|yes" -->
+
+    <!-- SVG Definitions - markers, symbols etc go here -->
+    <defs>
+        <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+            <![CDATA[ 
+
+      .hwy-cas {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      }
+
+      .hwy-cor {
+      stroke-linecap: butt;
+      stroke-linejoin: round;
+      fill: none;
+      }
+
+      .ski-ref {
+      fill: #202020;
+      font-family: DejaVu Sans;
+      font-size: 2.28571px;
+      font-weight: normal;
+      stroke: #202020;
+      stroke-width: 0.025px;
+	  spacing:auto;
+      method:stretch;
+      }
+
+      .ski-ref-cas {
+      fill: #202020;
+      font-family: DejaVu Sans;
+      font-size: 2.28571px;
+      font-weight: normal;
+      stroke: #202020;
+      stroke-width: 0.25px;
+	  opacity: 0.5;
+	  spacing:auto;
+      method:stretch;
+      }
+      
+      /* ski- generic style */
+      .ski-cas {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: orange;
+      stroke-width: 3.214px;
+      }
+      
+      .ski-cas-1 {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: #808080;
+      stroke-width: 3.429px;
+      }
+      
+      .ski-cas-2 {
+      stroke-linecap: butt;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: #000000;
+      stroke-width: 3.429px;
+      stroke-dasharray: 0.42857,0.85714;
+	  stroke-dashoffset: 0.42857;
+      }
+       
+      .ski-cor {
+      stroke-linecap: butt;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-width: 1.78571px;
+      }
+      
+      .dash-2-1{
+      stroke-dasharray: 1.07143,1.07143;
+	  stroke-dashoffset: 0;
+      }
+      .dash-2-2{
+      stroke-dasharray: 1.07143,1.07143;
+	  stroke-dashoffset: 1.07143;
+      }
+
+      .dash-3-1{
+      stroke-dasharray: 1.07143,2.14286;
+	  stroke-dashoffset: 0;
+      }
+
+      .dash-3-2{
+      stroke-dasharray: 1.07143,2.14286;
+	  stroke-dashoffset: 1.07143;
+      }
+
+      .dash-3-3{
+      stroke-dasharray: 1.07143,2.14286;
+	  stroke-dashoffset: 2.14286;
+      }
+
+      .dash-4-1{
+      stroke-dasharray: 1.07143,3.214;
+	  stroke-dashoffset: 0;
+      }
+
+      .dash-4-2{
+      stroke-dasharray: 1.07143,3.214;
+	  stroke-dashoffset: 1.07143;
+      }
+
+      .dash-4-3{
+      stroke-dasharray: 1.07143,3.214;
+	  stroke-dashoffset: 2.14286;
+      }
+
+      .dash-4-4{
+      stroke-dasharray: 1.07143,3.214;
+	  stroke-dashoffset: 3.214;
+      }
+
+      .ski-cor-white {
+      stroke: #FFFFFF;
+      }
+      
+      .ski-cor-green {
+      stroke: #009900;
+      }
+
+      .ski-cor-blue {
+      stroke: #3233FF;
+      }
+
+      .ski-cor-red {
+      stroke: #FE0000;
+      }
+
+      .ski-cor-ski {
+      stroke: #B1EE15;
+      }
+
+      .ski-cor-default {
+      stroke: #E83798;
+      }
+
+      /* Map decoration */
+      .map-grid-line {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 0.00357px;
+      stroke-opacity: 0.5;
+      }
+
+      .map-border-cas {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 0.10714px;
+      stroke-miterlimit: 4;
+      stroke-dasharray: none;
+      stroke-opacity: 1;
+      stroke-linecap: round;
+      }
+
+      .map-border-cor {
+      fill: none;
+      fill-opacity: 1;
+      fill-rule: nonzero;
+      stroke: #ffffff;
+      stroke-width: 0.07143px;
+      stroke-miterlimit: 0;
+      stroke-dashoffset: -0.01786px;
+      stroke-opacity: 1;
+      }
+
+      .map-scale-cas {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 0.14286px;
+      stroke-linecap: butt;
+      }
+
+      .map-scale-cor {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 0.10714px;
+      stroke-linecap: butt;
+      }
+
+      .map-scale-bookend {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 0.03571px;
+      stroke-linecap: butt;
+      }
+
+      .map-scale-caption {
+      font-family: DejaVu Sans;
+      font-size: 0.35714px;
+      fill: #8080ff;
+      }
+
+       /* map background must be the same for all zooms or else empty tile detection will fail */
+      .map-background {
+      fill: none;
+      stroke: none;
+      }
+
+      .map-title {
+      font-family: DejaVu Sans;
+      font-size: 0.71429px;
+      text-anchor: middle;
+      fill: black;
+      }
+
+      .map-title-background {
+      fill: white;
+      }
+
+      .map-marginalia-background {
+      fill: white;
+      }
+
+      .osmarender-mask-black{
+      stroke: #000000;
+      }
+
+      .osmarender-mask-white{
+      stroke: #FFFFFF;
+      }
+
+      .osmarender-no-marker-end{
+      marker-end: none;
+      }
+
+      .osmarender-no-marker-start{
+      marker-start: none;
+      }
+
+      .osmarender-stroke-linecap-butt{
+      stroke-linecap: butt;
+      }
+
+      .osmarender-stroke-linecap-round{
+      stroke-linecap: round;
+      }
+
+      .osmarender-stroke-linecap-square{
+      stroke-linecap: square;
+      }
+      ]]>
+        </style>
+
+
+        <svg:symbol
+              id="symbol-marked_ski-map"
+              viewBox="0 0 10 10"
+              fill='none'
+              stroke-width='0.8px'
+              stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+        <svg:symbol
+              id="symbol-marked_ski-stand"
+              viewBox="0 0 10 10"
+              fill='none'
+              stroke-width='0.8px'
+              stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+    </defs>
+
+</rules>
+

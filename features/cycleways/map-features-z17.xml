@@ -1,0 +1,926 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- This file should be used with Osmarender 6 -->
+<!-- This file implements a sub-set of the items described at http://wiki.openstreetmap.org/index.php/Map_Features -->
+
+<!-- A scale of 0.1 will make fat roads on a small map, a scale of 5 will draw very thin roads on a large scale map -->
+<!-- minimumMapWidth/Height is in kilometres -->
+<!-- Set javaScript="no" if you want an svg file that contains no javascript.  This is so that you can upload it to Wikipedia etc -->
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    textAttenuation="0.44"
+    withUntaggedSegments="no"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="yes">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+    <!--bounds_mkr1-->
+    <!--bounds_mkr2-->
+
+    <rule e="node|way" k="osmarender:render" v="~|yes" layer="5">
+
+        <!-- Cycleways in city -->
+        <layer name="city_cycleways" opacity="0.6">
+            <rule e="way" k="highway" v="cycleway" layer="5">
+                <line class='cwy-city-cor cwy-cor-green'  smart-linecap='no'/>
+            </rule>
+            <else>
+                <rule e="way" k="bicycle" v="designated" layer="5">
+                     <rule e="way" k="segregated" v="yes" layer="5">
+                         <line class='cwy-city-cor cwy-cor-green dash' smart-linecap='no'/>
+                     </rule>
+                     <else>
+                         <line class='cwy-city-cor cwy-cor-blue dash' smart-linecap='no'/>
+                     </else>
+                </rule>
+			</else>
+			<rule e="way" k="cycleway" v="lane" layer="5">
+				<line class='cwy-city-cor cwy-cor-blue dash' smart-linecap='no'/>
+			</rule>
+			<rule e="way" k="cycleway:right" v="lane" layer="5">
+				<line class='cwy-city-cor cwy-cor-blue dash' smart-linecap='no'/>
+			</rule>
+			<rule e="way" k="cycleway" v="track" layer="5">
+				<line class='cwy-city-cor cwy-cor-green dash' smart-linecap='no'/>
+			</rule>
+        </layer>
+
+        <!-- Paths not in tunnels -->
+        <layer name="cycleways" opacity="0.6">
+            <rule e="way" k="cycleway_orange" v="*" layer="5">
+                <line class='cwy-cor cwy-cor-orange dash-1-0'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-orange dash-1-1'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-orange dash-1-2'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-orange dash-1-6'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-orange dash-1-7'  smart-linecap='no'/>
+            </rule>
+            <rule e="way" k="cycleway_brown" v="*" layer="5">
+                <line class='cwy-cor cwy-cor-brown dash-1-0'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-brown dash-1-1'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-brown dash-1-2'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-brown dash-1-6'  smart-linecap='no'/>
+                <line class='cwy-cor cwy-cor-brown dash-1-7'  smart-linecap='no'/>
+            </rule>
+
+
+            <rule e="way" k="fmrelbicycleblue" v="*" layer="5">
+                <rule e="way" k="fmrelbicyclered" v="*" layer="5">
+                    <rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
+                        <rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+                            <!-- RGBY-->
+                            <line class='cwy-cor cwy-cor-red dash-4-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-4-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-4-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-4-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-4-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-green dash-4-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-4-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-4-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-4-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-4-19'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-blue dash-4-24'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-4-25'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-4-26'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-4-30'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-4-31'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-yellow dash-4-36'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-4-37'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-4-38'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-4-42'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-4-43'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- RGB_ -->
+                            <line class='cwy-cor cwy-cor-blue dash-3-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-red dash-3-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-19'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-green dash-3-24'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-25'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-26'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-30'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-31'  smart-linecap='no'/>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+                            <!-- R_BY-->
+                            <line class='cwy-cor cwy-cor-blue dash-3-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-red dash-3-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-19'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-yellow dash-3-24'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-25'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-26'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-30'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-31'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- R_B_ -->
+                            <line class='cwy-cor cwy-cor-blue dash-2-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-red dash-2-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-19'  smart-linecap='no'/>
+                        </else>
+                    </else>
+                </rule>
+                <else>
+                    <rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
+                        <rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+                            <!-- _GBY-->
+                            <line class='cwy-cor cwy-cor-blue dash-3-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-3-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-green dash-3-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-19'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-yellow dash-3-24'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-25'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-26'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-30'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-31'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- _GB_ -->
+                            <line class='cwy-cor cwy-cor-blue dash-2-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-green dash-2-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-19'  smart-linecap='no'/>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmrelbicycleyellow" v="*"  layer="5">
+                            <!-- __BY-->
+                            <line class='cwy-cor cwy-cor-blue dash-2-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-2-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-yellow dash-2-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-19'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- __B_ -->
+                            <line class='cwy-cor cwy-cor-blue dash-1-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-1-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-1-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-1-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-blue dash-1-7'  smart-linecap='no'/>
+                        </else>
+                    </else>
+                </else>
+            </rule>
+            <else>
+                <rule e="way" k="fmrelbicyclered" v="*"  layer="5">
+                    <rule e="way" k="fmrelbicyclegreen" v="*"  layer="5">
+                        <rule e="way" k="fmrelbicycleyellow" v="*"  layer="5">
+                            <!-- RG_Y-->
+                            <line class='cwy-cor cwy-cor-red dash-3-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-3-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-green dash-3-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-3-19'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-yellow dash-3-24'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-25'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-26'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-30'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-3-31'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- RG__ -->
+                            <line class='cwy-cor cwy-cor-red dash-2-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-green dash-2-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-19'  smart-linecap='no'/>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmrelbicycleyellow" v="*"  layer="5">
+                            <!-- R__Y-->
+                            <line class='cwy-cor cwy-cor-red dash-2-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-2-7'  smart-linecap='no'/>
+
+                            <line class='cwy-cor cwy-cor-yellow dash-2-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-19'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- R___ -->
+                            <line class='cwy-cor cwy-cor-red dash-1-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-1-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-1-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-1-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-red dash-1-7'  smart-linecap='no'/>
+                        </else>
+                    </else>
+                </rule>
+                <else>
+                    <rule e="way" k="fmrelbicyclegreen" v="*"  layer="5">
+                        <rule e="way" k="fmrelbicycleyellow" v="*"  layer="5">
+                            <!-- _G_Y-->
+                            <line class='cwy-cor cwy-cor-green dash-2-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-2-7'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-12'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-13'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-14'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-18'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-2-19'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- _G__ -->
+                            <line class='cwy-cor cwy-cor-green dash-1-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-1-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-1-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-1-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-green dash-1-7'  smart-linecap='no'/>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmrelbicycleyellow" v="*"  layer="5">
+                            <!-- ___Y-->
+                            <line class='cwy-cor cwy-cor-yellow dash-1-0'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-1-1'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-1-2'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-1-6'  smart-linecap='no'/>
+                            <line class='cwy-cor cwy-cor-yellow dash-1-7'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- ____ -->
+                        </else>
+                    </else>
+                </else>
+            </else>
+        </layer>
+
+        <!-- Road numbers for all highways -->
+        <rule e="node|way" k="osmarender:renderRef|osmarender:renderref" v="~|yes" layer="5">
+
+            <!-- Stands and Maps -->
+            <rule e="node" k="tourism" v="information" layer="5">
+                <rule e="node" k="information" v="guidepost" layer="5">
+                    <rule e="node" k="bicycle" v="yes" layer="5">
+                        <circle r="4.114px" class="cwy_stand"/>
+                    </rule>
+                </rule>
+            </rule>
+            <rule e="node" k="tourism" v="information" layer="5">
+                <rule e="node" k="information" v="map" layer="5">
+                    <rule e="node" k="bicycle" v="yes" layer="5">
+                        <circle r="4.114px" class="cwy_map"/>
+                    </rule>
+                </rule>
+            </rule>
+            <rule e="node" k="cycleway" v="stand" layer="5">
+                <symbol xlink:href="#symbol-cwy-stand" width='4px' height='4px' transform='translate(-2,-2)'/>
+            </rule>
+            <rule e="node" k="cycleway" v="map" layer="5">
+                <symbol xlink:href="#symbol-cwy-map" width='4px' height='4px' transform='translate(-2,-2)'/>
+            </rule>
+
+            <rule e="node" k="cycleway" v="stand|map" layer="5">
+                <text k="cycleway_name" text-anchor='middle' class="cwy-ref-cas" dy='-9.14286px'/>
+                <text k="cycleway_name" text-anchor='middle' class='cwy-ref' dy='-9.14286px' />
+            </rule>
+
+            <rule e="way" k="tunnel" v="~|no|false" layer="5">
+                <!-- Use startOffset of 40% to prevent captions from colliding on dual carriageways -->
+                <rule e="way" k="fmrelbicycleblue|fmrelbicyclered|fmrelbicycleyellow|fmrelbicyclegreen" v="*"  layer="5">
+                    <text k="fmrelbicycleref" text-anchor='middle' startOffset='40%' class="cwy-ref-cas" dy='-9.14286px'/>
+                    <text k="fmrelbicycleref" text-anchor='middle' startOffset='40%' class='cwy-ref' dy='-1 px' />
+                </rule>
+            </rule>
+
+            <rule e="node" k="tourism" v="information" layer="5">
+                <rule e="node" k="information" v="guidepost" layer="5">
+                    <rule e="node" k="bicycle" v="yes" layer="5">
+                        <text k="name" text-anchor='start' class="trail-ref-cas" dx='9.143px'/>
+                        <text k="name" text-anchor='start' class='trail-ref-cor' dx='9.143px' />
+                        <text k="ele" text-anchor='start' class="trail-stand-ele-cor" dx="9.143px" dy='27.429px' text-prefix="(" text-postfix=" m)"/>
+                    </rule>
+                </rule>
+            </rule>
+        </rule>
+    </rule>
+    <!-- k="osmarender:render" v="~|yes" -->
+
+    <!-- SVG Definitions - markers, symbols etc go here -->
+    <defs>
+        <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+            <![CDATA[ 
+.cwy_stand {
+   fill: #FFFFFF;
+   stroke: #000000;
+   stroke-width: 1.37143px;
+}
+
+.cwy_map {
+   fill: #FFFFFF;
+   stroke: #000000;
+   stroke-width: 1.37143px;
+}
+
+.trail-stand-ele-cor {
+   fill: #404040;
+   font-family: DejaVu Sans;
+   font-size: 23.771px;
+   font-weight: normal;
+   stroke: #404040;
+   stroke-width: 0.36571px;
+   spacing:auto;
+   method:stretch;
+}
+
+.trail-ref-cor {
+  fill: #202020;
+  font-family: DejaVu Sans;
+  font-size: 29.257px;
+  font-weight: normal;
+  stroke: #202020;
+  stroke-width: 0.36571px;
+  pacing:auto;
+  method:stretch;
+}
+
+.trail-ref-cas {
+  fill: #FFFFF0;
+  font-family: DejaVu Sans;
+  font-size: 29.257px;
+  font-weight: normal;
+  stroke: #FFFFF0;
+  stroke-width: 3.657px;
+  pacity: 0.5;
+  pacing:auto;
+  method:stretch;
+}
+            
+.hwy-cas {
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	fill:none;
+}
+.hwy-cor {
+	stroke-linecap:butt;
+	stroke-linejoin:round;
+	fill:none;
+}
+.cwy-ref {
+	fill:#FFFFF0;
+	font-family:DejaVu Sans,sans-serif;
+	font-size:9.143px;
+	font-weight:normal;
+	stroke:#FFFFF0;
+	stroke-width:0;
+}
+.cwy-ref-cas {
+	fill:#202020;
+	font-family:DejaVu Sans,sans-serif;
+	font-size:9.143px;
+	font-weight:normal;
+	stroke:#202020;
+	stroke-width: 1.82857px;
+}
+/* cwy- generic style */
+.cwy-cor {
+	stroke-linejoin:round;
+	stroke-width:18.286px;
+	fill:none;
+}
+.cwy-city-cor {
+	stroke-linejoin:round;
+	stroke-width:6.4px;
+	fill:none;
+}
+.cwy-dash {
+	stroke-dasharray:65.829,65.829;
+	stroke-dashoffset:32.914;
+}
+.dash-4-0 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:87.771;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-1 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:85.943;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-2 {
+	stroke-dasharray:7.314,80.457;
+	stroke-dashoffset:84.114;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-4-6 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:76.8;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-7 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:74.971;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-12 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:65.829;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-13 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:64;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-14 {
+	stroke-dasharray:7.314,80.457;
+	stroke-dashoffset:62.171;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-4-18 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:54.857;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-19 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:53.029;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-24 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:43.886;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-25 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:42.057;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-26 {
+	stroke-dasharray:7.314,80.457;
+	stroke-dashoffset:40.229;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-4-30 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:32.914;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-31 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:31.086;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-36 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:21.943;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-4-37 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:20.114;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-38 {
+	stroke-dasharray:7.314,80.457;
+	stroke-dashoffset:18.286;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-4-42 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:10.971;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-4-43 {
+	stroke-dasharray:1.82857,85.943;
+	stroke-dashoffset:9.143;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-3-0 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:65.829;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-3-1 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:64;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-3-2 {
+	stroke-dasharray:7.314,58.514;
+	stroke-dashoffset:62.171;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-3-6 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:54.857;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-3-7 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:53.029;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-3-12 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:43.886;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-3-13 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:42.057;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-3-14 {
+	stroke-dasharray:7.314,58.514;
+	stroke-dashoffset:40.229;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-3-18 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:32.914;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-3-19 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:31.086;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-3-24 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:21.943;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-3-25 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:20.114;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-3-26 {
+	stroke-dasharray:7.314,58.514;
+	stroke-dashoffset:18.286;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-3-30 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:10.971;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-3-31 {
+	stroke-dasharray:1.82857,64;
+	stroke-dashoffset:9.143;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-2-0 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:43.886;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-2-1 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:42.057;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-2-2 {
+	stroke-dasharray:7.314,36.571;
+	stroke-dashoffset:40.229;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-2-6 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:32.914;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-2-7 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:31.086;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-2-12 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:21.943;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-2-13 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:20.114;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-2-14 {
+	stroke-dasharray:7.314,36.571;
+	stroke-dashoffset:18.286;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-2-18 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:10.971;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-2-19 {
+	stroke-dasharray:1.82857,42.057;
+	stroke-dashoffset:9.143;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-1-0 {
+	stroke-dasharray:1.82857,20.114;
+	stroke-dashoffset:21.943;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.dash-1-1 {
+	stroke-dasharray:1.82857,20.114;
+	stroke-dashoffset:20.114;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-1-2 {
+	stroke-dasharray:7.314,14.629;
+	stroke-dashoffset:18.286;
+	stroke-linecap:butt;
+	stroke-width:14.629px;
+}
+.dash-1-6 {
+	stroke-dasharray:1.82857,20.114;
+	stroke-dashoffset:10.971;
+	stroke-linecap:butt;
+	stroke-width:10.971px;
+}
+.dash-1-7 {
+	stroke-dasharray:1.82857,20.114;
+	stroke-dashoffset:9.143;
+	stroke-linecap:butt;
+	stroke-width:7.314px;
+}
+.cwy-cor-orange {
+	stroke:#F7BC5B;
+}
+.cwy-cor-brown {
+	stroke:#69430A;
+}
+.cwy-cor-yellow {
+	stroke:#FFCC00;
+}
+.cwy-cor-green {
+	stroke:#009900;
+}
+.cwy-cor-blue {
+	stroke:#3233FF;
+}
+.cwy-cor-red {
+	stroke: #FE0000;
+}
+/* Map decoration */
+.map-grid-line {
+	fill:none;
+	stroke:#8080ff;
+	stroke-width:0.45714px;
+	stroke-opacity:0.5;
+}
+.map-border-cas {
+	fill:none;
+	stroke:#8080ff;
+	stroke-width:13.714px;
+	stroke-miterlimit:4;
+	stroke-dasharray:none;
+	stroke-opacity:1;
+	stroke-linecap:round;
+}
+.map-border-cor {
+	fill:none;
+	fill-opacity:1;
+	fill-rule:nonzero;
+	stroke:#ffffff;
+	stroke-width:9.143px;
+	stroke-miterlimit:0;
+	stroke-dashoffset:-4.57143px;
+	stroke-opacity:1;
+}
+.map-scale-cas {
+	fill:none;
+	stroke:#8080ff;
+	stroke-width:18.286px;
+	stroke-linecap:butt;
+}
+.map-scale-cor {
+	fill:none;
+	stroke:#ffffff;
+	stroke-width:13.714px;
+	stroke-linecap:butt;
+}
+.map-scale-bookend {
+	fill:none;
+	stroke:#8080ff;
+	stroke-width:4.571px;
+	stroke-linecap:butt;
+}
+.map-scale-caption {
+	font-family:DejaVu Sans,sans-serif;
+	font-size:45.714px;
+	fill: #8080ff;
+}
+/* map background must be the same for all zooms or else empty tile detection will fail */
+.map-background {
+	fill:none;
+	stroke:none;
+}
+.map-title {
+	font-family:DejaVu Sans,sans-serif;
+	font-size:91.429px;
+	text-anchor:middle;
+	fill:black;
+}
+.map-title-background {
+	fill:white;
+}
+.map-marginalia-background {
+	fill:white;
+}
+.osmarender-mask-black {
+	stroke:#000000;
+}
+.osmarender-mask-white {
+	stroke:#FFFFFF;
+}
+.osmarender-no-marker-end {
+	marker-end:none;
+}
+.osmarender-no-marker-start {
+	marker-start:none;
+}
+.osmarender-stroke-linecap-butt {
+	stroke-linecap:butt;
+}
+.osmarender-stroke-linecap-round {
+	stroke-linecap:round;
+}
+.osmarender-stroke-linecap-square {
+	stroke-linecap: square;
+}
+      ]]>
+        </style>
+
+        <svg:symbol
+		  id="symbol-cwy-map"
+		  viewBox="0 0 10 10"
+		  fill='none'
+		  stroke-width='0.8px'
+		  stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+        <svg:symbol
+		  id="symbol-cwy-stand"
+		  viewBox="0 0 10 10"
+		  fill='none'
+		  stroke-width='0.8px'
+		  stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+        <svg:symbol
+		  id="symbol-marked_trail-stand"
+		  viewBox="0 0 10 10"
+		  fill='none'
+		  stroke-width='0.8px'
+		  stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+        <svg:symbol
+		  id="symbol-marked_trail-map"
+		  viewBox="0 0 10 10"
+		  fill='none'
+		  stroke-width='0.8px'
+		  stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+    </defs>
+
+</rules>
+

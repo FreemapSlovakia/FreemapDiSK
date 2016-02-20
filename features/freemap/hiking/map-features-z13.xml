@@ -1,0 +1,2054 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- FreemapSlovakia Rules File for zoom level 13 -->
+
+<rules
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	scale="1"
+	svgBaseProfile="full"
+	symbolScale="1"
+	textAttenuation="10.0"
+	minimumMapWidth="1"
+	minimumMapHeight="1"
+	withOSMLayers="yes"
+	showScale="no"
+	showGrid="no"
+	showBorder="no"
+	showLicense="no"
+	interactive="no"
+	processWays="yes"
+	meter2pixel="0.25"
+	lineSpacing="3"
+	withFilters="yes"
+>
+	<!--data_mkr1-->
+	<data file="data.osm"/>
+	<!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<!-- ==================================== Layer -5 ======================================== -->
+	<rule e="node|way" k="osmarender:render" v="~|yes" layer="-5">
+		<layer name="abutters">
+			<rule e="way" k="bridge" v="~|no" layer="-5">
+				<rule e="way" k="tunnel" v="~|no" layer="-5">
+					<rule e="way" k="highway" v="residential|living_street" layer="-5">
+						<line class='abutters-all' smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="abutters" v="retail" layer="-5">
+						<line class='abutters-retail' smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="abutters" v="residential" layer="-5">
+						<line class='abutters-res' smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="abutters" v="industrial" layer="-5">
+						<line class='abutters-industrial' smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="abutters" v="commercial" layer="-5">
+						<line class='abutters-commercial' smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="abutters" v="mixed" layer="-5">
+						<line class='abutters-mixed' smart-linecap='no'/>
+					</rule>
+				</rule>
+			</rule>
+
+			<!-- casing around abuters - for city borders feeling -->
+			<!-- Landuse -->
+			<rule e="way" k="landuse" v="residential" layer="-5">
+				<area class='landuse-res' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="landuse" v="retail" layer="-5">
+				<area class='landuse-retail' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="landuse" v="industrial" layer="-5">
+				<area class="landuse-industrial" bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="landuse" v="commercial" layer="-5">
+				<area class="landuse-commercial" bezier-hint='no'/>
+			</rule>
+		</layer>
+
+		<rule e="way" k="natural|landuse" v="forest|wood" layer="-5">
+			<rule e="way" k="wood" v="coniferous" layer="-5">
+				<area class='landuse-wood-coniferous-cor' bezier-hint='no'/>
+			</rule>
+			<else>
+				<rule e="way" k="wood" v="deciduous" layer="-5">
+					<area class='landuse-wood-deciduous-cor' bezier-hint='no'/>
+				</rule>
+				<else>
+					<rule e="way" k="wood" v="mixed" layer="-5">
+						<area class='landuse-wood-mixed-cor' bezier-hint='no'/>
+					</rule>
+					<else>
+						<area class='landuse-wood-cor' bezier-hint='no'/>
+					</else>
+				</else>
+			</else>
+		</rule>
+
+		<rule e="way" k="natural|landuse" v="heath|scrub" layer="-5">
+			<area class='landuse-wood-cor' bezier-hint='no'/>
+		</rule>
+
+		<rule e="way" k="natural" v="coastline" layer="-5">
+			<area class='natural-coastline' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="natural" v="land" layer="-5">
+			<area class='natural-land' bezier-hint='no'/>
+		</rule>
+
+		<rule e="way" k="landuse" v="allotments" layer="-5">
+			<area class='landuse-allotment' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="orchard" layer="-5">
+			<area class='landuse-orchard' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="village_green|recreation_ground|meadow|grass|grassland" layer="-5">
+			<area class='landuse-meadow' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="natural" v="grassland|grass" layer="-5">
+			<area class='landuse-meadow' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="farm|farmland" layer="-5">
+			<area class='landuse-farm' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="farmyard" layer="-5">
+			<area class='landuse-farmyard' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="vineyard" layer="-5">
+			<area class='landuse-vineyard' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="quarry" layer="-5">
+			<area class='landuse-quarry' bezier-hint='no'/>
+			<area class='landuse-quarry-pattern' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="landuse" v="landfill" layer="-5">
+			<area class='landuse-landfill' bezier-hint='no'/>
+		</rule>
+
+		<!-- Non-physical boundaries -->
+		<rule e="way" k="landuse" v="military" layer="-5">
+			<area class='boundary boundary-military-are-cor' mask-class='boundary-military-mask-cor' bezier-hint='no'/>
+		</rule>
+		<layer name="prot-area" filter="filterMultiply" opacity="0.3">
+			<rule e="way" k="boundary" v="protected_area" layer="-5">
+				<rule e="way" k="ramsar" v="yes" layer="-5">
+					<area class='boundary boundary-protected-ramsar' bezier-hint='no'/>
+				</rule>
+				<else>
+					<rule e="way" k="protect_class" v="1|3|4" layer="-5">
+						<area class='boundary boundary-protected-are' mask-class='boundary-protected-mask-are' bezier-hint='no'/>
+					</rule>
+				</else>
+			</rule>
+		</layer>
+	</rule>
+
+	<rule e="node|way" k="osmarender:render" v="~|yes" layer="-5">
+		<!-- Draw border features -->
+		<layer name="borders" opacity="0.4">
+			<rule e="way" k="fmreladminlevel" v="2" layer="-5">
+				<line class='boundary boundary-adm-state-cas' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="fmreladminlevel" v="3|4|5|6" layer="-5">
+				<line class='boundary boundary-adm-region-cas' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="fmreladminlevel" v="7|8" layer="-5">
+				<line class='boundary boundary-adm-district-cas' bezier-hint='no'/>
+			</rule>
+		</layer>
+	</rule>
+	<!-- ==================================== END Layer -5 ======================================== -->
+
+	<rule e="node|way" k="osmarender:render" v="~|yes">
+		<!-- Artificial landuse -->
+		<rule e="way" k="landuse" v="cemetery">
+			<area class='landuse-cemetery' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="amenity" v="school|college|university">
+			<area class='amenity-school' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="leisure" v="stadium|sports_centre">
+			<area class='leisure-stadium'/>
+		</rule>
+		<rule e="way" k="leisure" v="track">
+			<area class='leisure-trk'/>
+		</rule>
+		<rule e="way" k="tourism" v="attraction">
+			<area class='tourism-attraction' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="leisure" v="playground|playing_fields|pitch|golf_course">
+			<rule e="way" k="sport" v="*">
+				<area class='sport' bezier-hint='no'/>
+			</rule>
+			<else>	<!-- v="park|garden|common|green" -->
+				<area class='leisure-park' bezier-hint='no'/>
+			</else>
+		</rule>
+
+		<!-- Waterway casings -->
+		<rule e="way" k="waterway" v="drain">
+			<line class='wwy-cas wwy-drain-cas' honor-width="yes" minimum-width="0.1" maximum-width="4" pixel-offset='0.3' smart-linecap='no'/>
+		</rule>
+		<rule e="way" k="waterway" v="stream">
+			<line class='wwy-cas wwy-stream-cas' honor-width="yes" minimum-width="0.1" maximum-width="2" pixel-offset='1.0' smart-linecap='casing'/>
+		</rule>
+		<rule e="way" k="waterway" v="canal">
+			<line class='wwy-cas wwy-canal-cas' honor-width="yes" minimum-width="0.1" maximum-width="10" pixel-offset='0.4' smart-linecap='casing'/>
+		</rule>
+		<rule e="way" k="waterway" v="river">
+			<line class='wwy-cas wwy-river-cas' honor-width="yes" minimum-width="2" maximum-width="100" pixel-offset='1.0' smart-linecap='casing'/>
+		</rule>
+		<rule e="way" k="waterway" v="dock">
+			<area class='wwy-are-cas natural-water-cas'/>
+		</rule>
+		<rule e="way" k="waterway" v="riverbank">
+			<area class='wwy-are-cas wwy-riverbank-cas'/>
+		</rule>
+
+		<rule e="way" k="natural" v="water|pond|lake">
+			<area class='wwy-are-cas natural-water-cas'/>
+		</rule>
+		<rule e="way" k="landuse" v="reservoir">
+			<area class='wwy-are-cas natural-water-cas'/>
+		</rule>
+		<rule e="way" k="landuse" v="basin">
+			<area class='wwy-are-cas natural-water-cas'/>
+		</rule>
+
+		<!-- Waterway cores -->
+		<rule e="way" k="waterway" v="drain">
+			<line class='wwy-cor wwy-drain-cor' honor-width="yes" minimum-width="0.1" maximum-width="4" smart-linecap='no'/>
+		</rule>
+		<rule e="way" k="waterway" v="stream">
+			<line class='wwy-cor wwy-stream-cor' honor-width="yes" minimum-width="0.1" maximum-width="2" pixel-offset="0.2" smart-linecap='core'/>
+		</rule>
+		<rule e="way" k="waterway" v="canal">
+			<line class='wwy-cor wwy-canal-cor' honor-width="yes" minimum-width="0.1" maximum-width="10" smart-linecap='core'/>
+		</rule>
+		<rule e="way" k="waterway" v="river">
+			<line class='wwy-cor wwy-river-cor' honor-width="yes" minimum-width="2" maximum-width="100" pixel-offset="0.2" smart-linecap='core'/>
+		</rule>
+		<rule e="way" k="waterway" v="dock">
+			<area class='wwy-are-cor natural-water-cor'/>
+		</rule>
+		<rule e="way" k="waterway" v="riverbank">
+			<area class='wwy-are-cor wwy-riverbank-cor'/>
+		</rule>
+
+		<rule e="way" k="natural" v="water|pond|lake">
+			<area class='wwy-are-cor natural-water-cor'/>
+		</rule>
+		<rule e="way" k="landuse" v="reservoir">
+			<area class='wwy-are-cor natural-water-cor'/>
+		</rule>
+		<rule e="way" k="landuse" v="basin">
+			<area class='wwy-are-cor natural-water-cor'/>
+		</rule>
+
+		<!-- Waterway other -->
+		<rule e="way" k="natural" v="wetland">
+			<rule e="way" k="wetland" v="marsh">
+				<area class='wetland-marsh'/>
+				<area class='wetland-marsh-pattern'/>
+			</rule>
+			<rule e="way" k="wetland" v="reedbed">
+				<area class='wetland-reedbed'/>
+				<area class='wetland-marsh-pattern'/>
+			</rule>
+		</rule>
+
+		<!-- Raceways and racetracks (cars and horses etc) -->
+		<rule e="way" k="landuse" v="raceway">
+			<rule e="way" k="use_status" v="~">
+				<area class='landuse-raceway' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="use_status" v="disused">
+				<area class='landuse-raceway-disused' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="use_status" v="dismantled">
+				<area class='landuse-raceway-dismantled' bezier-hint='no'/>
+			</rule>
+		</rule>
+
+		<!-- Man-made areas -->
+		<rule e="way" k="amenity" v="parking">
+			<area class='amenity-parking' bezier-hint='no'/>
+		</rule>
+
+		<!-- Roads in construction -->
+		<layer name="constr-cas" opacity="0.5">
+			<rule e="way" k="highway" v="construction|proposed">
+				<rule e="way" k="construction|proposed" v="trunk">
+					<line class='hwy-cas hwy-tru-cas hwy-constr-cas' smart-linecap='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="construction|proposed">
+				<rule e="way" k="construction|proposed" v="motorway">
+					<line class='hwy-cas hwy-mwy-cas hwy-constr-cas' smart-linecap='no'/>
+				</rule>
+			</rule>
+
+			<rule e="way" k="highway" v="trunk">
+				<rule e="way" k="construction|proposed" v="yes">
+					<line class='hwy-cas hwy-tru-cas hwy-constr-cas' smart-linecap='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<rule e="way" k="construction|proposed" v="yes">
+					<line class='hwy-cas hwy-mwy-cas hwy-constr-cas' smart-linecap='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="construction|proposed">
+				<rule e="way" k="construction|proposed" v="trunk">
+					<line class='hwy-cor hwy-tru-cor hwy-constr-cor' smart-linecap='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="construction|proposed">
+				<rule e="way" k="construction|proposed" v="motorway">
+					<line class='hwy-cor hwy-mwy-cor hwy-constr-cor' smart-linecap='no'/>
+				</rule>
+			</rule>
+
+			<rule e="way" k="highway" v="trunk">
+				<rule e="way" k="construction|proposed" v="yes">
+					<line class='hwy-cor hwy-tru-cor hwy-constr-cor' smart-linecap='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="highway" v="motorway">
+				<rule e="way" k="construction|proposed" v="yes">
+					<line class='hwy-cor hwy-mwy-cor hwy-constr-cor' smart-linecap='no'/>
+				</rule>
+			</rule>
+		</layer>
+
+		<!-- Highway casings -->
+		<rule e="way" k="highway" v="raceway">
+			<rule e="way" k="use_status" v="~">
+				<line class='hwy-cas hwy-raceway-cas'/>
+			</rule>
+			<rule e="way" k="use_status" v="disused">
+				<line class='hwy-cas hwy-raceway-disused-cas'/>
+			</rule>
+			<rule e="way" k="use_status" v="dismantled">
+				<line class='hwy-cas hwy-raceway-dismantled-cas'/>
+			</rule>
+		</rule>
+		<rule e="way" k="highway" v="pedestrian">
+			<line class='hwy-cas hwy-ped-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="unsurfaced">
+			<line class='hwy-cas hwy-unsurfaced-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="residential|living_street">
+			<line class='hwy-cas hwy-res-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="secondary_link">
+			<line class='hwy-cas hwy-sec-lnk-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="primary_link">
+			<line class='hwy-cas hwy-pri-lnk-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="trunk_link">
+			<line class='hwy-cas hwy-tru-lnk-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="motorway_link">
+			<line class='hwy-cas hwy-mwy-lnk-cas'/>
+		</rule>
+		<rule e="way" k="highway" v="unclassified">
+			<rule e="way" k="lanes" v="~">
+				<line class='hwy-cas hwy-ucl-cas' smart-linecap='casing'/>
+			</rule>
+			<else>
+				<rule e="way" k="lanes" v="1">
+					<line class='hwy-cas hwy-ucl-cas' smart-linecap='casing'/>
+				</rule>
+				<else>
+					<line class='hwy-cas hwy-ucl-2-cas' smart-linecap='casing'/>
+				</else>
+			</else>
+		</rule>
+		<rule e="way" k="highway" v="tertiary">
+			<line class='hwy-cas hwy-ter-cas' smart-linecap='casing'/>
+		</rule>
+		<rule e="way" k="highway" v="secondary">
+			<line class='hwy-cas hwy-sec-cas' smart-linecap='casing'/>
+		</rule>
+		<rule e="way" k="highway" v="primary">
+			<line class='hwy-cas hwy-pri-cas' smart-linecap='casing'/>
+		</rule>
+		<rule e="way" k="highway" v="trunk">
+			<rule e="way" k="construction|proposed" v="~">
+				<line class='hwy-cas hwy-tru-cas' smart-linecap='casing'/>
+			</rule>
+		</rule>
+		<rule e="way" k="highway" v="motorway">
+			<rule e="way" k="construction|proposed" v="~">
+				<line class='hwy-cas hwy-mwy-cas' smart-linecap='casing'/>
+			</rule>
+		</rule>
+
+		<!-- Highway cores -->
+		<rule e="way" k="highway" v="footway|steps">
+			<line class='hwy-cor hwy-footway'/>
+		</rule>
+		<rule e="way" k="highway" v="steps">
+			<line class='hwy-cor hwy-steps'/>
+		</rule>
+		<rule e="way" k="highway" v="cycleway">
+			<line class='hwy-cor hwy-cycleway'/>
+		</rule>
+		<rule e="way" k="highway" v="bridleway">
+			<line class='hwy-cor hwy-bridleway'/>
+		</rule>
+		<rule e="way" k="highway" v="byway">
+			<line class='hwy-cor hwy-byway'/>
+		</rule>
+
+		<rule e="way" k="highway" v="raceway">
+			<rule e="way" k="use_status" v="~">
+				<line class='hwy-cor hwy-raceway-cor'/>
+			</rule>
+			<rule e="way" k="use_status" v="disused">
+				<line class='hwy-cor hwy-raceway-disused-cor'/>
+			</rule>
+			<rule e="way" k="use_status" v="dismantled">
+				<line class='hwy-cor hwy-raceway-dismantled-cor'/>
+			</rule>
+		</rule>
+		<rule e="way" k="highway" v="pedestrian">
+			<line class='hwy-cor hwy-ped-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="track">
+			<rule e="way" k="tracktype" v="grade1|grade2|~">
+				<line class='hwy-cor hwy-trk-cor'/>
+			</rule>
+			<else>
+				<line class='hwy-cor hwy-trk-2-cor'/>
+			</else>
+		</rule>
+		<rule e="way" k="highway" v="path">
+			<line class="hwy-cor hwy-path-cor" smart-linecap="no"/>
+		</rule>
+		<rule e="way" k="highway" v="unsurfaced">
+			<line class='hwy-cor hwy-unsurfaced-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="service">
+			<line class='hwy-cor hwy-srv-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="residential|living_street">
+			<line class='hwy-cor hwy-res-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="secondary_link">
+			<line class='hwy-cor hwy-sec-lnk-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="primary_link">
+			<line class='hwy-cor hwy-pri-lnk-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="trunk_link">
+			<line class='hwy-cor hwy-tru-lnk-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="motorway_link">
+			<line class='hwy-cor hwy-mwy-lnk-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="unclassified">
+			<rule e="way" k="lanes" v="~">
+				<line class='hwy-cor hwy-ucl-cor' smart-linecap='core'/>
+			</rule>
+			<else>
+				<rule e="way" k="lanes" v="1">
+					<line class='hwy-cor hwy-ucl-cor' smart-linecap='core'/>
+				</rule>
+				<else>
+					<line class='hwy-cor hwy-ucl-2-cor' smart-linecap='core'/>
+				</else>
+			</else>
+		</rule>
+		<rule e="way" k="highway" v="tertiary">
+			<line class='hwy-cor hwy-ter-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="secondary">
+			<line class='hwy-cor hwy-sec-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="primary">
+			<line class='hwy-cor hwy-pri-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="trunk">
+			<rule e="way" k="construction|proposed" v="~">
+				<line class='hwy-cor hwy-tru-cor'/>
+			</rule>
+		</rule>
+		<rule e="way" k="highway" v="motorway">
+			<rule e="way" k="construction|proposed" v="~">
+				<line class='hwy-cor hwy-mwy-cor'/>
+			</rule>
+		</rule>
+
+		<!-- Mini-roundabouts -->
+		<rule e="node" k="highway" v="mini_roundabout">
+			<circle r="0.45714px" class="mini-roundabout-cor"/>
+			<circle r="0.11429px" class="mini-roundabout-dot"/>
+		</rule>
+
+		<!-- Airfields and airports -->
+		<rule e="way" k="aeroway" v="runway">
+			<line class='aeroway-runway-cas' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="aeroway" v="taxiway">
+			<line class='aeroway-taxiway-cas' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="aeroway" v="runway">
+			<line class='aeroway-runway-cor' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="aeroway" v="taxiway">
+			<line class='aeroway-taxiway-cor' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="aeroway" v="apron">
+			<area class='aeroway-apron' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="aeroway" v="terminal">
+			<area class='building-block' bezier-hint='no'/>
+		</rule>
+
+		<!-- Aerialways -->
+		<rule e="node|way" k="aerialway" v="*">
+			<line class='aerialway-line' bezier-hint='no'/>
+			<line class='aerialway-struts' bezier-hint='no'/>
+		</rule>
+
+		<!-- Railway lines -->
+		<rule e="way" k="railway" v="rail">
+			<line class='railway-rail' smart-linecap="no"/>
+		</rule>
+		<rule e="way" k="railway" v="subway">
+			<line class='railway-subway-rail' smart-linecap="no"/>
+		</rule>
+		<rule e="way" k="railway" v="preserved">
+			<line class='railway-preserved' smart-linecap="no"/>
+		</rule>
+		<rule e="way" k="railway" v="rail">
+			<line class='railway-rail-dashes' smart-linecap="no"/>
+		</rule>
+
+		<!-- Power lines, generators and pylons -->
+		<rule e="way" k="generator:source" v="solar">
+			<line class='power-generator-solar-pattern' bezier-hint='no'/>
+		</rule>
+
+		<!-- Non-physical routes -->
+		<rule e="way" k="route" v="ferry">
+			<line class='route-ferry' bezier-hint='no'/>
+		</rule>
+
+		<!-- Railway stations -->
+		<rule e="node" k="railway" v="station">
+			<circle r="2.28571px" class="railway-station"/>
+		</rule>
+
+		<!-- Road numbers for all highways -->
+		<rule e="way" k="osmarender:renderRef|osmarender:renderref" v="~|yes">
+			<rule e="way" k="tunnel" v="~|no|false">
+				<!-- Use startOffset of 40% to prevent captions from colliding on dual carriageways -->
+				<rule e="way" k="highway" v="secondary">
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-sec-ref-cas' dy='-4.57143px' textAttenuation="21.0"/>
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-sec-ref' dy='-4.57143px' textAttenuation="21.0"/>
+				</rule>
+				<rule e="way" k="highway" v="primary">
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-pri-ref-cas' dy='-4.57143px' textAttenuation="23.0"/>
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-pri-ref' dy='-4.57143px' textAttenuation="23.0"/>
+				</rule>
+				<rule e="way" k="highway" v="trunk">
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-tru-ref-cas' dy='-4.57143px' textAttenuation="34.0"/>
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-tru-ref' dy='-4.57143px' textAttenuation="34.0"/>
+				</rule>
+				<rule e="way" k="highway" v="motorway">
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-mwy-ref-cas' dy='-4.57143px' textAttenuation="42.0"/>
+					<text k="ref" text-anchor='middle' startOffset='40%' class='hwy-mwy-ref' dy='-4.57143px' textAttenuation="42.0"/>
+				</rule>
+			</rule>
+		</rule>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- ==================================== Layer 4 ======================================== -->
+	<rule e="node|way" k="osmarender:render" v="~|yes" layer="4">
+		<!-- Draw border features -->
+		<layer name="admbnd">
+			<rule e="way" k="fmreladminlevel" v="2" layer="4">
+				<line class='boundary boundary-adm-state-cor' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="fmreladminlevel" v="3|4|5|6" layer="4">
+				<line class='boundary boundary-adm-region-cor' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="fmreladminlevel" v="7|8" layer="4">
+				<line class='boundary boundary-adm-district-cor' bezier-hint='no'/>
+			</rule>
+		</layer>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- ==================================== Layer 5 ======================================== -->
+	<rule e="node|way" k="osmarender:render" v="~|yes" layer="5">
+		<!-- Draw border features -->
+		<layer name="natpark" filter="filterMultiply" opacity="0.5">
+			<rule e="way" k="landuse" v="military" layer="5">
+				<area class='boundary boundary-military-are-cas' mask-class='boundary-military-mask-cas' bezier-hint='no'/>
+			</rule>
+			<rule e="way" k="boundary" v="national_park|protected_area" layer="5">
+				<rule e="way" k="protect_class" v="2" layer="5">
+					<area class='boundary bnd-nat-park-are-cas' mask-class='bnd-nat-park-mask-cas' bezier-hint='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="boundary" v="protected_area" layer="5">
+				<rule e="way" k="protect_class" v="5" layer="5">
+					<area class='boundary bnd-prt-land-are-cas' mask-class='bnd-prt-land-mask-cas' bezier-hint='no'/>
+				</rule>
+			</rule>
+			<rule e="way" k="boundary" v="protected_area" layer="5">
+				<rule e="way" k="ramsar" v="yes" layer="-5">
+					<!--<area class='boundary boundary-protected-ramsar-cas' mask-class='bnd-prt-are-mask-cas' bezier-hint='no'/>-->
+				</rule>
+				<else>
+					<rule e="way" k="protect_class" v="1|3|4" layer="5">
+						<area class='boundary bnd-prt-are-cas' mask-class='bnd-prt-mask-cas' bezier-hint='no'/>
+						<area class='boundary bnd-prt-are2-cas' mask-class='bnd-prt-mask2-cas' bezier-hint='no'/>
+					</rule>
+				</else>
+			</rule>
+		</layer>
+	</rule>
+	<!-- ==================================== END Layer 5 ======================================== -->
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+		<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+			<![CDATA[
+.abutters-all {
+	fill: none;
+	stroke: #E5E1DC;
+	stroke-linecap: square;
+	stroke-width: 20px;
+}
+.abutters-all-cas {
+	fill: none;
+	stroke: #BDA14D;
+	stroke-linecap: square;
+	stroke-width: 21.143px;
+}
+.abutters-commercial {
+	fill: none;
+	stroke: #fcffc9;
+	stroke-linecap: square;
+	stroke-width: 20px;
+}
+.abutters-industrial {
+	fill: none;
+	stroke: #C0C0C0;
+	stroke-linecap: square;
+	stroke-width: 20px;
+}
+.abutters-mixed {
+	fill: none;
+	stroke: #d8feff;
+	stroke-linecap: square;
+	stroke-width: 20px;
+}
+.abutters-res {
+	fill: none;
+	stroke: #E5E1DC;
+	stroke-linecap: square;
+	stroke-width: 20px;
+}
+.abutters-retail {
+	fill: none;
+	stroke: #ffebeb;
+	stroke-linecap: square;
+	stroke-width: 20px;
+}
+.access-no {
+	fill: none;
+	stroke: #FF0000;
+	stroke-dasharray: 0.28571,11.429;
+	stroke-dashoffset: 5.714;
+	stroke-linecap: butt;
+	stroke-width: 4px;
+}
+.aerialway-line {
+	fill: none;
+	stroke: #202020;
+	stroke-width: 0.11429px;
+}
+.aerialway-struts {
+	fill: none;
+	stroke: #202020;
+	stroke-dasharray: 0.11429,5.714;
+	stroke-width: 1.14286px;
+}
+.aeroway-apron {
+	fill: #f0f0f0;
+	stroke: none;
+	stroke-width: 0.17143px;
+}
+.aeroway-runway-cas {
+	fill: none;
+	stroke: #000000;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 4px;
+}
+.aeroway-runway-cor {
+	fill: none;
+	stroke: #d4dcbd;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 2.85714px;
+}
+.aeroway-taxiway-cas {
+	fill: none;
+	stroke: #000000;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.71429px;
+}
+.aeroway-taxiway-cor {
+	fill: none;
+	stroke: #d4dcbd;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.14286px;
+}
+.amenity-parking {
+	fill: #f7efb7;
+	stroke: #e9dd72;
+	stroke-width: 0.11429px;
+}
+.amenity-school {
+	fill: #dfafdd;
+	stroke: #e9dd72;
+	stroke-width: 0.11429px;
+}
+.bnd-nat-park-are-cas {
+	fill: none;
+	stroke: url(#np-pattern);
+	stroke-linejoin: miter;
+	stroke-width: 17.143px;
+}
+.bnd-nat-park-mask-cas {
+	fill: #FFFFFF;
+	stroke: none;
+}
+.bnd-prt-are-cas {
+	fill: none;
+	stroke: #135C20;
+	stroke-dasharray: 5.714,2.85714;
+	stroke-dashoffset: 2.85714;
+	stroke-width: 3.429px;
+}
+.bnd-prt-land-are-cas {
+	fill: none;
+	stroke: url(#chko-pattern);
+	stroke-linejoin: miter;
+	stroke-width: 11.429px;
+}
+.bnd-prt-land-mask-cas {
+	fill: #FFFFFF;
+	stroke: none;
+}
+.bnd-prt-mask-cas {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 1.14286px;
+}
+.boundary {
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+.boundary-adm-district-cas {
+	stroke: #EDC2EC;
+	stroke-width: 9.143px;
+}
+.boundary-adm-district-cor {
+	stroke: #9A3996;
+	stroke-dasharray: 15,5,2.5,5,2.5,5;
+	stroke-dashoffset: 4.286;
+	stroke-opacity: 0.9;
+	stroke-width: 0.57143px;
+}
+.boundary-adm-region-cas {
+	stroke: #EDC2EC;
+	stroke-width: 10.857px;
+}
+.boundary-adm-region-cor {
+	stroke: #9A3996;
+	stroke-dasharray: 8.571,2.85714,1.42857,2.85714;
+	stroke-dashoffset: 4.286;
+	stroke-opacity: 0.9;
+	stroke-width: 0.71429px;
+}
+.boundary-adm-state-cas {
+	stroke: #EDC2EC;
+	stroke-width: 17.143px;
+}
+.boundary-adm-state-cor {
+	stroke: #9A3996;
+	stroke-dasharray: 8.571,2.85714,1.42857,2.85714;
+	stroke-dashoffset: 4.286;
+	stroke-opacity: .9;
+	stroke-width: 1.42857px;
+}
+.boundary-military-are-cas {
+	fill: none;
+	stroke: #D61313;
+	stroke-dasharray: 13.714,10.286;
+	stroke-dashoffset: 6.857;
+	stroke-width: 9.143px;
+}
+.boundary-military-are-cor {
+	fill: url(#landuse-military-pattern);
+	stroke: none;
+}
+.boundary-military-mask-cas {
+	fill: #FFFFFF;
+	stroke: none;
+}
+.boundary-military-mask-cor {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 9.143px;
+}
+.boundary-protected-are {
+	fill: #135C20;
+	fill-opacity: 0.7;
+	stroke: none;
+}
+.boundary-protected-mask-are {
+	fill: #000000;
+	filter: url(#gauss7);
+	stroke: #FFFFFF;
+	stroke-width: 3.429px;
+}
+.boundary-protected-ramsar {
+	fill: url(#boundary-protected-ramsar-pattern);
+	stroke: none;
+}
+.building-block {
+	fill: #DBDBDB;
+	stroke: none;
+}
+.hwy-bridleway {
+	stroke: #70b971;
+	stroke-width: 0.57143px;
+}
+.hwy-byway {
+	stroke: #ef7771;
+	stroke-width: 0.57143px;
+}
+.hwy-byway-ref {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 2.28571px;
+	font-weight: normal;
+	stroke: white;
+	stroke-width: 0.17143px;
+}
+.hwy-cas {
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.hwy-constr-cas {
+	stroke: #202020;
+	stroke-dasharray: 22.857,11.429;
+	stroke-dashoffset: 11.429;
+	stroke-linecap: butt;
+}
+.hwy-constr-cor {
+	stroke: #d0d0d0;
+	stroke-dasharray: 22.857,11.429;
+	stroke-dashoffset: 11.429;
+	stroke-linecap: butt;
+}
+.hwy-cor {
+	fill: none;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+}
+.hwy-cycleway {
+	stroke: #008000;
+	stroke-width: 0.57143px;
+}
+.hwy-cycleway-ref {
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 2.28571px;
+	font-weight: normal;
+	stroke: #ffffff;
+	stroke-width: 0.17143px;
+}
+.hwy-footway {
+	stroke: #808080;
+	stroke-width: 0.28571px;
+}
+.hwy-footway-ref {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 2.28571px;
+	font-weight: normal;
+	stroke: white;
+	stroke-width: 0.17143px;
+}
+.hwy-mwy-cas {
+	stroke: #ff0000;
+	stroke-width: 5.714px;
+}
+.hwy-mwy-cor {
+	stroke: #feea85;
+	stroke-width: 4.571px;
+}
+.hwy-mwy-lnk-cas {
+	stroke: #ff0000;
+	stroke-width: 3.429px;
+}
+.hwy-mwy-lnk-cor {
+	stroke: #feea85;
+	stroke-width: 2.85714px;
+}
+.hwy-mwy-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 8.571px;
+	font-weight: normal;
+}
+.hwy-mwy-ref {
+	fill: #D00000;
+	font-family: DejaVu Sans;
+	font-size: 10.286px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #D00000;
+	stroke-width: 0.34286px;
+}
+.hwy-mwy-ref-cas {
+	fill: yellow;
+	font-family: DejaVu Sans;
+	font-size: 10.286px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #FEEA85;
+	stroke-width: 0.85714px;
+}
+.hwy-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: white;
+}
+.hwy-path-cor {
+	stroke: #6A5B47;
+	stroke-dasharray: 0.85714,1.71429;
+	stroke-width: 0.57143px;
+}
+.hwy-ped-cas {
+	stroke: #aaaaaa;
+	stroke-width: 0.85714px;
+}
+.hwy-ped-cor {
+	stroke: #eeeeee;
+	stroke-width: 0.68571px;
+}
+.hwy-pri-cas {
+	stroke: #202020;
+	stroke-width: 5.429px;
+}
+.hwy-pri-cor {
+	stroke: #FCCE6A;
+	stroke-width: 4.571px;
+}
+.hwy-pri-lnk-cas {
+	stroke: #202020;
+	stroke-width: 3.543px;
+}
+.hwy-pri-lnk-cor {
+	stroke: #FCCE6A;
+	stroke-width: 3.2px;
+}
+.hwy-pri-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 0.57143px;
+	font-weight: normal;
+	stroke: #ffffff;
+	stroke-width: 0px;
+}
+.hwy-pri-ref {
+	fill: #251E10;
+	font-family: DejaVu Sans;
+	font-size: 9.143px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #251E10;
+	stroke-width: 0.4px;
+}
+.hwy-pri-ref-cas {
+	fill: white;
+	font-family: DejaVu Sans;
+	font-size: 9.143px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: white;
+	stroke-width: 0.85714px;
+}
+.hwy-raceway-cas {
+	fill: none;
+	stroke: #101010;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.14286px;
+}
+.hwy-raceway-cor {
+	fill: none;
+	stroke: #f0f0f0;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.85714px;
+}
+.hwy-raceway-dismantled-cas {
+	fill: none;
+	opacity: 0.5;
+	stroke: #808080;
+	stroke-dasharray: 0.3px,1.7px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.14286px;
+}
+.hwy-raceway-dismantled-cor {
+	fill: none;
+	opacity: 0.5;
+	stroke: #fbfbfb;
+	stroke-dasharray: 0.3px,1.7px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.85714px;
+}
+.hwy-raceway-disused-cas {
+	fill: none;
+	stroke: #808080;
+	stroke-dasharray: 1px,1px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.14286px;
+}
+.hwy-raceway-disused-cor {
+	fill: none;
+	stroke: #f7f7f7;
+	stroke-dasharray: 1px,1px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.85714px;
+}
+.hwy-ref {
+	fill: #666666;
+	font-family: DejaVu Sans;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: white;
+}
+.hwy-res-cas {
+	stroke: #999592;
+	stroke-width: 2.28571px;
+}
+.hwy-res-cor {
+	stroke: #f8f8f8;
+	stroke-width: 1.6px;
+}
+.hwy-sec-cas {
+	stroke: #202020;
+	stroke-width: 4.286px;
+}
+.hwy-sec-cor {
+	stroke: #FEEA85;
+	stroke-width: 3.429px;
+}
+.hwy-sec-lnk-cas {
+	stroke: #222222;
+	stroke-width: 2.85714px;
+}
+.hwy-sec-lnk-cor {
+	stroke: #FEEA85;
+	stroke-width: 2.28571px;
+}
+.hwy-sec-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 0.57143px;
+	font-weight: normal;
+}
+.hwy-sec-ref {
+	fill: #202020;
+	font-family: DejaVu Sans;
+	font-size: 8px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #202020;
+	stroke-width: 0.22857px;
+}
+.hwy-sec-ref-cas {
+	fill: #ffffff;
+	font-family: DejaVu Sans;
+	font-size: 8px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #ffffff;
+	stroke-width: 0.85714px;
+}
+.hwy-srv-cas {
+	stroke: #444444;
+	stroke-width: 1.48571px;
+}
+.hwy-srv-cor {
+	stroke: #808080;
+	stroke-width: 0.68571px;
+}
+.hwy-srv-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 0.17143px;
+	font-weight: normal;
+}
+.hwy-steps {
+	stroke: #707070;
+	stroke-dasharray: 0.1px,0.3px;
+	stroke-width: 0.28571px;
+}
+.hwy-ter-cas {
+	stroke: #606060;
+	stroke-width: 4.286px;
+}
+.hwy-ter-cor {
+	stroke: #FFFFFF;
+	stroke-width: 3.429px;
+}
+.hwy-trk-2-cor {
+	stroke: #6A5B47;
+	stroke-dasharray: 1.71429,1.71429;
+	stroke-dashoffset: 0.85714;
+	stroke-linecap: butt;
+	stroke-width: 0.68571px;
+}
+.hwy-trk-cas {
+	stroke: #d79331;
+	stroke-width: 0.85714px;
+}
+.hwy-trk-cor {
+	stroke: #6A5B47;
+	stroke-dasharray: 3.429,2.28571;
+	stroke-dashoffset: 1.71429;
+	stroke-linecap: butt;
+	stroke-width: 0.8px;
+}
+.hwy-tru-cas {
+	stroke: #307030;
+	stroke-width: 5.143px;
+}
+.hwy-tru-cor {
+	stroke: #feea85;
+	stroke-width: 3.714px;
+}
+.hwy-tru-lnk-cas {
+	stroke: #307030;
+	stroke-width: 4.286px;
+}
+.hwy-tru-lnk-cor {
+	stroke: #feea85;
+	stroke-width: 2.85714px;
+}
+.hwy-tru-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 0.85714px;
+	font-weight: normal;
+}
+.hwy-tru-ref {
+	fill: #307030;
+	font-family: DejaVu Sans;
+	font-size: 10.286px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #307030;
+	stroke-width: 0.34286px;
+}
+.hwy-tru-ref-cas {
+	fill: #ffff00;
+	font-family: DejaVu Sans;
+	font-size: 10.286px;
+	font-weight: normal;
+	method: stretch;
+	spacing: auto;
+	stroke: #feea85;
+	stroke-width: 0.85714px;
+}
+.hwy-ucl-2-cas {
+	stroke: #556B25;
+	stroke-width: 3.886px;
+}
+.hwy-ucl-2-cor {
+	stroke: #FCFFA4;
+	stroke-width: 3.429px;
+}
+.hwy-ucl-cas {
+	stroke: #606060;
+	stroke-width: 2.17143px;
+}
+.hwy-ucl-cor {
+	stroke: #ffffff;
+	stroke-width: 1.82857px;
+}
+.hwy-ucl-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 0.57143px;
+	font-weight: normal;
+}
+.hwy-ucl-ref {
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 2.57143px;
+	font-weight: normal;
+	stroke: #ffffff;
+	stroke-width: 0.17143px;
+}
+.hwy-unsurfaced-cas {
+	stroke: #222222;
+	stroke-dasharray: 1px,.5px;
+	stroke-width: 2.28571px;
+}
+.hwy-unsurfaced-cor {
+	stroke: #ffffff;
+	stroke-width: 2px;
+}
+.hwy-unsurfaced-nam {
+	fill: black;
+	font-family: DejaVu Sans;
+	font-size: 0.57143px;
+	font-weight: normal;
+}
+.hwy-unsurfaced-ref {
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 2.57143px;
+	font-weight: normal;
+	stroke: #ffffff;
+	stroke-width: 0.17143px;
+}
+.landuse-all {
+	fill: #E5E1DC;
+	stroke: none;
+}
+.landuse-all-cas {
+	fill: #BDA14D;
+	stroke: #BDA14D;
+	stroke-width: 1.71429px;
+}
+.landuse-allotment {
+	fill: #FAF1D7;
+	stroke: #FAF1D7;
+	stroke-width: 0.11429px;
+}
+.landuse-cemetery {
+	fill: #e9f6ee;
+	stroke: #C0C0C0;
+	stroke-width: 0.11429px;
+}
+.landuse-commercial {
+	fill: #fcffc9;
+	stroke: #eeeeee;
+	stroke-width: 0.11429px;
+}
+.landuse-farm {
+	fill: #FAFAF0;
+	stroke: none;
+}
+.landuse-farmyard {
+	fill: #DFCFBC;
+	stroke: none;
+}
+.landuse-industrial {
+	fill: #C0C0C0;
+	stroke: none;
+	stroke-width: 0.11429px;
+}
+.landuse-landfill {
+	fill: #b0b0b0;
+	stroke: none;
+}
+.landuse-meadow {
+	fill: #E7FAD7;
+	stroke: #E7FAD7;
+	stroke-width: 0.22857px;
+}
+.landuse-orchard {
+	fill: #FAF1D7;
+	stroke: #FAF1D7;
+	stroke-width: 0.11429px;
+}
+.landuse-quarry {
+	fill: #e1e1e1;
+	stroke: none;
+}
+.landuse-quarry-pattern {
+	fill: url(#quarry-pattern);
+	stroke: none;
+}
+.landuse-raceway {
+	fill: #f0f0f0;
+	stroke: #101010;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.17143px;
+}
+.landuse-raceway-dismantled {
+	fill: #fbfbfb;
+	opacity: 0.5;
+	stroke: #808080;
+	stroke-dasharray: 0.3px,1.7px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.17143px;
+}
+.landuse-raceway-disused {
+	fill: #f7f7f7;
+	stroke: #808080;
+	stroke-dasharray: 1px,1px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.17143px;
+}
+.landuse-res {
+	fill: #e5e1dc;
+	stroke: none;
+}
+.landuse-retail {
+	fill: #ffebeb;
+	stroke: none;
+}
+.landuse-vineyard {
+	fill: #c2e5a3;
+	stroke: none;
+}
+.landuse-wood-coniferous-cor {
+	fill: #B6D9BE;
+	stroke: none;
+}
+.landuse-wood-cor {
+	fill: #C7DBBB;
+	stroke: none;
+}
+.landuse-wood-deciduous-cor {
+	fill: #D1E5C0;
+	stroke: none;
+}
+.landuse-wood-mixed-cor {
+	fill: #BFDEBA;
+	stroke: none;
+}
+.leisure-park {
+	fill: #c7f1a3;
+	stroke: #6fc18e;
+	stroke-width: 0.11429px;
+}
+.leisure-stadium {
+	fill: #bde3cb;
+	stroke: #6fc18e;
+	stroke-width: 0.11429px;
+}
+.leisure-trk {
+	fill: #bde3cb;
+	stroke: #6fc18e;
+	stroke-width: 0.11429px;
+}
+.map-background {
+	fill: none;
+	stroke: none;
+}
+.map-border-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-dasharray: none;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	stroke-opacity: 1;
+	stroke-width: 1.71429px;
+}
+.map-border-cor {
+	fill: none;
+	fill-opacity: 1;
+	fill-rule: nonzero;
+	stroke: #ffffff;
+	stroke-dashoffset: -0.28571px;
+	stroke-miterlimit: 0;
+	stroke-opacity: 1;
+	stroke-width: 1.14286px;
+}
+.map-grid-line {
+	fill: none;
+	stroke: #8080ff;
+	stroke-opacity: 0.5;
+	stroke-width: 0.05714px;
+}
+.map-marginalia-background {
+	fill: #ffffff;
+}
+.map-scale-bookend {
+	fill: none;
+	stroke: #8080ff;
+	stroke-linecap: butt;
+	stroke-width: 0.57143px;
+}
+.map-scale-caption {
+	fill: #8080ff;
+	font-family: DejaVu Sans;
+	font-size: 5.714px;
+}
+.map-scale-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-linecap: butt;
+	stroke-width: 2.28571px;
+}
+.map-scale-cor {
+	fill: none;
+	stroke: #ffffff;
+	stroke-linecap: butt;
+	stroke-width: 1.71429px;
+}
+.map-title {
+	fill: #000000;
+	font-family: DejaVu Sans;
+	font-size: 11.429px;
+	text-anchor: middle;
+}
+.map-title-background {
+	fill: #ffffff;
+}
+.mini-roundabout-cas {
+	fill: #222222;
+	stroke: #222222;
+}
+.mini-roundabout-cor {
+	fill: #ffffff;
+	stroke: #ffffff;
+}
+.mini-roundabout-dot {
+	fill: #222222;
+	stroke: none;
+}
+.natural-coastline {
+	fill: none;
+	stroke: #89bac6;
+	stroke-width: 0.22857px;
+}
+.natural-land {
+	fill: #ffffff;
+	stroke: #e0e0e0;
+	stroke-width: 0.05714px;
+}
+.natural-water-cas {
+	opacity: 1;
+}
+.natural-water-cor {
+	opacity: 1;
+}
+.osmarender-mask-black {
+	stroke: #000000;
+}
+.osmarender-mask-white {
+	stroke: #FFFFFF;
+}
+.osmarender-no-marker-end {
+	marker-end: none;
+}
+.osmarender-no-marker-start {
+	marker-start: none;
+}
+.osmarender-stroke-linecap-butt {
+	stroke-linecap: butt;
+}
+.osmarender-stroke-linecap-round {
+	stroke-linecap: round;
+}
+.osmarender-stroke-linecap-square {
+	stroke-linecap: square;
+}
+.power-generator-solar-pattern {
+	fill: url(#generator-solar-pattern);
+	stroke: none;
+}
+.railway-halt {
+	fill: #000000;
+	stroke: #000000;
+	stroke-width: 0.28571px;
+}
+.railway-light-rail {
+	fill: none;
+	stroke: #666666;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.57143px;
+}
+.railway-preserved {
+	fill: none;
+	stroke: #666666;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 1.14286px;
+}
+.railway-rail {
+	fill: none;
+	stroke: #666666;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 2px;
+}
+.railway-rail-dashes {
+	fill: none;
+	stroke: #ffffff;
+	stroke-dasharray: 9px,9px;
+	stroke-dashoffset: 5.5px;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-opacity: 1;
+	stroke-width: 1.71429px;
+}
+.railway-station {
+	fill: #ffffff;
+	stroke: #666666;
+	stroke-width: 0.57143px;
+}
+.railway-subway-rail {
+	fill: none;
+	stroke: #aaaaaa;
+	stroke-dasharray: 3px,1px;
+	stroke-dashoffset: 0;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-opacity: 1;
+	stroke-width: 1.14286px;
+}
+.railway-tnl-narrow {
+	fill: none;
+	stroke: #000000;
+	stroke-dasharray: 0.57143,1.14286;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 3.429px;
+}
+.round {
+	stroke-linecap: round;
+}
+.route-ferry {
+	fill: none;
+	stroke: #243577;
+	stroke-dasharray: 2.85714,1.88571;
+	stroke-linecap: butt;
+	stroke-linejoin: round;
+	stroke-width: 0.57143px;
+}
+.sport {
+	fill: #bde3cb;
+	stroke: #6fc18e;
+	stroke-width: 0.11429px;
+}
+.tourism-attraction {
+	fill: #f2caea;
+	stroke: #f124cb;
+	stroke-width: 0px;
+}
+.wetland-marsh {
+	fill: #cceeaa;
+	stroke: none;
+}
+.wetland-marsh-pattern {
+	fill: url(#marsh-pattern);
+	stroke: none;
+}
+.wetland-reedbed {
+	fill: #eeeeee;
+	stroke: none;
+}
+.wwy-are-cas {
+	fill: #647fc5;
+	stroke: #647fc5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2.05714px;
+}
+.wwy-are-cor {
+	fill: #8db0dd;
+	stroke: #8db0dd;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 0.68571px;
+}
+.wwy-canal-cas {
+	stroke-width: 2px;
+}
+.wwy-canal-cor {
+	stroke-width: 1.4px;
+}
+.wwy-cas {
+	fill: none;
+	stroke: #647fc5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2.28571px;
+}
+.wwy-cor {
+	fill: none;
+	stroke: #8db0dd;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.wwy-drain-cas {
+	stroke-dasharray: 3.429,2.28571;
+	stroke-dashoffset: 1.71429;
+	stroke-width: 0.57143px;
+}
+.wwy-drain-cor {
+	stroke-dasharray: 3.429,2.28571;
+	stroke-dashoffset: 1.71429;
+	stroke-width: 0.28571px;
+}
+.wwy-river-cas {
+	stroke-width: 2px;
+}
+.wwy-river-cor {
+	stroke-width: 1.6px;
+}
+.wwy-riverbank-cas {
+	opacity: 1;
+}
+.wwy-riverbank-cor {
+	opacity: 1;
+}
+.wwy-stream-cas {
+	stroke-width: 0.7px;
+}
+.wwy-stream-cor {
+	stroke-width: 0.56px;
+}
+			]]>
+		</style>
+
+		<svg:filter
+			inkscape:collect="always"
+			id="filterMultiply">
+			<svg:feBlend
+				inkscape:collect="always"
+				mode="multiply"
+				in2="BackgroundImage"
+				id="filterMultiply_blend"/>
+		</svg:filter>
+
+		<svg:filter
+			inkscape:collect="always"
+			id="gauss7"
+			x="-0.030957849"
+			width="1.0619157"
+			y="-0.15485379"
+			height="1.3097076">
+			<svg:feGaussianBlur
+				inkscape:collect="always"
+				stdDeviation="5"
+				id="feGaussianBlur7"/>
+		</svg:filter>
+
+		<svg:pattern id="pedestrian-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+			<svg:path d="M0,10 L10,0" fill="none" stroke="red" stroke-width="1"/>
+		</svg:pattern>
+
+		<svg:pattern id="brownfield-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(0.28571)">
+			<svg:path fill="#E8C5B5" stroke="#B5988B" stroke-width="0.4" d="M5,0 L0,5 M0,0 L5,5"/>
+		</svg:pattern>
+
+		<svg:pattern id="landuse-military-pattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="scale(2.28571)">
+			<svg:path fill="none" stroke="#D61313" opacity="0.6" stroke-linecap="butt" stroke-width="0.2" d="M0,0 L4,4"/>
+		</svg:pattern>
+		<svg:pattern id="boundary-protected-area-pattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="scale(2.28571)">
+			<svg:path fill="none" stroke="#25af3e" opacity="0.7" stroke-linecap="butt" stroke-width="0.16" d="M0,0 L4,4"/>
+		</svg:pattern>
+		<svg:pattern id="boundary-protected-ramsar-pattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="scale(2.28571)">
+			<svg:path fill="none" stroke="#227AE5" opacity="0.7" stroke-linecap="butt" stroke-width="0.16" d="M4,0 L1.0,3.0"/>
+		</svg:pattern>
+
+		<svg:pattern patternUnits="userSpaceOnUse"
+					 width="256"
+					 height="256"
+					 id="chko-pattern"
+					 patternTransform="scale(0.10857)">
+			<svg:g style="stroke:#12D51C;stroke-width:4.571;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;">
+				<svg:path d="m 0,240 16,16"/>
+				<svg:path d="m 0,208 48,48"/>
+				<svg:path d="m 0,176 80,80"/>
+				<svg:path d="M 0,144 112,256"/>
+				<svg:path d="M 0,112 144,256"/>
+				<svg:path d="M 0,80 176,256"/>
+				<svg:path d="M 208,256 0,48"/>
+				<svg:path d="M 0,16 240,256"/>
+				<svg:path d="M 256,240 16,0"/>
+				<svg:path d="M 48,0 256,208"/>
+				<svg:path d="M 256,176 80,0"/>
+				<svg:path d="M 112,0 256,144"/>
+				<svg:path d="M 256,112 144,0"/>
+				<svg:path d="m 176,0 80,80"/>
+				<svg:path d="m 208,0 48,48"/>
+				<svg:path d="m 240,0 16,16"/>
+			</svg:g>
+		</svg:pattern>
+		<svg:pattern patternUnits="userSpaceOnUse"
+					 width="256"
+					 height="256"
+					 id="np-pattern"
+					 patternTransform="scale(0.13714)">
+			<svg:g style="stroke:#12D51C;stroke-width:4.571;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;">
+				<svg:path d="m 0,240 16,16"/>
+				<svg:path d="m 0,208 48,48"/>
+				<svg:path d="m 0,176 80,80"/>
+				<svg:path d="M 0,144 112,256"/>
+				<svg:path d="M 0,112 144,256"/>
+				<svg:path d="M 0,80 176,256"/>
+				<svg:path d="M 208,256 0,48"/>
+				<svg:path d="M 0,16 240,256"/>
+				<svg:path d="M 256,240 16,0"/>
+				<svg:path d="M 48,0 256,208"/>
+				<svg:path d="M 256,176 80,0"/>
+				<svg:path d="M 112,0 256,144"/>
+				<svg:path d="M 256,112 144,0"/>
+				<svg:path d="m 176,0 80,80"/>
+				<svg:path d="m 208,0 48,48"/>
+				<svg:path d="m 240,0 16,16"/>
+			</svg:g>
+		</svg:pattern>
+
+		<svg:pattern patternUnits="userSpaceOnUse" width="560" height="560" id="quarry-pattern" patternTransform="scale(0.06857)" >
+			<svg:g style="fill:none;stroke:#919191;stroke-width:4.971;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" >
+				<svg:path d="m 147.0068,101.38879 c -7.54388,1.86034 -17.86615,-1.801198 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
+				<svg:path d="m 198.0068,289.38879 c -7.54388,1.86034 -17.86615,-1.8012 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
+				<svg:path d="m 302.72555,201.51379 c -6.94506,1.66919 -15.66332,-1.75576 -21.21875,3.96875 -1.08673,7.66083 7.17525,14.05434 14.375,11.6875 7.55393,0.21939 16.59421,3.12237 23.0625,-1.625 -2.35509,-6.81053 -9.47907,-10.9266 -15.34375,-14.15625 -0.29932,0.01 -0.57875,-0.26991 -0.875,0.125 z"/>
+				<svg:path d="m 164.8193,198.88879 c -2.77739,-0.30495 -3.49974,1.7747 -0.96875,2.84375 5.20747,2.21591 11.12585,-0.34164 16.5625,1.40625 4.32588,1.09062 2.00748,-1.10314 -0.25,-2.4375 -4.45512,-3.20523 -10.17563,-0.98733 -15.34375,-1.8125 z"/>
+				<svg:path d="m 338.72555,308.38879 c -8.93261,1.51509 -21.54424,-1.63526 -26.8125,7.96875 -3.18584,11.10588 8.85949,22.88956 19.9375,19.84375 9.50902,0.73456 22.46427,3.65875 28.86766,-5.49246 0.73995,-10.83984 -10.56107,-17.02729 -18.49266,-21.91379 -1.13062,-0.328 -2.32223,-0.50738 -3.5,-0.40625 z"/>
+				<svg:path d="m 263.8193,273.88879 c -2.77739,-0.30495 -3.49974,1.7747 -0.96875,2.84375 5.20747,2.21591 11.12585,-0.34164 16.5625,1.40625 4.32588,1.09062 2.00748,-1.10314 -0.25,-2.4375 -4.45512,-3.20523 -10.17563,-0.98733 -15.34375,-1.8125 z"/>
+				<svg:path d="m 95.7568,239.82629 c -5.18653,1.2232 -12.129845,-1.78199 -16.25,2.0625 1.142733,5.72491 8.08668,6.54153 12.8125,5.375 4.60242,0.0651 11.34685,2.24094 14.84375,0.15625 -2.85276,-3.35591 -6.96625,-6.98346 -11.40625,-7.59375 z"/>
+				<svg:path d="m 110.7568,385.82629 c -5.18653,1.2232 -12.12984,-1.78199 -16.25,2.0625 1.14273,5.72491 8.08668,6.54153 12.8125,5.375 4.60242,0.0651 11.34685,2.24094 14.84375,0.15625 -2.85276,-3.35591 -6.96625,-6.98346 -11.40625,-7.59375 z"/>
+				<svg:path d="m 66.0068,492.38879 c -7.54388,1.86034 -17.86615,-1.8012 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
+				<svg:path d="m 169.8193,474.88879 c -2.77739,-0.30495 -3.49974,1.7747 -0.96875,2.84375 5.20747,2.21591 11.12585,-0.34164 16.5625,1.40625 4.32588,1.09062 2.00748,-1.10314 -0.25,-2.4375 -4.45512,-3.20523 -10.17563,-0.98733 -15.34375,-1.8125 z"/>
+				<svg:path d="m 71.72555,318.51379 c -6.94506,1.66919 -15.66332,-1.75576 -21.21875,3.96875 -1.08673,7.66083 7.17525,14.05434 14.375,11.6875 7.55393,0.21939 16.59421,3.12237 23.0625,-1.625 -2.35509,-6.81053 -9.47907,-10.9266 -15.34375,-14.15625 -0.29932,0.01 -0.57875,-0.26991 -0.875,0.125 z"/>
+				<svg:path d="m 452.0068,264.38879 c -7.54388,1.86034 -17.86615,-1.8012 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
+				<svg:path d="m 31.725549,134.38879 c -8.93261,1.51509 -21.54424,-1.63526 -26.8125002,7.96875 -3.18584,11.10588 8.8594902,22.88956 19.9375002,19.84375 9.50902,0.73456 22.46427,3.65875 28.86766,-5.49246 0.73995,-10.83984 -10.56107,-17.02729 -18.49266,-21.91379 -1.13062,-0.328 -2.32223,-0.50738 -3.5,-0.40625 z"/>
+				<svg:path d="m 505.72555,487.38879 c -8.93261,1.51509 -21.54424,-1.63526 -26.8125,7.96875 -3.18584,11.10588 8.85949,22.88956 19.9375,19.84375 9.50902,0.73456 22.46427,3.65875 28.86766,-5.49246 0.73995,-10.83984 -10.56107,-17.02729 -18.49266,-21.91379 -1.13062,-0.328 -2.32223,-0.50738 -3.5,-0.40625 z"/>
+				<svg:path d="m 481.8193,441.88879 c -2.77739,-0.30495 -3.49974,1.7747 -0.96875,2.84375 5.20747,2.21591 11.12585,-0.34164 16.5625,1.40625 4.32588,1.09062 2.00748,-1.10314 -0.25,-2.4375 -4.45512,-3.20523 -10.17563,-0.98733 -15.34375,-1.8125 z"/>
+				<svg:path d="m 382.7568,496.82629 c -5.18653,1.2232 -12.12984,-1.78199 -16.25,2.0625 1.14273,5.72491 8.08668,6.54153 12.8125,5.375 4.60242,0.0651 11.34685,2.24094 14.84375,0.15625 -2.85276,-3.35591 -6.96625,-6.98346 -11.40625,-7.59375 z"/>
+				<svg:path d="m 392.72555,400.51379 c -6.94506,1.66919 -15.66332,-1.75576 -21.21875,3.96875 -1.08673,7.66083 7.17525,14.05434 14.375,11.6875 7.55393,0.21939 16.59421,3.12237 23.0625,-1.625 -2.35509,-6.81053 -9.47907,-10.9266 -15.34375,-14.15625 -0.29932,0.01 -0.57875,-0.26991 -0.875,0.125 z"/>
+				<svg:path d="m 269.0068,433.38879 c -7.54388,1.86034 -17.86615,-1.8012 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
+				<svg:path d="m 484.0068,116.38879 c -7.54388,1.86034 -17.86615,-1.8012 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
+				<svg:path d="m 441.8193,71.888791 c -2.77739,-0.30495 -3.49974,1.7747 -0.96875,2.843751 5.20747,2.21591 11.12585,-0.341641 16.5625,1.40625 4.32588,1.09062 2.00748,-1.10314 -0.25,-2.437501 -4.45512,-3.20523 -10.17563,-0.98733 -15.34375,-1.8125 z"/>
+				<svg:path d="m 372.7568,156.82629 c -5.18653,1.2232 -12.12984,-1.78199 -16.25,2.0625 1.14273,5.72491 8.08668,6.54153 12.8125,5.375 4.60242,0.0651 11.34685,2.24094 14.84375,0.15625 -2.85276,-3.35591 -6.96625,-6.98346 -11.40625,-7.59375 z"/>
+				<svg:path d="m 226.72555,4.3887906 c -8.93261,1.51509 -21.54424,-1.63526 -26.8125,7.9687504 -3.18584,11.10588 8.85949,22.88956 19.9375,19.84375 9.50902,0.73456 22.46427,3.65875 28.86766,-5.49246 0.73995,-10.83984 -10.56107,-17.0272904 -18.49266,-21.9137904 -1.13062,-0.328 -2.32223,-0.50738 -3.5,-0.40625 z"/>
+				<svg:path d="m 255.8193,55.888792 c -2.77739,-0.30495 -3.49974,1.7747 -0.96875,2.84375 5.20747,2.21591 11.12585,-0.34164 16.5625,1.40625 4.32588,1.09062 2.00748,-1.10314 -0.25,-2.4375 -4.45512,-3.20523 -10.17563,-0.98733 -15.34375,-1.8125 z"/>
+				<svg:path d="m 148.7568,32.826292 c -5.18653,1.2232 -12.12984,-1.78199 -16.25,2.0625 1.14273,5.72491 8.08668,6.54153 12.8125,5.375 4.60242,0.0651 11.34685,2.24094 14.84375,0.15625 -2.85276,-3.35591 -6.96625,-6.98346 -11.40625,-7.59375 z"/>
+				<svg:path d="m 538.7568,153.82629 c -5.18653,1.2232 -12.12984,-1.78199 -16.25,2.0625 1.14273,5.72491 8.08668,6.54153 12.8125,5.375 4.60242,0.0651 11.34685,2.24094 14.84375,0.15625 -2.85276,-3.35591 -6.96625,-6.98346 -11.40625,-7.59375 z"/>
+			</svg:g>
+		</svg:pattern>
+
+		<svg:pattern id="generator-solar-pattern" x="0" y="0" width="30" height="45" patternUnits="userSpaceOnUse" patternTransform="scale(0.11429)">
+			<svg:rect x="0" y="0" width="25" height="35" fill="#354886"/>
+			<svg:rect x="0" y="35" width="30" height="10" fill="#c5936d"/>
+			<svg:rect x="25" y="0" width="5" height="35" fill="#ffffff"/>
+		</svg:pattern>
+
+		<svg:marker
+			id="bridge-cas-start"
+			fill='none'
+			stroke-width='0.1px'
+			stroke='#222222'
+			markerWidth="1px"
+			markerHeight="1px"
+			orient="auto">
+			<svg:path d="M-0.25,0.75 L0.5,0 L-0.25,-0.75"/>
+		</svg:marker>
+
+		<svg:marker
+			id="bridge-cas-end"
+			fill='none'
+			stroke-width='0.1px'
+			stroke='#222222'
+			markerWidth="1px"
+			markerHeight="1px"
+			orient="auto">
+			<svg:path d="M0.25,0.75 L-0.5,0 L0.25,-0.75"/>
+		</svg:marker>
+		<svg:symbol
+			id="church"
+			viewBox="0 0 5 10"
+			fill='#000000'>
+			<svg:path d="M 0 10 L 0 5 L 5 5 L 5 10 z M 0 2 L 5 2 L 5 3 L 0 3 z M 2 0 L 2 5 L 3 5 L 3 0 z"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="mosque"
+			viewBox="0 0 120 120"
+			fill='#00ba00'>
+			<svg:path d="M 4,60 C 11,75 60,107 84,73 C 103,40 76,22 50,7 C 76,6 130,35 103,84 C 72,124 8,97 4,60 z M 35,52 C 35,52 20,55 20,55 L 30,43 C 30,43 21,30 21,30 L 35,35 L 45,23 L 45,38 L 60,45 L 45,50 L 45,65 L 35,52 z"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="synagogue"
+			viewBox="0 0 20 20"
+			stroke='#0000d0'
+			fill='none'
+			stroke-width="1.5px"
+			stroke-linecap="butt"
+			stroke-linejoin="miter">
+			<svg:path d="M 10,0 L 20,15 L 0,15 L 10,0 z M 10,20 L 0,5 L 20,5 L 10,20 z"/>
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+			id="campSite"
+			viewBox="0 0 100 100"
+			fill='#0000d0'
+			fill-opacity="1">
+			<svg:path d="M 35,0 L 50,24 L 65,0 L 80,0 L 60,35 L 100,100 L 0,100 L 40,35 L 20,0 L 35,0 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="gate"
+			viewBox="0 0 10 10"
+			fill='none'
+			stroke-width='0.8px'
+			stroke='#000000'>
+			<svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="airport"
+			viewBox="0 0 10 10"
+			fill="black"
+			fill-opacity="1"
+			fill-rule="evenodd"
+			stroke="none">
+			<svg:path d="M 9.2,5 C 9.2,4.5 9.8,3.2 10,3 L 9,3 L 8,4 L 5.5,4 L 8,0 L 6,0 L 3,4 C 2,4 1,4.2 0.5,4.5 C 0,5 0,5 0.5,5.5 C 1,5.8 2,6 3,6 L 6,10 L 8,10 L 5.5,6 L 7.8,6 L 9,7 L 10,7 C 9.8,6.8 9.2,5.5 9.2,5 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="power-tower"
+			viewBox="0 0 10 10"
+			stroke-width='1px'
+			stroke='#cccccc'>
+			<svg:path d="M 0 0 L 10 10 M 0 10 L 10 0"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="bar"
+			viewBox="0 0 100 100"
+			fill='#000000'
+			stroke-width='0.4px'
+			stroke='#000000'>
+			<svg:path d="M 16.8725 9.81954 L 96.3004 9.81954 L 59.4774 46.3164 L 59.4774 94.9796 C 59.575 94.9796 57.9896 100.587 84.2324 102.6 L 84.2324 103.99 L 31.0262 103.99 L 31.0275 102.6 C 56.4414 100.587 54.9906 94.9796 54.9906 94.9796 L 54.9906 46.3164 L 16.8725 9.81954 z "/>
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+			id="petrolStation"
+			viewBox="0 0 100 100"
+			fill='#000000'
+			fill-rule="evenodd"
+			stroke-width="3px">
+			<svg:path d="M 22.7283 108.087 C 4.26832 107.546 23.6818 43.3596 32.6686 21.0597 C 33.8491 17.0245 60.28 18.4952 60.0056 19.8857 C 59.0889 25.9148 54.8979 23.2429 52.0142 26.8579 L 51.7464 36.8066 C 48.6085 40.8144 40.2357 34.4677 38.078 42.8773 C 31.3694 92.5727 45.0689 108.819 22.7283 108.087 z M 85.3122 9.52799 L 29.1766 9.52847 C 28.4855 17.5896 -11.559 113.573 22.9292 113.284 C 48.5214 113.073 39.5312 104.08 42.6984 51.03 C 41.8513 49.3228 50.871 48.6585 50.8739 51.4448 L 51.0453 116.604 L 97.6129 116.188 L 97.6129 26.544 C 96.0669 24.2073 93.899 25.2958 90.584 22.394 C 87.7907 19.4131 92.2353 9.52799 85.3122 9.52799 z M 64.0766 35.3236 C 61.5443 36.7258 61.5443 45.2814 64.0766 46.6836 C 68.3819 49.0684 80.2848 49.0684 84.5902 46.6836 C 87.1225 45.2814 87.1225 36.7258 84.5902 35.3236 C 80.2848 32.9393 68.3819 32.9393 64.0766 35.3236 z "/>
+		</svg:symbol>
+
+		<svg:symbol id="fuel" viewBox="0 0 36 36">
+			<svg:rect style="fill:#0000ff" x="0" y="0" width="36" height="36" rx="2" ry="2"/>
+			<svg:path style="fill:#ffffff" d="M25 31.44 a1 1 -180 0 0 1 -1 a1 1 -180 0 0 -1 -1
+				L23 29.44 a1 1 0 0 1 -1 -1 L22 12.44 a1 1 -180 0 0 -1 -1 L13 11.44 A1 1 -180 0 0 12 12.44
+				L12 22.44 a1 1 0 0 1 -1 1 L10.06 23.44 a1 1 -180 0 0 -0.113125 0.00641924 A1.76777 1.76777
+				0 0 1 8.04 22.15 a0.5 0.5 0 0 1 0.476366 -0.630495 A1.58114 1.58114 -180 0 0 10.04 19.58 a1 1 0
+				0 1 -0.0246746 -0.28636 A1.76777 1.76777 -180 0 0 8.73 17.49 a1 1 0 0 1 -0.729023 -0.962586
+				L8 14.44 A1 1 -180 0 0 7 13.44 a1 1 -180 0 0 -1 1 L6 21.37 a1 1 0 0 1 -0.00783456 0.124931
+				A3.53553 3.53553 -180 0 0 9.94 25.45 A1 1 0 0 1 10.07 25.44 L11 25.44 A1 1 0 0 1 12 26.44
+				L12 28.44 A1 1 0 0 1 11 29.44 L7 29.44 a1 1 -180 0 0 -1 1 A1 1 -180 0 0 7 31.44 L25 31.44 Z
+				M15 19.44 a1 1 0 0 1 -1 -1 L14 14.44 A1 1 0 0 1 15 13.44 L19 13.44 a1 1 0 0 1 1 1 L20 18.44
+				a1 1 0 0 1 -1 1 L15 19.44 Z
+				M0.5 37.44 L31.5 37.44 a0.5 0.5 -180 0 0 0.5 -0.5 L32 5.94 a0.5 0.5 -180 0 0 -0.5 -0.5
+				L0.5 5.44 a0.5 0.5 -180 0 0 -0.5 0.5 L0 36.94 a0.5 0.5 -180 0 0 0.5 0.5 Z
+				M2 35.44 L2 7.44 L30 7.44 L30 35.44 L2 35.44 Z" transform='translate(2,-3.44)'/>
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+			id="golfCourse"
+			viewBox="0 0 100 100"
+			fill='#000000'
+			fill-rule="evenodd"
+			fill-opacity="1"
+			stroke="none">
+			<svg:path d="M 61.6421 25.2514 C 61.6421 25.2514 48.7712 34.4528 48.1727 38.766 C 47.574 43.0787 56.5537 48.8295 56.8529 52.2802 C 57.1522 55.7303 56.5537 87.3594 56.5537 87.3594 C 56.5537 87.3594 37.3978 104.036 36.7993 105.474 C 36.2006 106.912 41.5878 117.55 43.9826 117.263 C 46.3769 116.975 43.3841 109.787 44.2819 108.349 C 45.1798 106.912 64.0363 92.5353 65.2335 90.5221 C 65.5327 91.0979 65.8321 76.7208 65.5327 76.7208 L 66.7305 76.7208 L 66.1319 91.0979 C 66.1319 91.0979 59.2473 108.349 60.1451 113.237 C 60.1451 115.824 70.6212 122.15 72.1176 121 C 73.6145 119.85 68.5261 115.536 68.8254 112.375 C 67.6283 109.212 73.016 97.4233 73.3153 94.2605 C 73.6145 91.0979 73.9138 56.3053 72.7167 51.9927 C 72.7161 48.542 69.424 42.5037 67.9276 40.2035 C 67.6283 37.9029 65.8326 31.2897 65.8326 31.2897 C 65.8326 31.2897 59.547 39.341 59.5465 39.341 C 58.0501 37.9035 68.2268 28.702 68.2268 25.8268 C 68.2268 22.9513 49.9689 9.72452 49.9689 9.72452 C 49.9689 9.72452 25.126 63.2064 25.4254 65.5065 C 25.7246 67.8065 29.9146 72.9824 32.908 70.6823 C 35.9009 68.3822 27.8197 62.9194 27.8197 62.9194 L 49.3703 14.6122 L 52.6624 18.3506 L 58.3494 18.638 L 58.0501 19.5005 C 58.0501 19.5005 51.7645 18.9255 50.5675 19.788 C 49.3703 20.6506 47.574 22.0887 47.574 25.5388 C 47.574 28.9896 52.0638 30.4271 53.5603 30.7146 L 60.8936 24.6764 L 61.6421 25.2514 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="slipway"
+			viewBox="0 0 50 45"
+			fill='#0087ff'
+			stroke='none'
+			fill-opacity='0.7'>
+			<svg:path d="M 45,33 L 45,45 L 2,45 C 2,45 45,33 45,33 z M 0,35 L 43,22 L 43,26 C 43,26 37,32 26,36 C 15,40 0,35 0,35 z M 3,32 C 3,32 13,0 13,0 L 22,26 L 3,32 z M 16,0 L 42,20 L 25,25 L 16,0 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="pub"
+			viewBox="0 0 6 9"
+			stroke='none'>
+			<svg:path fill="#aa5605" d="M 1.2,9 C 1.2,9 1,3 0.3,1.7 L 5.7,1.7 C 5,3 4.8,9 4.8,9"/>
+			<svg:path fill="#ffe680" d="M 5.7,1.7 L 0.3,1.7 C 0,1 0,1 0,0 L 6,0 C 6,1 6,1 5.7,1.7 z"/>
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+			id="hotel"
+			viewBox="0 0 90 90"
+			fill="black"
+			fill-opacity="1"
+			stroke="black"
+			stroke-width="1px"
+			stroke-miterlimit="4">
+			<svg:path d="M 0,60 C 0,65 10,65 10,60 L 10,50 L 35,70 L 35,85 C 35,90 45,90 45,85 L 45,70 L 75,70 L 75,85 C 75,90 85,90 85,85 L 85,60 L 40,60 L 5,30 C 9,20 45,20 50,25 L 50,10 C 50,5 40,5 40,10 L 40,15 L 10,15 L 10,10 C 10,5 0,5 0,10 C 0,10 0,60 0,60 z M 10,35 C 15,25 45,25 55,35 L 85,60 C 75,50 40,50 40,60 L 10,35 z "/>
+		</svg:symbol>
+
+		<!-- derived from http://www.sodipodi.com/index.php3?section=clipart -->
+		<svg:symbol
+			id="hostel"
+			viewBox="0 0 12.5 8"
+			fill="#286a9d"
+			fill-opacity="1"
+			fill-rule="nonzero"
+			stroke="none">
+			<svg:path d="M 5.5,4 L 9,0 L 12.5,4 L 11.5,4 L 11.5,8 L 10,8 L 10,5 L 8,5 L 8,8 L 6.5,8 L 6.5,4 L 5.5,4 z M 0.5,3.5 C 2,2.5 2.3,1 2.5,0 C 2.7,1 3,2.5 4.5,3.5 L 3.3,3.5 C 3.3,4 4,5 5,6 L 3,6 L 3,8 L 2,8 L 2,6 L 0,6 C 1,5 1.7,4 1.7,3.5 L 0.5,3.5 z M 0,8 L 0,7.5 L 12.5,7.5 L 12.5,8 L 0,8 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="recycling"
+			viewBox="0 0 100 100"
+			stroke='none'
+			fill='#00ba00'>
+			<svg:path d="M 55.0,37.3 L 72.1,27.0 L 79.8,41.9 C 81.6,50.0 71.5,52.9 63.3,52.4 L 55.0,37.3 z"/>
+			<svg:path d="M 51.1,47.9 L 42.1,63.8 L 51.1,80.0 L 51.3,73.5 L 59.5,73.5 C 62.5,73.8 66.4,71.8 67.9,69.0 L 78.4,49.5 C 75.0,53.0 70.5,53.9 65.3,53.9 L 51.4,53.9 L 51.1,47.9 z "/>
+			<svg:path d="M 31.0,28.2 L 13.7,18.2 L 22.9,4.2 C 29.0,-1.3 36.6,6.1 40.1,13.5 L 30.9,28.2 z "/>
+			<svg:path d="M 42.1,26.5 L 60.4,26.6 L 70.1,10.9 L 64.3,13.8 L 60.3,6.6 C 59.1,3.9 55.5,1.4 52.3,1.5 L 30.2,1.7 C 34.9,3.1 37.9,6.6 40.4,11.1 L 47.2,23.3 L 42.1,26.5 z "/>
+			<svg:path d="M 0.4,27.4 L 5.8,31.5 L 0.8,40.5 C -1.8,45.3 2.6,49.6 5.3,51.0 C 8.0,52.5 12.2,52.7 16.2,52.7 L 23.3,41.3 L 28.6,44.1 L 19.3,27.2 L 0.4,27.4 z "/>
+			<svg:path d="M 1.2,49.3 L 12.7,70.1 C 15.0,73.0 19.4,73.7 23.9,73.6 L 36.0,73.6 L 36.0,53.9 L 13.0,53.7 C 9.5,53.9 4.8,53.2 1.2,49.3 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="hospital"
+			viewBox="0 0 15 15"
+			stroke='red'
+			stroke-width="2px"
+			fill="none">
+			<svg:path d="M 12.5,7.5 L 2.5,7.5 L 2.5,7.5 L 12.5,7.5 z M 7.5,2.3 L 7.5,12.5 L 7.5,12.5"/>
+			<svg:path stroke-width="1px" d="M 14.5 7.5 A 7 7 0 1 1 0.5,7.5 A 7 7 0 1 1 14.5 7.5 z"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="postoffice"
+			viewBox="0 0 14 8"
+			fill="none"
+			stroke="red"
+			stroke-width="1.5px">
+			<svg:path d="M 0,0 L 14,0 L 14,8 L 0,8 L 0,0 z M 0,0 L 7,4 L 14,0"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="postbox"
+			viewBox="0 0 14 8"
+			fill="none"
+			stroke="red"
+			stroke-width="1.5px">
+			<svg:path d="M 0,0 L 14,0 L 14,8 L 0,8 L 0,0 z M 0,0 L 7,4 L 14,0"/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="parking"
+			viewBox="0 -10 20 20"
+			stroke="none"
+			fill-opacity="1"
+			fill-rule="nonzero">
+			<svg:rect fill="#0087ff" width="20" height="20" x="0" y="-10" rx="4" ry="4"/>
+			<svg:path fill="white" d="M 5,8 L 5,-7 L 12,-7 C 14,-7 15.5,-5.3 16,-4 C 16.5,-2.77 16.5,-1.23 16,0 C 15.41,1.42 14,3 12,3 L 8,3 L 8,8 L 5,8 z M 8,-4 L 8,0 C 9.3,0 11,0 12.32,-0.31 C 13.6,-0.76 13.5,-2.8 12.5,-3.48 C 11.5,-4.1 8.6,-4 8,-4 z "/>
+		</svg:symbol>
+
+		<svg:symbol
+			id="border_control"
+			viewBox="0 0 100 100">
+			<svg:path
+				d="M 98 50 A 48 48 0 1 1 2,50 A 48 48 0 1 1 98 50 z"
+				style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.85714;stroke-linecap:butt;stroke-linejoin:round;"/>
+			<svg:path
+				d="M 91.889244,74.081667 L 50.178574,74.081667 L 8.4679028,74.081667 L 29.323238,37.959167 L 50.178574,1.8366661 L 71.033909,37.959166 L 91.889244,74.081667 z "
+				style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.71429;stroke-linecap:butt;stroke-linejoin:round;"/>
+		</svg:symbol>
+
+		<svg:symbol id="peak"
+					viewBox="50 50 100 100">
+			<svg:path fill="#1f151d" stroke="#000000" stroke-width="5" d="M 5,80 L 50,20 L 95,80 L 5,80 z "/>
+		</svg:symbol>
+
+		<svg:symbol id="viewpoint"
+					viewBox="0 0 244 281">
+			<svg:path style='fill:#000000' d="M 151.726,28.278 L 121.662,0 L 91.597,28.278 L 121.661,140.481 L 151.726,28.278 z"/>
+			<svg:path style='fill:#000000' d="M 39.523,58.342 L 0.002,70.239 L 9.459,110.415 L 121.661,140.48 L 39.523,58.342 z"/>
+			<svg:path style='fill:#000000' d="M 9.458,170.544 L 0,210.719 L 39.522,222.618 L 121.661,140.48 L 9.458,170.544 z"/>
+			<svg:path style='fill:#000000' d="M 91.596,252.683 L 121.659,280.961 L 151.725,252.683 L 121.661,140.48 L 91.596,252.683 z"/>
+			<svg:path style='fill:#000000' d="M 203.799,222.619 L 243.32,210.722 L 233.863,170.545 L 121.661,140.48 L 203.799,222.619 z"/>
+			<svg:path style='fill:#000000' d="M 233.863,110.416 L 243.322,70.241 L 203.799,58.343 L 121.661,140.48 L 233.863,110.416 z"/>
+		</svg:symbol>
+		<svg:symbol id="natural-cave"
+					viewBox="0 0 100 100">
+			<svg:path
+				d="M 5,80 L 95,80"
+				style="fill:none;stroke:#000000;stroke-width:8.571;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"/>
+			<svg:path
+				d="M 5,54.973981 L 20,54.973981 C 20,54.973981 24.923335,20.081237 50,19.973981 C 74.899122,19.86824 80,54.973981 80,54.973981 L 95,54.973981"
+				style="fill:none;stroke:#000000;stroke-width:8.571;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"/>
+		</svg:symbol>
+
+		<svg:pattern width="100" height="100" patternUnits="userSpaceOnUse" id="marsh-pattern" viewBox="0 -100 102 100" overflow="visible" patternTransform="scale(0.17)">
+			<svg:g>
+				<svg:polygon fill="none" points="0,-100 102,-100 102,0 0,0 		"/>
+				<svg:g>
+					<svg:polygon fill="none" points="0,0 102,0 102,-100 0,-100 			"/>
+					<svg:path stroke="#008000" stroke-width="2" stroke-linecap="round" d="M1-60c13.297,0,26.703,0,40,0 M21-60c0-10,0-20,0-30 M31-80
+						L21-60 M11-80l10,20 M71-10h30 M21-10c10,0,20,0,30,0 M61-60c7.103,0,13.5,0,20,0 M21-40c6.703,0,13.297,0,20,0 M71-90
+						c7,0,13.297,0,20,0 M1-10h10 M91-40v30 M101-30L91-10 M81-30l10,20"/>
+					<svg:polygon fill="none" points="1,-100 101,-100 101,0 1,0 			"/>
+				</svg:g>
+			</svg:g>
+		</svg:pattern>
+	</defs>
+</rules>

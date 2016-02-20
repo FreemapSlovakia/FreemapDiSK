@@ -1,0 +1,20 @@
+#!/bin/bash
+
+MY_PATH=`readlink -f $0`
+cd `dirname $MY_PATH`
+
+if [ -a *.pid ] ; then
+    echo "There is some pid file, investigate whether tilesGen.pl is not running";
+    exit 0;
+
+fi
+
+WORKDIR=`grep "WorkingDirectory" freemapdiskclient.conf | sed -e s/WorkingDirectory=//`
+
+echo "Cleaning up $WORKDIR"
+
+rm -rf $WORKDIR
+
+echo "Starting tilesGen.pl loop"
+
+nohup nice -n 5 perl tilesGen.pl loop >> output.log 2>&1 &

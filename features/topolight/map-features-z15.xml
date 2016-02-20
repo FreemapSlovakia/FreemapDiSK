@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+	svgBaseProfile="full"
+	scale="1"
+	symbolScale="1"
+	minimumMapWidth="1"
+	minimumMapHeight="1"
+	withOSMLayers="yes"
+	textAttenuation="0.035"
+	withUntaggedSegments="no"
+	showScale="no"
+	showGrid="no"
+	showBorder="no"
+	showLicense="no"
+	interactive="no"
+	processWays="yes">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+    <!--bounds_mkr1-->
+    <!--bounds_mkr2-->
+
+    <rule e="node|way" k="osmarender:render" v="~|yes">
+        <rule e="way" k="ele" v="10|20|30|40|60|70|80|90" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="110|120|130|140|160|170|180|190" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="210|220|230|240|260|270|280|290" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="310|320|330|340|360|370|380|390" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="410|420|430|440|460|470|480|490" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="510|520|530|540|560|570|580|590" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="610|620|630|640|660|670|680|690" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="710|720|730|740|760|770|780|790" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="810|820|830|840|860|870|880|890" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="910|920|930|940|960|970|980|990" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1010|1020|1030|1040|1060|1070|1080|1090" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1110|1120|1130|1140|1160|1170|1180|1190" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1210|1220|1230|1240|1260|1270|1280|1290" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1310|1320|1330|1340|1360|1370|1380|1390" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1410|1420|1430|1440|1460|1470|1480|1490" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1510|1520|1530|1540|1560|1570|1580|1590" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1610|1620|1630|1640|1660|1670|1680|1690" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1710|1720|1730|1740|1760|1770|1780|1790" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1810|1820|1830|1840|1860|1870|1880|1890" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="1910|1920|1930|1940|1960|1970|1980|9190" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2010|2020|2030|2040|2060|2070|2080|2090" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2110|2120|2130|2140|2160|2170|2180|2190" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2210|2220|2230|2240|2260|2270|2280|2290" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2310|2320|2330|2340|2360|2370|2380|2390" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2410|2420|2430|2440|2460|2470|2480|2490" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2510|2520|2530|2540|2560|2570|2580|2590" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2610|2620|2630|2640|2660|2670|2680|2690" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2710|2720|2730|2740|2760|2770|2780|2790" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2810|2820|2830|2840|2860|2870|2880|2890" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+        <rule e="way" k="ele" v="2910|2920|2930|2940|2960|2970|2980|2990" >
+            <line class='topoline-generic topoline-minor' smart-linecap='no' />
+        </rule>
+
+        <rule e="way" k="ele" v="100|200|300|400|600|700|800|900|1100|1200|1300|1400|1600|1700|1800|1900|2100|2200|2300|2400|2600|2700|2800|2900" >
+            <line class='topoline-generic topoline-mid' smart-linecap='no' />
+        </rule>
+
+        <rule e="way" k="ele" v="150|250|350|450|650|750|850|950|1150|1250|1350|1450|1650|1750|1850|1950|2150|2250|2350|2450|2650|2750|2850|2950" >
+            <line class='topoline-generic topoline-semimid' smart-linecap='no' />
+        </rule>
+
+        <rule e="way" k="ele" v="0|500|1000|1500|2000|2500|3000" >
+            <line class='topoline-generic topoline-major' smart-linecap='no' />
+        </rule>
+
+        <rule e="way" k="ele" v="100|200|300|400|600|700|800|900|1100|1200|1300|1400|1600|1700|1800|1900|2100|2200|2300|2400|2600|2700|2800|2900" >
+            <text k="ele" class="topoline-cas topoline-mid-cas" dy="1.82857px" x-name-direction='normal' x-multi-labeling='6.857' text-postfix='m' />
+            <text k="ele" class="topoline-cor topoline-mid-cor" dy="1.82857px" x-name-direction='normal'  x-multi-labeling='6.857' text-postfix='m' />
+        </rule>
+
+        <rule e="way" k="ele" v="150|250|350|450|650|750|850|950|1150|1250|1350|1450|1650|1750|1850|1950|2150|2250|2350|2450|2650|2750|2850|2950" >
+            <text k="ele" class="topoline-cas topoline-semimid-cas" dy="1.82857px" x-name-direction='normal' x-multi-labeling='6.857' text-postfix='m' />
+            <text k="ele" class="topoline-cor topoline-semimid-cor" dy="1.82857px" x-name-direction='normal'  x-multi-labeling='6.857' text-postfix='m' />
+        </rule>
+
+        <rule e="way" k="ele" v="0|500|1000|1500|2000|2500|3000" >
+            <text k="ele" class="topoline-cas topoline-major-cas" dy="1.82857px" x-name-direction='normal' x-multi-labeling='6.857' text-postfix='m' />
+            <text k="ele" class="topoline-cor topoline-major-cor" dy="1.82857px" x-name-direction='normal'  x-multi-labeling='6.857' text-postfix='m' />
+        </rule>
+
+
+
+    </rule>
+    <!-- k="osmarender:render" v="~|yes" -->
+
+    <!-- SVG Definitions - markers, symbols etc go here -->
+    <defs>
+        <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+
+            /* topoline - generic style */
+            .topoline-generic { stroke-linecap: butt; stroke-linejoin: round; fill: none; }
+            .topoline-minor { stroke-width: 0.11429px; stroke: #338800; }
+            .topoline-mid { stroke-width: 0.18286px; stroke: #444400; }
+            .topoline-semimid { stroke-width: 0.18286px; stroke: #774400; }
+            .topoline-major { stroke-width: 0.18286px; stroke: #770000; }
+
+
+            /* topoline - texts */
+            .topoline-cas { font-family: Tahoma; font-weight: normal; text-anchor: middle; method: stretch; spacing: auto; stroke: white; fill: white; letter-spacing: 0.5px; opacity: 0.3; stroke-width: 1.42857px; }
+            .topoline-cor { fill: none; font-family: Tahoma; font-weight: normal; text-anchor: middle; method: stretch; spacing: auto; letter-spacing: 0.5px; }
+
+            .topoline-minor-cas { font-size: 5.886px; stroke-width: 1.42857px; }
+            .topoline-minor-cor { font-size: 5.886px; fill: #338800; }
+
+            .topoline-mid-cas { font-size: 5.886px; stroke-width: 0.85714px; }
+            .topoline-mid-cor { font-size: 5.886px; fill: #444400; }
+
+            .topoline-semimid-cas { font-size: 5.886px; stroke-width: 0.85714px; }
+            .topoline-semimid-cor { font-size: 5.886px; fill: #774400; }
+
+            .topoline-major-cas { font-size: 5.886px; stroke-width: 0.85714px; }
+            .topoline-major-cor { font-size: 5.886px; fill: #770000; }
+
+
+            /* Map decoration */
+            .map-grid-line { fill: none; stroke: #8080ff; stroke-width: 0.22857px; stroke-opacity: 0.5; }
+            .map-border-cas { fill: none; stroke: #8080ff; stroke-width: 6.857px; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1; stroke-linecap: round; }
+            .map-border-cor { fill: none; fill-opacity: 1; fill-rule: nonzero; stroke: #ffffff; stroke-width: 4.571px; stroke-miterlimit: 0; stroke-dashoffset: -1.14286px; stroke-opacity: 1; }
+            .map-scale-cas { fill: none; stroke: #8080ff; stroke-width: 9.143px; stroke-linecap: butt; }
+            .map-scale-cor { fill: none; stroke: #ffffff; stroke-width: 6.857px; stroke-linecap: butt; }
+            .map-scale-bookend { fill: none; stroke: #8080ff; stroke-width: 2.28571px; stroke-linecap: butt; }
+            .map-scale-caption { font-family: DejaVu Sans,sans-serif; font-size: 22.857px; fill: #8080ff; }
+            .map-background { fill: none; stroke: none; }
+            .map-title { font-family: DejaVu Sans,sans-serif; font-size: 45.714px; text-anchor: middle; fill: black; }
+            .map-title-background { fill: white; }
+            .map-marginalia-background { fill: white; }
+        </style>
+    </defs>
+</rules>

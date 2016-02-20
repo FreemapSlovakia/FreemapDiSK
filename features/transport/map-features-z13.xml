@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<!-- This file should be used with Osmarender 6 -->
+<!-- This file implements a sub-set of the items described at http://wiki.openstreetmap.org/index.php/Map_Features -->
+
+<!-- A scale of 0.1 will make fat roads on a small map, a scale of 5 will draw very thin roads on a large scale map -->
+<!-- minimumMapWidth/Height is in kilometres -->
+<!-- Set javaScript="no" if you want an svg file that contains no javascript.  This is so that you can upload it to Wikipedia etc -->
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    textAttenuation="0.44"
+    withUntaggedSegments="no"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="yes">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+    <!--bounds_mkr1-->
+    <!--bounds_mkr2-->
+
+    <!-- Select all nodes and ways (unless they have an osmarender:render=no tag) -->
+    <!-- If you really want to render segments then you will need to add segment to the element list, but please don't - tag the ways instead. -->
+    <rule e="node|way" k="osmarender:render" v="~|yes" layer="5">
+
+        <!-- Paths not in tunnels -->
+        <layer name="transportcore" opacity="0.6">
+            <rule e="way" k="tunnel" v="~|no" layer="5">
+                <rule e="way" k="fmreltrolleybus|fmrelbus|fmreltram" v="*" layer="5">
+                    <!-- <line class='line-cas-1' smart-linecap='no' /> -->
+                    <!-- <line class='line-cas-2' smart-linecap='no' /> -->
+                    <line class='line-cas' smart-linecap='no' />
+                </rule>
+            </rule>
+        </layer>
+
+        <layer name="transport" opacity="0.95">
+            <rule e="way" k="tunnel" v="~|no" layer="5">
+                <rule e="way" k="fmreltrolleybus" v="*" layer="5">
+                    <rule e="way" k="fmrelbus" v="*" layer="5">
+                        <rule e="way" k="fmreltram" v="*" layer="5">
+                            <!-- RGB -->
+                            <line class='line-cor trolley-line-cor dash-3-1'  smart-linecap='no'/>
+                            <line class='line-cor bus-line-cor dash-3-2'  smart-linecap='no'/>
+                            <line class='line-cor tram-line-cor dash-3-3'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- R_B -->
+                            <line class='line-cor trolley-line-cor dash-2-1'  smart-linecap='no'/>
+                            <line class='line-cor bus-line-cor dash-2-2'  smart-linecap='no'/>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmreltram" v="*" layer="5">
+                            <!-- _GB -->
+                            <line class='line-cor trolley-line-cor dash-2-1'  smart-linecap='no'/>
+                            <line class='line-cor tram-line-cor dash-2-2'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- __B -->
+                            <line class='line-cor trolley-line-cor'  smart-linecap='no'/>
+                        </else>
+                    </else>
+                </rule>
+                <else>
+                    <rule e="way" k="fmrelbus" v="*"  layer="5">
+                        <rule e="way" k="fmreltram" v="*"  layer="5">
+                            <!-- RG_ -->
+                            <line class='line-cor bus-line-cor dash-2-1'  smart-linecap='no'/>
+                            <line class='line-cor tram-line-cor dash-2-2'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- R__ -->
+                            <line class='line-cor bus-line-cor'  smart-linecap='no'/>
+                        </else>
+                    </rule>
+                    <else>
+                        <rule e="way" k="fmreltram" v="*"  layer="5">
+                            <!-- _G_ -->
+                            <line class='line-cor tram-line-cor'  smart-linecap='no'/>
+                        </rule>
+                        <else>
+                            <!-- ___ -->
+                        </else>
+                    </else>
+                </else>
+            </rule>
+        </layer>
+    </rule>
+
+      
+
+    <!-- SVG Definitions - markers, symbols etc go here -->
+    <defs>
+        <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+            <![CDATA[ 
+
+      .trail_stand {
+      fill: #FFFFFF;
+      stroke: #000000;
+      stroke-width: 0.71429px;
+      }
+      
+      .trail_map {
+      fill: #FFFFFF;
+      stroke: #000000;
+      stroke-width: 0.71429px;
+      }
+      .hwy-cas {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      }
+      .hwy-cor {
+      stroke-linecap: butt;
+      stroke-linejoin: round;
+      fill: none;
+      }
+
+
+      .trail-ref-cor {
+      fill: #202020;
+      font-family: DejaVu Sans;
+      font-size: 9.143px;
+      font-weight: normal;
+      stroke: #202020;
+      stroke-width: 0.2px;
+	  spacing:auto;
+      method:stretch;
+      }
+
+      .trail-ref-cas {
+      fill: #FFFFF0;
+      font-family: DejaVu Sans;
+      font-size: 9.143px;
+      font-weight: normal;
+      stroke: #FFFFF0;
+      stroke-width: 2px;
+	  opacity: 0.5;
+	  spacing:auto;
+      method:stretch;
+      }
+      
+      /* trail- generic style */
+      .line-cas {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: white;
+      stroke-width: 10.286px;
+      }
+      
+      .line-cas-1 {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: #808080;
+      stroke-width: 4px;
+      }
+      
+      .line-cas-2 {
+      stroke-linecap: butt;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: #000000;
+      stroke-width: 4px;
+      stroke-dasharray: 1.71429,3.429;
+      stroke-dashoffset: 1.71429;
+      }
+       
+      .line-cor {
+      stroke-linecap: butt;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-width: 2.85714px;
+      }
+      
+      .dash-2-1{
+      stroke-dasharray: 4.286,4.286;
+	  stroke-dashoffset: 0;
+      }
+
+      .dash-2-2{
+      stroke-dasharray: 4.286,4.286;
+	  stroke-dashoffset: 4.286;
+      }
+
+      .dash-3-1{
+      stroke-dasharray: 4.286,8.571;
+	  stroke-dashoffset: 0;
+      }
+
+      .dash-3-2{
+      stroke-dasharray: 4.286,8.571;
+	  stroke-dashoffset: 4.286;
+      }
+
+      .dash-3-3{
+      stroke-dasharray: 4.286,8.571;
+	  stroke-dashoffset: 8.571;
+      }
+
+      .dash-4-1{
+      stroke-dasharray: 4.286,12.857;
+	  stroke-dashoffset: 0;
+      }
+
+      .dash-4-2{
+      stroke-dasharray: 4.286,12.857;
+	  stroke-dashoffset: 4.286;
+      }
+
+      .dash-4-3{
+      stroke-dasharray: 4.286,12.857;
+	  stroke-dashoffset: 8.571;
+      }
+
+      .dash-4-4{
+      stroke-dasharray: 4.286,12.857;
+	  stroke-dashoffset: 12.857;
+      }
+
+      .line-cor-yellow {
+      stroke: #FFCC00;
+      }
+      
+      .tram-line-cor {
+      stroke: #93C47D;
+      }
+
+      .trolley-line-cor {
+      stroke: #A64D79;
+      }
+
+      .bus-line-cor {
+      stroke: #E06666;
+      }
+
+      /* Map decoration */
+      .map-grid-line {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 0.05714px;
+      stroke-opacity: 0.5;
+      }
+
+      .map-border-cas {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 1.71429px;
+      stroke-miterlimit: 4;
+      stroke-dasharray: none;
+      stroke-opacity: 1;
+      stroke-linecap: round;
+      }
+
+      .map-border-cor {
+      fill: none;
+      fill-opacity: 1;
+      fill-rule: nonzero;
+      stroke: #ffffff;
+      stroke-width: 1.14286px;
+      stroke-miterlimit: 0;
+      stroke-dashoffset: -0.28571px;
+      stroke-opacity: 1;
+      }
+
+      .map-scale-cas {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 2.28571px;
+      stroke-linecap: butt;
+      }
+
+      .map-scale-cor {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.71429px;
+      stroke-linecap: butt;
+      }
+
+      .map-scale-bookend {
+      fill: none;
+      stroke: #8080ff;
+      stroke-width: 0.57143px;
+      stroke-linecap: butt;
+      }
+
+      .map-scale-caption {
+      font-family: DejaVu Sans;
+      font-size: 5.714px;
+      fill: #8080ff;
+      }
+
+       /* map background must be the same for all zooms or else empty tile detection will fail */
+      .map-background {
+      fill: none;
+      stroke: none;
+      }
+
+      .map-title {
+      font-family: DejaVu Sans;
+      font-size: 11.429px;
+      text-anchor: middle;
+      fill: black;
+      }
+
+      .map-title-background {
+      fill: white;
+      }
+
+      .map-marginalia-background {
+      fill: white;
+      }
+
+      .osmarender-mask-black{
+      stroke: #000000;
+      }
+
+      .osmarender-mask-white{
+      stroke: #FFFFFF;
+      }
+
+      .osmarender-no-marker-end{
+      marker-end: none;
+      }
+
+      .osmarender-no-marker-start{
+      marker-start: none;
+      }
+
+      .osmarender-stroke-linecap-butt{
+      stroke-linecap: butt;
+      }
+
+      .osmarender-stroke-linecap-round{
+      stroke-linecap: round;
+      }
+
+      .osmarender-stroke-linecap-square{
+      stroke-linecap: square;
+      }
+      
+      ]]>
+        </style>
+
+        <svg:symbol
+          id="symbol-marked_trail-map"
+          viewBox="0 0 10 10"
+          fill='none'
+          stroke-width='0.8px'
+          stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+        <svg:symbol
+          id="symbol-marked_trail-stand"
+          viewBox="0 0 10 10"
+          fill='none'
+          stroke-width='0.8px'
+          stroke='#000000'>
+            <svg:path d="M 0,7 L 10,7 M 0,3 L 10,3 M 0,7 L 0,3 M 10,7 L 10,3 M 0,7 L 10,3" />
+        </svg:symbol>
+
+    </defs>
+
+</rules>
+

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<rules
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    scale="1"
+    svgBaseProfile="full"
+    symbolScale="1"
+    minimumMapWidth="1"
+    minimumMapHeight="1"
+    withOSMLayers="yes"
+    showScale="no"
+    showGrid="no"
+    showBorder="no"
+    showLicense="no"
+    interactive="no"
+    processWays="no">
+
+    <!--data_mkr1-->
+    <data file="data.osm" />
+    <!--data_mkr2-->
+
+
+    <!--bounds_mkr1-->
+    <!--bounds_mkr2-->
+
+
+    <rule e="node|way" k="osmarender:render" v="~|yes">
+        <!-- Place names  -->
+        <rule k="osmarender:renderName|osmarender:rendername" v="~|yes">
+
+            <rule e="node" k="place" v="farm">
+                <text k="name" class="farm-caption-cor" />
+                <text k="name" class="farm-caption-cas" />
+            </rule>
+
+            <rule e="node" k="place" v="locality">
+                <text k='name' class='locality-caption-cor'  x-line-spacing='4'/>
+            </rule>
+
+            <layer name="Hamlet Name Magic" opacity="0.15">
+                <rule e="node" k="place" v="hamlet">
+                    <text k="name" class="hamlet-caption-cas" />
+                    <text k="name" class="hamlet-caption-cor" />
+                </rule>
+            </layer>
+
+            <rule e="node" k="railway" v="station">
+                <rule e="node" s="way" k="railway" v="rail">
+                    <text k="name" class="station-caption-cas" dy="-27.42857px"/>
+                    <text k="name" class="station-caption-cor" dy="-27.42857px"/>
+                </rule>
+                <else>
+                    <text k="name" class="halt-caption-cas" dy="-18.28571px" />
+                    <text k="name" class="halt-caption-cor" dy="-18.28571px" />
+                </else>
+            </rule>
+            <rule e="node" k="railway" v="halt">
+                <text k="name" class="halt-caption-cas"  dy="-18.28571px" />
+                <text k="name" class="halt-caption-cor"  dy="-18.28571px" />
+            </rule>
+
+            <rule e="node" k="aeroway" v="aerodrome">
+                <text k="name" class="aeroway-aerodrome-caption" dy="-91.42857px"/>
+            </rule>
+
+            <rule e="node" k="amenity" v="pub">
+                <text k="name" class="caption-cas amenity-pub-caption-cas" dy="-27.42857px" x-line-spacing='3' />
+                <text k="name" class="caption-cor amenity-pub-caption-cor" dy="-27.42857px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="amenity" v="cinema">
+                <text k="name" class="caption-cas amenity-cinema-caption-cas" dy="-27.42857px" x-line-spacing='3' />
+                <text k="name" class="caption-cor amenity-cinema-caption-cor" dy="-27.42857px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="amenity" v="theatre">
+                <text k="name" class="caption-cas amenity-theatre-caption-cas" dy="-27.42857px" x-line-spacing='3' />
+                <text k="name" class="caption-cor amenity-theatre-caption-cor" dy="-27.42857px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="amenity" v="school|college|university">
+                <text k="name" class="caption-cas generic-caption-cas" dy="-27.42857px" x-line-spacing='3' />
+                <text k="name" class="caption-cor generic-caption-cor" dy="-27.42857px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="amenity" v="supermarket|library|doctors|pharmacy|place_of_worship|parking|post_office|hospital|hotel|hostel|camp_site|restaurant">
+                <text k="name" class="caption-cas generic-caption-cas" dy="-32px" x-line-spacing='3' />
+                <text k="name" class="caption-cor generic-caption-cor" dy="-32px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="shop" v="supermarket|convenience">
+                <text k="name" class="caption-cas generic-caption-cas" dy="-32px" x-line-spacing='3' />
+                <text k="name" class="caption-cor generic-caption-cor" dy="-32px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="amenity" v="fuel">
+                <text k="name" class="caption-cas generic-caption-cas" dy="-27.42857px" x-line-spacing='3' />
+                <text k="name" class="caption-cor generic-caption-cor" dy="-27.42857px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="tourism" v="hotel|hostel|camp_site">
+                <text k="name" class="caption-cas generic-caption-cas" dy="-27.42857px" x-line-spacing='3' />
+                <text k="name" class="caption-cor generic-caption-cor" dy="-27.42857px" x-line-spacing='3' />
+            </rule>
+            <rule e="node" k="tourism" v="attraction">
+                <text k="name" class="tourism-attraction-caption" />
+            </rule>
+            <rule e="node" k="natural" v="peak">
+                <text k="name" class='natural-peak-cas'  dy='-22.85714px'/>
+                <text k="name" class='natural-peak-cor'  dy='-22.85714px'/>
+                <text k="ele" class='natural-peak-ele-cas' dy='27.429px' text-prefix="(" text-postfix=" m)"/>
+                <text k="ele" class='natural-peak-ele-cor' dy='27.429px' text-prefix="(" text-postfix=" m)"/>
+            </rule>
+            <rule e="node" k="tourism" v="viewpoint">
+                <text k="name" class='natural-peak-cas'  dy='-22.85714px'/>
+                <text k="name" class='natural-peak-cor'  dy='-22.85714px'/>
+                <text k="ele" class='natural-peak-ele-cas' dy='27.429px' text-prefix="(" text-postfix=" m)"/>
+                <text k="ele" class='natural-peak-ele-cor' dy='27.429px' text-prefix="(" text-postfix=" m)"/>
+            </rule>
+
+            <rule e="node" k="natural" v="cave|cave_entrance">
+                <text k="name" class='natural-cave-cas'  dy='22.857px'/>
+                <text k="name" class='natural-cave-cor'  dy='22.857px'/>
+            </rule>
+
+
+        </rule>
+    </rule>
+    <!-- k="osmarender:render" v="~|yes" -->
+
+    <!-- SVG Definitions - markers, symbols etc go here -->
+    <defs>
+
+        <style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+
+            .caption-cas {
+            fill: white;
+            stroke: white;
+            font-family: DejaVu Sans;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .aeroway-aerodrome-caption {
+            fill: black;
+            stroke: white;
+            stroke-width: 1.37143px;
+            font-family: DejaVu Sans;
+            font-size: 27.429px;
+            font-weight: normal;
+            text-anchor: middle;
+            opacity: 0.25;
+            }
+
+            .aeroway-airport-caption-cas {
+            fill: gray;
+            stroke: gray;
+            stroke-width: 9.143px;
+            font-family: DejaVu Sans;
+            font-size: 68.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .aeroway-airport-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 45.714px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .station-caption-cor {
+            fill: white;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 11.429px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .station-caption-cas {
+            fill: black;
+            stroke: black;
+            stroke-width: 2.28571px;
+            font-family: DejaVu Sans;
+            font-size: 11.429px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .halt-caption-cas {
+            fill: black;
+            stroke: black;
+            stroke-width: 0.91429px;
+            font-family: DejaVu Sans;
+            font-size: 9.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .halt-caption-cor {
+            fill: white;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 9.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+            /* Place names */
+
+            .village-caption-cas2 {
+            fill: gray;
+            stroke: gray;
+            stroke-width: 32px;
+            font-family: DejaVu Sans;
+            font-size: 137.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .village-caption-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 16px;
+            font-family: DejaVu Sans;
+            font-size: 137.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .village-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 137.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .suburb-caption-cas2 {
+            fill: gray;
+            stroke: gray;
+            stroke-width: 32px;
+            font-family: DejaVu Sans;
+            font-size: 137.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .suburb-caption-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 16px;
+            font-family: DejaVu Sans;
+            font-size: 137.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .suburb-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 137.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .hamlet-caption-cas {
+            fill: black;
+            stroke: white;
+            stroke-width: 9.143px;
+            font-family: DejaVu Sans;
+            font-size: 41.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .hamlet-caption-cor {
+            fill: black;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 41.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .locality-caption-cor {
+            fill: #A89475;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 13.714px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .farm-caption-cor {
+            fill: black;
+            stroke: white;
+            stroke-width: 0.45714px;
+            font-family: DejaVu Sans;
+            font-size: 36.571px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .church-caption {
+            fill: black;
+            stroke: white;
+            stroke-width: 1.37143px;
+            font-family: DejaVu Sans;
+            font-size: 22.857px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+
+            .natural-peak-cas {
+            fill: #F2ECE2;
+            stroke: #F2ECE2;
+            stroke-width: 1.37143px;
+            font-family: DejaVu Sans;
+            font-size: 9.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .natural-peak-cor {
+            fill: #B77F0F;
+            stroke: #B77F0F;
+            stroke-width: 0.22857px;
+            font-family: DejaVu Sans;
+            font-size: 9.143px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .natural-peak-ele-cor {
+            fill: #404040;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 8.229px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .natural-peak-ele-cas {
+            fill: white;
+            stroke: white;
+            stroke-width: 1.37143px;
+            font-family: DejaVu Sans;
+            font-size: 8.229px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .natural-cave-cas {
+            fill: #DDFFDD;
+            stroke: #DDFFDD	;
+            stroke-width: 1.82857px;
+            font-family: DejaVu Sans;
+            font-size: 11.429px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .natural-cave-cor {
+            fill: #406040;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 11.429px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            /* Tourism */
+            .tourism-attraction-caption {
+            fill: #f124cb;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 13.714px;
+            font-weight: normal;
+            text-anchor: middle;
+            }
+
+            .amenity-pub-caption {
+            fill: #e21e2f;
+            stroke: none;
+            font-family: DejaVu Sans;
+            font-size: 4.571px;
+            font-weight: normal;
+            }
+
+            .amenity-pub-caption-cas {
+            stroke-width: 4.571px;
+            font-size: 9.143px;
+            }
+
+            .amenity-pub-caption-cor {
+            fill: #e21e2f;
+            font-size: 9.143px;
+            }
+
+            .amenity-cinema-caption-cas {
+            stroke-width: 4.571px;
+            font-size: 9.143px;
+            }
+
+            .amenity-cinema-caption-cor {
+            fill: #f124cb;
+            font-size: 9.143px;
+            }
+
+            .amenity-theatre-caption-cas {
+            stroke-width: 4.571px;
+            font-size: 9.143px;
+            }
+
+            .amenity-theatre-caption-cor {
+            fill: #f124cb;
+            font-size: 9.143px;
+            }
+
+            .generic-caption-cas {
+            stroke-width: 2.28571px;
+            font-size: 9.143px;
+            }
+
+            .generic-caption-cor {
+            fill: #2e3ae6;
+            font-size: 9.143px;
+            }
+
+            /* Map decoration */
+            .map-grid-line {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 0.45714px;
+            stroke-opacity: 0.5;
+            }
+
+            .map-border-cas {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 13.714px;
+            stroke-miterlimit: 4;
+            stroke-dasharray: none;
+            stroke-opacity: 1;
+            stroke-linecap: round;
+            }
+
+            .map-border-cor {
+            fill: none;
+            fill-opacity: 1;
+            fill-rule: nonzero;
+            stroke: #ffffff;
+            stroke-width: 9.143px;
+            stroke-miterlimit: 0;
+            stroke-dashoffset: -4.57143px;
+            stroke-opacity: 1;
+            }
+
+            .map-scale-cas {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 18.286px;
+            stroke-linecap: butt;
+            }
+
+            .map-scale-cor {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 13.714px;
+            stroke-linecap: butt;
+            }
+
+            .map-scale-bookend {
+            fill: none;
+            stroke: #8080ff;
+            stroke-width: 4.571px;
+            stroke-linecap: butt;
+            }
+
+            .map-scale-caption {
+            font-family: DejaVu Sans;
+            font-size: 45.714px;
+            fill: #8080ff;
+            }
+
+            <!-- map background must be the same for all zooms or else empty tile detection will fail -->
+            .map-background {
+            fill: none;
+            stroke: none;
+            }
+
+            .map-title {
+            font-family: DejaVu Sans;
+            font-size: 91.429px;
+            text-anchor: middle;
+            fill: black;
+            }
+
+            .map-title-background {
+            fill: white;
+            }
+
+            .map-marginalia-background {
+            fill: white;
+            }
+        </style>
+    </defs>
+</rules>
+

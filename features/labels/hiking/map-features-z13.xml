@@ -1,0 +1,762 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="osmarender.xsl"?>
+
+<rules
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	scale="1"
+	svgBaseProfile="full"
+	symbolScale="1"
+	minimumMapWidth="1"
+	minimumMapHeight="1"
+	withOSMLayers="yes"
+	showScale="no"
+	showGrid="no"
+	showBorder="no"
+	showLicense="no"
+	interactive="no"
+	processWays="no">
+
+	<!--data_mkr1-->
+	<data file="data.osm" />
+	<!--data_mkr2-->
+
+	<!--bounds_mkr1-->
+	<!--bounds_mkr2-->
+
+	<rule e="node|way" k="osmarender:render" v="~|yes">
+		<!-- Place names -->
+		<rule e="node" k="fmlabz13" v="1">
+			<rule e="node" k="type" v="nature_boundary_national_park|nature_boundary_protected_area">
+				<text k='name' class='green-caption2-cas' x-line-spacing='22.857' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='green-caption2-cor' x-line-spacing='22.857' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="nature_boundary_monument|nature_boundary_protected_site|nature_boundary_reserve">
+				<text k='name' class='green-caption-cas' x-line-spacing='11.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='green-caption-cor' x-line-spacing='11.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="nature_boundary_protected_area_ramsar">
+				<text k='name' class='blue-caption-cas' x-line-spacing='11.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='blue-caption-cor' x-line-spacing='11.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="landmark_ruins|landmark_castle|landmark_chateau|landmark_manor">
+				<text k='name' class='castle-caption-cas' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='castle-caption-cor' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="nature_cave_entrance">
+				<text k='name' class='cave-caption-cas' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='cave-caption-cor' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="nature_peak">
+				<text k='name' class='peak-caption-cas' x-line-spacing='15.429' dy='-4.57143px' x-text-block-anchor='top' />
+				<text k='name' class='peak-caption-cor' x-line-spacing='15.429' dy='-4.57143px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="nature_spring">
+				<text k='name' class='spring-caption-cas' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='spring-caption-cor' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="nature_lake|nature_riverbank|nature_waterfall">
+				<text k='name' class='lake-caption-cas' x-line-spacing='12.571' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='lake-caption-cor' x-line-spacing='12.571' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="landmark_museum|hiking_attraction|landmark_battlefield|landmark_memorial">
+				<text k='name' class='attraction-caption-cas' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='attraction-caption-cor' x-line-spacing='15.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="power_nuclear|power_fossil|power_hydro">
+				<text k='name' class='power-caption-cas' x-line-spacing='12.571' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='power-caption-cor' x-line-spacing='12.571' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_locality">
+				<text k='name' class='locality-caption-cas' x-line-spacing='10.286' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='locality-caption-cor' x-line-spacing='10.286' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_hamlet">
+				<text k='name' class='hamlet-caption-cas' x-line-spacing='12.571' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='hamlet-caption-cor' x-line-spacing='12.571' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_suburb">
+				<text k='name' class='suburb-caption-cas' x-line-spacing='14.286' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='suburb-caption-cor' x-line-spacing='14.286' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_village">
+				<text k='name' class='village-caption-cas' x-line-spacing='14.286' dy='-6.85714px' x-text-block-anchor='top' />
+				<text k='name' class='village-caption-cor' x-line-spacing='14.286' dy='-6.85714px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_town">
+				<text k='name' class='town-caption-cas' x-line-spacing='28.571' dy='-6.85714px' x-text-block-anchor='top' />
+				<text k='name' class='town-caption-cor' x-line-spacing='28.571' dy='-6.85714px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_county">
+				<text k='name' class='county-town-caption-cas' x-line-spacing='31.429' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='county-town-caption-cor' x-line-spacing='31.429' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_region">
+				<text k='name' class='region-city-caption-cas' x-line-spacing='34.286' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='region-city-caption-cor' x-line-spacing='34.286' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="place_city">
+				<text k='name' class='city-caption-cas' x-line-spacing='40' dy='-5.71429px' x-text-block-anchor='top' />
+				<text k='name' class='city-caption-cor' x-line-spacing='40' dy='-5.71429px' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="railway" v="station">
+				<text k='name' class='station-caption-cas' dx='0px' dy='-2.85714px'  x-line-spacing='11.429' x-text-block-anchor='top' />
+				<text k='name' class='station-caption-cor' dx='0px' dy='-2.85714px'  x-line-spacing='11.429' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="aeroway" v="aerodrome">
+				<text k='name' class='aeroway-aerodrome-caption-cas' dy='-4.28571px' x-line-spacing='11.429' x-text-block-anchor='top' />
+				<text k='name' class='aeroway-aerodrome-caption-cor' dy='-4.28571px' x-line-spacing='11.429' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="transport_airport">
+				<text k='name' class='aeroway-airport-caption-cas' dy='-7.14286px' x-line-spacing='13.714' x-text-block-anchor='top' />
+				<text k='name' class='aeroway-airport-caption-cor' dy='-7.14286px' x-line-spacing='13.714' x-text-block-anchor='top' />
+			</rule>
+			<rule e="node" k="type" v="hiking_stand">
+				<text k='name' class='stand-caption-cas' x-line-spacing='13.714' dy='-8px' x-text-block-anchor = 'top' />
+				<text k='name' class='stand-caption-cor' x-line-spacing='13.714' dy='-8px' x-text-block-anchor = 'top' />
+				<text k='name2' class='stand2-caption-cas' x-line-spacing='10.286' dy='12.571px' x-text-block-anchor = 'bottom' text-prefix="/" text-postfix="m/" />
+				<text k='name2' class='stand2-caption-cor' x-line-spacing='10.286' dy='12.571px' x-text-block-anchor = 'bottom' text-prefix="/" text-postfix="m/" />
+			</rule>
+		</rule>
+	</rule>
+	<!-- k="osmarender:render" v="~|yes" -->
+
+	<!-- SVG Definitions - markers, symbols etc go here -->
+	<defs>
+
+		<svg:filter
+			inkscape:collect="always"
+			id="gauss7"
+			x="-0.030957849"
+			width="1.0619157"
+			y="-0.15485379"
+			height="1.3097076">
+			<svg:feGaussianBlur
+				inkscape:collect="always"
+				stdDeviation="1"
+				id="feGaussianBlur7" />
+		</svg:filter>
+
+		<svg:filter
+			inkscape:collect="always"
+			id="gauss5"
+			x="-0.030957849"
+			width="1.0619157"
+			y="-0.15485379"
+			height="1.3097076">
+			<svg:feGaussianBlur
+				inkscape:collect="always"
+				stdDeviation="0.7"
+				id="feGaussianBlur5" />
+		</svg:filter>
+
+		<style id="styles" type="text/css" xmlns="http://www.w3.org/2000/svg">
+
+/* features */
+.aeroway-aerodrome-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 0.8px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 6.857px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.aeroway-aerodrome-caption-cor {
+	fill: black;
+	stroke: black;
+	stroke-width: 0.34286px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 6.857px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.aeroway-airport-caption-cas {
+	fill: gray;
+	stroke: gray;
+	stroke-width: 1.71429px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 11.429px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.aeroway-airport-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 11.429px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.attraction-caption-cas {
+	fill: #FFF4AA;
+	stroke: #FFF4AA;
+	stroke-width: 2.85714px;
+	-inkscape-font-specification: Garamond Italic;
+	font-family: Garamond;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.attraction-caption-cor {
+	fill: #FF0000;
+	stroke: none;
+	-inkscape-font-specification: Garamond Italic;
+	font-family: Garamond;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.blue-caption-cas {
+	fill: #E6F2FF;
+	stroke: #E6F2FF;
+	stroke-width: 2.85714px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 10.286px;
+	text-anchor: middle;
+	text-align: center;
+	filter: url(#gauss7);
+}
+.blue-caption-cor {
+	fill: #227AE5;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 10.286px;
+	text-anchor: middle;
+	text-align: center;
+}
+.castle-caption-cas {
+	fill: #FFE438;
+	stroke: #FFE438;
+	stroke-width: 2.85714px;
+	-inkscape-font-specification: Garamond Bold Italic;
+	font-family: Garamond;
+	font-stretch: normal;
+	font-variant: normal;
+	font-style: italic;
+	font-weight: bold;
+	text-anchor: middle;
+	font-size: 14.286px;
+	filter: url(#gauss5);
+}
+.castle-caption-cor {
+	fill: #000000;
+	stroke: none;
+	-inkscape-font-specification: Garamond Bold Italic;
+	font-family: Garamond;
+	font-stretch: normal;
+	font-variant: normal;
+	font-style: italic;
+	font-weight: bold;
+	text-anchor: middle;
+	font-size: 14.286px;
+}
+.cave-caption-cas {
+	fill: #FFE438;
+	stroke: #FFE438;
+	stroke-width: 2.85714px;
+	-inkscape-font-specification: Garamond Bold Italic;
+	font-family: Garamond;
+	font-stretch: normal;
+	font-variant: normal;
+	font-style: italic;
+	font-weight: bold;
+	text-anchor: middle;
+	font-size: 11.429px;
+	filter: url(#gauss5);
+}
+.cave-caption-cor {
+	fill: #000000;
+	stroke: none;
+	-inkscape-font-specification: Garamond Bold Italic;
+	font-family: Garamond;
+	font-stretch: normal;
+	font-variant: normal;
+	font-style: italic;
+	font-weight: bold;
+	text-anchor: middle;
+	font-size: 11.429px;
+}
+.city-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 5.714px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 40px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.city-caption-cas2 {
+	fill: gray;
+	stroke: gray;
+	stroke-width: 6.857px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 40px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.city-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 40px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.county-town-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 5.714px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 31.429px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.county-town-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 31.429px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.green-caption-cas {
+	fill: #F0FAF1;
+	stroke: #F0FAF1;
+	stroke-width: 2.85714px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 10.286px;
+	text-anchor: middle;
+	text-align: center;
+	filter: url(#gauss7);
+}
+.green-caption-cor {
+	fill: #135C20;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 10.286px;
+	text-anchor: middle;
+	text-align: center;
+}
+.green-caption2-cas {
+	fill: #F0FAF1;
+	stroke: #F0FAF1;
+	stroke-width: 2.28571px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 15.429px;
+	text-anchor: middle;
+	text-align: center;
+	filter: url(#gauss7);
+}
+.green-caption2-cor {
+	fill: #135C20;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 15.429px;
+	text-anchor: middle;
+	text-align: center;
+}
+.hamlet-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 2.28571px;
+	font-family: Myriad Pro Light;
+	-inkscape-font-specification: Myriad Pro Light;
+	font-size: 11.429px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.hamlet-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro Light;
+	-inkscape-font-specification: Myriad Pro Light;
+	font-size: 11.429px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.lake-caption-cas {
+	fill: #F2FAFF;
+	stroke: #F2FAFF;
+	stroke-width: 2.85714px;
+	-inkscape-font-specification: Garamond Bold Italic;
+	font-family: Garamond;
+	font-stretch: normal;
+	font-variant: normal;
+	font-style: italic;
+	font-weight: bold;
+	text-anchor: middle;
+	font-size: 11.429px;
+	filter: url(#gauss5);
+}
+.lake-caption-cor {
+	fill: #0C3475;
+	stroke: none;
+	-inkscape-font-specification: Garamond Bold Italic;
+	font-family: Garamond;
+	font-stretch: normal;
+	font-variant: normal;
+	font-style: italic;
+	font-weight: bold;
+	text-anchor: middle;
+	font-size: 11.429px;
+}
+.locality-caption-cas {
+	fill: #FFF9F5;
+	stroke: #FFF9F5;
+	stroke-width: 2.85714px;
+	font-family: Myriad Pro Light;
+	-inkscape-font-specification: Myriad Pro Light;
+	font-size: 9.714px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.locality-caption-cor {
+	fill: #594E3E;
+	stroke: none;
+	font-family: Myriad Pro Light;
+	-inkscape-font-specification: Myriad Pro Light;
+	font-size: 9.714px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+/* Map decoration */
+<!-- map background must be the same for all zooms or else empty tile detection will fail -->
+.map-background {
+	fill: none;
+	stroke: none;
+}
+.map-border-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 1.71429px;
+	stroke-miterlimit: 4;
+	stroke-dasharray: none;
+	stroke-opacity: 1;
+	stroke-linecap: round;
+}
+.map-border-cor {
+	fill: none;
+	fill-opacity: 1;
+	fill-rule: nonzero;
+	stroke: #ffffff;
+	stroke-width: 1.14286px;
+	stroke-miterlimit: 0;
+	stroke-dashoffset: -0.28571px;
+	stroke-opacity: 1;
+}
+.map-grid-line {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.05714px;
+	stroke-opacity: 0.5;
+}
+.map-marginalia-background {
+	fill: white;
+}
+.map-scale-bookend {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 0.57143px;
+	stroke-linecap: butt;
+}
+.map-scale-caption {
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 5.714px;
+	fill: #8080ff;
+}
+.map-scale-cas {
+	fill: none;
+	stroke: #8080ff;
+	stroke-width: 2.28571px;
+	stroke-linecap: butt;
+}
+.map-scale-cor {
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 1.71429px;
+	stroke-linecap: butt;
+}
+.map-title {
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 11.429px;
+	text-anchor: middle;
+	fill: black;
+}
+.map-title-background {
+	fill: white;
+}
+.peak-caption-cas {
+	fill: #e9dca2;
+	stroke: #e9dca2;
+	stroke-width: 3.429px;
+	-inkscape-font-specification: Garamond Italic;
+	font-family: Garamond;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.peak-caption-cor {
+	fill: #760000;
+	stroke: none;
+	-inkscape-font-specification: Garamond Italic;
+	font-family: Garamond;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.power-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 3.429px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.power-caption-cor {
+	fill: #FF0095;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.region-city-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 5.143px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 33.143px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.region-city-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 33.143px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.spring-caption-cas {
+	fill: #D9F2FF;
+	stroke: #D9F2FF;
+	stroke-width: 2.85714px;
+	-inkscape-font-specification: Garamond Italic;
+	font-family: Garamond;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.spring-caption-cor {
+	fill: #0C3475;
+	stroke: none;
+	-inkscape-font-specification: Garamond Italic;
+	font-family: Garamond;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.stand-caption-cas {
+	fill: #ffffff;
+	stroke: #ffffff;
+	stroke-width: 3.429px;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 11.429px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.stand-caption-cor {
+	fill: #000000;
+	stroke:none;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 11.429px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.stand2-caption-cas {
+	fill: #ffffff;
+	stroke: #ffffff;
+	stroke-width: 1.71429px;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 9.714px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.stand2-caption-cor {
+	fill: #200000;
+	stroke: none;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 9.714px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.suburb-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 2.28571px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.suburb-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.town-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 3.429px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 27.429px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.town-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 27.429px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.village-caption-cas {
+	fill: white;
+	stroke: white;
+	stroke-width: 3.429px;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss5);
+}
+.village-caption-cor {
+	fill: black;
+	stroke: none;
+	font-family: Myriad Pro;
+	-inkscape-font-specification: Myriad Pro;
+	font-size: 14.286px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+		</style>
+	</defs>
+</rules>
