@@ -47,7 +47,7 @@ $Config{"LowZoom"} = 0 unless defined( $Config{"LowZoom"} );
 # detect the current system locale: comma (,) => SK, dot (.) => EN
 my ($decimalSep) = @{localeconv()}{"mon_decimal_point"};
 
-printf STDERR "-- Runing as PID: %d\n", $PID;
+printf STDERR "-- Running as PID: %d\n", $PID;
 my %EnvironmentInfo = CheckConfig(%Config);
 
 # Get version number from version-control system, as integer
