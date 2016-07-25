@@ -12,7 +12,7 @@ if [ -a *.pid ] ; then
 	echo "PID: $PID_NUMBER"
 
 	# Test whether process 
-	PROCESS=`ps -f -p $PID_NUMBER | grep "tilesGen.pl"` ;
+	PROCESS=`ps -f -p $PID_NUMBER | grep "tilesGen.pl\|tilesGenExcl.pl"` ;
 
 	#echo "$PROCESS"
 
