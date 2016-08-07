@@ -143,6 +143,8 @@ sub collectFmRelRouteTags {
 	};
 
 	my $relTags = $rel->{tg};
+	#print $rel->{pr}->{id} . "\n";
+
 	my $action = $relTags->{"route"};
 	if (defined($dispatchTable->{$action})) {
 		my $newTags = $dispatchTable->{$action}->($relTags);
@@ -157,8 +159,10 @@ sub collectFmRelTags {
 	for my $relId (keys(%$rels)) {
 		my $tmpRel = $rels->{$relId};
 		if (hasTagWithValue($tmpRel, "type", "route") and hasTag($tmpRel, "route")) {
+			print("Collecting Route tags for relation " . $relId . "\n") if ($debug);
 			collectFmRelRouteTags($tags, $tmpRel);
 		} elsif (hasTagWithValue($tmpRel, "type", "boundary")) {
+			print("Collecting Admin tags for relation " . $relId . "\n") if ($debug);
 			collectFmRelAdminTags($tags, $tmpRel);
 		}
 	}
@@ -263,7 +267,11 @@ sub getFmRelHikingTags {
 	my $fmRelTags = {};
 	my $symbol = getSymbol($relTags);
 
-	if (!isValidHikingSymbol($symbol)) { return $fmRelTags; }	# avoid strange relations
+	if (!isValidOsmcSymbol($relTags)) {	# avoid strange relations
+		if (!isValidHikingSymbol($symbol)) {
+			return $fmRelTags;
+		}
+	}
 	my $colour = getColour($relTags);
 	my $ref = undef;
 
@@ -361,9 +369,46 @@ sub isValidHikingSymbol {
 	return grep(/^$symbol$/, @allowedHikingSymbols);	
 }
 
+sub isValidOsmcSymbol {
+	my ($relTags) = @_;
+	
+	if (!defined($relTags->{"osmc:symbol"})) { return 0; }
+	my $osmcSymbol = $relTags->{"osmc:symbol"};
+	return (verifyOsmcSymbol($osmcSymbol) eq "OK");
+}
+
 sub uniq {
 	my %seen;
 	return grep { !$seen{$_}++ } @_;
+}
+
+sub verifyOsmcSymbol {
+	my ($symb) = @_;	
+
+	our @wayColor = ("blue", "yellow", "green", "red", "black");
+	our @background = ("", "black", "white", "blue", "yellow", "green", "red",
+			"purple", "brown", "orange", "blue_round", "green_round", "red_round",
+			"white_round", "black_circle", "blue_circle", "yellow_circle", "red_circle",
+			"white_circle", "yellow_frame", "green_frame", "red_frame", "blue_frame");
+	our @foreground = ("", "blue_dot", "blue_bowl", "blue_circle", "blue_bar", "blue_stripe", "blue_cross", "blue_x", "blue_slash", "blue_backslash", "blue_triangle", "blue_triangle_turned", "blue_diamond", "blue_rectangle", "blue_pointer", "blue_fork", "blue_turned_T", "blue_L", "blue_arch", "blue_lower", "blue_corner", "yellow_dot", "yellow_bowl", "yellow_circle", "yellow_bar", "yellow_stripe", "yellow_cross", "yellow_x", "yellow_slash", "yellow_backslash", "yellow_triangle", "yellow_diamond", "yellow_pointer", "yellow_rectangle", "yellow_fork", "yellow_turned_T", "yellow_L", "yellow_arch", "yellow_lower", "yellow_corner", "yellow_rectangle_line", "red_dot", "red_bowl", "red_circle", "red_bar", "red_stripe", "red_cross", "red_x", "red_slash", "red_backslash", "red_triangle", "red_triangle_turned", "red_diamond", "red_pointer", "red_crest", "red_rectangle", "red_fork", "red_turned_T", "red_L", "red_arch", "red_drop_line", "red_drop", "red_lower", "red_corner", "green_dot", "green_bowl", "green_circle", "green_bar", "green_stripe", "green_cross", "green_x", "green_backslash", "green_slash", "green_rectangle", "green_triangle", "green_triangle_turned", "green_triangle_line", "green_diamond", "green_pointer", "green_fork", "green_turned_T", "green_L", "green_arch", "green_drop_line", "green_corner", "green_lower", "green_horse", "black_dot", "black_circle", "black_bar", "black_x", "black_cross", "black_crest", "black_triangle", "black_rectangle", "black_diamond", "black_pointer", "black_fork", "black_horse", "black_arch", "black_rectangle_line", "black_triangle_line", "black_corner", "black_red_diamond", "white_circle", "white_cross", "white_stripe", "white_x", "white_dot", "white_triangle", "white_rectangle_line", "white_rectangle", "white_triangle_line", "white_diamond_line", "white_diamond", "white_arch", "white_lower", "white_bar", "white_turned_T", "white_pointer", "white_corner", "white_red_diamond", "white_hiker", "orange_bar", "orange_diamond_line", "orange_dot", "wolfshook", "shell_modern", "shell", "ammonit", "mine", "hiker", "heart", "tower", "bridleway");
+	our @textColor = ("black", "white", "gray", "blue", "yellow", "green",
+			"red", "purple", "orange", "brown");
+	my @symbArr = split(':', $symb, -1);
+	my $symbCnt = @symbArr;
+	if ($symbCnt < 2) { return "At least one colon expected (2 fields)"; }
+	elsif ($symbCnt > 6) { return "Too many colons: " . ($symbCnt - 1) . " (max 5)"; }
+	if (!grep(/^$symbArr[0]$/, @wayColor)) { return "Invalid waycolor: " . $symbArr[0]; }
+	if (!grep(/^$symbArr[1]$/, @background)) { return "Invalid background: " . $symbArr[1]; }
+	if ($symbCnt != 4) {
+		if (!grep(/^$symbArr[2]$/, @foreground)) { return "Invalid foreground: " . $symbArr[2]; }
+	}
+	if ($symbCnt > 3) {
+		if (!grep(/^$symbArr[-1]$/, @textColor)) { return "Invalid textcolor: " . $symbArr[-1]; }
+	}
+	if ($symbCnt == 6) {
+		if (!grep(/^$symbArr[3]$/, @foreground)) { return "Invalid foreground2: " . $symbArr[3]; }
+	}
+	return "OK";
 }
 
 ################################################################################
