@@ -1048,7 +1048,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA
                             <xsl:when test='($pathLength) &gt; ($textLength)'>
                                 <text>
                                     <xsl:apply-templates select="$instruction/@*" mode="renderTextPath-text"/>
-                                    <textPath xlink:href="#{$pathId}">
+                                    <textPath xlink:href="#{$pathId}" startOffset="50%">
                                         <xsl:apply-templates select="$instruction/@*" mode="renderTextPath-textPath"/>
                                         <xsl:call-template name="getSvgAttributesFromOsmTags"/>
                                         <xsl:value-of select="$alltext"/>
@@ -1135,8 +1135,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA
         <xsl:param name='pathId'/>
         <xsl:param name='nodes'/>
         <xsl:choose >
-            <xsl:when test ='key("wayById",$pathId)/tag[@k="lenght"]'>
-                <xsl:value-of select ='key("wayById",$pathId)/tag[@k="lenght"]/@v'/>
+            <xsl:when test='key("wayById",@id)/tag[@k="lenght"]'>
+                <xsl:value-of select ='key("wayById",@id)/tag[@k="lenght"]/@v'/>
             </xsl:when>
             <xsl:otherwise >
                 <xsl:call-template name='getPathLengthRecursive'>

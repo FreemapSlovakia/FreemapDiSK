@@ -11,7 +11,7 @@
 	scale="1"
 	svgBaseProfile="full"
 	symbolScale="1"
-	textAttenuation="10.0"
+	textAttenuation="8.0"
 	minimumMapWidth="1"
 	minimumMapHeight="1"
 	withOSMLayers="yes"
@@ -226,6 +226,9 @@
 			<else>	<!-- v="park|garden|common|green" -->
 				<area class='leisure-park' bezier-hint='no'/>
 			</else>
+		</rule>
+		<rule e="way" k="leisure" v="swimming_pool">
+			<area class='leisure-swim' bezier-hint='no'/>
 		</rule>
 
 		<!-- embankments & cutings -->
@@ -459,8 +462,8 @@
 		</rule>
 
 		<rule e="way" k="natural" v="cliff">
-			<text k="none" class="natural-cliff-text" text-postfix="&#9660;" x-multi-labeling='10' x-name-direction='normal' dy='9.5px'/>
-			<text k="name" class="natural-cliff-text" x-multi-labeling='15' x-name-direction='normal' dy='-6.8px'/>
+			<text k="none" class="natural-cliff-text" text-postfix="&#9660;" x-multi-labeling='10' x-name-direction='normal' dy='9.5px' textAttenuation='10.0'/>
+			<text k="name" class="natural-cliff-text" x-multi-labeling='15' x-name-direction='normal' dy='-6.8px' textAttenuation='10.0'/>
 			<line class='natural-cliff-line' smart-linecap='no'/>
 		</rule>
 
@@ -1726,20 +1729,20 @@
 				<rule e="way" k="junction" v="~" layer="4">
 					<!-- no names on or along junctions -->
 					<rule e="way" k="waterway" v="drain" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-drain-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-drain-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-drain-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-drain-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 					<rule e="way" k="waterway" v="canal" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-canal-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-canal-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-canal-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-canal-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 					<rule e="way" k="waterway" v="stream" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 					<rule e="way" k="waterway" v="river" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 
 					<rule e="way" k="highway" v="steps" layer="4">
@@ -1983,7 +1986,7 @@
 	stroke-width: 84.571px;
 }
 .abutters-commercial-cor {
-	stroke: #FCFFC9;
+	stroke: #fcffc9;
 }
 .abutters-cor {
 	fill: none;
@@ -3062,10 +3065,10 @@
 	stroke: none;
 }
 .hwy-sec-ref-cas {
-	fill: #FFFFFF;
+	fill: #ffffff;
 	font-size: 9.143px;
 	opacity: 0.7;
-	stroke: #FFFFFF;
+	stroke: #ffffff;
 	stroke-width: 1.82857px;
 }
 .hwy-sec-ref-cor {
@@ -3448,7 +3451,7 @@
 }
 .landuse-cemetery-christian {
 	fill: url(#cemetery-christian-pattern);
-	stroke: #C0C0C0;
+	stroke: #c0c0c0;
 	stroke-width: 0.68571px;
 }
 .landuse-commercial {
@@ -3521,7 +3524,7 @@
 	stroke-width: 1.37143px;
 }
 .landuse-res {
-	fill: #E5E1DC;
+	fill: #e5e1dc;
 	stroke: none;
 }
 .landuse-reservoir-nam {
@@ -3574,17 +3577,22 @@
 .leisure-park {
 	fill: #c7f1a3;
 	stroke: #6fc18e;
-	stroke-width: 0.91429px;
+	stroke-width: 1px;
+}
+.leisure-swim {
+	fill: #a3d6f9;
+	stroke: #5faad0;
+	stroke-width: 1px;
 }
 .leisure-stadium {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.91429px;
+	stroke-width: 1px;
 }
 .leisure-trk {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.91429px;
+	stroke-width: 1px;
 }
 .lineend-butt {
 	stroke-linecap: butt;
@@ -4095,12 +4103,12 @@
 	stroke-width: 3.2px;
 }
 .railway-rail-cor {
-	stroke: #FFFFFF;
+	stroke: #ffffff;
 	stroke-dasharray: 13.714,13.714;
 	stroke-width: 2.88px;
 }
 .railway-station {
-	fill: #FFFFFF;
+	fill: #ffffff;
 	stroke: #666666;
 	stroke-width: 1.14286px;
 }
@@ -4289,30 +4297,30 @@
 	font-size: 10.057px;
 }
 .wwy-nam-cas {
-	fill: #F0F0F0;
+	fill: #f0f0f0;
 	font-family: DejaVu Sans;
 	font-style: oblique;
 	font-weight: normal;
-	stroke: #F0F0F0;
+	stroke: #f0f0f0;
 	stroke-miterlimit: 1.5;
 	stroke-width: 2.74286px;
 	text-anchor: middle;
 }
 .wwy-nam-cor {
-	fill: #647FC5;
+	fill: #647fc5;
 	font-family: DejaVu Sans;
 	font-style: oblique;
 	font-weight: normal;
-	stroke: #647FC5;
+	stroke: #647fc5;
 	stroke-miterlimit: 1.5;
 	stroke-width: 0.45714px;
 	text-anchor: middle;
 }
 .wwy-river-cas {
-	stroke-width: 6.857px;
+	stroke-width: 6px;
 }
 .wwy-river-cor {
-	stroke-width: 4.571px;
+	stroke-width: 4px;
 }
 .wwy-river-nam-cas {
 	font-size: 12.8px;
@@ -4327,16 +4335,16 @@
 	opacity: 1;
 }
 .wwy-stream-cas {
-	stroke-width: 2.28571px;
+	stroke-width: 2.4px;
 }
 .wwy-stream-cor {
-	stroke-width: 1.82857px;
+	stroke-width: 2px;
 }
 .wwy-stream-nam-cas {
-	font-size: 10.057px;
+	font-size: 10px;
 }
 .wwy-stream-nam-cor {
-	font-size: 10.057px;
+	font-size: 10px;
 }
 .wwy-water-nam-cas {
 	font-size: 11.429px;
@@ -4404,24 +4412,24 @@
 		<svg:pattern x="0" y="0" width="200" height="200"
 					 id="wood-deciduous-pattern"
 					 patternUnits="userSpaceOnUse" patternTransform="scale(0.13714)">
-			<svg:path stroke="#B1BAA9" stroke-width="4px" fill="none" stroke-linecap="round" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1" />
-			<svg:path stroke="#B1BAA9" stroke-width="4px" fill="none" stroke-linecap="round" d="M 77,101 C 70,101 63,107 63,114 C 63,116 63,118 65,120 C 61,122 58,126 58,129 C 58,136 66,143 78,143 L 78,163 L 87,163 L 87,143 C 98,143 107,136 107,129 C 107,126 105,123 102,121 C 105,114 95,104 87,106 C 86,103 83,101 77,101" />
+			<svg:path stroke="#B1BAA9" stroke-width="4px" fill="none" stroke-linecap="round" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1"/>
+			<svg:path stroke="#B1BAA9" stroke-width="4px" fill="none" stroke-linecap="round" d="M 77,101 C 70,101 63,107 63,114 C 63,116 63,118 65,120 C 61,122 58,126 58,129 C 58,136 66,143 78,143 L 78,163 L 87,163 L 87,143 C 98,143 107,136 107,129 C 107,126 105,123 102,121 C 105,114 95,104 87,106 C 86,103 83,101 77,101"/>
 		</svg:pattern>
 
 		<svg:pattern x="0" y="0" width="200" height="200"
 					 id="wood-coniferous-pattern"
 					 patternUnits="userSpaceOnUse" patternTransform="scale(0.13714)">
-			<svg:path stroke="#9EAB9C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 15,24 L 25,24 L 10,39 L 25,39 L 5,54 L 25,54 L 25,64 L 35,64 L 35,54 L 55,54 L 35,39 L 50,39 L 35,24 L 45,24 L 30,4 L 15,24" />
-			<svg:path stroke="#9EAB9C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 65,124 L 75,124 L 60,139 L 75,139 L 55,154 L 75,154 L 75,164 L 85,164 L 85,154 L 105,154 L 85,139 L 100,139 L 85,124 L 95,124 L 80,104 L 65,124" />
+			<svg:path stroke="#9EAB9C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 15,24 L 25,24 L 10,39 L 25,39 L 5,54 L 25,54 L 25,64 L 35,64 L 35,54 L 55,54 L 35,39 L 50,39 L 35,24 L 45,24 L 30,4 L 15,24"/>
+			<svg:path stroke="#9EAB9C" stroke-width="4px" fill="none" stroke-linecap="round" d="M 65,124 L 75,124 L 60,139 L 75,139 L 55,154 L 75,154 L 75,164 L 85,164 L 85,154 L 105,154 L 85,139 L 100,139 L 85,124 L 95,124 L 80,104 L 65,124"/>
 		</svg:pattern>
 
 		<svg:pattern x="0" y="0" width="300" height="200"
 					 id="wood-mixed-pattern"
 					 patternUnits="userSpaceOnUse" patternTransform="scale(0.13714)">
-			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1"		 />
-			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 65,54 L 75,54 L 60,69 L 75,69 L 55,84 L 75,84 L 75,94 L 85,94 L 85,84 L 105,84 L 85,69 L 100,69 L 85,54 L 95,54 L 80,34 L 65,54" />
+			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1"		/>
+			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 65,54 L 75,54 L 60,69 L 75,69 L 55,84 L 75,84 L 75,94 L 85,94 L 85,84 L 105,84 L 85,69 L 100,69 L 85,54 L 95,54 L 80,34 L 65,54"/>
 			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 165,104 L 175,104 L 160,119 L 175,119 L 155,134 L 175,134 L175,144 L 185,144 L 185,134 L 205,134 L 185,119 L 200,119 L 185,104 L 195,104 L 180,84 L 165,104"/>
-			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 227,101 C 220,101 213,107 213,114 C 213,116 213,118 215,120 C 211,122 208,126 208,129 C 208,136 216,143 228,143 L 228,163 L 237,163 L 237,143 C 248,143 257,136 257,129 C 257,126 255,123 252,121 C 255,114 245,104 237,106 C 236,103 233,101 227,101" />
+			<svg:path stroke="#A5B2A2" stroke-width="4px" fill="none" stroke-linecap="round" d="M 227,101 C 220,101 213,107 213,114 C 213,116 213,118 215,120 C 211,122 208,126 208,129 C 208,136 216,143 228,143 L 228,163 L 237,163 L 237,143 C 248,143 257,136 257,129 C 257,126 255,123 252,121 C 255,114 245,104 237,106 C 236,103 233,101 227,101"/>
 		</svg:pattern>
 
 		<svg:pattern id="wwy-dam-pattern" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="scale(0.68571)">
@@ -5079,10 +5087,10 @@
 		<svg:symbol id="symbol-library" viewBox="0 0 44 80">
 			<svg:path
 				style="fill:#ffffff;stroke:#000000;stroke-width:4.2866354"
-				d="M 18.9548,20.529405 L 19.667244,73.516105 L 42.32574,52.590198 L 42.32574,5.3117265 L 18.9548,20.529405 z " />
+				d="M 18.9548,20.529405 L 19.667244,73.516105 L 42.32574,52.590198 L 42.32574,5.3117265 L 18.9548,20.529405 z "/>
 			<svg:path
 				style="fill:#ffffff;stroke:#000000;stroke-width:4.30206633"
-				d="M 2.7781424,16.843373 L 2.2333327,70.86677 C 2.2333327,70.86677 1.3392859,76.626194 8.3519649,76.792578 C 16.258691,76.984559 17.87915,75.47431 17.87915,75.47431 L 18.242357,20.951762 C 18.242357,20.951762 15.72785,22.769181 10.154028,22.602797 C 3.1413489,22.398018 2.7781424,16.843373 2.7781424,16.843373 z " />
+				d="M 2.7781424,16.843373 L 2.2333327,70.86677 C 2.2333327,70.86677 1.3392859,76.626194 8.3519649,76.792578 C 16.258691,76.984559 17.87915,75.47431 17.87915,75.47431 L 18.242357,20.951762 C 18.242357,20.951762 15.72785,22.769181 10.154028,22.602797 C 3.1413489,22.398018 2.7781424,16.843373 2.7781424,16.843373 z "/>
 			<svg:path
 				style="fill:none;stroke:#000000;stroke-width:3.57242155"
 				d="M 24.528623,28.707787 L 35.676268,22.449213"/>
@@ -5094,19 +5102,19 @@
 				d="M 25.785876,44.347823 L 36.388711,38.089248"/>
 			<svg:path
 				style="fill:none;stroke:#000000;stroke-width:3.57242155"
-				d="M 1.8701262,18.161641 L 26.679923,0.70418732 C 24.123508,2.8927684 28.62168,4.8381739 31.890539,4.9917585 C 39.084821,5.3245252 43.219787,4.0062571 43.219787,4.0062571" />
+				d="M 1.8701262,18.161641 L 26.679923,0.70418732 C 24.123508,2.8927684 28.62168,4.8381739 31.890539,4.9917585 C 39.084821,5.3245252 43.219787,4.0062571 43.219787,4.0062571"/>
 			<svg:path
 				style="fill:#ffffff;stroke:#000000;stroke-width:0.13371292"
-				d="M 5.0831066,17.764881 L 25.199158,2.9183659 C 25.199158,2.9183659 24.221294,5.2221355 28.831223,6.1180459 C 33.441151,7.0139563 37.073216,6.2460331 37.073216,6.2460331 L 16.258691,19.940663 C 16.258691,19.940663 13.087579,21.940554 8.4753148,20.327225 C 5.2045421,19.183135 5.0831066,17.764881 5.0831066,17.764881 z " />
+				d="M 5.0831066,17.764881 L 25.199158,2.9183659 C 25.199158,2.9183659 24.221294,5.2221355 28.831223,6.1180459 C 33.441151,7.0139563 37.073216,6.2460331 37.073216,6.2460331 L 16.258691,19.940663 C 16.258691,19.940663 13.087579,21.940554 8.4753148,20.327225 C 5.2045421,19.183135 5.0831066,17.764881 5.0831066,17.764881 z "/>
 		</svg:symbol>
 
 		<svg:symbol id="speed_trap" viewBox="0 0 10 10">
 			<svg:path
 				d="M 0.5555556,0 L 9.4444452,0 C 9.752223,0 10.000001,0.2477778 10.000001,0.5555556 L 10.000001,9.4444452 C 10.000001,9.752223 9.752223,10.000001 9.4444452,10.000001 L 0.5555556,10.000001 C 0.2477778,10.000001 0,9.752223 0,9.4444452 L 0,0.5555556 C 0,0.2477778 0.2477778,0 0.5555556,0 z"
-				style="fill:#ffff00" />
+				style="fill:#ffff00"/>
 			<svg:path
 				d="M 0.75037075,9.4444452 L 9.3614827,9.4444452 C 9.4381888,9.4444452 9.5003716,9.3822624 9.5003716,9.3055563 L 9.5003716,0.6944445 C 9.5003716,0.61773827 9.4381888,0.5555556 9.3614827,0.5555556 L 0.75037075,0.5555556 C 0.67366455,0.5555556 0.61148185,0.61773827 0.61148185,0.6944445 L 0.61148185,9.3055563 C 0.61148185,9.3822624 0.67366455,9.4444452 0.75037075,9.4444452 L 0.75037075,9.4444452 z M 1.1670375,8.8888896 L 1.1670375,1.1111112 L 8.944816,1.1111112 L 8.944816,8.8888896 L 1.1670375,8.8888896 z M 2.8337044,7.5000006 L 5.0559268,7.5000006 C 5.5161641,7.5000006 5.8892602,7.1269045 5.8892602,6.6666672 L 5.8892602,3.3333336 C 5.8892602,2.8730963 5.5161641,2.5000002 5.0559268,2.5000002 L 2.8337044,2.5000002 C 2.3734669,2.5000002 2.0003709,2.8730963 2.0003709,3.3333336 L 2.0003709,6.6666672 C 2.0003709,7.1269045 2.3734669,7.5000006 2.8337044,7.5000006 L 2.8337044,7.5000006 z M 4.5003712,5.9722227 C 4.5003712,6.5091664 4.0650925,6.944445 3.5281489,6.944445 C 2.9912052,6.944445 2.5559265,6.5091664 2.5559265,5.9722227 C 2.5559265,5.435279 2.9912052,5.0000004 3.5281489,5.0000004 C 4.0650925,5.0000004 4.5003712,5.435279 4.5003712,5.9722227 z M 4.2225934,5.9722227 C 4.2225934,5.5886916 3.91168,5.2777782 3.5281489,5.2777782 C 3.1446178,5.2777782 2.8337044,5.5886916 2.8337044,5.9722227 C 2.8337044,6.3557538 3.1446178,6.6666672 3.5281489,6.6666672 C 3.91168,6.6666672 4.2225934,6.3557538 4.2225934,5.9722227 z M 5.3337046,3.3333336 C 5.3337046,3.6401583 5.0849737,3.8888892 4.778149,3.8888892 C 4.4713242,3.8888892 4.2225934,3.6401583 4.2225934,3.3333336 C 4.2225934,3.0265089 4.4713242,2.777778 4.778149,2.777778 C 5.0849737,2.777778 5.3337046,3.0265089 5.3337046,3.3333336 z M 5.0559268,3.3333336 C 5.0559268,3.1799211 4.9315615,3.0555558 4.778149,3.0555558 C 4.6247365,3.0555558 4.5003712,3.1799211 4.5003712,3.3333336 C 4.5003712,3.4867461 4.6247365,3.6111114 4.778149,3.6111114 C 4.9315615,3.6111114 5.0559268,3.4867461 5.0559268,3.3333336 z M 6.167038,6.2500005 L 6.4448158,6.2500005 L 6.4448158,3.3333336 L 6.167038,3.3333336 L 6.167038,6.2500005 z M 6.7225936,6.2500005 L 7.0003714,6.2500005 L 7.0003714,3.6111114 L 6.7225936,3.6111114 L 6.7225936,6.2500005 z M 6.167038,6.5277783 L 6.167038,6.8055561 L 7.555927,6.8055561 L 7.555927,5.9722227 L 8.1114826,5.9722227 L 8.1114826,4.4444448 L 7.555927,4.4444448 L 7.555927,3.8888892 L 7.2781492,3.8888892 L 7.2781492,6.5277783 L 6.167038,6.5277783 z"
-				style="fill:#000000" />
+				style="fill:#000000"/>
 		</svg:symbol>
 
 		<svg:symbol
@@ -5184,7 +5192,7 @@
 		<svg:symbol id="symbol-townhall" viewBox="0 0 6.8833899 6.5958471">
 			<svg:path
 				d="M 1.16462,2.25428 L 1.715634,2.25428 L 1.8003361,5.21966 L 1.0904851,5.2196831 L 1.1646197,2.2542731 L 1.16462,2.25428 z M 0.645308,5.32626 L 6.113068,5.32626 L 6.113068,5.707801 L 6.440684,5.707801 L 6.4406609,6.089342 L 6.7583809,6.089342 L 6.7583809,6.470837 L -9.1237e-06,6.4708139 L -9.1237e-06,6.0893419 L 0.31771088,6.0893419 L 0.31771088,5.7078009 L 0.64530388,5.7078009 L 0.64530388,5.3262599 L 0.645308,5.32626 z M 6.398228,1.42631 L 3.379128,-1e-05 L 0.359978,1.42631 L 0.36000112,1.659489 L 6.3982211,1.6595121 L 6.3982211,1.4263101 L 6.398228,1.42631 z M 0.942028,1.766182 L 5.816368,1.766182 L 5.816368,2.147654 L 0.942028,2.147654 L 0.942028,1.766182 z M 5.032128,2.254277 L 5.583142,2.254277 L 5.6678672,5.219687 L 4.9580162,5.2196639 L 5.0321276,2.2542839 L 5.032128,2.254277 z M 3.742958,2.254277 L 4.293972,2.2543001 L 4.3786972,5.2196601 L 3.6688232,5.2196832 L 3.7429578,2.2542732 L 3.742958,2.254277 z M 2.453788,2.254277 L 3.004779,2.2542539 L 3.0895505,5.2196639 L 2.3796535,5.2196639 L 2.4537881,2.2542839 L 2.453788,2.254277 z"
-				style="fill:#ff5503;fill-opacity:0.86666667;stroke:#000000;stroke-width:0.22857;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+				style="fill:#ff5503;fill-opacity:0.86666667;stroke:#000000;stroke-width:0.22857;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
 		</svg:symbol>
 
 		<svg:pattern width="100" height="100" patternUnits="userSpaceOnUse" id="marsh-pattern" viewBox="0 -100 102 100" overflow="visible" patternTransform="scale(0.23)">

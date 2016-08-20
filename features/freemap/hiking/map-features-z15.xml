@@ -11,7 +11,7 @@
 	scale="1"
 	svgBaseProfile="full"
 	symbolScale="1"
-	textAttenuation="10.0"
+	textAttenuation="5.5"
 	minimumMapWidth="1"
 	minimumMapHeight="1"
 	withOSMLayers="yes"
@@ -110,6 +110,7 @@
 			<area class='natural-beach' bezier-hint='no'/>
 		</rule>
 
+		<!-- Landuse -->
 		<rule e="way" k="landuse" v="allotments" layer="-5">
 			<area class='landuse-allotment' bezier-hint='no'/>
 		</rule>
@@ -209,6 +210,9 @@
 			<else>	<!-- v="park|garden|common|green" -->
 				<area class='leisure-park' bezier-hint='no'/>
 			</else>
+		</rule>
+		<rule e="way" k="leisure" v="swimming_pool">
+			<area class='leisure-swim' bezier-hint='no'/>
 		</rule>
 
 		<!-- Waterway casings -->
@@ -323,8 +327,8 @@
 		</rule>
 
 		<rule e="way" k="natural" v="cliff">
-			<text k="none" class="natural-cliff-text" text-postfix="&#9660;" x-multi-labeling='5' x-name-direction='normal' dy='6.5px'/>
-			<text k="name" class="natural-cliff-text" x-multi-labeling='8' x-name-direction='normal' dy='-4.2px'/>
+			<text k="none" class="natural-cliff-text" text-postfix="&#9660;" x-multi-labeling='5' x-name-direction='normal' dy='6.5px' textAttenuation='10.0'/>
+			<text k="name" class="natural-cliff-text" x-multi-labeling='8' x-name-direction='normal' dy='-4.2px' textAttenuation='10.0'/>
 			<line class='natural-cliff-line' smart-linecap='no'/>
 		</rule>
 
@@ -636,6 +640,9 @@
 			<rule e="way" k="highway" v="pedestrian">
 				<line class='hwy-cas hwy-ped-cas' smart-linecap='casing'/>
 			</rule>
+			<rule e="way" k="highway" v="cycleway">
+				<line class='hwy-cas hwy-cycleway-cas' smart-linecap='casing'/>
+			</rule>
 			<rule e="way" k="highway" v="track">
 				<rule e="way" k="tracktype" v="grade5">
 					<line class="hwy-cas hwy-trk-cas hwy-trk-gr5-cas" smart-linecap="no"/>
@@ -783,7 +790,7 @@
 				<line class='hwy-cor hwy-ped-cor' smart-linecap='core'/>
 			</rule>
 			<rule e="way" k="highway" v="cycleway">
-				<line class='hwy-cor hwy-cycleway' smart-linecap='core'/>
+				<line class='hwy-cor hwy-cycleway-cor' smart-linecap='core'/>
 			</rule>
 			<rule e="way" k="highway" v="bridleway">
 				<line class='hwy-cor hwy-bridleway' smart-linecap='core'/>
@@ -1206,6 +1213,15 @@
 			<rule e="way" k="osmarender:renderName|osmarender:rendername" v="~|yes" layer="4">
 				<rule e="way" k="tunnel" v="~|no|false" layer="4">
 					<!-- no names in tunnels -->
+					<rule e="way" k="waterway" v="stream" layer="4">
+						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+					</rule>
+					<rule e="way" k="waterway" v="river" layer="4">
+						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+					</rule>
+
 					<rule e="way" k="highway" v="residential|living_street" layer="4">
 						<text k='name' text-anchor='middle' startOffset='50%' class="hwy-nam-cas hwy-res-nam-cas" dy='2.28571px'/>
 						<text k='name' text-anchor='middle' startOffset='50%' class="hwy-nam-cor hwy-res-nam-cor" dy='2.28571px'/>
@@ -1691,17 +1707,15 @@
 	stroke-linecap: butt;
 	stroke-linejoin: round;
 }
+.hwy-cycleway-cas {
+	stroke: #777777;
+	stroke-dasharray: 1.82857,1.82857;
+	stroke-linecap: butt;
+	stroke-width: 2.74286px;
+}
 .hwy-cycleway-cor {
 	stroke: #D1EAD1;
-	stroke-width: 2.85714px;
-}
-.hwy-cycleway-ref {
-	fill: #000000;
-	font-family: DejaVu Sans;
-	font-size: 9.143px;
-	font-weight: normal;
-	stroke: #ffffff;
-	stroke-width: 0.68571px;
+	stroke-width: 1.82857px;
 }
 .hwy-footway-are-cor {
 	fill: #EFEAA0;
@@ -1961,9 +1975,9 @@
 	stroke: none;
 }
 .hwy-sec-ref-cas {
-	fill: #FFFFFF;
+	fill: #ffffff;
 	font-size: 9.143px;
-	stroke: #FFFFFF;
+	stroke: #ffffff;
 	stroke-width: 1.37143px;
 }
 .hwy-sec-ref-cor {
@@ -2244,7 +2258,7 @@
 }
 .landuse-cemetery-christian {
 	fill: url(#cemetery-christian-pattern);
-	stroke: #C0C0C0;
+	stroke: #c0c0c0;
 	stroke-width: 0.22857px;
 }
 .landuse-commercial {
@@ -2317,7 +2331,7 @@
 	stroke-width: 1.37143px;
 }
 .landuse-res {
-	fill: #E5E1DC;
+	fill: #e5e1dc;
 	stroke: none;
 }
 .landuse-reservoir-nam {
@@ -2370,17 +2384,22 @@
 .leisure-park {
 	fill: #c7f1a3;
 	stroke: #6fc18e;
-	stroke-width: 0.45714px;
+	stroke-width: 0.5px;
+}
+.leisure-swim {
+	fill: #a3d6f9;
+	stroke: #5faad0;
+	stroke-width: 0.5px;
 }
 .leisure-stadium {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.45714px;
+	stroke-width: 0.5px;
 }
 .leisure-trk {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.45714px;
+	stroke-width: 0.5px;
 }
 .lineend-butt {
 	stroke-linecap: butt;
@@ -2920,21 +2939,23 @@
 	stroke-width: 1.14286px;
 }
 .wwy-nam-cas {
-	fill: #EEEEEE;
+	fill: #f0f0f0;
 	font-family: DejaVu Sans;
 	font-style: oblique;
 	font-weight: normal;
-	stroke: #EEEEEE;
+	stroke: #f0f0f0;
 	stroke-miterlimit: 1.5;
+	stroke-width: 2.1px;
 	text-anchor: middle;
 }
 .wwy-nam-cor {
-	fill: #8DB0DD;
+	fill: #647fc5;
 	font-family: DejaVu Sans;
 	font-style: oblique;
 	font-weight: normal;
-	stroke: none;
+	stroke: #647fc5;
 	stroke-miterlimit: 1.5;
+	stroke-width: 0.45714px;
 	text-anchor: middle;
 }
 .wwy-river-cas {
@@ -2942,6 +2963,12 @@
 }
 .wwy-river-cor {
 	stroke-width: 3.1px;
+}
+.wwy-river-nam-cas {
+	font-size: 9.6px;
+}
+.wwy-river-nam-cor {
+	font-size: 9.6px;
 }
 .wwy-riverbank-cas {
 	opacity: 1;
@@ -2954,6 +2981,12 @@
 }
 .wwy-stream-cor {
 	stroke-width: 1.4px;
+}
+.wwy-stream-nam-cas {
+	font-size: 7.5px;
+}
+.wwy-stream-nam-cor {
+	font-size: 7.5px;
 }
 			]]>
 		</style>
@@ -3026,7 +3059,7 @@
 		<svg:pattern x="0" y="0" width="300" height="200"
 					 id="wood-mixed-pattern"
 					 patternUnits="userSpaceOnUse" patternTransform="scale(0.16)">
-			<svg:path stroke="#A5B2A2" stroke-width="3px" fill="none" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1"		/>
+			<svg:path stroke="#A5B2A2" stroke-width="3px" fill="none" d="M 27,1 C 20,1 13,7 13,14 C 13,16 13,18 15,20 C 11,22 8,26 8,29 C 8,36 16,43 28,43 L 28,63 L 37,63 L 37,43 C 48,43 57,36 57,29 C 57,26 55,23 52,21 C 55,14 45,4 37,6 C 36,3 33,1 27,1"/>
 			<svg:path stroke="#A5B2A2" stroke-width="3px" fill="none" d="M 65,54 L 75,54 L 60,69 L 75,69 L 55,84 L 75,84 L 75,94 L 85,94 L 85,84 L 105,84 L 85,69 L 100,69 L 85,54 L 95,54 L 80,34 L 65,54"/>
 			<svg:path stroke="#A5B2A2" stroke-width="3px" fill="none" d="M 165,104 L 175,104 L 160,119 L 175,119 L 155,134 L 175,134 L175,144 L 185,144 L 185,134 L 205,134 L 185,119 L 200,119 L 185,104 L 195,104 L 180,84 L 165,104"/>
 			<svg:path stroke="#A5B2A2" stroke-width="3px" fill="none" d="M 227,101 C 220,101 213,107 213,114 C 213,116 213,118 215,120 C 211,122 208,126 208,129 C 208,136 216,143 228,143 L 228,163 L 237,163 L 237,143 C 248,143 257,136 257,129 C 257,126 255,123 252,121 C 255,114 245,104 237,106 C 236,103 233,101 227,101"/>

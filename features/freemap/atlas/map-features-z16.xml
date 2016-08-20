@@ -11,7 +11,7 @@
 	scale="1"
 	svgBaseProfile="full"
 	symbolScale="1"
-	textAttenuation="10.0"
+	textAttenuation="8.0"
 	minimumMapWidth="1"
 	minimumMapHeight="1"
 	withOSMLayers="yes"
@@ -203,6 +203,9 @@
 				<area class='leisure-park' bezier-hint='no'/>
 			</else>
 		</rule>
+		<rule e="way" k="leisure" v="swimming_pool">
+			<area class='leisure-swim' bezier-hint='no'/>
+		</rule>
 
 		<!-- Waterway casings -->
 		<rule e="way" k="waterway" v="drain">
@@ -316,8 +319,8 @@
 		</rule>
 
 		<rule e="way" k="natural" v="cliff">
-			<text k="none" class="natural-cliff-text" text-postfix="&#9660;" x-multi-labeling='10' x-name-direction='normal' dy='9.5px'/>
-			<text k="name" class="natural-cliff-text" x-multi-labeling='15' x-name-direction='normal' dy='-6.8px'/>
+			<text k="none" class="natural-cliff-text" text-postfix="&#9660;" x-multi-labeling='10' x-name-direction='normal' dy='9.5px' textAttenuation='10.0'/>
+			<text k="name" class="natural-cliff-text" x-multi-labeling='15' x-name-direction='normal' dy='-6.8px' textAttenuation='10.0'/>
 			<line class='natural-cliff-line' smart-linecap='no'/>
 		</rule>
 
@@ -1230,16 +1233,16 @@
 			<rule e="way" k="highway" v="*">
 				<rule e="way" k="area" v="yes|true">
 					<rule e="way" k="access" v="private">
-						<area class='access-private-are' bezier-hint="no"/>
+						<area class='access-private-are' bezier-hint='no'/>
 					</rule>
 					<rule e="way" k="access" v="permissive">
-						<area class='access-permissive-are' bezier-hint="no"/>
+						<area class='access-permissive-are' bezier-hint='no'/>
 					</rule>
 					<rule e="way" k="access" v="destination">
-						<area class='access-destination-are' bezier-hint="no"/>
+						<area class='access-destination-are' bezier-hint='no'/>
 					</rule>
 					<rule e="way" k="access" v="no">
-						<area class='access-no-are' bezier-hint="no"/>
+						<area class='access-no-are' bezier-hint='no'/>
 					</rule>
 				</rule>
 				<else>
@@ -1588,20 +1591,20 @@
 				<rule e="way" k="junction" v="~" layer="4">
 					<!-- no names on or along junctions -->
 					<rule e="way" k="waterway" v="drain" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-drain-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-drain-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-drain-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-drain-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 					<rule e="way" k="waterway" v="canal" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-canal-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-canal-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-canal-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-canal-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 					<rule e="way" k="waterway" v="stream" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 					<rule e="way" k="waterway" v="river" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='914.286'/>
-						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='914.286'/>
+						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
 					</rule>
 
 					<rule e="way" k="highway" v="steps" layer="4">
@@ -1845,7 +1848,7 @@
 	stroke-width: 84.571px;
 }
 .abutters-commercial-cor {
-	stroke: #FCFFC9;
+	stroke: #fcffc9;
 }
 .abutters-cor {
 	fill: none;
@@ -2804,11 +2807,11 @@
 	stroke: none;
 }
 .hwy-sec-ref-cas {
-	fill: #FFFFFF;
+	fill: #ffffff;
 	font-size: 9.143px;
-	stroke: #FFFFFF;
-	stroke-width: 1.82857px;
 	opacity: 0.7;
+	stroke: #ffffff;
+	stroke-width: 1.82857px;
 }
 .hwy-sec-ref-cor {
 	fill: #AE732F;
@@ -3190,7 +3193,7 @@
 }
 .landuse-cemetery-christian {
 	fill: url(#cemetery-christian-pattern);
-	stroke: #C0C0C0;
+	stroke: #c0c0c0;
 	stroke-width: 0.68571px;
 }
 .landuse-commercial {
@@ -3263,7 +3266,7 @@
 	stroke-width: 1.37143px;
 }
 .landuse-res {
-	fill: #E5E1DC;
+	fill: #e5e1dc;
 	stroke: none;
 }
 .landuse-reservoir-nam {
@@ -3316,17 +3319,22 @@
 .leisure-park {
 	fill: #c7f1a3;
 	stroke: #6fc18e;
-	stroke-width: 0.91429px;
+	stroke-width: 1px;
+}
+.leisure-swim {
+	fill: #a3d6f9;
+	stroke: #5faad0;
+	stroke-width: 1px;
 }
 .leisure-stadium {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.91429px;
+	stroke-width: 1px;
 }
 .leisure-trk {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.91429px;
+	stroke-width: 1px;
 }
 .lineend-butt {
 	stroke-linecap: butt;
@@ -4031,21 +4039,21 @@
 	font-size: 10.057px;
 }
 .wwy-nam-cas {
-	fill: #F0F0F0;
+	fill: #f0f0f0;
 	font-family: DejaVu Sans;
 	font-style: oblique;
 	font-weight: normal;
-	stroke: #F0F0F0;
+	stroke: #f0f0f0;
 	stroke-miterlimit: 1.5;
 	stroke-width: 2.74286px;
 	text-anchor: middle;
 }
 .wwy-nam-cor {
-	fill: #647FC5;
+	fill: #647fc5;
 	font-family: DejaVu Sans;
 	font-style: oblique;
 	font-weight: normal;
-	stroke: #647FC5;
+	stroke: #647fc5;
 	stroke-miterlimit: 1.5;
 	stroke-width: 0.45714px;
 	text-anchor: middle;
@@ -4089,7 +4097,7 @@
 			]]>
 		</style>
 		<svg:filter id="filter-bri-shadow">
-			<svg:feGaussianBlur id="blur" stdDeviation="0.4" />
+			<svg:feGaussianBlur id="blur" stdDeviation="0.4"/>
 		</svg:filter>
 
 		<svg:filter
@@ -4567,7 +4575,7 @@
 		</svg:symbol>
 
 		<svg:symbol id="symbol-windmill" viewBox="158 240 315.9 480.2">
-			<svg:path fill="#000000" d="M106.7,148.2l104-1l61,333l-231-1" />
+			<svg:path fill="#000000" d="M106.7,148.2l104-1l61,333l-231-1"/>
 			<svg:path fill="none" stroke="#000000" stroke-width="24" d="M6.7,201 l284-191"/>
 			<svg:path fill="none" stroke="#000000" stroke-width="24" d="M19.7,17.5 l290,176"/>
 		</svg:symbol>

@@ -1368,7 +1368,7 @@ sub splitImageX {
             # Temporary filename
             my $Filename2 = "$Filename.cut.png";
             my $Basename  = $Filename;             # used for statusMessage()
-            $Basename =~ s|.*\$Config{Slash}||;
+            $Basename =~ s|.*\$Config\{Slash}||;
 
             # Check for black tile output
             if ( not( $SubImage->compare($BlackTileImage) & GD_CMP_IMAGE ) ) {

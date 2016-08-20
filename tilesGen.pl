@@ -636,6 +636,7 @@ sub GenerateTileset {
     #------------------------------------------------------
     my $AdjustCmd = sprintf("%s perl adjustosmdata.pl --in-file %s --out-file %s --actions addfmrel,joinmpmembers,crop,isolatempmembers",
 								$Config{Niceness}, "$DataFile", "$DataFile");
+    print("\n" . $AdjustCmd . "\n") if ( $Config{Debug} );
     statusMessage("Running OSM data adjustment", $Config{Verbose}, $currentSubTask, $progressJobs, $progressPercent, 0);
     runCommand($AdjustCmd, $PID);
 
@@ -669,7 +670,7 @@ sub GenerateTileset {
 
         my $Margin = " " x ( $Zoom - 8 );
 
-		#printf "%03d %s%d,%d: %1.2f - %1.2f, %1.2f - %1.2f\n", $Zoom, $Margin, $X, $Y, $S,$N, $W,$E;
+        #printf "%03d %s%d,%d: %1.2f - %1.2f, %1.2f - %1.2f\n", $Zoom, $Margin, $X, $Y, $S,$N, $W,$E;
 
         #------------------------------------------------------
         # Go through preprocessing steps for the current layer
@@ -736,7 +737,7 @@ sub GenerateTileset {
             $LayerZoomPreprocessor =~ s/,,//g;
 
             if ($LayerZoomPreprocessor eq "") {
-				$LayerZoomPreprocessor = "mercator";
+				$LayerZoomPreprocessor = "mercator,analyze_way_lenght";
 			} elsif (!($LayerZoomPreprocessor =~ /\mercator/)){
 				$LayerZoomPreprocessor = $LayerZoomPreprocessor . ",mercator";
 			}
@@ -1499,7 +1500,7 @@ sub splitImageX {
 	        my $Filename2_suffix = ".cut";
 	        my $Filename2        = $Filename . $Filename2_suffix;
 	        my $Basename = $Filename;    # used for statusMessage()
-	        $Basename =~ s|.*\$Config{Slash}||;
+	        $Basename =~ s|.*\$Config\{Slash}||;
 
 	        # Check for black tile output
 	        if ( not( $SubImage->compare($BlackTileImage) & GD_CMP_IMAGE ) ) {

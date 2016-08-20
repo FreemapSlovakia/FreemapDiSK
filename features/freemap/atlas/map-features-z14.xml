@@ -176,6 +176,9 @@
 				<area class='leisure-park' bezier-hint='no'/>
 			</else>
 		</rule>
+		<rule e="way" k="leisure" v="swimming_pool">
+			<area class='leisure-swim' bezier-hint='no'/>
+		</rule>
 
 		<!-- Waterway casings -->
 		<rule e="way" k="waterway" v="drain">
@@ -718,7 +721,6 @@
 				</rule>
 			</rule>
 		</rule>
-
 	</rule>
 	<!-- k="osmarender:render" v="~|yes" -->
 
@@ -1668,17 +1670,22 @@
 .leisure-park {
 	fill: #c7f1a3;
 	stroke: #6fc18e;
-	stroke-width: 0.22857px;
+	stroke-width: 0.25px;
+}
+.leisure-swim {
+	fill: #a3d6f9;
+	stroke: #5faad0;
+	stroke-width: 0.25px;
 }
 .leisure-stadium {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.22857px;
+	stroke-width: 0.25px;
 }
 .leisure-trk {
 	fill: #bde3cb;
 	stroke: #6fc18e;
-	stroke-width: 0.22857px;
+	stroke-width: 0.25px;
 }
 .map-background {
 	fill: none;
