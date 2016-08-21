@@ -133,7 +133,7 @@ sub CheckConfig {
 
     # Zip version
     $Config{Zip} = "zip" unless defined( $Config{Zip} );
-    my $ZipV = `$Config{Zip} -v`;
+    my $ZipV = `$Config{Zip} -h`;
     $EnvironmentInfo{Zip} = $ZipV;
 
     if ( $ZipV eq "" ) {
