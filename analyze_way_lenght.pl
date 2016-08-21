@@ -368,7 +368,7 @@ $OSM->{ways}     = $OSM_WAYS;
 $OSM->{relations}     = $OSM_RELATIONS;
 
 # Make sure we can create the output file before we start processing data
-open(OUTFILE, ">$output") or die "Cant write to $output: $!";
+open(OUTFILE, ">$output") or die "Cannot write to $output: $!";
 close OUTFILE;
 
 my $start_time=time();
