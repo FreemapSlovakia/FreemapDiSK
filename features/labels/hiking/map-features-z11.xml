@@ -97,7 +97,7 @@
 			height="1.3097076">
 			<svg:feGaussianBlur
 				inkscape:collect="always"
-				stdDeviation="1"
+				stdDeviation="1.3"
 				id="feGaussianBlur7" />
 		</svg:filter>
 

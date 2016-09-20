@@ -122,6 +122,12 @@
 				<text k='name' class='accomodation-all-cas' x-line-spacing='13.714' dy='-6.85714px' x-text-block-anchor='top' />
 				<text k='name' class='accomodation-all-cor' x-line-spacing='13.714' dy='-6.85714px' x-text-block-anchor='top' />
 			</rule>-->
+			<rule e="node" k="type" v="cycling_stand">
+				<text k='name' class='stand-caption-cas' x-line-spacing='18.286' dy='-9.14286px' x-text-block-anchor = 'top' />
+				<text k='name' class='stand-caption-cor' x-line-spacing='18.286' dy='-9.14286px' x-text-block-anchor = 'top' />
+				<text k='name2' class='stand2-caption-cas' x-line-spacing='13.714' dy='18.286px' x-text-block-anchor = 'bottom' text-prefix="/" text-postfix="m/" />
+				<text k='name2' class='stand2-caption-cor' x-line-spacing='13.714' dy='18.286px' x-text-block-anchor = 'bottom' text-prefix="/" text-postfix="m/" />
+			</rule>
 		</rule>
 	</rule>
 	<!-- k="osmarender:render" v="~|yes" -->
@@ -138,7 +144,7 @@
 			height="1.3097076">
 			<svg:feGaussianBlur
 				inkscape:collect="always"
-				stdDeviation="1"
+				stdDeviation="1.3"
 				id="feGaussianBlur7" />
 		</svg:filter>
 
@@ -703,6 +709,62 @@
 	font-stretch: normal;
 	font-variant: normal;
 	font-size: 13.714px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.stand-caption-cas {
+	fill: #ffffff;
+	stroke: #ffffff;
+	stroke-width: 4.571px;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 16px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.stand-caption-cor {
+	fill: #000000;
+	stroke: none;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 16px;
+	font-weight: normal;
+	text-anchor: middle;
+}
+.stand2-caption-cas {
+	fill: #ffffff;
+	stroke: #ffffff;
+	stroke-width: 2.74286px;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 11.886px;
+	font-weight: normal;
+	text-anchor: middle;
+	filter: url(#gauss7);
+}
+.stand2-caption-cor {
+	fill: #200000;
+	stroke: none;
+	-inkscape-font-specification: Myriad Pro;
+	font-family: Myriad Pro;
+	font-weight: normal;
+	font-style: italic;
+	font-stretch: normal;
+	font-variant: normal;
+	font-size: 11.886px;
 	font-weight: normal;
 	text-anchor: middle;
 }

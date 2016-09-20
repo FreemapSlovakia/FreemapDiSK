@@ -135,7 +135,7 @@
 			height="1.3097076">
 			<svg:feGaussianBlur
 				inkscape:collect="always"
-				stdDeviation="1"
+				stdDeviation="1.3"
 				id="feGaussianBlur7" />
 		</svg:filter>
 
@@ -654,7 +654,7 @@
 	font-size: 11.429px;
 	font-weight: normal;
 	text-anchor: middle;
-	filter: url(#gauss5);
+	filter: url(#gauss7);
 }
 .stand-caption-cor {
 	fill: #000000;
@@ -682,7 +682,7 @@
 	font-size: 9.714px;
 	font-weight: normal;
 	text-anchor: middle;
-	filter: url(#gauss5);
+	filter: url(#gauss7);
 }
 .stand2-caption-cor {
 	fill: #200000;
