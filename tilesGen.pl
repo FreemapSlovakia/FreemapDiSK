@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+use lib '.';
+
 use LWP::Simple;
 use LWP::UserAgent;
 use Math::Trig;

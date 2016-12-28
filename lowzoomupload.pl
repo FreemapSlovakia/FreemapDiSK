@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+use lib '.';
+
 use strict;
 use LWP::UserAgent;
 use File::Copy;

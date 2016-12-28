@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+use lib '.';
+
 use strict;
 use FindBin qw($Bin);
 use LWP::UserAgent;

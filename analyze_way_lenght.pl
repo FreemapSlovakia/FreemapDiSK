@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+use lib '.';
 
 my $VERSION ="analyze_way_lenght.pl (C)2011 Jozef Vince, Freemap Slovakia";
 
