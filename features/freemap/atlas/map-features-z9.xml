@@ -701,11 +701,6 @@
 	stroke-linejoin: round;
 	stroke-width: 0.01786px;
 }
-.sport {
-	fill: #bde3cb;
-	stroke: #6fc18e;
-	stroke-width: 0.00714px;
-}
 .wwy-river-cas {
 	fill: none;
 	stroke: #4863BA;

@@ -85,12 +85,12 @@
 		</rule>
 		<rule e="way" k="boundary" v="national_park" layer="-5">
 			<rule e="way" k="protect_class" v="2" layer="-5">
-				<area class='boundary bnd-nat-park-are-cor' mask-class='bnd-nat-park-mask-cor' bezier-hint='no'/>
+				<area class='boundary boundary-national-park-are-cor' mask-class='boundary-national-park-mask-cor' bezier-hint='no'/>
 			</rule>
 		</rule>
 		<rule e="way" k="boundary" v="protected_area" layer="-5">
 			<rule e="way" k="protect_class" v="1|3|4" layer="-5">
-				<area class='boundary bnd-prt-land-are-cor' mask-class='bnd-prt-land-mask-cor' bezier-hint='no'/>
+				<area class='boundary boundary-protected-land-are-cor' mask-class='boundary-protected-land-mask-cor' bezier-hint='no'/>
 			</rule>
 		</rule>
 	</rule>
@@ -347,12 +347,12 @@
 			</rule>
 			<rule e="way" k="boundary" v="national_park|protected_area" layer="5">
 				<rule e="way" k="protect_class" v="2" layer="5">
-					<area class='boundary bnd-nat-park-are-cas' mask-class='bnd-nat-park-mask-cas' bezier-hint='no'/>
+					<area class='boundary boundary-national-park-are-cas' mask-class='boundary-national-park-mask-cas' bezier-hint='no'/>
 				</rule>
 			</rule>
 			<rule e="way" k="boundary" v="protected_area" layer="5">
 				<rule e="way" k="protect_class" v="5" layer="5">
-					<area class='boundary bnd-prt-land-are-cas' mask-class='bnd-prt-land-mask-cas' bezier-hint='no'/>
+					<area class='boundary boundary-protected-land-are-cas' mask-class='boundary-protected-land-mask-cas' bezier-hint='no'/>
 				</rule>
 			</rule>
 		</layer>
@@ -408,46 +408,6 @@
 	stroke-linejoin: round;
 	stroke-width: 0.28571px;
 }
-.bnd-nat-park-are-cas {
-	fill: none;
-	stroke: #12D51C;
-	stroke-dasharray: 13.714,3.429;
-	stroke-dashoffset: 6.857;
-	stroke-width: 4.286px;
-}
-.bnd-nat-park-are-cor {
-	fill: url(#landuse-national-park-pattern);
-	stroke: none;
-}
-.bnd-nat-park-mask-cas {
-	fill: #FFFFFF;
-	stroke: none;
-}
-.bnd-nat-park-mask-cor {
-	fill: #FFFFFF;
-	stroke: #000000;
-	stroke-width: 2.85714px;
-}
-.bnd-prt-land-are-cas {
-	fill: none;
-	stroke: #12D51C;
-	stroke-dasharray: 10.286,3.429;
-	stroke-dashoffset: 5.143;
-	stroke-width: 4.286px;
-}
-.bnd-prt-land-are-cor {
-	fill: url(#landuse-national-park-pattern);
-	stroke: none;
-}
-.bnd-prt-land-mask-cas {
-	fill: #FFFFFF;
-	stroke: none;
-}
-.bnd-prt-land-mask-cor {
-	fill: #FFFFFF;
-	stroke: #000000;
-	stroke-width: 1.71429px;
-}
 .boundary {
 	fill: none;
 	stroke-linecap: butt;
@@ -494,6 +454,46 @@
 	fill: #FFFFFF;
 	stroke: #000000;
 	stroke-width: 2.85714px;
+}
+.boundary-national-park-are-cas {
+	fill: none;
+	stroke: #12D51C;
+	stroke-dasharray: 13.714,3.429;
+	stroke-dashoffset: 6.857;
+	stroke-width: 4.286px;
+}
+.boundary-national-park-are-cor {
+	fill: url(#landuse-national-park-pattern);
+	stroke: none;
+}
+.boundary-national-park-mask-cas {
+	fill: #FFFFFF;
+	stroke: none;
+}
+.boundary-national-park-mask-cor {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 2.85714px;
+}
+.boundary-protected-land-are-cas {
+	fill: none;
+	stroke: #12D51C;
+	stroke-dasharray: 10.286,3.429;
+	stroke-dashoffset: 5.143;
+	stroke-width: 4.286px;
+}
+.boundary-protected-land-are-cor {
+	fill: url(#landuse-national-park-pattern);
+	stroke: none;
+}
+.boundary-protected-land-mask-cas {
+	fill: #FFFFFF;
+	stroke: none;
+}
+.boundary-protected-land-mask-cor {
+	fill: #FFFFFF;
+	stroke: #000000;
+	stroke-width: 1.71429px;
 }
 .hwy-bridleway {
 	stroke: #70b971;
