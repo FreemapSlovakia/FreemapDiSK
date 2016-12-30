@@ -329,6 +329,9 @@
 		<rule e="way" k="highway" v="residential|living_street">
 			<line class='hwy-cas hwy-res-cas'/>
 		</rule>
+		<rule e="way" k="highway" v="tertiary_link">
+			<line class='hwy-cas hwy-ter-lnk-cas'/>
+		</rule>
 		<rule e="way" k="highway" v="secondary_link">
 			<line class='hwy-cas hwy-sec-lnk-cas'/>
 		</rule>
@@ -424,6 +427,9 @@
 		</rule>
 		<rule e="way" k="highway" v="residential|living_street">
 			<line class='hwy-cor hwy-res-cor'/>
+		</rule>
+		<rule e="way" k="highway" v="tertiary_link">
+			<line class='hwy-cor hwy-ter-lnk-cor'/>
 		</rule>
 		<rule e="way" k="highway" v="secondary_link">
 			<line class='hwy-cor hwy-sec-lnk-cor'/>
@@ -1123,6 +1129,14 @@
 .hwy-ter-cor {
 	stroke: #FEF970;
 	stroke-width: 3.429px;
+}
+.hwy-ter-lnk-cas {
+	stroke: #606060;
+	stroke-width: 3.8px;
+}
+.hwy-ter-lnk-cor {
+	stroke: #FEF970;
+	stroke-width: 3.0px;
 }
 .hwy-trk-2-cor {
 	stroke: #6A5B47;

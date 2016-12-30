@@ -374,6 +374,10 @@
 				<line class='tnl-cas hwy-ucl-cas tnl-dash' mask-class='tnl-cor hwy-ucl-cor'/>
 				<line class='hwy-ucl-cas hwy-tnl-ends'/>
 			</rule>
+			<rule e="way" k="highway" v="tertiary_link">
+				<line class='tnl-cas hwy-ter-lnk-cas tnl-dash' mask-class='tnl-cor hwy-ter-lnk-cor'/>
+				<line class='hwy-ter-lnk-cas hwy-tnl-ends'/>
+			</rule>
 			<rule e="way" k="highway" v="secondary_link">
 				<line class='tnl-cas hwy-sec-lnk-cas tnl-dash' mask-class='tnl-cor hwy-sec-lnk-cor'/>
 				<line class='hwy-sec-lnk-cas hwy-tnl-ends'/>
@@ -529,13 +533,16 @@
 				<rule e="way" k="highway" v="residential">
 					<line class='bridge-cas hwy-res-bri-cas' smart-linecap='casing'/>
 				</rule>
-				<rule e="way" k="highway" v="secondary-lnk">
-					<line class='bridge-cas hwy-sedondary-lnk-bri-cas' smart-linecap='casing'/>
+				<rule e="way" k="highway" v="tertiary_link">
+					<line class='bridge-cas hwy-ter-lnk-bri-cas' smart-linecap='casing'/>
 				</rule>
-				<rule e="way" k="highway" v="primary-lnk">
+				<rule e="way" k="highway" v="secondary_link">
+					<line class='bridge-cas hwy-sec-lnk-bri-cas' smart-linecap='casing'/>
+				</rule>
+				<rule e="way" k="highway" v="primary_link">
 					<line class='bridge-cas hwy-pri-lnk-bri-cas' smart-linecap='casing'/>
 				</rule>
-				<rule e="way" k="highway" v="trunk-lnk">
+				<rule e="way" k="highway" v="trunk_link">
 					<line class='bridge-cas hwy-tru-lnk-bri-cas' smart-linecap='casing'/>
 				</rule>
 				<rule e="way" k="highway" v="motorway_link">
@@ -621,13 +628,16 @@
 				<rule e="way" k="highway" v="residential">
 					<line class='bridge-cor hwy-res-bri-cor' smart-linecap='casing'/>
 				</rule>
-				<rule e="way" k="highway" v="secondary-lnk">
+				<rule e="way" k="highway" v="tertiary_link">
+					<line class='bridge-cor hwy-ter-lnk-bri-cor' smart-linecap='casing'/>
+				</rule>
+				<rule e="way" k="highway" v="secondary_link">
 					<line class='bridge-cor hwy-sec-lnk-bri-cor' smart-linecap='casing'/>
 				</rule>
-				<rule e="way" k="highway" v="primary-lnk">
+				<rule e="way" k="highway" v="primary_link">
 					<line class='bridge-cor hwy-pri-lnk-bri-cor' smart-linecap='casing'/>
 				</rule>
-				<rule e="way" k="highway" v="trunk-lnk">
+				<rule e="way" k="highway" v="trunk_link">
 					<line class='bridge-cor hwy-tru-lnk-bri-cor' smart-linecap='casing'/>
 				</rule>
 				<rule e="way" k="highway" v="motorway_link">
@@ -691,6 +701,9 @@
 			</rule>
 			<rule e="way" k="construction" v="unclassified">
 				<line class='hwy-cas hwy-ucl-cas under-construction' mask-class='hwy-ucl-cor under-construction-mask'/>
+			</rule>
+			<rule e="way" k="construction" v="tertiary_link">
+				<line class='hwy-cas hwy-ter-lnk-cas under-construction' mask-class='hwy-ter-lnk-cor under-construction-mask'/>
 			</rule>
 			<rule e="way" k="construction" v="secondary_link">
 				<line class='hwy-cas hwy-sec-lnk-cas under-construction' mask-class='hwy-sec-lnk-cor under-construction-mask'/>
@@ -897,6 +910,9 @@
 						<line class='hwy-cas hwy-res-cas' smart-linecap='casing'/>
 					</else>
 				</else>
+			</rule>
+			<rule e="way" k="highway" v="tertiary_link">
+				<line class='hwy-cas hwy-ter-lnk-cas' smart-linecap='casing'/>
 			</rule>
 			<rule e="way" k="highway" v="secondary_link">
 				<line class='hwy-cas hwy-sec-lnk-cas' smart-linecap='casing'/>
@@ -1127,6 +1143,9 @@
 						<line class='hwy-cor hwy-res-cor' smart-linecap='core'/>
 					</else>
 				</else>
+			</rule>
+			<rule e="way" k="highway" v="tertiary_link">
+				<line class='hwy-cor hwy-ter-lnk-cor' smart-linecap='core'/>
 			</rule>
 			<rule e="way" k="highway" v="secondary_link">
 				<line class='hwy-cor hwy-sec-lnk-cor' smart-linecap='core'/>
@@ -2883,6 +2902,20 @@
 .hwy-ter-cor {
 	stroke: #FEF970;
 	stroke-width: 7.314px;
+}
+.hwy-ter-lnk-bri-cas {
+	stroke-width: 11.0px;
+}
+.hwy-ter-lnk-bri-cor {
+	stroke-width: 10.0px;
+}
+.hwy-ter-lnk-cas {
+	stroke: #202020;
+	stroke-width: 7.8px;
+}
+.hwy-ter-lnk-cor {
+	stroke: #FEF970;
+	stroke-width: 7.0px;
 }
 .hwy-ter-nam-cas {
 	fill: #FEF970;
