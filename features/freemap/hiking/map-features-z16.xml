@@ -1469,44 +1469,103 @@
 
 		<!-- Oneway markers -->
 		<rule e="way" k="tunnel" v="~|false|no">
-			<rule e="way" k="highway" v="primary">
-				<rule e="way" k="oneway" v="1|yes|true">
-					<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-4" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-5" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-6" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-7" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-8" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-1" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-2" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-3" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-4" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-5" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-6" smart-linecap='no'/>
-					<line class="oneway-cor-w0 oneway-cor-7" smart-linecap='no'/>
+			<rule e="way" k="proposed" v="~">
+				<rule e="way" k="highway" v="primary">
+					<rule e="way" k="oneway" v="1|yes|true">
+						<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-4" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-5" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-6" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-7" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-8" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-1" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-2" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-3" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-4" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-5" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-6" smart-linecap='no'/>
+						<line class="oneway-cor-w0 oneway-cor-7" smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="oneway" v="-1">
+						<line class="otherway-cas-0 otherway-cas-1" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-2" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-3" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-4" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-5" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-6" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-7" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-8" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-1" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-2" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-3" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-4" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-5" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-6" smart-linecap='no'/>
+						<line class="otherway-cor-w0 otherway-cor-7" smart-linecap='no'/>
+					</rule>
 				</rule>
-				<rule e="way" k="oneway" v="-1">
-					<line class="otherway-cas-0 otherway-cas-1" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-2" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-3" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-4" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-5" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-6" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-7" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-8" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-1" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-2" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-3" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-4" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-5" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-6" smart-linecap='no'/>
-					<line class="otherway-cor-w0 otherway-cor-7" smart-linecap='no'/>
+				<else>
+					<rule e="way" k="oneway" v="1|yes|true">
+						<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-4" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-5" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-6" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-7" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-8" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-1" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-2" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-3" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-4" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-5" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-6" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-7" smart-linecap='no'/>
+					</rule>
+					<rule e="way" k="oneway" v="-1">
+						<line class="otherway-cas-0 otherway-cas-1" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-2" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-3" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-4" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-5" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-6" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-7" smart-linecap='no'/>
+						<line class="otherway-cas-0 otherway-cas-8" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-1" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-2" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-3" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-4" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-5" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-6" smart-linecap='no'/>
+						<line class="otherway-cor-0 otherway-cor-7" smart-linecap='no'/>
+					</rule>
+				</else>
+
+				<!-- Motorway implies oneway-ness -->
+				<rule e="way" k="highway" v="motorway|motorway_link">
+					<rule e="way" k="oneway" v="~">
+						<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-4" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-5" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-6" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-7" smart-linecap='no'/>
+						<line class="oneway-cas-0 oneway-cas-8" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-1" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-2" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-3" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-4" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-5" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-6" smart-linecap='no'/>
+						<line class="oneway-cor-0 oneway-cor-7" smart-linecap='no'/>
+					</rule>
 				</rule>
-			</rule>
-			<else>
-				<rule e="way" k="oneway" v="1|yes|true">
+
+				<!-- Roundabouts are oneway in the direction of the segments -->
+				<rule e="way" k="junction" v="roundabout">
 					<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
 					<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
 					<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
@@ -1523,63 +1582,6 @@
 					<line class="oneway-cor-0 oneway-cor-6" smart-linecap='no'/>
 					<line class="oneway-cor-0 oneway-cor-7" smart-linecap='no'/>
 				</rule>
-				<rule e="way" k="oneway" v="-1">
-					<line class="otherway-cas-0 otherway-cas-1" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-2" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-3" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-4" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-5" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-6" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-7" smart-linecap='no'/>
-					<line class="otherway-cas-0 otherway-cas-8" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-1" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-2" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-3" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-4" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-5" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-6" smart-linecap='no'/>
-					<line class="otherway-cor-0 otherway-cor-7" smart-linecap='no'/>
-				</rule>
-			</else>
-
-			<!-- Motorway implies oneway-ness -->
-			<rule e="way" k="highway" v="motorway|motorway_link">
-				<rule e="way" k="oneway" v="~">
-					<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-4" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-5" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-6" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-7" smart-linecap='no'/>
-					<line class="oneway-cas-0 oneway-cas-8" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-1" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-2" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-3" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-4" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-5" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-6" smart-linecap='no'/>
-					<line class="oneway-cor-0 oneway-cor-7" smart-linecap='no'/>
-				</rule>
-			</rule>
-
-			<!-- Roundabouts are oneway in the direction of the segments -->
-			<rule e="way" k="junction" v="roundabout">
-				<line class="oneway-cas-0 oneway-cas-1" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-2" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-3" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-4" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-5" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-6" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-7" smart-linecap='no'/>
-				<line class="oneway-cas-0 oneway-cas-8" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-1" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-2" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-3" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-4" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-5" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-6" smart-linecap='no'/>
-				<line class="oneway-cor-0 oneway-cor-7" smart-linecap='no'/>
 			</rule>
 		</rule>
 
