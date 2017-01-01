@@ -1203,12 +1203,12 @@
 				<rule e="way" k="tunnel" v="~|no|false" layer="4">
 					<!-- no names in tunnels -->
 					<rule e="way" k="waterway" v="stream" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
-						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='80'/>
+						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='80'/>
 					</rule>
 					<rule e="way" k="waterway" v="river" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
-						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='140'/>
+						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='140'/>
 					</rule>
 
 					<rule e="way" k="highway" v="residential|living_street" layer="4">

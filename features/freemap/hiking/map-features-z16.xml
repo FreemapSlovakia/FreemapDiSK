@@ -1748,20 +1748,20 @@
 				<rule e="way" k="junction" v="~" layer="4">
 					<!-- no names on or along junctions -->
 					<rule e="way" k="waterway" v="drain" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-drain-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
-						<text k="name" class="wwy-nam-cor wwy-drain-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cas wwy-drain-nam-cas" dy='2.28571px' x-multi-labeling='160'/>
+						<text k="name" class="wwy-nam-cor wwy-drain-nam-cor" dy='2.28571px' x-multi-labeling='160'/>
 					</rule>
 					<rule e="way" k="waterway" v="canal" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-canal-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
-						<text k="name" class="wwy-nam-cor wwy-canal-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cas wwy-canal-nam-cas" dy='2.28571px' x-multi-labeling='160'/>
+						<text k="name" class="wwy-nam-cor wwy-canal-nam-cor" dy='2.28571px' x-multi-labeling='160'/>
 					</rule>
 					<rule e="way" k="waterway" v="stream" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
-						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cas wwy-stream-nam-cas" dy='2.28571px' x-multi-labeling='160'/>
+						<text k="name" class="wwy-nam-cor wwy-stream-nam-cor" dy='2.28571px' x-multi-labeling='160'/>
 					</rule>
 					<rule e="way" k="waterway" v="river" layer="4">
-						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='20'/>
-						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='20'/>
+						<text k="name" class="wwy-nam-cas wwy-river-nam-cas" dy='2.28571px' x-multi-labeling='280'/>
+						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='280'/>
 					</rule>
 
 					<rule e="way" k="highway" v="steps" layer="4">
