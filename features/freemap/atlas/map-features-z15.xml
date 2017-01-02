@@ -1176,6 +1176,10 @@
 				<line class='power-generator-solar-pattern' bezier-hint='no'/>
 			</rule>
 		</rule>
+		<rule e="node" k="power" v="tower">
+			<symbol xlink:href="#power-tower" width='4px' height='4px' transform="translate(-2,-2)"/>
+		</rule>
+
 
 		<!-- Non-physical routes -->
 		<rule e="way" k="route" v="ferry">
@@ -3286,10 +3290,8 @@
 
 		<svg:symbol
 			id="power-tower"
-			viewBox="0 0 10 10"
-			stroke-width='1px'
-			stroke='#cccccc'>
-			<svg:path d="M 0 0 L 10 10 M 0 10 L 10 0"/>
+			viewBox="0 0 10 10">
+			<svg:path d="M 0 0 L 10 10 M 0 10 L 10 0 L 10 10 L 0 10 L 0 0 L 10 0" style="fill:#ffffff;stroke:#3d3d3d;stroke-width:1f"/>
 		</svg:symbol>
 
 		<svg:symbol
