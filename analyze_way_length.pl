@@ -2,7 +2,7 @@
 
 use lib '.';
 
-my $VERSION ="analyze_way_lenght.pl (C)2011 Jozef Vince, Freemap Slovakia";
+my $VERSION ="analyze_way_length.pl (C)2011 Jozef Vince, Freemap Slovakia";
 
 BEGIN {
     my $dir = $0;
@@ -363,7 +363,7 @@ if (!defined($output)) {
 }
 
 my $OSM = {};
-$OSM->{tool}     = 'analyze_way_lenght.pl';
+$OSM->{tool}     = 'analyze_way_length.pl';
 $OSM->{nodes}    = $OSM_NODES;
 $OSM->{ways}     = $OSM_WAYS;
 $OSM->{relations}     = $OSM_RELATIONS;

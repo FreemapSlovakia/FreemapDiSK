@@ -799,7 +799,7 @@ sub GenerateTileset {
 		                    $progressPercent, 0 );
 		                runCommand( $Cmd, $PID );
 		            } elsif ( $preprocessor eq "analyze_way_length" ) {
-						my $Cmd = sprintf( "%s perl analyze_way_lenght.pl -in-file=%s -out-file=%s --mode=merc  ",
+						my $Cmd = sprintf( "%s perl analyze_way_length.pl -in-file=%s -out-file=%s --mode=merc  ",
 		                    $Config{Niceness}, "$inputFile", "$outputFile" );
 		                statusMessage( "Running Analyze way length",
 		                    $Config{Verbose}, $currentSubTask, $progressJobs,
