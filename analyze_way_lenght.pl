@@ -265,7 +265,7 @@ sub read_osm_file($) {
     return;
 }
 
-sub analyze_way_lenght() {
+sub analyze_way_length() {
 
 	for my $way_id ( sort {$a <=> $b} keys %{$OSM_WAYS} ) {
 		next unless $way_id;
@@ -280,7 +280,7 @@ sub analyze_way_lenght() {
         my $way_nd_counter = 0;
 	    my $lat = 0;
 	    my $lon = 0;
-	    my $way_lenght = 0;
+	    my $way_length = 0;
 
 		for my $way_nd ( @{$way->{nd}} ) {
 		    next unless $way_nd;
@@ -291,9 +291,9 @@ sub analyze_way_lenght() {
 
 				if ($way_nd_counter != 1) {
 					if ($mode eq "merc") {
-						$way_lenght += calc_distance_merc($lat, $lon, $node->{lat}, $node->{lon});
+						$way_length += calc_distance_merc($lat, $lon, $node->{lat}, $node->{lon});
 					} else {
-						$way_lenght += calc_distance($lat, $lon, $node->{lat}, $node->{lon});
+						$way_length += calc_distance($lat, $lon, $node->{lat}, $node->{lon});
                     }
 				}
                 $lat = $node->{lat};
@@ -301,7 +301,7 @@ sub analyze_way_lenght() {
 			}
 
 		}
-		$way->{tag}{lenght} =$way_lenght;
+		$way->{tag}{length} =$way_length;
 
 	}
 }
@@ -369,7 +369,7 @@ $OSM->{ways}     = $OSM_WAYS;
 $OSM->{relations}     = $OSM_RELATIONS;
 
 # Make sure we can create the output file before we start processing data
-open(OUTFILE, ">$output") or die "Can’t write to $output: $!";
+open(OUTFILE, ">$output") or die "Cannot write to $output: $!";
 close OUTFILE;
 
 my $start_time=time();
@@ -381,7 +381,7 @@ print "$osm_file:	".(-s $osm_file)." Bytes\n" if $DEBUG;
 
 
 read_osm_file($osm_file);
-analyze_way_lenght();
+analyze_way_length();
 write_osm_file($output, $OSM);
 
 printf "$output produced from $osm_file in %.0f sec\n\n",time()-$start_time if $VERBOSE ;

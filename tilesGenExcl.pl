@@ -770,7 +770,7 @@ sub GenerateTileset {
             $LayerZoomPreprocessor =~ s/,,//g;
 
             if ($LayerZoomPreprocessor eq "") {
-				$LayerZoomPreprocessor = "mercator,analyze_way_lenght";
+				$LayerZoomPreprocessor = "mercator,analyze_way_length";
 			} elsif (!($LayerZoomPreprocessor =~ /\mercator/)){
 				$LayerZoomPreprocessor = $LayerZoomPreprocessor . ",mercator";
 			}
@@ -798,10 +798,10 @@ sub GenerateTileset {
 		                    $Config{Verbose}, $currentSubTask, $progressJobs,
 		                    $progressPercent, 0 );
 		                runCommand( $Cmd, $PID );
-		            } elsif ( $preprocessor eq "analyze_way_lenght" ) {
+		            } elsif ( $preprocessor eq "analyze_way_length" ) {
 						my $Cmd = sprintf( "%s perl analyze_way_lenght.pl -in-file=%s -out-file=%s --mode=merc  ",
 		                    $Config{Niceness}, "$inputFile", "$outputFile" );
-		                statusMessage( "Running Analyze Way Lenght",
+		                statusMessage( "Running Analyze way length",
 		                    $Config{Verbose}, $currentSubTask, $progressJobs,
 		                    $progressPercent, 0 );
 		                runCommand( $Cmd, $PID );
