@@ -189,8 +189,13 @@
 
 			<rule e="way" k="tunnel" v="~|no|false" layer="5">
 				<rule e="way" k="fmrelhikingblue|fmrelhikinglocalblue|fmrelhikingunknownblue|fmrelhikingred|fmrelhikinglocalred|fmrelhikingunknownred|fmrelhikingyellow|fmrelhikinglocalyellow|fmrelhikingunknownyellow|fmrelhikinggreen|fmrelhikinglocalgreen|fmrelhikingunknowngreen" v="*" layer="5">
-					<text k="fmrelhikingref" text-anchor='middle' startOffset='40%' class="trail-ref-cas" dy='2.85714px' x-label-scaling='no'/>
-					<text k="fmrelhikingref" text-anchor='middle' startOffset='40%' class='trail-ref-cor' dy='2.85714px' x-label-scaling='no'/>
+					<!-- Oneway -->
+					<rule e="way" k="oneway" v="yes" layer="5">
+						<text k="none" class="trail-ref-cas" text-postfix="&#10142;" x-multi-labeling='55' x-name-direction='normal' dy='2.8px' textAttenuation='10.0'/>
+						<text k="none" class="trail-ref-cor" text-postfix="&#10142;" x-multi-labeling='55' x-name-direction='normal' dy='2.8px' textAttenuation='10.0'/>
+					</rule>
+					<text k="fmrelhikingref" text-anchor='middle' startOffset='40%' class="trail-ref-cas" dy='2.8px' x-label-scaling='no'/>
+					<text k="fmrelhikingref" text-anchor='middle' startOffset='40%' class='trail-ref-cor' dy='2.8px' x-label-scaling='no'/>
 				</rule>
 			</rule>
 		</rule>

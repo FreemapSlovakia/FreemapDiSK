@@ -202,8 +202,13 @@
 			<rule e="way" k="tunnel" v="~|no|false" layer="5">
 				<!-- Use startOffset of 40% to prevent captions from colliding on dual carriageways -->
 				<rule e="way" k="fmrelbicycleblue|fmrelbicyclered|fmrelbicycleyellow|fmrelbicyclegreen" v="*" layer="5">
-					<text k="fmrelbicycleref" text-anchor='middle' startOffset='40%' class="cwy-ref-cas" dy='2.85714px' x-label-scaling='no'/>
-					<text k="fmrelbicycleref" text-anchor='middle' startOffset='40%' class='cwy-ref-cor' dy='2.85714px' x-label-scaling='no'/>
+					<!-- Oneway -->
+					<rule e="way" k="oneway" v="yes" layer="5">
+						<text k="none" class="cwy-ref-cas" text-postfix="&#10142;" x-multi-labeling='55' x-name-direction='normal' dy='2.8px' textAttenuation='10.0'/>
+						<text k="none" class="cwy-ref-cor" text-postfix="&#10142;" x-multi-labeling='55' x-name-direction='normal' dy='2.8px' textAttenuation='10.0'/>
+					</rule>
+					<text k="fmrelbicycleref" text-anchor='middle' startOffset='40%' class="cwy-ref-cas" dy='2.8px' x-label-scaling='no'/>
+					<text k="fmrelbicycleref" text-anchor='middle' startOffset='40%' class='cwy-ref-cor' dy='2.8px' x-label-scaling='no'/>
 				</rule>
 			</rule>
 		</rule>
