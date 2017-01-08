@@ -4571,8 +4571,8 @@
 			</svg:g>
 		</svg:pattern>
 
-		<svg:pattern patternUnits="userSpaceOnUse" width="560" height="560" id="quarry-pattern" patternTransform="scale(0.06857)">
-			<svg:g style="fill:none;stroke:#919191;stroke-width:39.771;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+		<svg:pattern patternUnits="userSpaceOnUse" width="560" height="560" id="quarry-pattern" patternTransform="scale(0.10)">
+			<svg:g style="fill:none;stroke:#919191;stroke-width:8.0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
 				<svg:path d="m 147.0068,101.38879 c -7.54388,1.86034 -17.86615,-1.801198 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
 				<svg:path d="m 198.0068,289.38879 c -7.54388,1.86034 -17.86615,-1.8012 -23.34375,5.15625 -1.8527,8.27965 6.87822,17.21084 15.25,14.59375 8.64197,0.26924 18.88574,3.45596 26.28125,-2.5625 -1.07836,-7.98061 -9.49105,-12.22377 -15.3125,-16.625 -0.9167,-0.36606 -1.87567,-0.6779 -2.875,-0.5625 z"/>
 				<svg:path d="m 302.72555,201.51379 c -6.94506,1.66919 -15.66332,-1.75576 -21.21875,3.96875 -1.08673,7.66083 7.17525,14.05434 14.375,11.6875 7.55393,0.21939 16.59421,3.12237 23.0625,-1.625 -2.35509,-6.81053 -9.47907,-10.9266 -15.34375,-14.15625 -0.29932,0.01 -0.57875,-0.26991 -0.875,0.125 z"/>
