@@ -281,6 +281,7 @@ sub getFmRelHikingTags {
 	if (($symbol eq "edu") or ($symbol eq "education")) { # education trails
 		$fmRelTags->{"fmreleducation"} =  $symbol;
 		if (defined($ref)) { $fmRelTags->{"fmreleducationref"} = $ref; }
+		if (defined($relTags->{"name"})) { $fmRelTags->{"fmreleducationname"} = $relTags->{"name"}; }
 	} else {	# hiking trails
 		my $network = "";	# distinguish the official trail from the local/unknown trails
 		if (defined($relTags->{"network"})) { $network = $relTags->{"network"}; }
