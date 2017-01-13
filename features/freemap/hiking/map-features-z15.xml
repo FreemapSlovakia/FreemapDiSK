@@ -1241,6 +1241,15 @@
 						<text k="name" class="wwy-nam-cor wwy-river-nam-cor" dy='2.28571px' x-multi-labeling='140'/>
 					</rule>
 
+					<rule e="way" k="natural" v="valley" layer="4">
+						<text k='name' class="natural-nam-cas natural-valley-nam-cas" dy='4.0px' x-multi-labeling='20'/>
+						<text k='name' class="natural-nam-cor natural-valley-nam-cor" dy='4.0px' x-multi-labeling='20'/>
+					</rule>
+					<rule e="way" k="natural" v="ridge" layer="4">
+						<text k='name' class="natural-nam-cas natural-ridge-nam-cas" dy='4.0px' x-multi-labeling='20'/>
+						<text k='name' class="natural-nam-cor natural-ridge-nam-cor" dy='4.0px' x-multi-labeling='20'/>
+					</rule>
+
 					<rule e="way" k="highway" v="residential|living_street" layer="4">
 						<text k='name' text-anchor='middle' startOffset='50%' class="hwy-nam-cas hwy-res-nam-cas" dy='2.28571px'/>
 						<text k='name' text-anchor='middle' startOffset='50%' class="hwy-nam-cor hwy-res-nam-cor" dy='2.28571px'/>
@@ -2534,6 +2543,40 @@
 	fill: #ffffff;
 	stroke: #e0e0e0;
 	stroke-width: 0.22857px;
+}
+.natural-nam-cas {
+	fill: #f0f0f0;
+	font-family: DejaVu Sans;
+	font-style: oblique;
+	font-weight: normal;
+	letter-spacing: 2px;
+	stroke: #f0f0f0;
+	stroke-miterlimit: 1.5;
+	stroke-width: 2.1px;
+	text-anchor: middle;
+}
+.natural-nam-cor {
+	fill: #606060;
+	font-family: DejaVu Sans;
+	font-style: oblique;
+	font-weight: normal;
+	letter-spacing: 2px;
+	stroke: #606060;
+	stroke-miterlimit: 1.5;
+	stroke-width: 0.5px;
+	text-anchor: middle;
+}
+.natural-ridge-nam-cas {
+	font-size: 9.0px;
+}
+.natural-ridge-nam-cor {
+	font-size: 9.0px;
+}
+.natural-valley-nam-cas {
+	font-size: 9.0px;
+}
+.natural-valley-nam-cor {
+	font-size: 9.0px;
 }
 .natural-water-cas {
 	opacity: 1;
