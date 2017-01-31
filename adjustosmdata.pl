@@ -421,7 +421,9 @@ sub joinMultipolygonMembers {
 	my ($nodes, $ways, $rels) = @_;
 	# process all relations with type=multipolygon
 	for my $relId (keys %$rels) {
-		if (hasTagWithValue($rels->{$relId}, "type", "multipolygon")) {
+		if (hasTagWithValue($rels->{$relId}, "type", "multipolygon") ||
+			hasTagWithValue($rels->{$relId}, "boundary", "protected_area") ||
+			hasTagWithValue($rels->{$relId}, "boundary", "national_park")) {
 			print("Processing relation $relId\n") if ($debug);
 			my $members;
 			$members = processMembers($rels->{$relId}, "outer", $nodesAll, $waysAll);
