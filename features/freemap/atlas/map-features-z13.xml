@@ -163,11 +163,14 @@
 		<rule e="way" k="tourism" v="attraction">
 			<area class='tourism-attraction' bezier-hint='no'/>
 		</rule>
+		<rule e="way" k="leisure" v="park|garden|common|green">
+			<area class='leisure-park' bezier-hint='no' />
+		</rule>
 		<rule e="way" k="leisure" v="playground|playing_fields|pitch|golf_course">
 			<rule e="way" k="sport" v="*">
 				<area class='sport' bezier-hint='no'/>
 			</rule>
-			<else>	<!-- v="park|garden|common|green" -->
+			<else>
 				<area class='leisure-park' bezier-hint='no'/>
 			</else>
 		</rule>
