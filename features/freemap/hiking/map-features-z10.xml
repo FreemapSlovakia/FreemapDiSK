@@ -72,6 +72,15 @@
 		<rule e="way" k="natural|landuse" v="heath" layer="-5">
 			<area class='natural-heath-cor' bezier-hint='no'/>
 		</rule>
+		<rule e="way" k="natural" v="fell" layer="-5">
+			<area class='natural-fell-cor' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="natural" v="bare_rock" layer="-5">
+			<area class='natural-bare-rock' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="natural" v="scree" layer="-5">
+			<area class='natural-scree' bezier-hint='no'/>
+		</rule>
 
 		<rule e="way" k="natural" v="coastline" layer="-5">
 			<area class='natural-coastline'/>
@@ -932,10 +941,18 @@
 .map-title-background {
 	fill: #ffffff;
 }
+.natural-bare-rock {
+	fill: #d7d6d5;
+	stroke: none;
+}
 .natural-coastline {
 	fill: none;
 	stroke: #89bac6;
 	stroke-width: 0.02857px;
+}
+.natural-fell-cor {
+	fill: #e3e2a1;
+	stroke: none;
 }
 .natural-heath-cor {
 	fill: #E8F6C7;
@@ -945,6 +962,10 @@
 	fill: #ffffff;
 	stroke: #e0e0e0;
 	stroke-width: 0.00714px;
+}
+.natural-scree {
+	fill: #d7d6d5;
+	stroke: none;
 }
 .natural-scrub-cor {
 	fill: #B5DDB3;
