@@ -93,8 +93,11 @@
 			</else>
 		</rule>
 
-		<rule e="way" k="natural|landuse" v="heath|scrub" layer="-5">
-			<area class='landuse-wood-cor' bezier-hint='no'/>
+		<rule e="way" k="natural" v="heath" layer="-5">
+			<area class='natural-heath-cor' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="natural" v="scrub" layer="-5">
+			<area class='natural-scrub-cor' bezier-hint='no'/>
 		</rule>
 		<rule e="way" k="natural" v="fell" layer="-5">
 			<area class='natural-fell-cor' bezier-hint='no'/>
@@ -1505,6 +1508,10 @@
 	fill: #e3e2a1;
 	stroke: none;
 }
+.natural-heath-cor {
+	fill: #d6e8b7;
+	stroke: none;
+}
 .natural-land {
 	fill: #ffffff;
 	stroke: #e0e0e0;
@@ -1516,6 +1523,10 @@
 }
 .natural-scree-pattern {
 	fill: url(#scree-pattern);
+	stroke: none;
+}
+.natural-scrub-cor {
+	fill: #b5ddb3;
 	stroke: none;
 }
 .natural-water-cas {

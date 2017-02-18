@@ -44,32 +44,9 @@
 			<area class='landuse-wood-cor' bezier-hint='no'/>
 		</rule>
 
-		<rule e="way" k="natural|landuse" v="heath|scrub" layer="-5">
+		<rule e="way" k="natural" v="heath|scrub" layer="-5">
 			<area class='landuse-wood-cor' bezier-hint='no'/>
 		</rule>
-
-		<!--<rule e="way" k="natural" v="coastline" layer="-5">
-			<area class='natural-coastline'/>
-		</rule>
-		<rule e="way" k="natural" v="land" layer="-5">
-			<area class='natural-land'/>
-		</rule>
-
-		<rule e="way" k="landuse" v="grass" layer="-5">
-			<area class='landuse-grass-cor' bezier-hint='no'/>
-		</rule>
-		<rule e="way" k="landuse" v="village_green|recreation_ground|meadow" layer="-5">
-			<area class='landuse-meadow' bezier-hint='no'/>
-		</rule>
-		<rule e="way" k="landuse" v="farm|farmland" layer="-5">
-			<area class='landuse-farm' bezier-hint='no'/>
-		</rule>
-		<rule e="way" k="landuse" v="farmyard" layer="-5">
-			<area class='landuse-farmyard' bezier-hint='no'/>
-		</rule>
-		<rule e="way" k="landuse" v="vineyard" layer="-5">
-			<area class='landuse-vineyard' bezier-hint='no'/>
-		</rule>-->
 	</rule>
 
 	<rule e="node|way" k="osmarender:render" v="~|yes" layer="-5">
@@ -480,11 +457,6 @@
 	stroke: #E7FAD7;
 	stroke-width: 0.01429px;
 }
-.landuse-orchard {
-	fill: #FAF1D7;
-	stroke: #FAF1D7;
-	stroke-width: 0.01429px;
-}
 .landuse-res {
 	fill: #e5e1dc;
 	stroke: none;
@@ -591,24 +563,6 @@
 }
 .map-title-background {
 	fill: #ffffff;
-}
-.natural-coastline {
-	fill: none;
-	stroke: #89bac6;
-	stroke-width: 0.01429px;
-}
-.natural-heath-cor {
-	fill: #E8F6C7;
-	stroke: none;
-}
-.natural-land {
-	fill: #ffffff;
-	stroke: #e0e0e0;
-	stroke-width: 0.00357px;
-}
-.natural-scrub-cor {
-	fill: #5DA073;
-	stroke: none;
 }
 .natural-water {
 	fill: #8DB0DD;

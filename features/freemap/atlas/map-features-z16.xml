@@ -88,8 +88,8 @@
 			<area class='landuse-wood-cor' bezier-hint='no'/>
 		</rule>
 
-		<rule e="way" k="natural|landuse" v="heath|scrub" layer="-5">
-			<area class='natural-heath-cor' bezier-hint='no'/>
+		<rule e="way" k="natural" v="heath|scrub" layer="-5">
+			<area class='landuse-wood-cor' bezier-hint='no'/>
 		</rule>
 
 		<rule e="way" k="natural" v="coastline" layer="-5">
@@ -3490,15 +3490,6 @@
 	fill: #B5D6F1;
 	stroke: #B5D6F1;
 	stroke-width: 1.82857px;
-}
-.natural-heath-cas {
-	fill: #7C8C33;
-	stroke: #7C8C33;
-	stroke-width: 2.28571px;
-}
-.natural-heath-cor {
-	fill: #D6E8B7;
-	stroke: none;
 }
 .natural-land {
 	fill: #ffffff;

@@ -96,8 +96,11 @@
 			</else>
 		</rule>
 
-		<rule e="way" k="natural|landuse" v="heath|scrub" layer="-5">
+		<rule e="way" k="natural" v="heath" layer="-5">
 			<area class='natural-heath-cor' bezier-hint='no'/>
+		</rule>
+		<rule e="way" k="natural" v="scrub" layer="-5">
+			<area class='natural-scrub-cor' bezier-hint='no'/>
 		</rule>
 		<rule e="way" k="natural" v="fell" layer="-5">
 			<area class='natural-fell-cor' bezier-hint='no'/>
@@ -2555,13 +2558,8 @@
 	fill: #e3e2a1;
 	stroke: none;
 }
-.natural-heath-cas {
-	fill: #7C8C33;
-	stroke: #7C8C33;
-	stroke-width: 1.14286px;
-}
 .natural-heath-cor {
-	fill: #D6E8B7;
+	fill: #d6e8b7;
 	stroke: none;
 }
 .natural-land {
@@ -2603,6 +2601,10 @@
 }
 .natural-scree-pattern {
 	fill: url(#scree-pattern);
+	stroke: none;
+}
+.natural-scrub-cor {
+	fill: #b5ddb3;
 	stroke: none;
 }
 .natural-valley-nam-cas {

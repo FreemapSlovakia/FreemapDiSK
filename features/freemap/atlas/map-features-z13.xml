@@ -78,7 +78,7 @@
 			<area class='landuse-wood-cor' bezier-hint='no'/>
 		</rule>
 
-		<rule e="way" k="natural|landuse" v="heath|scrub" layer="-5">
+		<rule e="way" k="natural" v="heath|scrub" layer="-5">
 			<area class='landuse-wood-cor' bezier-hint='no'/>
 		</rule>
 
