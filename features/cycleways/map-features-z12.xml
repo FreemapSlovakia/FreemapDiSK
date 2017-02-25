@@ -62,7 +62,7 @@
 
 
 		<layer name="cycleways" opacity="0.6">
-			<rule e="way" k="fmrelbicycleblue|fmrelbicyclered|fmrelbicycleyellow|fmrelbicyclegreen" v="*" layer="5">
+			<rule e="way" k="fmrelbicycleblue|fmrelbicyclered|fmrelbicycleyellow|fmrelbicyclegreen|fmrelmtbblue|fmrelmtbred|fmrelmtbyellow|fmrelmtbgreen|fmrelmtbblack" v="*" layer="5">
 				<line class='cwy-cas' smart-linecap='no' />
 			</rule>
 
@@ -73,10 +73,10 @@
 				<line class='cwy-cor cwy-cor-brown' smart-linecap='no' />
 			</rule>
 
-			<rule e="way" k="fmrelbicycleblue" v="*" layer="5">
-				<rule e="way" k="fmrelbicyclered" v="*" layer="5">
-					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+			<rule e="way" k="fmrelbicycleblue|fmrelmtbblue" v="*" layer="5">
+				<rule e="way" k="fmrelbicyclered|fmrelmtbred" v="*" layer="5">
+					<rule e="way" k="fmrelbicyclegreen|fmrelmtbgreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- RGBY-->
 							<line class='cwy-cor cwy-cor-blue dash-4-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-red dash-4-2' smart-linecap='no' />
@@ -91,7 +91,7 @@
 						</else>
 					</rule>
 					<else>
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- R_BY-->
 							<line class='cwy-cor cwy-cor-blue dash-3-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-red dash-3-2' smart-linecap='no' />
@@ -105,8 +105,8 @@
 					</else>
 				</rule>
 				<else>
-					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+					<rule e="way" k="fmrelbicyclegreen|fmrelmtbgreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- _GBY-->
 							<line class='cwy-cor cwy-cor-blue dash-3-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-green dash-3-2' smart-linecap='no' />
@@ -119,7 +119,7 @@
 						</else>
 					</rule>
 					<else>
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- __BY-->
 							<line class='cwy-cor cwy-cor-blue dash-2-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-yellow dash-2-2' smart-linecap='no' />
@@ -132,9 +132,9 @@
 				</else>
 			</rule>
 			<else>
-				<rule e="way" k="fmrelbicyclered" v="*" layer="5">
-					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+				<rule e="way" k="fmrelbicyclered|fmrelmtbred" v="*" layer="5">
+					<rule e="way" k="fmrelbicyclegreen|fmrelmtbgreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- RG_Y-->
 							<line class='cwy-cor cwy-cor-red dash-3-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-green dash-3-2' smart-linecap='no' />
@@ -147,7 +147,7 @@
 						</else>
 					</rule>
 					<else>
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- R__Y-->
 							<line class='cwy-cor cwy-cor-red dash-2-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-yellow dash-2-2' smart-linecap='no' />
@@ -159,8 +159,8 @@
 					</else>
 				</rule>
 				<else>
-					<rule e="way" k="fmrelbicyclegreen" v="*" layer="5">
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+					<rule e="way" k="fmrelbicyclegreen|fmrelmtbgreen" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- _G_Y-->
 							<line class='cwy-cor cwy-cor-green dash-2-1' smart-linecap='no' />
 							<line class='cwy-cor cwy-cor-yellow dash-2-2' smart-linecap='no' />
@@ -171,12 +171,15 @@
 						</else>
 					</rule>
 					<else>
-						<rule e="way" k="fmrelbicycleyellow" v="*" layer="5">
+						<rule e="way" k="fmrelbicycleyellow|fmrelmtbyellow" v="*" layer="5">
 							<!-- ___Y-->
 							<line class='cwy-cor cwy-cor-yellow' smart-linecap='no' />
 						</rule>
 						<else>
-							<!-- ____ -->
+							<rule e="way" k="fmrelmtbblack" v="*" layer="5">
+								<!-- black colour is very rare -->
+								<line class='cwy-cor cwy-cor-black' smart-linecap='no' />
+							</rule>
 						</else>
 					</else>
 				</else>
@@ -279,6 +282,9 @@
 .dash-4-4 {
 	stroke-dasharray: 4.286,12.857;
 	stroke-dashoffset: 12.857;
+}
+.cwy-cor-black {
+	stroke: #111111;
 }
 .cwy-cor-yellow {
 	stroke: #FFCC00;
