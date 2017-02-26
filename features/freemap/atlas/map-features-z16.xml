@@ -326,6 +326,12 @@
 			<text k="name" class="natural-cliff-text" x-multi-labeling='15' x-name-direction='normal' dy='-6.8px' textAttenuation='10.0'/>
 			<line class='natural-cliff-line' smart-linecap='no'/>
 		</rule>
+		<rule e="way" k="natural" v="tree_row">
+			<text k="none" class="natural-tree-row-text" text-postfix="&#9679;" x-multi-labeling='5' x-name-direction='normal' dy='2px' textAttenuation='10.0'/>
+		</rule>
+		<rule e="node" k="natural" v="tree">
+			<circle r="4px" class="natural-tree"/>
+		</rule>
 
 		<!-- Tunnels -->
 		<rule e="way" k="tunnel" v="true|yes">
@@ -3523,6 +3529,18 @@
 }
 .natural-ridge-nam-cor {
 	font-size: 12.0px;
+}
+.natural-tree {
+	fill: #8dc888;
+	stroke: none;
+}
+.natural-tree-row-text {
+	fill: #8dc888;
+	font-family: DejaVu Sans;
+	font-size: 8px;
+	font-weight: normal;
+	stroke: none;
+	text-anchor: middle;
 }
 .natural-valley-nam-cas {
 	font-size: 12.0px;
