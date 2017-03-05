@@ -487,7 +487,7 @@
 			<text k="none" class="natural-tree-row-text" text-postfix="&#9679;" x-multi-labeling='5' x-name-direction='normal' dy='2px' textAttenuation='10.0'/>
 		</rule>
 		<rule e="node" k="natural" v="tree">
-			<circle r="4px" class="natural-tree"/>
+			<!--<circle r="4px" class="natural-tree"/>-->
 		</rule>
 
 		<!-- Tunnels -->
@@ -1727,7 +1727,7 @@
 		</rule>
 		<rule e="node" k="power" v="*">
 			<rule e="node" k="power" v="pole">
-				<circle r="1.5px" class="power-pole"/>
+				<!--<circle r="1.5px" class="power-pole"/>-->
 			</rule>
 			<else>
 				<rule e="node" k="power" v="tower">
