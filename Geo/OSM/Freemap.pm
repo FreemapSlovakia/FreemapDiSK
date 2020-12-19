@@ -57,7 +57,7 @@ require Exporter;
 @EXPORT = qw(APIget readOsmFile readOsmData writeOsmFile);
 
 #my $apiUrl = "http://www.openstreetmap.org/api/0.6/";	# way/Id
-my $apiUrl = "http://dev.freemap.sk/trapi/api/0.6/map/";	# way/Id
+my $apiUrl = "http://trapi.freemap.sk/trapi/api/0.6/map/";	# way/Id
 our $line;
 my $defaultPropRef = {
 		"timestamp" => "",
