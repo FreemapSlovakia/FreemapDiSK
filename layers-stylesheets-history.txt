@@ -1,3 +1,4 @@
+#89 (19.12.2020) - uprava odkazov pre TRAPI na novom serveri
 #88 (30.11.2019) - uprava odkazov spaet na port 80 (vypnutie squid na serveri a presun httpd na port 80)
 #87 (15. 9.2019) - workaround pre "mod_fcgid: ap_pass_brigade failed in handle_request_ipc function" na serveri a "EOF when chunk header expected" na klientovi
 #86 ( 5. 3.2017) - docasne zablokovanie power=pole + natural=tree, kedze sa v SVG pre ne renderuje pocet^2 riadkov
