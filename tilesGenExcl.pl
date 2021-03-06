@@ -1271,13 +1271,21 @@ sub svg2png {
         );
     }
     else {
-        $Cmd = sprintf( "%s %s -w %d -h %d --export-area=%f:%f:%f:%f --export-png=\"%s\" \"%s%s\" > %s",
+        my $exportOpts;
+        if ( $EnvironmentInfo{Inkscape1} == 1 ) {
+            $exportOpts = sprintf( "--export-type=png --export-filename=\"%s.png\"", $TempFile );
+        }
+        else {
+            $exportOpts = sprintf( "--export-png=\"%s\"", $TempFile );
+        }
+
+        $Cmd = sprintf( "%s %s -w %d -h %d --export-area=%f:%f:%f:%f %s \"%s%s\" > %s",
             $Config{Niceness},
             $Config{Inkscape},
             $Width,
             $Height,
             $X1, $Y1, $X2, $Y2,
-            $TempFile,
+            $exportOpts,
             $Config{WorkingDirectory},
             "output-$PID-z$Zoom.svg",
             $stdOut
@@ -1310,7 +1318,7 @@ sub svg2png {
     }
 
     #-------------------------------------
-    if ( $Config{UseBatik} == 1 ) {
+    if ( ( $Config{UseBatik} == 1 ) || ( $EnvironmentInfo{Inkscape1} == 1 ) ) {
         rename( $TempFile . ".png", $TempFile );
     }
 
