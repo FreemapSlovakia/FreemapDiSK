@@ -117,8 +117,16 @@ sub CheckConfig {
         die("Can't find inkscape (using \"$Config{Inkscape}\")\n");
     }
 
-    if ( $2 < 45.0 ) {
-        die("not supported version of Inkscape\@home\n");
+    if ( ($1 == 0) ) {
+        if ($2 < 45.0) {
+            die("not supported version of Inkscape\@home\n");
+        }
+        else {
+            $EnvironmentInfo{Inkscape1} = 0;
+        }
+    }
+    else {
+        $EnvironmentInfo{Inkscape1} = 1;
     }
     print "- Inkscape version $1.$2\n";
 
